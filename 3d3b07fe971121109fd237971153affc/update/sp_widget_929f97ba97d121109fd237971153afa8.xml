@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope) {
+  /* widget controller */
+  var c = this;
+	
+	$scope.boletas = create_json_fake();
+	$scope.option_radio = 'analytic';
+	
+	$scope.sort = function(key_name) {
+		$scope.sort_key = key_name;
+		var is_asc_undefinded = $scope.asc == undefined;
+		var is_desc = $scope.desc;
+		var is_asc = $scope.asc;
+		
+		if (is_asc_undefinded || is_desc) { // Sort Asc
+			$scope.desc = false;
+			
+			$scope.asc = true;
+			$scope.reverse = false;
+			
+		} else if (is_asc) { // Sort Desc
+			$scope.asc = false;
+			
+			$scope.desc = true;
+			$scope.reverse = !$scope.reverse;
+		}
+	}
+	
+	$scope.reset_business_table = function(option_radio) {
+		$scope.sort_key = '';
+		$scope.asc = undefined;
+		$scope.desc = undefined;
+		$scope.reverse = undefined;
+	}
+	
+	function create_json_fake() {
+    var json_fake = [];
+		var instruments = [
+			"violão",
+			"guitarra",
+			"baixo",
+			"bateria",
+			"piano",
+			"teclado",
+			"saxofone",
+			"trompete",
+			"violino",
+			"flauta",
+			"clarinete",
+			"oboé",
+			"fagote",
+			"trombone",
+			"tuba",
+			"harpa",
+			"órgão",
+			"acordeão",
+			"banjo",
+			"cavaquinho",
+			"ukulele",
+			"harmônica",
+			"xilofone",
+			"marimba",
+			"timpani",
+			"congas",
+			"bongô",
+			"cuíca",
+			"pandeiro",
+			"tamborim",
+			"caixa de guerra",
+			"castanholas",
+			"triângulo",
+			"agogo",
+			"chocalho",
+			"guiro",
+			"reco-reco",
+			"prato de ataque",
+			"prato de condução",
+			"prato de chimbal",
+			"tímpanos",
+			"gongo",
+			"sinos",
+			"sinos tubulares",
+			"trompa",
+			"corno francês",
+			"trombeta",
+			"sinos",
+			"tambor",
+			"gaita",
+			"cítara"
+		];
+
+		var brokerages = [
+			"XP Investimentos",
+			"Easynvest",
+			"Clear Corretora",
+			"Modalmais",
+			"Rico Investimentos",
+			"Avenue Securities",
+			"Mirae Asset",
+			"BTG Pactual Digital",
+			"Genial Investimentos",
+			"Órama Investimentos",
+			"Santander Corretora",
+			"Bradesco Corretora",
+			"Itaú Corretora",
+			"BB Investimentos",
+			"Necton Investimentos",
+			"Guide Investimentos",
+			"Nova Futura Investimentos",
+			"Toro Investimentos",
+			"Ágora Investimentos",
+			"MyCAP Investimentos",
+			"Ativa Investimentos",
+			"Inter DTVM",
+			"Elite Investimentos",
+			"Nova Investimentos",
+			"RPP Capital Investimentos",
+			"Geração Futuro Corretora de Valores",
+			"Planner Corretora de Valores",
+			"Geral Investimentos",
+			"Safra Corretora de Valores",
+			"Socopa Corretora",
+			"H. Commcor",
+			"Coinvalores Corretora de Valores",
+			"Magliano Corretora de Valores",
+			"Spinelli Corretora",
+			"Renascença DTVM",
+			"Um Investimentos",
+			"Guide Life Corretora de Seguros",
+			"Polo Invest",
+			"ICAP Brasil",
+			"Banco Paulista",
+			"Geração Futuro",
+			"Citi Corretora",
+			"Omni Banco",
+			"J. P. Morgan Corretora",
+			"CM Capital",
+			"Fator Corretora",
+			"UBS Corretora de Câmbio, Títulos e Valores Mobiliários",
+			"HSBC Corretora de Valores",
+			"Ativa Investimentos",
+			"Pax Corretora de Valores"
+		];
+
+    var actions = [
+			"AAPL", // Apple Inc.
+			"MSFT", // Microsoft Corporation
+			"AMZN", // Amazon.com, Inc.
+			"GOOG", // Alphabet Inc. Class C
+			"FB",   // Facebook, Inc.
+			"TSLA", // Tesla, Inc.
+			"NVDA", // NVIDIA Corporation
+			"JPM",  // JPMorgan Chase & Co.
+			"JNJ",  // Johnson & Johnson
+			"V",    // Visa Inc.
+			"UNH",  // UnitedHealth Group Incorporated
+			"BAC",  // Bank of America Corporation
+			"DIS",  // The Walt Disney Company
+			"MA",   // Mastercard Incorporated
+			"HD",   // The Home Depot, Inc.
+			"PG",   // The Procter & Gamble Company
+			"PYPL", // PayPal Holdings, Inc.
+			"VZ",   // Verizon Communications Inc.
+			"KO",   // The Coca-Cola Company
+			"NFLX", // Netflix, Inc.
+			"ADBE", // Adobe Inc.
+			"CSCO", // Cisco Systems, Inc.
+			"CRM",  // salesforce.com, inc.
+			"MRK",  // Merck & Co., Inc.
+			"WMT",  // Walmart Inc.
+			"PEP",  // PepsiCo, Inc.
+			"T",    // AT&T Inc.
+			"MCD",  // McDonald's Corporation
+			"ABT",  // Abbott Laboratories
+			"BA",   // The Boeing Company
+			"CVX",  // Chevron Corporation
+			"XOM",  // Exxon Mobil Corporation
+			"CAT",  // Caterpillar Inc.
+			"INTC", // Intel Corporation
+			"GE",   // General Electric Company
+			"C",    // Citigroup Inc.
+			"IBM",  // International Business Machines Corporation
+			"ORCL", // Oracle Corporation
+			"MMM",  // 3M Company
+			"NKE",  // NIKE, Inc.
+			"PFE",  // Pfizer Inc.
+			"DISCA",// Discovery, Inc.
+			"SBUX", // Starbucks Corporation
+			"SPOT", // Spotify Technology S.A.
+			"TWTR", // Twitter, Inc.
+			"UBER", // Uber Technologies, Inc.
+			"WFC",  // Wells Fargo & Company
+			"TWTR", // Twitter, Inc.
+			"UBER", // Uber Technologies, Inc.
+			"WFC",  // Wells Fargo & Company
+		];
+
+    for(var i = 0; i < 50; i++) {
+        var fake = {};
+
+        fake.boleta_number = generate_random_number();
+        fake.transaction = generate_transaction();
+        fake.instrument = instruments[i];
+        fake.brokerage = brokerages[i];
+        fake.amount = 10 * generate_random_number();
+        fake.average_price = (100 * generate_random_number()) / 2;
+        fake.unit_price = 100 * generate_random_number();
+        fake.finance = 1000 * generate_random_number();
+        fake.action = actions[i];
+
+        json_fake.push(fake);
+    }
+		
+		function generate_transaction() {
+			var code = "";
+			var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+			
+			for (var i = 0; i < 6; i++) {
+				code += characters.charAt(Math.floor(Math.random() * characters.length));
+			}
+			
+			return code;
+		}
+		
+		function generate_random_number() {
+			return Math.floor(Math.random() * 1000) + 100;
+		}
+
+
+    return json_fake;
+	}
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>input[type="date"], input[type="text"], select {
+  border: none;
+  border-radius: 5px;
+  height: 33px;
+  box-sizing: border-box;
+  background-color: #F2F2F2;
+  color: #3354fd;
+  font-weight: 600;
+}
+
+input[type="text"] {
+	border: 1px solid #3354fd;
+  height: 25px;
+}
+
+.manager-operator {
+	background-color: #FFF;
+  border: 1px solid #3354fd;
+  padding: 5px 20px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.my-panel {
+  margin-bottom: 5px;
+}
+
+.my-panel-primary {
+  border-color: #3354fd !important;
+}
+
+.container-fluid &gt; div {
+  padding: 4px;
+}
+
+.my-panel-body {
+	padding: 5px !important;
+}
+
+.my-panel-heading {
+  color: #000 !important; 
+  background-color: #e4ecff !important;
+  font-size: 16px !important;
+  padding: 1px 16px;
+}
+
+.my-btn-info {
+  color: #000 !important;
+  background-color: #e4ecff !important;
+  border-color: #005AA5 !important;
+  font-weight: 600;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0px;
+  width: 100%;
+  min-width: max-content;
+}
+
+th {
+	position: sticky;
+  top: 0px;
+}
+
+.table-wrapper {
+  max-height: 240px;
+  overflow-y: scroll;
+}
+
+table.business-table thead tr th {
+  background-color: #e4ecff;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table-wrapper::-webkit-scrollbar {
+  width: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background-color: #DDD;
+  border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background-color: #BBB;
+  border-radius: 10px;
+}
+
+.sort-icon {
+	font-size: 8px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>table_filter_and_sort</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Table Filter And Sort</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-04 20:44:04</sys_created_on>
+        <sys_id>929f97ba97d121109fd237971153afa8</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Table Filter And Sort</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_929f97ba97d121109fd237971153afa8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-04 20:46:53</sys_updated_on>
+        <template><![CDATA[<div class="manager-operator">
+  <div class="panel panel-primary my-panel my-panel-primary">
+    <div class="panel-heading my-panel-heading"><strong>${Critério de Pesquisa}</strong></div>
+    <div class="panel-body my-panel-body">
+      <form>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-2">
+            	<label for="operator-institution"><strong>${Instituição Operadora:}</strong></label>
+            </div>
+            <div class="col-md-2">
+              <label class="">BB DTVM</label>
+            </div>
+            <div class="col-md-2">
+              <label>
+                <input type="radio" name="option_radio" id="analytic" value="analytic" ng-model="option_radio" ng-change="reset_business_table(option_radio);">
+                <strong>${Analítica}</strong>
+              </label>              
+            </div>
+            <div class="col-md-2">
+              <label>
+                <input type="radio" name="option_radio" id="synthetic" value="synthetic" ng-model="option_radio" ng-change="reset_business_table(option_radio);">
+                <strong>${Sintética}</strong>
+              </label>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+            	<label for="bolete-status"><strong>${Estado Boleta:}</strong></label>
+            </div>
+            <div class="col-md-2">
+              <select name="bolete_status" id="bolete_status" ng-model="bolete_status">
+                <option value="">${-- Selecione --}</option>
+                <!--option ng-repeat="operation in c.operations" value="{{ operation.value }}">{{ operation.name }}</option-->
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="brokerage"><strong>${Corretora:}</strong></label>
+            </div>
+            <div class="col-md-2">
+              <select name="brokerage" id="brokerage" ng-model="brokerage">
+                <option value="">${-- Selecione --}</option>
+                <!--option ng-repeat="operation in c.operations" value="{{ operation.value }}">{{ operation.name }}</option-->
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="transaction"><strong>${Transação:}</strong></label>
+            </div>
+            <div class="col-md-2">
+              <select name="transaction" id="transaction" ng-model="transaction">
+                <option value="">${-- Selecione --}</option>
+                <!--option ng-repeat="operation in c.operations" value="{{ operation.value }}">{{ operation.name }}</option-->
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+            	<label for="financial-instrument"><strong>${Instr. Financeiro:}</strong></label>
+            </div>
+            <div class="col-md-2">
+              <select name="financial_instrument" id="financial_instrument" ng-model="financial_instrument">
+                <option value="">${-- Selecione --}</option>
+                <!--option ng-repeat="operation in c.operations" value="{{ operation.value }}">{{ operation.name }}</option-->
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="manager"><strong>${Gestor:}</strong></label>
+            </div>
+            <div class="col-md-2">
+              <select name="manager" id="manager" ng-model="manager">
+                <option value="">${-- Selecione --}</option>
+                <!--option ng-repeat="operation in c.operations" value="{{ operation.value }}">{{ operation.name }}</option-->
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="classification"><strong>${Classificação:}</strong></label>
+            </div>
+            <div class="col-md-2">
+              <select name="classification" id="classification" ng-model="classification">
+                <option value="">${-- Selecione --}</option>
+                <!--option ng-repeat="operation in c.operations" value="{{ operation.value }}">{{ operation.name }}</option-->
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-10"></div>
+            <div class="col-md-2">
+              <button type="submit" id="search" name="search" class="btn btn-info my-btn-info form-control" ng-click="c.search()">${Pesquisar}</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="panel panel-primary my-panel my-panel-primary">
+    <div class="panel-heading my-panel-heading"><strong>${Totais}</strong></div>
+    <div class="panel-body my-panel-body">
+    	<div class="container-fluid">
+      	<div class="row">
+            <div class="col-md-3">
+            	<label for="operator-institution"><strong>${Valor Financeiro Compra:}</strong></label>
+            </div>
+            <div class="col-md-3">
+              <label></label>
+            </div>
+            <div class="col-md-3">
+            	<label for="operator-institution"><strong>${Valor Financeiro Venda:}</strong></label>
+            </div>
+            <div class="col-md-3">
+              <label></label>
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-md-3">
+            <label for="operator-institution"><strong>${Valor Preço Médio Compra:}</strong></label>
+          </div>
+          <div class="col-md-3">
+            <label></label>
+          </div>
+          <div class="col-md-3">
+            <label for="operator-institution"><strong>${Valor Preço Médio Venda:}</strong></label>
+          </div>
+          <div class="col-md-3">
+            <label></label>
+          </div>
+      	</div>
+        <div class="row">
+          <div class="col-md-3">
+            <label for="operator-institution"><strong>${Quantidade Total Compra:}</strong></label>
+          </div>
+          <div class="col-md-3">
+            <label></label>
+          </div>
+          <div class="col-md-3">
+            <label for="operator-institution"><strong>${Quantidade Total Venda:}</strong></label>
+          </div>
+          <div class="col-md-3">
+            <label></label>
+          </div>
+      	</div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary my-panel my-panel-primary">
+    <div class="panel-heading my-panel-heading"><strong>${Negócios}</strong></div>
+    <div class="panel-body my-panel-body">
+    	<div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-wrapper">
+              <table class="table table-bordered table-striped business-table text-center">
+                <thead>
+                  <tr> 
+                    <th ng-show="option_radio == 'analytic'">${Número Boleta}</th>
+                    <th>${Transação}</th>
+                    <th>
+                      ${Instrumento} <br />
+                      <input type="text" name="instrument" id="instrument" ng-model="search.instrument"/>
+                    </th>
+                    <th>
+                      ${Corretora} <br />
+                      <input type="text" name="brokerage" id="brokerage" ng-model="search.brokerage"/>
+                    </th>
+                    <th ng-click="sort('amount')">
+                      <div class="flex">
+                        <div class="flex-1">
+                          ${Quantidade}
+                        </div>
+                        <div class="flex-2 grid">
+                          <span class="glyphicon glyphicon-triangle-top sort-icon" ng-hide="sort_key == 'amount' && asc"></span>
+                        	<span class="glyphicon glyphicon-triangle-bottom sort-icon" ng-hide="sort_key == 'amount' && desc"></span>
+                        </div>
+                      </div>
+                    </th>
+                    <th ng-show="option_radio == 'synthetic'" ng-click="sort('average_price')">
+                      <div class="flex">
+                        <div class="flex-1">
+                          ${PM}
+                        </div>
+                        <div class="flex-2 grid">
+                          <span class="glyphicon glyphicon-triangle-top sort-icon" ng-hide="sort_key == 'average_price' && asc"></span>
+                        	<span class="glyphicon glyphicon-triangle-bottom sort-icon" ng-hide="sort_key == 'average_price' && desc"></span>
+                        </div>
+                      </div>
+                    </th>
+                    <th ng-show="option_radio == 'analytic'" ng-click="sort('unit_price')">
+                      <div class="flex">
+                        <div class="flex-1">
+                          ${PU}
+                        </div>
+                        <div class="flex-2 grid">
+                          <span class="glyphicon glyphicon-triangle-top sort-icon" ng-hide="sort_key == 'unit_price' && asc"></span>
+                        	<span class="glyphicon glyphicon-triangle-bottom sort-icon" ng-hide="sort_key == 'unit_price' && desc"></span>
+                        </div>
+                      </div>
+                    </th>
+                    <th ng-click="sort('finance')">
+                      <div class="flex">
+                        <div class="flex-1">
+                          ${Financeiro}
+                        </div>
+                        <div class="flex-2 grid">
+                          <span class="glyphicon glyphicon-triangle-top sort-icon" ng-hide="sort_key == 'finance' && asc"></span>
+                        	<span class="glyphicon glyphicon-triangle-bottom sort-icon" ng-hide="sort_key == 'finance' && desc"></span>
+                        </div>
+                      </div>
+                      <!--span class="glyphicon sort-icon" ng-show="sort_key == 'finance'" ng-class="{'glyphicon-triangle-top': reverse, 'glyphicon-triangle-bottom': !reverse}"></span-->
+                    </th>
+                    <th ng-show="option_radio == 'analytic'">${Ação}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="boleta in boletas | filter:search | orderBy:sort_key:reverse">
+                    <td 
+                        ng-repeat="(key, value) in boleta" 
+                        ng-hide="option_radio == 'analytic' && key == 'average_price' || option_radio == 'synthetic' && key == 'boleta_number' || option_radio == 'synthetic' && key == 'unit_price' || option_radio == 'synthetic' && key == 'action'">
+                      {{ value }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>
