@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope, $window) {
+  /* widget controller */
+  var c = this;
+	
+	c.table_name = '';
+	c.dictionary_disable = true;
+	c.report_title = '';
+	c.button_disable = true;
+	c.records_limit_array = [10, 20, 30, 50, 100, 200, 300, 500, 1000];
+	c.records_limit = '10';
+	c.column_text_bold = false;
+	c.record_text_bold = false;
+	c.titulo_labels_text_bold = false;
+	c.orientations = [{'value': 'portrait', 'name': 'Retrato'}, {'value': 'landscape', 'name': 'Paisagem'}];
+	c.orientation = 'portrait';
+	c.fonts = c.data.fonts;
+	c.error_message = '';
+	c.show_error_message = false;
+	
+	c.popular_dictionary = function() {
+		var table_name = '';
+		
+		table_name = $scope.table.value;
+		
+		if (table_name != '') {
+			c.table_name = table_name;
+			
+			c.dictionary_disable = false;
+		} 
+		
+		if (table_name == '') {
+			c.table_name = '';
+			
+			$scope.dictionary.displayValue = '';
+			$scope.dictionary.value = '';
+			
+			c.dictionary_disable = true;
+		}
+	};
+	
+	c.disable_button = function() {
+		if (c.report_title != '')
+			c.button_disable = false;
+		else
+			c.button_disable = true;
+	};
+	
+	c.generate_pdf = function() { 
+		var table_name = '';
+		var dictionary_names = '';
+		var dictionary_labels_array = [];
+		var dictionary_names_array = [];
+		var records_limit = 0;
+		var attachment_url = '';
+		var error_message = '';
+		var dictionary_names_array_count = 0;
+		var column_text_bold = false;
+		var record_text_bold = false;
+		var titulo_labels_text_bold = false;
+		var orientation = '';
+		var font = '';
+		
+		table_name = $scope.table.value;
+		dictionary_names = $scope.dictionary.value;
+		column_text_bold = c.column_text_bold;
+		record_text_bold = c.record_text_bold;
+		titulo_labels_text_bold = c.titulo_labels_text_bold;
+		orientation = c.orientation;
+		font = $('#font').val();
+		
+		if (dictionary_names != undefined) {
+			dictionary_labels_array = $scope.dictionary.displayValue.split('####');
+			dictionary_names_array = dictionary_names.split(',');
+
+			records_limit = parseInt(c.records_limit);
+
+			var pdf_data = {
+				action: 'generate_pdf',
+				report_title: c.report_title,
+				table_name: table_name,
+				column_labels: dictionary_labels_array,
+				column_names: dictionary_names_array,
+				records_limit: records_limit,
+				column_text_bold: column_text_bold,
+				record_text_bold: record_text_bold,
+				titulo_labels_text_bold: titulo_labels_text_bold,
+				orientation: orientation,
+				font: font
+			};
+			
+			dictionary_names_array_count = dictionary_names_array.length;
+			
+			if (dictionary_names_array_count >= 5 && dictionary_names_array_count <= 13) {
+				
+				c.server.get(pdf_data).then(function(response) {
+					c.data.action = undefined;
+
+					if (response.data.pdf_url && response.data.pdf_url !== '') {
+						attachment_url = response.data.pdf_url;				
+						$window.open(attachment_url, '_self');
+					} else {
+						error_message = response.data.error_message;
+						alert(error_message);
+					}
+				});
+				
+				c.error_message = '';
+				c.show_error_message = false;
+			} else {
+				c.error_message = 'Escolha entre 5 a 13 campos!';
+				c.show_error_message = true;
+			}
+		} else {
+			c.error_message = 'Selecione no mínimo 5 campos';
+			c.show_error_message = true;
+		}
+	};
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.padding-bottom-12 {
+  padding-bottom: 18px;
+}
+
+.bold {
+  font-weight: bold;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>generate_custom_pdf_report</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Generate Custom PDF Report</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+	data.pdf_url = '';
+	data.error_message = '';
+	data.fonts = [];
+	
+	load_fonts();
+	
+	if (input && input.action == 'generate_pdf') {
+	
+		var pdf_data_organized = {
+			title: input.report_title,
+			table_labels: input.column_labels,
+			table_records: get_records(input),
+			column_text_bold: input.column_text_bold,
+			record_text_bold: input.record_text_bold,
+			titulo_labels_text_bold: input.titulo_labels_text_bold,
+			orientation: input.orientation,
+			font: input.font
+		};
+		
+		generate_report_pdf(pdf_data_organized);
+	}
+
+	function generate_report_pdf(pdf_data_organized) {
+		var response_generate_pdf = '';
+		var is_url_response_generate_pdf = '';
+		
+		var generate_pdf = new x_821667_my_widget.PDFGenerate();
+		
+		response_generate_pdf = generate_pdf.generate(pdf_data_organized);
+		is_url_response_generate_pdf = response_generate_pdf.startsWith('http');
+		
+		if (response_generate_pdf && is_url_response_generate_pdf)
+			data.pdf_url = response_generate_pdf;
+		else
+			data.error_message = response_generate_pdf;
+	}
+	
+	function get_records(pdf_data) {
+		var records = [];
+		var table_name = '';
+		var column_names = [];
+		var records_limit = 0;
+		
+		table_name = pdf_data.table_name;
+		column_names = pdf_data.column_names;
+		records_limit = pdf_data.records_limit;
+		
+		var glide_record = new GlideRecord(table_name);
+
+		glide_record.setLimit(records_limit);
+		glide_record.query();
+
+		while (glide_record.next()) {
+			var record = [];
+
+      for (var column_name in column_names) {
+      	record.push(glide_record.getValue(column_names[column_name]));
+      }
+				
+      records.push(record);
+			
+			record = [];
+		}
+		
+		return records;
+	}
+	
+	function load_fonts() {
+  	var fonts = get_filename_fonts();
+
+    var fonts_filename_without_extension = get_fonts_filename_without_extension(fonts);
+
+    var fonts_name_for_css = get_fonts_name_for_css(fonts_filename_without_extension);
+		
+		data.fonts = fonts_name_for_css;
+	}
+
+	function get_filename_fonts() {
+			var fonts = [];
+			var table_name = 'sys_attachment';
+
+			/* 
+			** NOTE: SYS_ID of the font family that was created specifically for the Generate Custom Report widget.
+			** I suggest that for each cloned widget a record be created in the PDF Generation API's font table with the desired text fonts. 
+			*/
+			var font_family_sys_id = '09d73ac9c317911038641c5ce001311d';
+
+			var glide_record = new GlideRecord(table_name);
+					glide_record.addQuery('table_sys_id', font_family_sys_id);
+					glide_record.orderBy('file_name');
+			glide_record.query();
+
+			while (glide_record.next()) {
+					var font = glide_record.file_name.toString();
+
+					fonts.push(font);
+			}
+
+			return fonts;
+		}
+
+	function get_fonts_filename_without_extension(fonts) {
+			var fonts_filename_without_extension = [];
+
+			for (var i = 0; i < fonts.length; i++) {
+					fonts_filename_without_extension.push(fonts[i].split('-')[0]);
+			}
+
+			return fonts_filename_without_extension;
+	}
+
+	function get_fonts_name_for_css(fonts) {
+			var fonts_name_for_css = [];
+
+			var fonts_name_unique = fonts.filter(function(value, index, self) {
+					return self.indexOf(value) === index;
+			});
+
+			for (var i = 0; i < fonts_name_unique.length; i++) {
+					var font = camel_case_string_to_normal_string(fonts_name_unique[i]);
+
+					fonts_name_for_css.push(font);
+			}
+
+			return fonts_name_for_css;
+	}
+
+	function camel_case_string_to_normal_string(camel_case_string) {
+			var camel_case = camel_case_string.replace(/([a-z])([A-Z])/g, '$1 $2').split(' ');
+
+			var string_no_camel_case = '';
+
+			camel_case.forEach(function(word) {    
+					string_no_camel_case = string_no_camel_case + word.charAt(0).toUpperCase() + word.slice(1) + " ";
+			});
+
+			var normal_string = string_no_camel_case.trim();
+
+			return normal_string;
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-04 21:02:59</sys_created_on>
+        <sys_id>afe36f36971521109fd237971153af28</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Generate Custom PDF Report</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_afe36f36971521109fd237971153af28</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-04 22:29:48</sys_updated_on>
+        <template><![CDATA[<div>
+	<div class="container-fluid">
+    <div class="row padding-bottom-12">
+      <div class="col-md-12">
+        <sn-record-picker 
+                          id="table" 
+                          field="table"
+                          table="'sys_db_object'"
+                          display-fields="'label, name'"
+                          value-field="'name'"
+                          search-fields="'label, name'"
+                          page-size="100"
+                          ng-change="c.popular_dictionary();">
+        </sn-record-picker>
+      </div>
+    </div>
+    <div class="row padding-bottom-12">
+      <div class="col-md-12">
+        <sn-record-picker 
+                          id="dictionary" 
+                          field="dictionary" 
+                          table="'sys_dictionary'" 
+                          default-query="'name=' + ${c.table_name}" 
+                          display-field="'column_label'" 
+                          value-field="'element'" 
+                          search-fields="'column_label'" 
+                          page-size="100" 
+                          multiple="true"
+                          sn-disabled="${c.dictionary_disable}">
+        </sn-record-picker>
+      </div>
+    </div>
+    <form>
+      <div class="row">
+        <div class="col-md-12 padding-bottom-12">
+          <select class="form-control" id="records_limit" name="records_limit" ng-model="c.records_limit">
+            <option ng-repeat="limit in c.records_limit_array" value="{{ limit }}">{{ limit }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 padding-bottom-12">
+          <input type="text" class="form-control" id="report_title" name="report_title" ng-model="c.report_title" placeholder="Título do Relatório" ng-change="c.disable_button();">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 padding-bottom-12">
+          <select class="form-control" id="orientation" name="orientation" ng-model="c.orientation">
+            <option ng-repeat="mode in c.orientations" value="{{ mode.value }}">{{ mode.name }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 padding-bottom-12">
+          <select class="form-control" id="font" name="font">
+            <option ng-repeat="font in c.fonts" value="{{ font }}">{{ font }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 padding-bottom-12">
+          <div class="form-group">
+            <label for="bold"><strong>Negrito</strong></label> <br />
+            <label>
+              <input type="checkbox" ng-model="c.titulo_labels_text_bold"> <span ng-class="{bold: c.titulo_labels_text_bold}">Texto do Título e Labels</span>
+            </label> <br />
+            <label>
+              <input type="checkbox" ng-model="c.column_text_bold"> <span ng-class="{bold: c.column_text_bold}">Texto das Colunas</span>
+            </label> <br />
+            <label>
+              <input type="checkbox" ng-model="c.record_text_bold"> <span ng-class="{bold: c.record_text_bold}">Texto dos Registros</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-right padding-bottom-12">
+          <button type="button" class="btn btn-primary" ng-click="c.generate_pdf();" ng-disabled="c.button_disable">Generate PDF</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="alert alert-danger" role="alert" ng-show="c.show_error_message"><strong>{{ c.error_message }}</strong></div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

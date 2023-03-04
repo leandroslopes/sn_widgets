@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_821667_my_widget.GenerateCSV</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>GenerateCSV</name>
+        <script><![CDATA[var GenerateCSV = Class.create();
+GenerateCSV.prototype = {
+	initialize: function() {
+    },
+	
+	generate: function(csv_data) {
+		var has_csv_temp;
+		var deleted_csv_temp;
+		var attchment_sys_id = '';
+		var attchment_url_csv = '';
+		var error_message = 'No error message';
+
+		var csv_config = {
+			table_target: 'x_821667_my_widget_csv_temp',
+			sys_id_target: '',
+			filename: this.create_filename(),
+			headers: csv_data.incident_labels,
+			records: csv_data.incidents
+		};
+		
+		has_csv_temp = this.has_csv_temp(csv_config);
+		
+		if (has_csv_temp) {
+			deleted_csv_temp = this.delete_csv_temp(csv_config);
+			
+			if (deleted_csv_temp) {
+				csv_config.sys_id_target = this.add_csv_temp(csv_config);
+				
+				if (csv_config.sys_id_target && csv_config.sys_id_target !== '') {
+					attchment_sys_id = this.create_csv(csv_config);
+
+					if (attchment_sys_id && attchment_sys_id !== '') {
+						attchment_url_csv = this.create_url_csv_to_download(attchment_sys_id);
+
+						return attchment_url_csv;
+					} else {
+						error_message = 'Não foi possível gerar o arquivo CSV!';
+					}
+
+
+				} else {
+					error_message = 'Não foi possível gerar o arquivo CSV, por não ter sido adicionado o registro na tabela <CSV Temp>';
+				}
+
+			} else {
+				error_message = 'Não foi possível gerar o arquivo CSV, por não ter sido possível excluir o registro anterior na tabela <CSV Temp>';
+			}
+			
+		} else {
+			csv_config.sys_id_target = this.add_csv_temp(csv_config);
+
+			if (csv_config.sys_id_target && csv_config.sys_id_target !== '') {
+				attchment_sys_id = this.create_csv(csv_config);
+
+				if (attchment_sys_id && attchment_sys_id !== '') {
+					attchment_url_csv = this.create_url_csv_to_download(attchment_sys_id);
+
+					return attchment_url_csv;
+				} else {
+					error_message = 'Não foi possível gerar o arquivo CSV!';
+				}
+
+
+			} else {
+				error_message = 'Não foi possível gerar o arquivo CSV, por não ter sido adicionado o registro na tabela <CSV Temp>';
+			}
+		}
+		
+		return error_message;
+		
+	},
+
+	create_filename: function() {
+        var filename = '';
+
+        filename = 'csv_' + gs.getUserID();
+
+        return filename;
+    },
+
+	has_csv_temp: function(csv_config) {
+		var has_csv_temp = false;
+		
+		var glide_record = new GlideRecord(csv_config.table_target);
+
+		glide_record.addQuery("name", csv_config.filename);
+		glide_record.query();
+		
+		if (glide_record.next()) {
+			has_csv_temp = true;
+		}
+		
+		return has_csv_temp;
+	},
+
+	delete_csv_temp: function(csv_config) {
+		var deleted = false;
+		
+		var glide_record = new GlideRecord(csv_config.table_target);
+		
+		glide_record.addQuery("name", csv_config.filename);
+		glide_record.query();
+		
+		if (glide_record.next()) {
+			deleted = glide_record.deleteRecord();
+		}
+		
+		return deleted;
+	},
+
+	add_csv_temp: function(csv_config) {
+		var csv_temp_sys_id = '';
+		
+		var glide_record = new GlideRecord(csv_config.table_target);
+		
+		glide_record.initialize();
+		
+		glide_record.name = csv_config.filename;
+
+		csv_temp_sys_id = glide_record.insert();
+		
+		return csv_temp_sys_id;
+	},
+
+	create_csv: function(csv_config) {
+		var attachment_sys_id = '';
+		var csv_data = '';
+		var headers = csv_config.headers;
+		var records = csv_config.records;
+		var filename = csv_config.filename + '.csv';
+		
+		for (var j = 0; j < headers.length; j++) {
+			if ((j + 1) == headers.length)
+				csv_data = csv_data + '"' + headers[j] + '"';
+			else
+				csv_data = csv_data + '"' + headers[j] + '"' + ',';
+		}
+		
+		csv_data = csv_data + "\r\n";
+
+		for (var i = 0; i < records.length; i++) {
+			csv_data = csv_data + '"' + records[i].number + '",' +
+								'"' + records[i].opened_at + '",' +
+								'"' + records[i].short_description + '",' +
+								'"' + records[i].caller_name + '",' +
+								'"' + records[i].priority + '",' +
+								'"' + records[i].state + '",' +
+								'"' + records[i].category + '",' +
+								'"' + records[i].assignment_group + '",' +
+								'"' + records[i].assigned_to_name + '",' +
+								'"' + records[i].sys_updated_on + '"';
+
+			csv_data = csv_data + "\r\n";
+		}
+		
+		attachment_sys_id = this.add_attachment(csv_config, filename, csv_data);
+
+		return attachment_sys_id;
+	},
+
+	add_attachment: function(csv_config, filename, csv_data) {
+		var attachment_sys_id = '';
+		var content_type = 'application/csv';
+
+		var glide_record = new GlideRecord(csv_config.table_target);
+		glide_record.get(csv_config.sys_id_target);
+
+		var glide_sys_attachment = new GlideSysAttachment();
+
+		attachment_sys_id = glide_sys_attachment.write(glide_record, filename, content_type, csv_data);
+
+		return attachment_sys_id;
+	},
+
+	create_url_csv_to_download: function(attachment_sys_id) {
+		var instace = 'https://' + gs.getProperty('instance_name') + '.service-now.com/';
+		var attachment_table = 'sys_attachment.do';
+		var attachment_param_sys_id = '?sys_id=' + attachment_sys_id;
+		var attachment_url = instace + attachment_table + attachment_param_sys_id;
+		
+		return attachment_url;
+	},
+
+    type: 'GenerateCSV'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-04 19:33:01</sys_created_on>
+        <sys_id>760f8bb6975121109fd237971153af08</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>GenerateCSV</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_script_include_760f8bb6975121109fd237971153af08</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-04 19:42:31</sys_updated_on>
+    </sys_script_include>
+</record_update>

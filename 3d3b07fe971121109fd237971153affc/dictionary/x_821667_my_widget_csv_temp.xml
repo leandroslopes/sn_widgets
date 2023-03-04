@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="1f8e8bb6975121109fd237971153af82" label="CSV Temp" max_length="40" name="x_821667_my_widget_csv_temp" type="collection">
+        <element label="Name" max_length="60" name="name" type="string"/>
+    </element>
+</database>

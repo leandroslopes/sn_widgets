@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_821667_my_widget.PDFGenerate</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>PDFGenerate</name>
+        <script><![CDATA[var PDFGenerate = Class.create();
+PDFGenerate.prototype = {
+    initialize: function() {
+    },
+
+	/**SNDOC
+	@name generate
+    @description Generate the PDF file.
+	@param {object} [pdf_data] - Object with data from the PDF file.
+	@returns {string} PDF URL.
+    */
+    generate: function(pdf_data) {
+		var title = '';
+        var meta_tags = '';
+		var css = '';
+		var header = '';
+		var body = '';
+		var body_data = '';
+		var record_labels = [];
+		var records = [];
+		var column_text_bold = false;
+		var record_text_bold = false;
+		var titulo_labels_text_bold = false;
+		var orientation = '';
+		var font = '';
+		var pdf_url = '';
+		var has_report_temp = false;
+		var deleted_report_temp = false;
+		var no_generate_pdf = '';
+		var no_add_report_temp = '';
+		
+		var pdf_config = {
+			html: '',
+			table_target: 'x_821667_my_widget_report_temp',
+			sys_id_target: '',
+			pdf_name: this.create_pdf_name(),
+			sys_id_font_family: '09d73ac9c317911038641c5ce001311d' //sys_id of a font family record on the 'sys_pdf_generation_font_family' table*/
+		};
+		
+		title = pdf_data.title;
+		
+        meta_tags = this.create_metatags(title);
+		
+		orientation = pdf_data.orientation;
+		font = pdf_data.font;
+		
+		css = this.create_css(orientation, title, font);
+		
+		titulo_labels_text_bold = pdf_data.titulo_labels_text_bold;
+		
+		header = this.create_header(title, titulo_labels_text_bold);
+		
+		record_labels = pdf_data.table_labels;
+		records = pdf_data.table_records;
+		
+		column_text_bold = pdf_data.column_text_bold;
+		record_text_bold = pdf_data.record_text_bold;
+		
+		body = this.create_body(record_labels, column_text_bold);
+		
+		body_data = this.create_body_data(records, record_text_bold);
+		
+		pdf_config.html = meta_tags + css + header + body + body_data;
+		
+		has_report_temp = this.has_report_temp(pdf_config);
+		
+		if (has_report_temp) {
+			deleted_report_temp = this.delete_report_temp(pdf_config);
+			
+			if (deleted_report_temp) {
+				pdf_config.sys_id_target = this.add_report_temp(pdf_config);
+
+				if (pdf_config.sys_id_target && pdf_config.sys_id_target !== '') {
+					pdf = this.convert_html_to_pdf(pdf_config);
+
+					if (pdf && pdf.attachment_id !== '') {
+						pdf_url = this.create_pdf_url_to_download(pdf.attachment_id);
+
+						return pdf_url;
+					} else {
+						no_generate_pdf = 'Não foi possível gerar o relatório!';
+
+						return no_generate_pdf;
+					}
+
+
+				} else {
+					no_add_report_temp = 'Não foi possível gerar o relatório, por não ter sido adicionado o registro na tabela <Report Temp>';
+
+					return no_add_report_temp;
+				}
+
+			} else {
+				var no_deleted_report_temp = 'Não foi possível gerar o relatório, por não ter sido possível excluir o registro anterior na tabela <Report Temp>';
+
+				return no_deleted_report_temp;
+			}
+			
+		} else {
+			pdf_config.sys_id_target = this.add_report_temp(pdf_config);
+
+			if (pdf_config.sys_id_target && pdf_config.sys_id_target !== '') {
+				pdf = this.convert_html_to_pdf(pdf_config);
+
+				if (pdf && pdf.attachment_id !== '') {
+					pdf_url = this.create_pdf_url_to_download(pdf.attachment_id);
+
+					return pdf_url;
+				} else {
+					no_generate_pdf = 'Não foi possível gerar o relatório!';
+
+					return no_generate_pdf;
+				}
+			} else {
+				no_add_report_temp = 'Não foi possível gerar o relatório, por não ter sido adicionado o registro na tabela <Report Temp>';
+
+				return no_add_report_temp;
+			}
+		}
+    },
+	
+	/**SNDOC
+	@name has_report_temp
+	@description Check if there is a record in the Report Temp table with the specified name.
+	@param {object} [pdf_config] - PDF configuration.
+	@returns {booelan} True if it has a record. False if it doesn't.
+	*/
+	has_report_temp: function(pdf_config) {
+		var pdf_name = pdf_config.pdf_name;
+		var has_report_temp = false;
+		
+		var glide_record = new GlideRecord(pdf_config.table_target);
+
+		glide_record.addQuery("name", pdf_name);
+		glide_record.query();
+		
+		if (glide_record.next()) {
+			has_report_temp = true;
+		}
+		
+		return has_report_temp;
+	},
+
+    /**SNDOC
+	@name create_pdf_name
+	@description Create a name for the PDF file.
+    @returns {string} Name for the PDF file.
+    */
+    create_pdf_name: function() {
+        var pdf_name = '';
+
+        pdf_name = 'report_' + gs.getUserID();
+
+        return pdf_name;
+    },
+
+    /**SNDOC
+	@name create_metatags
+	@description Create the initial HTML to convert to PDF.
+    @param {string} [page_html_title] - The title of the HTML page.
+    @returns {string} Beginning of the HTML page.
+    */
+    create_metatags: function(page_html_title) {
+        var meta_tags = '';
+
+        meta_tags = '<!DOCTYPE html><html lang="en">' + 
+			'<head>' + 
+            '<meta charset="UTF-8" />' + 
+            '<meta name="viewport" content="width=device-width, initial-scale=1.0" />' + 
+            '<title>' + page_html_title + '</title>';
+
+        return meta_tags;
+    },
+
+    /**SNDOC
+	@name create_css
+	@description Creates the page CSS.
+	@param {string} [orientation] - Page orientation.
+	@param {string} [title] - Page title.
+	@param {string} [font] - Font style.
+	@returns {string} Page CSS.
+    */
+    create_css: function(orientation, title, font) {
+        var css = '';
+
+        css = '<style>' + 
+            '@page { size: A4 ' + orientation + '; margin-left: 1.5cm; margin-top: 5cm; margin-right: 1.5cm; margin-bottom: 1cm; font-family: "' + font + '";' + 
+            '@top-center { font-size: 12px; content: element(report-header); }' +
+			'@bottom-left { font-size: 12px; padding-bottom: 12px; content: "' + title + '"; }' +
+			'@bottom-center { }' +
+			'@bottom-right { font-size: 12px; padding-bottom: 12px; content: "Page " counter(page); }' +
+			'}' +
+			'body { font-family: "' + font + '"; }' +
+			'.report-header { position: running(report-header) }' +
+			'.current-page-number:after { content: counter(page) " de " counter(pages); }' +
+			'</style></head><body>';
+		
+		return css;
+    },
+	
+	/**SNDOC
+	@name create_date_hour_issue
+	@description Creates the date and time of issue.
+	@returns {object} - Date and time of issue.
+	*/
+	create_date_hour_issue: function() {
+		var issue = {
+			date: '',
+			hour: ''
+		};
+		
+		var glideDateTime = new GlideDateTime();
+		
+        getTime = glideDateTime.getTime();
+		
+		issue.date = glideDateTime.getDate().getByFormat('dd/MM/YYYY');
+		issue.hour = getTime.getByFormat('hh:mm:ss');
+		
+		return issue;
+	},
+	
+	/**SNDOC
+	@name create_header
+	@description Create the report header.
+	@param {object} [report_title] - Report title.
+	@param {object} [titulo_labels_text_bold] - Bold labels.
+	@returns {string} Report header.
+	*/
+	create_header: function(report_title, titulo_labels_text_bold) {
+		var header = '';
+		var bold = '';
+		
+		if (titulo_labels_text_bold)
+			bold = 'font-weight: bold;';
+		
+		var issue = this.create_date_hour_issue();
+		
+		header = '<div style="font-size: 16px;" class="report-header">' +
+			'<table width="100%" style="border: 2px solid #000; order-collapse: collapse; border-spacing: 0;">' +
+			'<tbody>' + 
+			'<tr><td rowspan="3" style="padding: 14px auto 10px auto;"><img src="logo_sn.png" width="110" height="110"/></td><td style="padding: 18px auto; text-align: left; ' + bold + '">' + report_title + '</td></tr>' +
+			'<tr><td style="text-align: left;"><span style="' + bold + '">Issue: </span>' + issue.date + ' ' + issue.hour +'</td></tr>' +
+			'<tr><td style="text-align: left;"><span style="' + bold + '">Page:</span> <span class="current-page-number"></span></td></tr>' +
+			'</tbody>' +
+			'</table>' +
+			'</div>';
+		
+		bold = '';
+		
+		return header;
+	},
+	
+	/**SNDOC
+	@name create_body
+	@description Create the report body.
+	@param {array} [record_labels] - Column labels.
+	@param {boolean} [column_text_bold] - Flag bold labels.
+	@returns {string} Report body.
+	*/
+	create_body: function(record_labels, column_text_bold) {
+		var body = '';
+		var bold = '';
+		
+		if (column_text_bold)
+			bold = 'font-weight: bold;';
+		else
+			bold = 'font-weight: normal;';
+		
+		body = '<div style="font-size: 12px;" class="report-body">' +
+			'<table style="border-collapse: collapse; border-spacing: 0px;" width="100%">' +
+			'<thead>';
+		
+		body += '<tr>';
+		for (var i = 0; i < record_labels.length; i++) {
+			body += '<th style="padding: 10px 6px; background-color: #C1C1C1; text-align: center; color: #000; border: 2px solid #000; border-collapse: collapse; border-spacing: 0px; ' + bold + '">' + record_labels[i] + '</th>';
+		}
+		body += '</tr>';
+		
+		body += '</thead>';
+		body += '<tbody>';
+		
+		bold = '';
+		
+		return body;
+	},
+	
+	/**SNDOC
+	@name create_body_data
+	@description Creates the data for the body of the report.
+	@param {array} [records] - Array of the objects.
+	@param {boolean} [record_text_bold] - Flag bold labels.
+	@returns {string} Data for the body of the report.
+	*/
+	create_body_data: function(records, record_text_bold) {
+		var body_data = '';
+		var bold = '';
+		
+		if (record_text_bold)
+			bold = 'font-weight: bold;';
+		
+		for (var i = 0; i < records.length; i++) {
+			
+			body_data += '<tr>';
+			
+			for (var j = 0; j < records[i].length; j++) {
+				var column = records[i][j];
+				
+				if (column == '' || column == null) {
+					column = '';
+				}
+				
+				body_data += '<td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-collapse: collapse; border-spacing: 0px; ' + bold + '">' + column + '</td>';
+				
+				column = '';
+			}
+			
+			body_data += '</tr>';
+		}
+		
+		body_data += '</tbody></table></div></body></html>';
+		
+		bold = '';
+		
+		return body_data;
+	},
+	
+	/**SNDOC
+	@name delete_report_temp
+	@description Deletes a record from the 'Report Temp' table and consequently the associated attachment record in the 'sys_attachment' table.
+	@param {object} [pdf_config] - PDF attachment settings.
+	@returns {boolean} True if deleted, false if not deleted.
+	*/
+	delete_report_temp: function(pdf_config) {
+		var pdf_name = pdf_config.pdf_name;
+		var deleted = false;
+		
+		var glide_record = new GlideRecord(pdf_config.table_target);
+		
+		glide_record.addQuery("name", pdf_name);
+		glide_record.query();
+		
+		if (glide_record.next()) {
+			deleted = glide_record.deleteRecord();
+		}
+		
+		return deleted;
+	},
+	
+	/**SNDOC
+	@name add_report_temp
+	@description Adds a record in the 'Report Temp' table.
+	@param {object} [pdf_config] - PDF attachment settings.
+	@returns {string} Sys ID of the Report Temp.
+	*/
+	add_report_temp: function (pdf_config) {
+		var report_temp_sys_id = '';
+		
+		var glide_record = new GlideRecord(pdf_config.table_target);
+		
+		glide_record.initialize();
+		
+		glide_record.name = pdf_config.pdf_name;
+
+		report_temp_sys_id = glide_record.insert();
+		
+		return report_temp_sys_id;
+	},
+	
+	/**SNDOC
+	@name convert_html_to_pdf
+	@description Convert HTML to PDF.
+	@param {object} [pdf_config] - PDF attachment settings.
+	@returns {object} Object with information from the created PDF.
+	*/
+	convert_html_to_pdf: function(pdf_config) {
+		var pdf_generation_api = new sn_pdfgeneratorutils.PDFGenerationAPI();
+		
+		var pdf = pdf_generation_api.convertToPDF(
+            pdf_config.html, 
+            pdf_config.table_target, 
+            pdf_config.sys_id_target, 
+            pdf_config.pdf_name ,
+			pdf_config.sys_id_font_family
+        );
+		
+		gs.info(JSON.stringify(pdf));
+		
+		return pdf;
+	},
+	
+	/**SNDOC
+	@name create_pdf_url_to_download
+	@description Creates the URL of the PDF for download.
+	@param {string} [attachment_sys_id] - Sys Attachment ID.
+	@returns {string} Attachment URL.
+	*/
+	create_pdf_url_to_download: function(attachment_sys_id) {
+		var instace = 'https://' + gs.getProperty('instance_name') + '.service-now.com/';
+		var attachment_table = 'sys_attachment.do';
+		var attachment_param_sys_id = '?sys_id=' + attachment_sys_id;
+		var attachment_url = instace + attachment_table + attachment_param_sys_id;
+		
+		return attachment_url;
+	},
+
+    type: 'PDFGenerate'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-04 19:22:36</sys_created_on>
+        <sys_id>1acc87f2975121109fd237971153af6a</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>PDFGenerate</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_script_include_1acc87f2975121109fd237971153af6a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-04 19:44:28</sys_updated_on>
+    </sys_script_include>
+</record_update>

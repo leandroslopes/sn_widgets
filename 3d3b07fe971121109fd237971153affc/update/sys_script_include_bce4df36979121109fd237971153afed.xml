@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_821667_my_widget.Cities</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>Cities</name>
+        <script><![CDATA[var Cities = Class.create();
+Cities.prototype = {
+    initialize: function() {
+    },
+	
+	get: function(){
+		var endpoint = 'https://www.redesocialdecidades.org.br/cities';
+		
+		var rest_message = new sn_ws.RESTMessageV2();
+		
+		rest_message.setEndpoint(endpoint); 
+
+		rest_message.setHttpMethod('GET');
+		
+		var response = rest_message.execute();
+		
+		var response_string = response.getBody();
+		
+		return response_string;
+	},
+	
+	popular_table: function() {
+		this.delete_records_table();
+		
+		var cities = JSON.parse(this.get());
+		
+		if (cities.cities.length > 0) {
+			var table_name = 'x_821667_my_widget_city';
+		
+			var glide_record = new GlideRecord(table_name);
+
+			glide_record.initialize();
+
+			cities.cities.forEach(function(city) {
+
+				for (property in city) {
+					glide_record.setValue(property, city[property]);
+				}
+
+				glide_record.insert();
+			});
+		} else {
+			gs.info('Not populated the table (x_821667_my_widget_city) ...');
+		}
+	},
+	
+	delete_records_table: function() {
+		var table_name = 'x_821667_my_widget_city';
+		
+		var glide_record = new GlideRecord(table_name);
+
+		glide_record.addEncodedQuery('u_id!=0');
+		glide_record.query();
+		glide_record.deleteMultiple();
+	},
+
+    type: 'Cities'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-04 19:57:56</sys_created_on>
+        <sys_id>bce4df36979121109fd237971153afed</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Cities</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_script_include_bce4df36979121109fd237971153afed</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-04 22:04:08</sys_updated_on>
+    </sys_script_include>
+</record_update>
