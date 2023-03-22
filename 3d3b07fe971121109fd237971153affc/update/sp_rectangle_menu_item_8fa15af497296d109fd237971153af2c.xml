@@ -12,31 +12,31 @@
         <kb_article/>
         <kb_category/>
         <kb_topic/>
-        <label>Cities</label>
-        <order>300</order>
+        <label>Table Filter And Sort 1</label>
+        <order>200</order>
         <record_script/>
         <sc_cat_item/>
         <sc_category/>
         <short_description/>
-        <sp_page display_value="cities_integration_api">0bd1af7e97d121109fd237971153af41</sp_page>
+        <sp_page display_value="table_filter_and_sort_1">e46152b497296d109fd237971153afb2</sp_page>
         <sp_rectangle_menu/>
         <sp_rectangle_menu_item display_value="Widgets">53a7eb3e971521109fd237971153af7d</sp_rectangle_menu_item>
         <sys_class_name>sp_rectangle_menu_item</sys_class_name>
-        <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2023-03-04 21:20:16</sys_created_on>
-        <sys_id>bcc72bfa971521109fd237971153aff5</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_name>Cities</sys_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2023-03-10 20:11:48</sys_created_on>
+        <sys_id>8fa15af497296d109fd237971153af2c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Table Filter And Sort 1</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
-        <sys_update_name>sp_rectangle_menu_item_bcc72bfa971521109fd237971153aff5</sys_update_name>
+        <sys_update_name>sp_rectangle_menu_item_8fa15af497296d109fd237971153af2c</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2023-03-10 20:12:09</sys_updated_on>
+        <sys_updated_on>2023-03-10 20:11:48</sys_updated_on>
         <table/>
         <type>page</type>
         <url/>
         <url_target/>
     </sp_rectangle_menu_item>
-    <sys_translated_text action="delete_multiple" query="documentkey=bcc72bfa971521109fd237971153aff5"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=8fa15af497296d109fd237971153af2c"/>
 </record_update>

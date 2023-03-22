@@ -8,23 +8,63 @@
 	$scope.boletas = create_json_fake();
 	$scope.option_radio = 'analytic';
 	
+	console.log('$scope.sort_key: ' + $scope.sort_key);
+	console.log('$scope.asc: ' + $scope.asc);
+	console.log('$scope.icon_blue_color: ' + $scope.icon_blue_color);
+	console.log('$scope.desc: ' + $scope.desc);
+	console.log('$scope.reverse: ' + $scope.reverse);
+	console.log('');
+	
 	$scope.sort = function(key_name) {
 		$scope.sort_key = key_name;
-		var is_asc_undefinded = $scope.asc == undefined;
-		var is_desc = $scope.desc;
-		var is_asc = $scope.asc;
 		
-		if (is_asc_undefinded || is_desc) { // Sort Asc
-			$scope.desc = false;
+		console.log('fora $scope.sort_key: ' + $scope.sort_key);
+		
+		if (($scope.asc == undefined && $scope.desc == undefined) || $scope.desc == false) { // Sort Asc
 			
 			$scope.asc = true;
+			
+			$scope.icon_blue_color = true;
+			
+			$scope.desc = undefined;
 			$scope.reverse = false;
 			
-		} else if (is_asc) { // Sort Desc
-			$scope.asc = false;
+			console.log('if $scope.sort_key: ' + $scope.sort_key);
+			console.log('if $scope.asc: ' + $scope.asc);
+			console.log('if $scope.icon_blue_color: ' + $scope.icon_blue_color);
+			console.log('if $scope.desc: ' + $scope.desc);
+			console.log('if $scope.reverse: ' + $scope.reverse);
+			console.log('');
+			
+		} else if ($scope.asc) { // Sort Desc
 			
 			$scope.desc = true;
-			$scope.reverse = !$scope.reverse;
+			
+			$scope.icon_blue_color = true;
+			
+			$scope.asc = false;
+			$scope.reverse = true;
+			
+			console.log('else if asc $scope.sort_key: ' + $scope.sort_key);
+			console.log('else if asc $scope.asc: ' + $scope.asc);
+			console.log('else if asc $scope.icon_blue_color: ' + $scope.icon_blue_color);
+			console.log('else if asc $scope.desc: ' + $scope.desc);
+			console.log('else if asc $scope.reverse: ' + $scope.reverse);
+			console.log('');
+			
+		} else if ($scope.desc) { // Reset sort
+			
+			$scope.icon_blue_color = false;
+			
+			$scope.asc = true;
+			$scope.desc = false;
+			
+			console.log('else if desc $scope.sort_key: ' + $scope.sort_key);
+			console.log('else if desc $scope.asc: ' + $scope.asc);
+			console.log('else if desc $scope.icon_blue_color: ' + $scope.icon_blue_color);
+			console.log('else if desc $scope.desc: ' + $scope.desc);
+			console.log('else if desc $scope.reverse: ' + $scope.reverse);
+			console.log('');
 		}
 	}
 	
@@ -310,7 +350,11 @@ table.business-table thead tr th {
 }
 
 .sort-icon {
-	font-size: 8px;
+	font-size: 16px;
+}
+
+.icon-blue-color {
+	color: #3354fd;
 }
 
 .flex {
@@ -335,33 +379,34 @@ table.business-table thead tr th {
         <docs/>
         <field_list/>
         <has_preview>false</has_preview>
-        <id>table_filter_and_sort</id>
+        <id>table_filter_and_sort_1</id>
         <internal>false</internal>
         <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
-        <name>Table Filter And Sort</name>
+        <name>Table Filter And Sort 1</name>
         <option_schema/>
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
-        <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2023-03-04 20:44:04</sys_created_on>
-        <sys_id>929f97ba97d121109fd237971153afa8</sys_id>
-        <sys_mod_count>4</sys_mod_count>
-        <sys_name>Table Filter And Sort</sys_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2023-03-10 20:06:40</sys_created_on>
+        <sys_id>cd90123497296d109fd237971153af9b</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>Table Filter And Sort 1</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
-        <sys_update_name>sp_widget_929f97ba97d121109fd237971153afa8</sys_update_name>
+        <sys_update_name>sp_widget_cd90123497296d109fd237971153af9b</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2023-03-10 20:39:59</sys_updated_on>
+        <sys_updated_on>2023-03-10 21:15:15</sys_updated_on>
         <template><![CDATA[<div class="manager-operator">
-  <div class="panel panel-primary my-panel my-panel-primary">
+  <div class="panel panel-primary my-panel my-panel-primary">    
     <div class="panel-body my-panel-body">
     	<div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
+            <label>${$scope.sort_key:} {{ sort_key }}</label>
             <div class="table-wrapper">
               <table class="table table-bordered table-striped business-table text-center">
                 <thead>
@@ -376,50 +421,89 @@ table.business-table thead tr th {
                       ${Corretora} <br />
                       <input type="text" name="brokerage" id="brokerage" ng-model="search.brokerage"/>
                     </th>
-                    <th ng-click="sort('amount')">
+                    <th>
                       <div class="flex">
                         <div class="flex-1">
                           ${Quantidade}
                         </div>
                         <div class="flex-2 grid">
-                          <span class="glyphicon glyphicon-triangle-top sort-icon" ng-hide="sort_key == 'amount' && asc"></span>
-                        	<span class="glyphicon glyphicon-triangle-bottom sort-icon" ng-hide="sort_key == 'amount' && desc"></span>
+                          <i 
+                             class="fa fa-sort-amount-asc sort-icon" 
+                             aria-hidden="true" 
+                             ng-class="{'icon-blue-color': sort_key == 'amount' && icon_blue_color && asc, hidden: sort_key == 'amount' && desc, show: sort_key == 'amount' && asc}" 
+                             ng-click="sort('amount')">
+                          </i>
+                        	<i 
+                             class="fa fa-sort-amount-desc hidden sort-icon" 
+                             aria-hidden="true" 
+                             ng-class="{'icon-blue-color': sort_key == 'amount' && icon_blue_color && desc, hidden: sort_key == 'amount' && asc, show: sort_key == 'amount' && desc}" 
+                             ng-click="sort('amount')">
+                          </i>
                         </div>
                       </div>
                     </th>
-                    <th ng-show="option_radio == 'synthetic'" ng-click="sort('average_price')">
+                    <th ng-show="option_radio == 'synthetic'">
                       <div class="flex">
                         <div class="flex-1">
                           ${PM}
                         </div>
                         <div class="flex-2 grid">
-                          <span class="glyphicon glyphicon-triangle-top sort-icon" ng-hide="sort_key == 'average_price' && asc"></span>
-                        	<span class="glyphicon glyphicon-triangle-bottom sort-icon" ng-hide="sort_key == 'average_price' && desc"></span>
+                          <i 
+                             class="fa fa-sort-amount-asc sort-icon" 
+                             aria-hidden="true" 
+                             ng-class="{'icon-blue-color': sort_key == 'average_price' && icon_blue_color && asc, hidden: sort_key == 'average_price' && desc, show: sort_key == 'average_price' && asc}" 
+                             ng-click="sort('average_price')">
+                          </i>
+                        	<i 
+                             class="fa fa-sort-amount-desc hidden sort-icon" 
+                             aria-hidden="true" 
+                             ng-class="{'icon-blue-color': sort_key == 'average_price' && icon_blue_color && desc, hidden: sort_key == 'average_price' && asc, show: sort_key == 'average_price' && desc}" 
+                             ng-click="sort('average_price')">
+                          </i>
                         </div>
                       </div>
                     </th>
-                    <th ng-show="option_radio == 'analytic'" ng-click="sort('unit_price')">
+                    <th ng-show="option_radio == 'analytic'">
                       <div class="flex">
                         <div class="flex-1">
                           ${PU}
                         </div>
                         <div class="flex-2 grid">
-                          <span class="glyphicon glyphicon-triangle-top sort-icon" ng-hide="sort_key == 'unit_price' && asc"></span>
-                        	<span class="glyphicon glyphicon-triangle-bottom sort-icon" ng-hide="sort_key == 'unit_price' && desc"></span>
+                          <i 
+                             class="fa fa-sort-amount-asc sort-icon" 
+                             aria-hidden="true" 
+                             ng-class="{'icon-blue-color': sort_key == 'unit_price' && icon_blue_color && asc, hidden: sort_key == 'unit_price' && desc, show: sort_key == 'unit_price' && asc}" 
+                             ng-click="sort('unit_price')">
+                          </i>
+                        	<i 
+                             class="fa fa-sort-amount-desc hidden sort-icon" 
+                             aria-hidden="true" 
+                             ng-class="{'icon-blue-color': sort_key == 'unit_price' && icon_blue_color && desc, hidden: sort_key == 'unit_price' && asc, show: sort_key == 'unit_price' && desc}" 
+                             ng-click="sort('unit_price')">
+                          </i>
                         </div>
                       </div>
                     </th>
-                    <th ng-click="sort('finance')">
+                    <th>
                       <div class="flex">
                         <div class="flex-1">
                           ${Financeiro}
                         </div>
                         <div class="flex-2 grid">
-                          <span class="glyphicon glyphicon-triangle-top sort-icon" ng-hide="sort_key == 'finance' && asc"></span>
-                        	<span class="glyphicon glyphicon-triangle-bottom sort-icon" ng-hide="sort_key == 'finance' && desc"></span>
+                          <i 
+                             class="fa fa-sort-amount-asc sort-icon" 
+                             aria-hidden="true" 
+                             ng-class="{'icon-blue-color': sort_key == 'finance' && icon_blue_color && asc, hidden: sort_key == 'finance' && desc, show: sort_key == 'finance' && asc}" 
+                             ng-click="sort('finance')">
+                          </i>
+                        	<i 
+                             class="fa fa-sort-amount-desc hidden sort-icon" 
+                             aria-hidden="true" 
+                             ng-class="{'icon-blue-color': sort_key == 'finance' && icon_blue_color && desc, hidden: sort_key == 'finance' && asc, show: sort_key == 'finance' && desc}" 
+                             ng-click="sort('finance')">
+                          </i>
                         </div>
                       </div>
-                      <!--span class="glyphicon sort-icon" ng-show="sort_key == 'finance'" ng-class="{'glyphicon-triangle-top': reverse, 'glyphicon-triangle-bottom': !reverse}"></span-->
                     </th>
                     <th ng-show="option_radio == 'analytic'">${Ação}</th>
                   </tr>
