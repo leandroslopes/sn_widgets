@@ -10,4 +10,4 @@ This application was created for the purpose, also, of organizing the widgets th
 
 --- 
 
-[Send me a message](mailto:programador.leandrolopes@gmail.com "Send me a message") for more information about <b>sn_membrezia</b>.
+[Send me a message](mailto:programador.leandrolopes@gmail.com "Send me a message") for more information about <b>sn_widgets</b>.
