@@ -7,7 +7,7 @@
         <conditional>false</conditional>
         <entered_time/>
         <max_drift/>
-        <ml_capability_definition display_value="Closed alert similarity">f8d74bdddbc18850a6d183243996194d</ml_capability_definition>
+        <ml_capability_definition display_value="">f8d74bdddbc18850a6d183243996194d</ml_capability_definition>
         <ml_solution/>
         <name>Closed alert similarity</name>
         <offset/>

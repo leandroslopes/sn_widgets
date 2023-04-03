@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
     <sys_app_module action="INSERT_OR_UPDATE">
         <active>true</active>
-        <application display_value="CSV Temp">a2f9957f973421109fd237971153afa5</application>
+        <application display_value="">a2f9957f973421109fd237971153afa5</application>
         <assessment/>
         <device_type/>
         <filter/>

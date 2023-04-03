@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_module">
     <sys_ui_module action="INSERT_OR_UPDATE">
         <active>true</active>
-        <application display_value="Report Temp">1053f781c31b911038641c5ce0013142</application>
+        <application display_value="">1053f781c31b911038641c5ce0013142</application>
         <filter/>
         <name>Report Temps</name>
         <order/>

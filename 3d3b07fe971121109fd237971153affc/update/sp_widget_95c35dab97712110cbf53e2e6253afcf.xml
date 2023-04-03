@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope) {
+  /* widget controller */
+  var c = this;
+	
+	var users = [
+		{ number: 1, first_name: 'John', last_name: 'Doe', user_name: 'johndoe' },
+		{ number: 2, first_name: 'Jane', last_name: 'Doe', user_name: 'janedoe' },
+		{ number: 3, first_name: 'Bob', last_name: 'Smith', user_name: 'bobsmith' },
+		{ number: 4, first_name: 'Alice', last_name: 'Johnson', user_name: 'alicej' },
+		{ number: 5, first_name: 'David', last_name: 'Lee', user_name: 'davidlee' },
+		{ number: 6, first_name: 'Samantha', last_name: 'Jones', user_name: 'samanthaj' },
+		{ number: 7, first_name: 'Tom', last_name: 'Brown', user_name: 'tombrown' },
+		{ number: 8, first_name: 'Emily', last_name: 'Taylor', user_name: 'emilyt' },
+		{ number: 9, first_name: 'Jacob', last_name: 'Wilson', user_name: 'jacobw' },
+		{ number: 10, first_name: 'Olivia', last_name: 'Clark', user_name: 'oliviac' }
+	];
+	
+	$scope.totalItems = users.length;
+	$scope.currentPage = 1;
+	$scope.itemsPerPage = 1;
+
+	$scope.$watch("currentPage", function() {
+		setPagingData($scope.currentPage);
+	});
+
+	function setPagingData(page) {
+		var pagedData = users.slice(
+			(page - 1) * $scope.itemsPerPage,
+			page * $scope.itemsPerPage
+		);
+		$scope.aUsers = pagedData;
+	}
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>table {
+	border: 1px solid #CCC;
+  border-collapse: collapse;
+}
+
+table thead tr th {
+  background-color: #EEE;
+  border: 1px solid #CCC;
+}
+
+table tbody tr td {
+  border: 1px solid #CCC;
+}
+
+ul {
+  transform: rotate(90deg);
+	margin-left: -22px;
+}
+
+.pagination {
+  font-family: 'Glyphicons Halflings';
+}
+
+.pagination-page {
+  display: none;
+}
+
+.pagination &gt; li:first-child &gt; a {
+	width: 37px !important;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.pagination &gt; li:last-child &gt; a {
+	width: 37px !important;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.flex {
+	display: inline-flex
+}
+
+.flex-table {
+	width: 435px;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>table_view_record_by_record</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Table View Record by Record</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2023-03-31 14:59:58</sys_created_on>
+        <sys_id>95c35dab97712110cbf53e2e6253afcf</sys_id>
+        <sys_mod_count>40</sys_mod_count>
+        <sys_name>Table View Record by Record</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_95c35dab97712110cbf53e2e6253afcf</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2023-04-03 00:34:31</sys_updated_on>
+        <template><![CDATA[<div>
+
+  <div class="flex">
+
+    <div class="flex-table">
+      
+      <table class="table"> 
+        <thead> 
+          <tr> 
+            <th>Number</th> 
+            <th>First Name</th>
+            <th>Last Name</th> 
+            <th>Username</th> 
+          </tr> 
+        </thead> 
+        <tbody> 
+          <tr ng-repeat="user in aUsers"> 
+            <td ng-repeat="(key, value) in user">{{ value }}</td>
+          </tr>
+        </tbody> 
+      </table>
+      
+    </div>
+    
+    <div class="">
+      
+      <uib-pagination 
+                      total-items="totalItems" 
+                      items-per-page="itemsPerPage" 
+                      ng-model="currentPage" 
+                      boundary-link-numbers="false" 
+                      previous-text="&#xe079;" 
+                      next-text="&#xe080;">
+      </uib-pagination>
+      
+    </div>
+    
+  </div>
+  
+</div>]]></template>
+    </sp_widget>
+</record_update>
