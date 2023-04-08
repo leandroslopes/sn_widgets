@@ -12,55 +12,56 @@ Cities.prototype = {
     initialize: function() {
     },
 	
-	get: function(){
+	_get: function(){
 		var endpoint = 'https://www.redesocialdecidades.org.br/cities';
 		
-		var rest_message = new sn_ws.RESTMessageV2();
+		var restMessage = new sn_ws.RESTMessageV2();
 		
-		rest_message.setEndpoint(endpoint); 
+		restMessage.setEndpoint(endpoint); 
 
-		rest_message.setHttpMethod('GET');
+		restMessage.setHttpMethod('GET');
 		
-		var response = rest_message.execute();
+		var response = restMessage.execute();
 		
-		var response_string = response.getBody();
+		var responseString = response.getBody();
 		
-		return response_string;
+		return responseString;
 	},
 	
-	popular_table: function() {
-		this.delete_records_table();
+	popularTable: function() {
+		this._deleteRecordsTable();
 		
-		var cities = JSON.parse(this.get());
+		var cities = JSON.parse(this._get());
+
+		var tableName = 'x_821667_my_widget_city';
 		
 		if (cities.cities.length > 0) {
-			var table_name = 'x_821667_my_widget_city';
 		
-			var glide_record = new GlideRecord(table_name);
+			var glideRecord = new GlideRecord(tableName);
 
-			glide_record.initialize();
+			glideRecord.initialize();
 
 			cities.cities.forEach(function(city) {
 
 				for (property in city) {
-					glide_record.setValue(property, city[property]);
+					glideRecord.setValue(property, city[property]);
 				}
 
-				glide_record.insert();
+				glideRecord.insert();
 			});
 		} else {
-			gs.info('Not populated the table (x_821667_my_widget_city) ...');
+			gs.info('Not populated the table {0} ...', tableName);
 		}
 	},
 	
-	delete_records_table: function() {
-		var table_name = 'x_821667_my_widget_city';
+	_deleteRecordsTable: function() {
+		var tableName = 'x_821667_my_widget_city';
 		
-		var glide_record = new GlideRecord(table_name);
+		var glideRecord = new GlideRecord(tableName);
 
-		glide_record.addEncodedQuery('u_id!=0');
-		glide_record.query();
-		glide_record.deleteMultiple();
+		glideRecord.addEncodedQuery('id!=0');
+		glideRecord.query();
+		glideRecord.deleteMultiple();
 	},
 
     type: 'Cities'
@@ -69,13 +70,13 @@ Cities.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-04 19:57:56</sys_created_on>
         <sys_id>bce4df36979121109fd237971153afed</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>Cities</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sys_script_include_bce4df36979121109fd237971153afed</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-04 22:04:08</sys_updated_on>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2023-04-08 15:04:24</sys_updated_on>
     </sys_script_include>
 </record_update>

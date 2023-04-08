@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_portal">
     <sp_portal action="INSERT_OR_UPDATE">
-        <css_variables/>
+        <css_variables>$brand-primary:#103044;
+$body-bg:#f0f3f4;
+$state-success-text:#202022;
+$sp-homepage-bg:#fff;
+$sp-navbar-divider-color:#1d587f;
+$text-color:#202022;
+$sp-logo-margin-y:.5rem;
+$navbar-inverse-link-hover-color:#82c9f8;
+$panel-bg:#fff;
+$brand-success:#3c8100;
+$navbar-inverse-bg:#103044;
+$brand-warning:#c07300;
+$brand-danger:#cc293c;
+$sp-tagline-color:#717171;
+$navbar-inverse-link-color:#cbe9fc;
+$brand-info:#2b81b9;
+$link-color:#1d587f;
+$sp-logo-margin-x:1.5rem;
+$btn-default-bg:#fff;
+$text-muted:#979797;
+</css_variables>
         <dark_theme/>
         <default>false</default>
         <enable_ais>false</enable_ais>
@@ -11,7 +31,7 @@
         <kb_knowledge_base/>
         <kb_knowledge_page/>
         <login_page/>
-        <logo/>
+        <logo>398c837d97822110cbf53e2e6253af64</logo>
         <notfound_page/>
         <quick_start_config/>
         <sc_catalog/>
@@ -25,15 +45,15 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-04 20:38:24</sys_created_on>
         <sys_id>020e133a97d121109fd237971153af74</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>41</sys_mod_count>
         <sys_name>My Widgets</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_portal_020e133a97d121109fd237971153af74</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-03-04 21:23:47</sys_updated_on>
-        <theme display_value="La Jolla">a7a6e78277002300a6e592718a10617a</theme>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2023-04-08 14:02:26</sys_updated_on>
+        <theme display_value="Stock">79315153cb33310000f8d856634c9c4b</theme>
         <title>My Widgets</title>
         <ts_index_group/>
         <url_suffix>widgets</url_suffix>
