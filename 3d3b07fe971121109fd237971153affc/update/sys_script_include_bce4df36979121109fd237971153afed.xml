@@ -12,7 +12,7 @@ Cities.prototype = {
     initialize: function() {
     },
 	
-	_get: function(){
+	getCitiesFromAPI: function(){
 		var endpoint = 'https://www.redesocialdecidades.org.br/cities';
 		
 		var restMessage = new sn_ws.RESTMessageV2();
@@ -31,7 +31,7 @@ Cities.prototype = {
 	popularTable: function() {
 		this._deleteRecordsTable();
 		
-		var cities = JSON.parse(this._get());
+		var cities = JSON.parse(this.getCitiesFromAPI());
 
 		var tableName = 'x_821667_my_widget_city';
 		
@@ -70,13 +70,13 @@ Cities.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-04 19:57:56</sys_created_on>
         <sys_id>bce4df36979121109fd237971153afed</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>Cities</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sys_script_include_bce4df36979121109fd237971153afed</sys_update_name>
-        <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2023-04-08 15:04:24</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-25 13:12:57</sys_updated_on>
     </sys_script_include>
 </record_update>
