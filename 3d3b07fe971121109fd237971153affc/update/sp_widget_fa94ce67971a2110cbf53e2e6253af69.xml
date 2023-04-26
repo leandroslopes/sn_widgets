@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope) {
+  /* widget controller */
+  var c = this;
+	
+	$scope.isShowListQuotations = true;
+	$scope.isShowClient = false;
+	$scope.isShowVoters = false;
+	
+	$scope.columnNames = setColumnNames();
+	
+	var records = setRecords();
+	
+	$scope.selected = [];
+	
+	function setColumnNames() {
+		
+		var columnNames = [];		
+		var columnNumber = 1;
+		
+		for (var i = 0; i < 7; i++) {
+			
+			columnNames[i] = 'Column ' + columnNumber;
+			
+			columnNumber++;
+		}
+		
+		return columnNames;
+	}
+	
+	function setRecords() {
+		
+		var records = [];
+		
+		for (var i = 0; i < 105; i++) {
+			
+			var record = {
+				prop1: "Record " + i,
+				prop2: "Record " + i,
+				prop3: "Record " + i,
+				prop4: "Record " + i,
+				prop5: "Record " + i,
+				prop6: "Record " + i,
+				client: generateRandomClient(),
+				voters: generateRandomVoters()
+			};
+			
+			records.push(record);
+		}
+		
+		return records;
+		
+	}
+	
+	function generateRandomCnpj() {
+		var cnpj = Math.floor(Math.random() * 90000000000000) + 10000000000000;
+		return String(cnpj);
+	}
+
+	function generateRandomPhone() {
+		var phone = Math.floor(Math.random() * 900000000) + 100000000;
+		return String(phone);
+	}
+
+	function generateRandomClient() {
+		
+		var names = [
+			"Apple",
+			"Google",
+			"Amazon",
+			"Microsoft",
+			"Facebook",
+			"Tesla",
+			"Netflix",
+			"Uber",
+			"Airbnb",
+			"Adobe"
+		];
+		var name = names[Math.floor(Math.random() * names.length)];
+		var cnpj = generateRandomCnpj();
+		var phone = generateRandomPhone();
+
+		return {
+			name: name,
+			cnpj: cnpj,
+			phone: phone,
+		};
+	}
+	
+	function generateRandomVoters() {
+		
+		var voters = [];
+		
+		var names = [
+			"John Smith",
+			"Emily Jones",
+			"William Johnson",
+			"Olivia Davis",
+			"Benjamin Lee",
+			"Sophia Brown",
+			"Michael Taylor",
+			"Ava Martin",
+			"David Anderson",
+			"Emma Wilson"
+		];
+		var yesOrNO = ["SIM", "NÂO"];
+
+		for (var i = 0; i < 5; i++) {
+						
+			voters.push(
+				{
+					name: names[Math.floor(Math.random() * names.length)],
+					voted: yesOrNO[Math.floor(Math.random() * yesOrNO.length)]
+				}
+			); 
+			
+		}
+		
+		return voters;
+		
+	}
+	
+	$scope.totalItems = records.length;
+  $scope.currentPage = 1;
+  $scope.itemsPerPage = 7;
+	$scope.maxSize = 7;
+
+  $scope.$watch("currentPage", function() {
+    setPagingData($scope.currentPage);
+  });
+
+  function setPagingData(page) {
+		
+    var pagedData = records.slice(
+      (page - 1) * $scope.itemsPerPage,
+      page * $scope.itemsPerPage
+    );
+		
+    $scope.aRecords = pagedData;
+		
+		checkAllOnLoad();
+  }
+	
+	$scope.exist = function(item) {
+		
+		return $scope.selected.indexOf(item) > -1;
+		
+	}
+	
+	$scope.toggleSelect = function(item) {
+		
+		var index = $scope.selected.indexOf(item);
+		
+		if (index > -1)
+			$scope.selected.splice(index, 1);
+		else
+			$scope.selected.push(item);
+		
+	}
+	
+	$scope.checkAll = function() {
+		
+		if ($scope.selectAll) {
+			
+			angular.forEach($scope.aRecords, function(item) {
+				
+				var index = $scope.selected.indexOf(item);
+				
+				if (index >= 0) {
+					
+					return true;
+					
+				} else {
+					
+					$scope.selected.push(item);
+					
+				}
+				
+			});
+			
+		} else {
+			
+			$scope.selected = [];
+			
+		}
+		
+	}
+	
+	function checkAllOnLoad() {
+			
+		$scope.selectAll = true;
+
+		$scope.checkAll();
+		
+	}
+	
+	$scope.showClient = function(client) {
+		
+		$scope.isShowListQuotations = false;
+		$scope.isShowClient = true;
+		$scope.isShowVoters = false;
+		
+		$scope.voters = [];
+		
+		$scope.client = client;
+				
+	}
+	
+	$scope.backListQuotation = function() {
+		
+		$scope.isShowListQuotations = true;
+		$scope.isShowClient = false;
+		$scope.isShowVoters = false;
+
+		$scope.voters = [];
+		
+		$scope.client = {};		
+
+	}
+	
+	$scope.showVoters = function(voters) {
+		
+		$scope.isShowListQuotations = false;
+		$scope.isShowClient = false;
+		$scope.isShowVoters = true;
+		
+		$scope.voters = voters;
+		
+		$scope.client = {};
+		
+	}
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.pagination {
+	margin: 0px;
+}
+
+.align-right {
+	ext-align: right;
+}
+
+.my-panel-title {
+	font-size: 24px;
+}
+
+.margin-bottom-16 {
+	margin-bottom: 16px;
+}
+
+.my-row {
+	padding-top: 4px;
+  padding-bottom: 4px;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>quotation</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Quotation</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-25 15:04:45</sys_created_on>
+        <sys_id>fa94ce67971a2110cbf53e2e6253af69</sys_id>
+        <sys_mod_count>61</sys_mod_count>
+        <sys_name>Quotation</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_fa94ce67971a2110cbf53e2e6253af69</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-26 00:48:57</sys_updated_on>
+        <template><![CDATA[<div>
+	<div class="panel panel-default" ng-show="isShowListQuotations">
+    <div class="panel-heading">
+      <span class="panel-title my-panel-title">${Cotações}</span>
+    </div>
+    <div class="panel-body">
+      <div class="container-fluid margin-bottom-16">
+        <div class="row my-row">
+          <div class="col-md-4"><span>${Cotação}</span></div>
+          <div class="col-md-4"><span>${Mesa}</span></div>
+          <div class="col-md-4"><span>${Período}</span></div>
+        </div>
+        <div class="row my-row">
+          <div class="col-md-4">
+          	<select>
+              <option>${Com Conformidade}</option>
+              <option>${Sem Conformidade}</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+          	<select>
+              <option>${Mesa 1}</option>
+              <option>${Mesa 2}</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+          	<input type="date" />
+            <input type="date" />
+          </div>
+        </div>
+        <div class="row my-row">
+          <div class="col-md-3"><span>${Produto}</span></div>
+          <div class="col-md-3"><span>${Modalidade}</span></div>
+          <div class="col-md-3"><span>${Tipo de Taxa}</span></div>
+          <div class="col-md-3"><span>${Alçada}</span></div>
+        </div>
+        <div class="row my-row">
+          <div class="col-md-3">
+          	<select>
+              <option>${Produto 1}</option>
+              <option>${Produto 2}</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+          	<select>
+              <option>${Modalidade 1}</option>
+              <option>${Modalidade 2}</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+          	<select>
+              <option>${Taxa 1}</option>
+              <option>${Taxa 2}</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+          	<select>
+              <option>${Alçada 1}</option>
+              <option>${Alçada 2}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row my-row">
+          <div class="col-md-10">
+          </div>
+          <div class="col-md-2 align-right">
+          	<button type="submit" class="btn btn-primary">Pesquisar</button>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table table-bordered table-hover">
+            	<thead>
+                <tr>
+                  <th>
+                    <input type="checkbox" name="" ng-model="selectAll" ng-click="checkAll()"> 
+                  </th>
+                	<th ng-repeat="columnName in columnNames">{{ columnName }}</th>
+                  <th>${Ações}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="record in aRecords">
+                  <td>
+                  	<input type="checkbox" name="" ng-model="selected" ng-checked="exist(record)" ng-click="toggleSelect(record)">
+                  </td>
+                	<td>{{ record.prop1 }}</td>
+                  <td>{{ record.prop2 }}</td>
+                  <td>{{ record.prop3 }}</td>
+                  <td>{{ record.prop4 }}</td>
+                  <td>{{ record.prop5 }}</td>
+                  <td>{{ record.prop6 }}</td>
+                  <td>{{ record.client.name }}</td>
+                  <td>
+                  	<span title="Ver detalhes do cliente">
+                      <i class="fa fa-address-card" aria-hidden="true" ng-click="showClient(record.client)"></i>
+                    </span>
+                    <span title="Ver votantes">
+                      <i class="fa fa-users" aria-hidden="true" ng-click="showVoters(record.voters)"></i>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-primary" ng-click="generatePDF()">Gerar PDF</button>
+          </div>
+          <div class="col-md-10 align-right">
+            <uib-pagination 
+                            boundary-links="true" 
+                            total-items="totalItems" 
+                            ng-model="currentPage"
+                            items-per-page="itemsPerPage"
+                            max-size="maxSize"
+                            class="pagination-sm" 
+                            previous-text="&lsaquo;" 
+                            next-text="&rsaquo;" 
+                            first-text="&laquo;" 
+                            last-text="&raquo;">
+            </uib-pagination>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default" ng-show="isShowClient">
+    <div class="panel-heading">
+      <span class="panel-title">${Detalhes do Cliente}</span>
+    </div>
+    <div class="panel-body">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <label>${Nome}</label>
+          </div>
+          <div class="col-md-4">
+            <label>${CPNJ}</label>
+          </div>
+          <div class="col-md-4">
+            <label>${Telefone}</label>
+          </div>
+        </div>   
+        <div class="row">
+          <div class="col-md-4">
+            <label>{{ client.name }}</label>
+          </div>
+          <div class="col-md-4">
+            <label>{{ client.cnpj }}</label>
+          </div>
+          <div class="col-md-4">
+            <label>{{ client.phone }}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-primary" ng-click="backListQuotation()">Retornar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default" ng-show="isShowVoters">
+    <div class="panel-heading">
+      <span class="panel-title">${Votantes}</span>
+    </div>
+    <div class="panel-body">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table table-bordered table-hover">
+            	<thead>
+                <tr>
+                  <th>${Nome}</th>
+                	<th>${Votou?}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="voter in voters">
+                  <td>{{ voter.name }}</td>
+                  <td>{{ voter.voted }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-primary" ng-click="backListQuotation()">Retornar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>
