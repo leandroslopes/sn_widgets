@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller=function($scope) {
+        <client_script><![CDATA[api.controller=function($scope, $window) {
   /* widget controller */
   var c = this;
 	
@@ -9,9 +9,13 @@
 	$scope.isShowClient = false;
 	$scope.isShowVoters = false;
 	
+	$('#startDate').val(getDateUSAFormat());
+	$('#endDate').val(getDateUSAFormat());
+	
 	$scope.columnNames = setColumnNames();
 	
 	var records = setRecords();
+	$scope.recordsToPDF = records;
 	
 	$scope.selected = [];
 	
@@ -231,9 +235,72 @@
 		$scope.client = {};
 		
 	}
+	
+	function getDateUSAFormat(dateParam) {
+		
+		var dateFormatted = '';
+		
+		if (dateParam && dateParam != undefined) {
+			
+			var dateArray = '';
+
+			var dateHasBar = dateParam.includes('/');
+			var dateHasTrace = dateParam.includes('-');
+
+			if (dateHasBar)
+				dateArray = dateParam.split('/');
+			else
+				dateArray = dateParam.split('-');
+
+			dateFormatted = dateArray[2] + '-' + dateArray[1] + '-' + dateArray[0];
+			
+		} else {
+			
+			dateFormatted = moment().format('YYYY-MM-DD').toString();
+		
+		}
+		
+		return dateFormatted;
+	}
+	
+	$scope.generatePDF = function() {
+		
+		var attachmentURL = '';
+		var errorMessage = '';
+		
+		var request = {
+			action: 'generatePDF',
+			quotationLabels: $scope.columnNames,
+			quotations: $scope.recordsToPDF
+			
+		};
+
+		c.server.get(request).then(function(response) {
+			
+			c.data.action = undefined;
+			
+			if (response.data.attachmentURL && response.data.attachmentURL !== '') {
+				
+				attachmentURL = response.data.attachmentURL;				
+				$window.open(attachmentURL, '_self');
+				
+			} else {
+				
+				errorMessage = response.data.errorMessage;
+				alert(errorMessage);
+				
+			}
+			
+		});
+	}
+	
 };]]></client_script>
         <controller_as>c</controller_as>
-        <css>.pagination {
+        <css>select {
+	width: 100%;
+}
+
+.pagination {
 	margin: 0px;
 }
 
@@ -266,20 +333,55 @@
         <option_schema/>
         <public>false</public>
         <roles/>
-        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+	
+	data.attachmentURL = '';
+	data.errorMessage = '';
+	
+	if (input && input.action == 'generatePDF') {
+	
+		var pdfData = {
+			title: 'Cotações',
+			quotationLabels: input.quotationLabels,
+			quotations: input.quotations
+		};
+		
+		generatePDF(pdfData);
+	}
+	
+	function generatePDF(pdfData) {
+		
+		var responseGeneratePDF = '';
+		var isURLResponseGeneratePDF = '';
+		
+		var generatePDF = new GeneratePDFQuotation();
+		
+		responseGeneratePDF = generatePDF.generate(pdfData);
+		isURLResponseGeneratePDF = responseGeneratePDF.startsWith('http');
+		
+		if (responseGeneratePDF && isURLResponseGeneratePDF)
+			data.attachmentURL = responseGeneratePDF;
+		else
+			data.errorMessage = responseGeneratePDF;
+		
+	}
+
+})();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-25 15:04:45</sys_created_on>
         <sys_id>fa94ce67971a2110cbf53e2e6253af69</sys_id>
-        <sys_mod_count>61</sys_mod_count>
+        <sys_mod_count>85</sys_mod_count>
         <sys_name>Quotation</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_fa94ce67971a2110cbf53e2e6253af69</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-04-26 00:48:57</sys_updated_on>
+        <sys_updated_on>2023-04-26 14:57:34</sys_updated_on>
         <template><![CDATA[<div>
 	<div class="panel panel-default" ng-show="isShowListQuotations">
     <div class="panel-heading">
@@ -306,8 +408,8 @@
             </select>
           </div>
           <div class="col-md-4">
-          	<input type="date" />
-            <input type="date" />
+          	<input type="date" name="startDate" id="startDate" />
+            <input type="date" name="endDate" id="endDate" />
           </div>
         </div>
         <div class="row my-row">
