@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope) {
+  /* widget controller */
+  var c = this;
+	
+	var clientes = gerarEmpresasAleatorias(10);
+	
+	function gerarEmpresasAleatorias(quantidadeEmpresas) {
+		var empresas = [];
+
+		for(var i = 0; i < quantidadeEmpresas; i++) {
+			var razaoSocial = gerarRazaoSocialAleatoria();
+			var agencia = gerarAgenciaAleatoria();
+			var conta = gerarContaAleatoria();
+			var operacoes = gerarDadosAleatorios(2);
+
+			var empresa = {
+				razao_social: razaoSocial,
+				agencia: agencia,
+				conta: conta,
+				operacoes: operacoes
+			};
+
+			empresas.push(empresa);
+		}
+
+		return empresas;
+	}
+
+	function gerarRazaoSocialAleatoria() {
+		var palavras = ['Sol', 'Luz', 'Alfa', 'Beta', 'Gama', 'Zeta', 'Delta', 'Terra', 'Mar', 'Ar', 'Fogo'];
+		var index1 = Math.floor(Math.random() * palavras.length);
+		var index2 = Math.floor(Math.random() * palavras.length);
+
+		var palavra1 = palavras[index1];
+		var palavra2 = palavras[index2];
+
+		var razaoSocial = palavra1 + ' ' + palavra2 + ' Ltda';
+
+		return razaoSocial;
+	}
+
+	function gerarAgenciaAleatoria() {
+		var agenciaMinima = 1000;
+		var agenciaMaxima = 9999;
+		var agenciaAleatoria = Math.floor(Math.random() * (agenciaMaxima - agenciaMinima + 1)) + agenciaMinima;
+
+		return agenciaAleatoria.toString();
+	}
+
+	function gerarContaAleatoria() {
+		var contaMinima = 10000;
+		var contaMaxima = 99999;
+		var contaAleatoria = Math.floor(Math.random() * (contaMaxima - contaMinima + 1)) + contaMinima;
+
+		return contaAleatoria.toString();
+	}
+	
+	function gerarDadosAleatorios(numDados) {
+		var dados = [];
+
+		for (var i = 0; i < numDados; i++) {
+			var instrumento = gerarInstrumentoAleatorio();
+			var codigo = gerarCodigoAleatorio();
+			var vencimento = gerarVencimentoAleatorio();
+			var quantidade = gerarQuantidadeAleatoria();
+			var precoUnitario = gerarPrecoUnitarioAleatorio();
+			var iof = gerarIOFAleatorio();
+			var ir = gerarIRAleatorio();
+			var valor = calcularValor(precoUnitario, quantidade, iof, ir);
+
+			var dado = {
+				instrumento: instrumento,
+				codigo: codigo,
+				vencimento: vencimento,
+				quantidade: quantidade,
+				preco_unitario: precoUnitario,
+				iof: iof,
+				ir: ir,
+				valor: valor
+			};
+
+			dados.push(dado);
+		}
+
+		return dados;
+	}
+
+	function gerarInstrumentoAleatorio() {
+		var instrumentos = ['Ações', 'Bônus', 'Opções', 'Futuros'];
+		return instrumentos[Math.floor(Math.random() * instrumentos.length)];
+	}
+
+	function gerarCodigoAleatorio() {
+		var codigoMinimo = 1000;
+		var codigoMaximo = 9999;
+		return Math.floor(Math.random() * (codigoMaximo - codigoMinimo + 1)) + codigoMinimo;
+	}
+
+	function gerarVencimentoAleatorio() {
+		var agora = new Date();
+		var mesAtual = agora.getMonth();
+		var anoAtual = agora.getFullYear();
+		var vencimento = new Date(anoAtual, mesAtual, Math.floor(Math.random() * 28) + 1);
+		return vencimento.toLocaleDateString('pt-BR');
+	}
+
+	function gerarQuantidadeAleatoria() {
+		return Math.floor(Math.random() * 100) + 1;
+	}
+
+	function gerarPrecoUnitarioAleatorio() {
+		var precoMinimo = 100;
+		var precoMaximo = 1000;
+		return (Math.random() * (precoMaximo - precoMinimo) + precoMinimo).toFixed(2);
+	}
+
+	function gerarIOFAleatorio() {
+		return Math.random().toFixed(2);
+	}
+
+	function gerarIRAleatorio() {
+		return Math.random().toFixed(2);
+	}
+
+	function calcularValor(precoUnitario, quantidade, iof, ir) {
+		var valor = precoUnitario * quantidade * (1 + parseFloat(iof)) * (1 - parseFloat(ir));
+		return valor.toFixed(2);
+	}
+	
+	$scope.totalItems = clientes.length;
+  $scope.currentPage = 1;
+  $scope.itemsPerPage = 1;
+
+  $scope.$watch("currentPage", function() {
+    setPagingData($scope.currentPage);
+  });
+
+  function setPagingData(page) {
+    var pagedData = clientes.slice(
+      (page - 1) * $scope.itemsPerPage,
+      page * $scope.itemsPerPage
+    );
+    $scope.aCliente = pagedData[0];
+  }
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>label {
+	font-size: 14px;
+  font-weight: 600;
+  line-height: 1.125;
+  letter-spacing: 0.15px;
+  color: #111214;
+}
+
+.margin-top-32 {
+	margin-top: 32px;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #000;
+  width: 100%;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>complex_pagination</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Complex Pagination</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-28 17:27:56</sys_created_on>
+        <sys_id>a92286a497222110cbf53e2e6253af55</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>Complex Pagination</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_a92286a497222110cbf53e2e6253af55</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-28 18:52:05</sys_updated_on>
+        <template><![CDATA[<div>
+	<div class="panel my-panel panel-default">
+    <div class="panel-heading">
+      <label class="panel-title">${Demonstrativo de Operação com Títulos}</label></div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+          <label class="border-bottom">${Cliente}</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <label>${Razão Social:}</label>
+        </div>
+        <div class="col-md-10">
+          <label>{{ aCliente.razao_social }}</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <label>${Agência:}</label>
+        </div>
+        <div class="col-md-10">
+          <label>{{ aCliente.agencia }}</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <label>${Conta:}</label>
+        </div>
+        <div class="col-md-10">
+          <label>{{ aCliente.conta }}</label>
+        </div>
+      </div>
+      <div class="row margin-top-32">
+        <div class="col-md-12">
+          <label>${Modalidade: Registro, Liquidação e Custódia - Subcustódia}</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th rowspan="2">${Transação}</th>
+                <th colspan="3">${Título}</th>
+                <th rowspan="2">${Qt. Títulos}</th>
+                <th rowspan="2">${PU Negócio}</th>
+                <th rowspan="2">${IOF}</th>
+                <th rowspan="2">${IR}</th>
+                <th rowspan="2">${Valor Financeiro}</th>
+              </tr>
+              <tr>
+                <th>${Instrumento}</th>
+                <th>${Cód. Selic}</th>
+                <th>${Vencimento}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="operacao in aCliente.operacoes">
+                <th scope="row">${Registro de Vinculação de Títulos}</th>
+                <td>{{ operacao.instrumento }}</td>
+                <td>{{ operacao.codigo }}</td>
+                <td>{{ operacao.vencimento }}</td>
+                <td>{{ operacao.quantidade }}</td>
+                <td>{{ operacao.precoUnitario }}</td>
+                <td>{{ operacao.iof }}</td>
+                <td>{{ operacao.ir }}</td>
+                <td>{{ operacao.valor }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+    	<uib-pagination 
+                      boundary-links="true" 
+                      items-per-page="itemsPerPage" 
+                      total-items="totalItems" 
+                      ng-model="currentPage" 
+                      class="pagination-sm" 
+                      previous-text="&lsaquo;" 
+                      next-text="&rsaquo;" 
+                      first-text="&laquo;" 
+                      last-text="&raquo;">
+      </uib-pagination>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>
