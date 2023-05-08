@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_821667_my_widget.GeneratePDFDemand</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>GeneratePDFDemand</name>
+        <script><![CDATA[var GeneratePDFDemand  = Class.create();
+GeneratePDFDemand .prototype = {
+    initialize: function() {
+    },
+
+	/**
+     * Create a name for the PDF file.
+	 * @param {object} pdf_data Object with data from the PDF file.
+	 * @return {string} pdf_url PDF URL.
+     */
+    generate: function(pdf_data_string) {
+
+		var pdf_data = JSON.parse(pdf_data_string);
+
+        var meta_tags = '';
+		var css = '';
+		var header = '';
+		var body_data = '';
+		var blocks = [];
+		var pdf_url = '';
+		var has_report_temp = false;
+		var deleted_report_temp = false;
+		var no_generate_pdf = '';
+		var no_add_report_temp = '';
+		
+		var pdf_config = {
+			html: '',
+			table_target: 'x_821667_my_widget_report_temp',
+			sys_id_target: '',
+			pdf_name: this.create_pdf_name(),
+			header_footer_info: {
+				PageSize: 'A4 ',
+				PageOrientation: 'PORTRAIT',
+				GeneratePageNumber: 'false',
+				TopOrBottomMargin: '16',
+				LeftOrRightMargin: '16'
+			},
+			sys_id_font_family: '349f216397d62110cbf53e2e6253af0e' //sys_id of a font family record on the 'sys_pdf_generation_font_family' table
+		};
+		
+        meta_tags = this.create_metatags(pdf_data.title);
+		
+		css = this.create_css();
+		
+		header = this.create_header(pdf_data.title);
+		
+		blocks = pdf_data.blocks;
+		
+		body_data = this.create_body_data(blocks);
+
+		pdf_config.html = meta_tags + css + header + body_data;
+		
+		has_report_temp = this.has_report_temp(pdf_config);
+		
+		if (has_report_temp) {
+			deleted_report_temp = this.delete_report_Temp(pdf_config);
+			
+			if (deleted_report_temp) {
+				pdf_config.sys_id_target = this.add_report_temp(pdf_config);
+
+				if (pdf_config.sys_id_target && pdf_config.sys_id_target !== '') {
+					pdf = this.convert_html_to_pdf(pdf_config);
+
+					if (pdf && pdf.attachment_id !== '') {
+						pdf_url = this.create_pdf_url_to_download(pdf.attachment_id);
+
+						return pdf_url;
+					} else {
+						no_generate_pdf = 'Não foi possível gerar o relatório!';
+
+						return no_generate_pdf;
+					}
+
+
+				} else {
+					no_add_report_temp = 'Não foi possível gerar o relatório, por não ter sido adicionado o registro na tabela <Report Temp>';
+
+					return no_add_report_temp;
+				}
+
+			} else {
+				var no_deleted_report_temp = 'Não foi possível gerar o relatório, por não ter sido possível excluir o registro anterior na tabela <Report Temp>';
+
+				return no_deleted_report_temp;
+			}
+			
+		} else {
+			pdf_config.sys_id_target = this.add_report_temp(pdf_config);
+
+			if (pdf_config.sys_id_target && pdf_config.sys_id_target !== '') {
+				pdf = this.convert_html_to_pdf(pdf_config);
+
+				if (pdf && pdf.attachment_id !== '') {
+					pdf_url = this.create_pdf_url_to_download(pdf.attachment_id);
+
+					return pdf_url;
+				} else {
+					no_generate_pdf = 'Não foi possível gerar o relatório!';
+
+					return no_generate_pdf;
+				}
+			} else {
+				no_add_report_temp = 'Não foi possível gerar o relatório, por não ter sido adicionado o registro na tabela <Report Temp>';
+
+				return no_add_report_temp;
+			}
+		}
+    },
+	
+	/**
+	* Check if there is a record in the Report Temp table with the specified name.
+	* @param {object} pdf_config PDF configuration
+	* @return {booelan} has_report_temp True if it has a record. False if it doesn't
+	*/
+	has_report_temp: function(pdf_config) {
+		var pdf_name = pdf_config.pdf_name;
+		var has_report_temp = false;
+		
+		var glide_record = new GlideRecord(pdf_config.table_target);
+
+		glide_record.addQuery("name", pdf_name);
+		glide_record.query();
+		
+		if (glide_record.next()) {
+			has_report_temp = true;
+		}
+		
+		return has_report_temp;
+	},
+
+    /**
+     * Create a name for the PDF file.
+     * @return {string} pdf_name Name for the PDF file.
+     */
+    create_pdf_name: function() {
+        var pdf_name = '';
+
+        pdf_name = 'demand_' + gs.getUserID();
+
+        return pdf_name;
+    },
+
+    /**
+     * Create the initial HTML to convert to PDF.
+     * @param {string} title The title of the HTML page.
+     * @return {string} meta_tags Beginning of the HTML page.
+     */
+    create_metatags: function(page_html_title) {
+        var meta_tags = '';
+
+        meta_tags = '<!DOCTYPE html><html lang="en">' + 
+			'<head>' + 
+            '<meta charset="UTF-8" />' + 
+            '<meta name="viewport" content="width=device-width, initial-scale=1.0" />' + 
+            '<title>' + page_html_title + '</title>';
+
+        return meta_tags;
+    },
+
+    /**
+     * Creates the page CSS.
+	 * @return {string} css Page CSS.
+     */
+    create_css: function() {
+        var css = '';
+
+		var issue = this.create_date_hour_issue();
+
+        css = '<style>' + 
+            '@page { size: A4 portrait; margin-left: 0mm; margin-top: 27mm; margin-right: 0mm; margin-bottom: 20mm; font-family: Roboto, sans-serif;' + 
+            '@top-center { font-family: Roboto, sans-serif; content: element(report-header); }' +
+			'@bottom-center { font-family: Roboto, sans-serif; font-weight: bold; font-size: 14px; content: "' + issue.date + ' - Entgregas Relevantes" }' +
+			'}' +
+			'.report-header { position: running(report-header) }' +
+			'</style></head><body>';
+		
+		return css;
+    },
+	
+	/**
+	 * Creates the date and time of issue.
+	 * @return {object} issue Date and time of issue.
+	 */
+	create_date_hour_issue: function() {
+		var issue = {
+			date: '',
+			hour: ''
+		};
+		
+		var glideDateTime = new GlideDateTime();
+		
+        getTime = glideDateTime.getLocalTime();
+		
+		issue.date = glideDateTime.getDate().getByFormat('dd/MM/YYYY');
+		issue.hour = getTime.getByFormat('HH:mm:ss');
+		
+		return issue;
+	},
+	
+	/**
+	 * Create the report header.
+	 * @param {object} pdf_data Object with data from the PDF file.
+	 * @return {string} header Report header.
+	 */
+	create_header: function() {
+		var header = '';
+		
+		header = '<div style="" class="report-header">' +
+			'<table width="100%" style="border: none; border-collapse: collapse; border-spacing: 0; font-style: italic;">' +
+			'<tbody>' + 
+			'<tr><td><img src="x_821667_my_widget.demand_header.jpg" width="100%" /></tr>' +
+			'<tr><td></td></tr>' +
+			'<tr><td style="font-family: Roboto, sans-serif; background-color: #eead2d; text-align: center; font-weight: bold; padding: 4px 0px; font-style: italic;">' +
+			'<span style="color: #000; font-size: 18px; font-style: italic;">Entregas Relevantes: 05/05/2023 a 05/05/2023</span>' +
+			'</td></tr>' +
+			'</tbody>' +
+			'</table>' +
+			'</div>';
+		
+		return header;
+	},
+	
+	/**
+	 * Creates the data for the body of the report.
+	 * @param {array} titulosPublicosParameter Array of 'Public Titles' objects.
+	 * @return {string} body_data Data for the body of the report.
+	 */
+	create_body_data: function(blocks) {
+		var body_data = '';
+		
+		body_data += '<div style="padding: 16px;" class="content">';
+
+		body_data += '<table style="width: 100%;">';
+		body_data += '<tbody>';
+		
+		for (var i = 0; i < blocks.length; i++) {
+
+			body_data += '<tr>';
+
+			body_data += '<td style="padding: 8px;"><img style="" src="x_821667_my_widget.demand_car.png" alt="" width="48" height="48"></td>';
+			body_data += '<td style="padding: 10px;">';
+			body_data += '<div style="display: inline-grid;">';
+			body_data += '<div style="flex: 1; font-family: Roboto, sans-serif; font-size: 20px; text-align: center; font-weight: bold; color: #2a31b7;">';
+			body_data += blocks[i].title1;
+			body_data += '</div>';
+			body_data += '<div style="flex: 2; font-family: Roboto, sans-serif; font-size: 18px; padding-top: 12px;">';
+			body_data += blocks[i].text1;
+			body_data += '</div>';
+			body_data += '</div>';
+			body_data += '</td>';
+
+			body_data += '<td style="padding: 8px;"><img style="" src="x_821667_my_widget.demand_car.png" alt="" width="48" height="48"></td>';
+			body_data += '<td style="padding: 10px;">';
+			body_data += '<div style="display: inline-grid;">';
+			body_data += '<div style="flex: 1; font-family: Roboto, sans-serif; font-size: 20px; text-align: center; font-weight: bold; color: #2a31b7;">';
+			body_data += blocks[i].title2;
+			body_data += '</div>';
+			body_data += '<div style="flex: 2; font-family: Roboto, sans-serif; font-size: 18px; padding-top: 12px;">';
+			body_data += blocks[i].text2;
+			body_data += '</div>';
+			body_data += '</div>';
+			body_data += '</td>';
+
+			body_data += '</tr>';
+
+		}
+
+		body_data += '</div>';
+		body_data += '</body></html>';
+		
+		return body_data;
+	},
+	
+	/**
+	 * Deletes a record from the 'Report Temp' table and consequently the associated attachment record in the 'sys_attachment' table.
+	 * @param {object} pdf_config PDF attachment settings.
+	 * @return {void}
+	 */
+	delete_report_Temp: function(pdf_config) {
+		var pdf_name = pdf_config.pdf_name;
+		var deleted = false;
+		
+		var glide_record = new GlideRecord(pdf_config.table_target);
+		
+		glide_record.addQuery("name", pdf_name);
+		glide_record.query();
+		
+		if (glide_record.next()) {
+			deleted = glide_record.deleteRecord();
+		}
+		
+		return deleted;
+	},
+	
+	/**
+	 * Adds a record in the 'Report Temp' table.
+	 * @param {object} pdf_config PDF attachment settings.
+	 * @return {string} reportTempSysID Sys ID of a Report Temp.
+	 */
+	add_report_temp: function (pdf_config) {
+		var report_temp_sys_id = '';
+		
+		var glide_record = new GlideRecord(pdf_config.table_target);
+		
+		glide_record.initialize();
+		
+		glide_record.name = pdf_config.pdf_name;
+
+		report_temp_sys_id = glide_record.insert();
+		
+		return report_temp_sys_id;
+	},
+	
+	/**
+	 * Convert HTML to PDF.
+	 * @param {object} pdf_config PDF attachment settings.
+	 * @return {object} pdf Object with information from the created PDF.
+	 */
+	convert_html_to_pdf: function(pdf_config) {
+		var pdf_generation_api = new sn_pdfgeneratorutils.PDFGenerationAPI();
+		
+		var pdf = pdf_generation_api.convertToPDFWithHeaderFooter(
+            pdf_config.html, 
+            pdf_config.table_target, 
+            pdf_config.sys_id_target, 
+            pdf_config.pdf_name, 
+            pdf_config.header_footer_info,
+			pdf_config.sys_id_font_family
+        );
+		
+		gs.info(JSON.stringify(pdf));
+		
+		return pdf;
+	},
+	
+	/**
+	 * Creates the URL of the PDF for download.
+	 * @param {string} attachmentSysID Sys Attachment ID.
+	 * @return {string} attachmentUrl Attachment URL.
+	 */
+	create_pdf_url_to_download: function(attachment_sys_id) {
+		var instace = 'https://' + gs.getProperty('instance_name') + '.service-now.com/';
+		var attachment_table = 'sys_attachment.do';
+		var attachment_param_sys_id = '?sys_id=' + attachment_sys_id;
+		var attachment_url = instace + attachment_table + attachment_param_sys_id;
+		
+		return attachment_url;
+	},
+
+    type: 'GeneratePDFDemand '
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-05 19:23:25</sys_created_on>
+        <sys_id>91bf96f297662110cbf53e2e6253af9b</sys_id>
+        <sys_mod_count>85</sys_mod_count>
+        <sys_name>GeneratePDFDemand</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_script_include_91bf96f297662110cbf53e2e6253af9b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-07 18:25:30</sys_updated_on>
+    </sys_script_include>
+</record_update>
