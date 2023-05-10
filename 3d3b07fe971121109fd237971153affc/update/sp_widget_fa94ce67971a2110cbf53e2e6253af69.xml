@@ -15,6 +15,7 @@
 	$scope.columnNames = setColumnNames();
 	
 	var records = setRecords();
+	
 	$scope.recordsToPDF = records;
 	
 	$scope.selected = [];
@@ -294,6 +295,19 @@
 		});
 	}
 	
+	$scope.sendNotificationTeams = function() {
+		
+		var email = 'balceiro@bb.com.br';
+		
+		var prefix = 'https://teams.microsoft.com/l/chat/0/0?users=';
+		
+		var subject = '&message=Você ainda não votou na cotação TAL. Vá à plataforma e vote!';
+		
+		var url = prefix + email + subject;
+
+		$window.open(url, '_blank');
+	}
+	
 };]]></client_script>
         <controller_as>c</controller_as>
         <css>select {
@@ -374,14 +388,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-25 15:04:45</sys_created_on>
         <sys_id>fa94ce67971a2110cbf53e2e6253af69</sys_id>
-        <sys_mod_count>85</sys_mod_count>
+        <sys_mod_count>101</sys_mod_count>
         <sys_name>Quotation</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_fa94ce67971a2110cbf53e2e6253af69</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-04-26 14:57:34</sys_updated_on>
+        <sys_updated_on>2023-05-10 18:18:34</sys_updated_on>
         <template><![CDATA[<div>
 	<div class="panel panel-default" ng-show="isShowListQuotations">
     <div class="panel-heading">
@@ -565,12 +579,16 @@
                 <tr>
                   <th>${Nome}</th>
                 	<th>${Votou?}</th>
+                  <th>${Notificação}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr ng-repeat="voter in voters">
                   <td>{{ voter.name }}</td>
                   <td>{{ voter.voted }}</td>
+                  <td>
+                  	<button type="submit" class="btn btn-primary" ng-click="sendNotificationTeams()">Teams</button>
+                  </td>
                 </tr>
               </tbody>
             </table>
