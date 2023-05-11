@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description/>
+        <ignore_cache>true</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_821667_my_widget.my_webhook_demo</name>
+        <read_roles/>
+        <suffix>my_webhook_demo</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-11 16:36:47</sys_created_on>
+        <sys_id>17b2b8f0973aa110cbf53e2e6253af7c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_821667_my_widget.my_webhook_demo</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_properties_17b2b8f0973aa110cbf53e2e6253af7c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-11 16:36:47</sys_updated_on>
+        <type>string</type>
+        <value>https://capgemini.webhook.office.com/webhookb2/be934263-a940-4b53-84fb-c4b737928305@76a2ae5a-9f00-4f6b-95ed-5d33d77c4d61/IncomingWebhook/fae4c39c50c343c1b503770a42837a0d/482be5bf-5d30-4991-9eaa-53ce5ecec0bf</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=17b2b8f0973aa110cbf53e2e6253af7c"/>
+</record_update>
