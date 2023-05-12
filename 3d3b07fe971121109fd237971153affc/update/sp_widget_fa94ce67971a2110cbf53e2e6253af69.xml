@@ -225,13 +225,14 @@
 
 	}
 	
-	$scope.showVoters = function(voters) {
+	$scope.showVoters = function(quotation) {
 		
 		$scope.isShowListQuotations = false;
 		$scope.isShowClient = false;
 		$scope.isShowVoters = true;
 		
-		$scope.voters = voters;
+		$scope.quotation = quotation;
+		$scope.voters = quotation.voters;
 		
 		$scope.client = {};
 		
@@ -308,12 +309,19 @@
 		$window.open(url, '_blank');
 	}
 	
-	$scope.sendNotificationTeam = function() {
+	$scope.sendNotificationTeam = function(quotation, voterName) {
+				
+		var obj = {
+			action: 'sendNotificationTeam',
+			quotation: quotation,
+			voterName: voterName
+		};
 		
-		
-		//https://capgemini.webhook.office.com/webhookb2/be934263-a940-4b53-84fb-c4b737928305@76a2ae5a-9f00-4f6b-95ed-5d33d77c4d61/IncomingWebhook/fae4c39c50c343c1b503770a42837a0d/482be5bf-5d30-4991-9eaa-53ce5ecec0bf
-		// chamar o server
-		// no server chamar a webhook property e o subflow
+		c.server.get(obj).then(function(response) {
+			
+			c.data.action = undefined;
+			
+		});
 	}
 	
 };]]></client_script>
@@ -371,6 +379,13 @@
 		};
 		
 		generatePDF(pdfData);
+		
+	}
+	
+	if (input && input.action == 'sendNotificationTeam') {
+	
+		sendNotificationTeam(input);
+		
 	}
 	
 	function generatePDF(pdfData) {
@@ -389,6 +404,42 @@
 			data.errorMessage = responseGeneratePDF;
 		
 	}
+	
+	function sendNotificationTeam(dataToMessage) {
+		
+		var voterName = dataToMessage.voterName;
+		var quotation = dataToMessage.quotation;
+		
+		//https://capgemini.webhook.office.com/webhookb2/be934263-a940-4b53-84fb-c4b737928305@76a2ae5a-9f00-4f6b-95ed-5d33d77c4d61/IncomingWebhook/fae4c39c50c343c1b503770a42837a0d/482be5bf-5d30-4991-9eaa-53ce5ecec0bf
+		var webhookTeam = gs.getProperty('x_821667_my_widget.my_webhook_demo');
+		var messageTitle = 'Cotação';
+		var messageNotification = voterName + ', você ainda não votou na cotação ' + quotation.prop1  + '. Vote!';
+		
+		try {
+			
+			var inputs = {};
+			inputs['wehook_url'] = webhookTeam; 
+			inputs['message_title'] = messageTitle;
+			inputs['message_notification'] = messageNotification;
+
+			var result = sn_fd.FlowAPI.getRunner().subflow('x_821667_my_widget.send_notification_to_a_teams_team').inForeground().withInputs(inputs).run();
+			var outputs = result.getOutputs();
+
+			var postMessageSent = outputs['post_message_sent'];
+			var errorMessage = outputs['error_message'];
+
+			if (postMessageSent != undefined)
+				gs.addInfoMessage('Notificação enviada!');
+			else if (errorMessage != undefined)
+				gs.addErrorMessage(errorMessage);
+		
+		} catch (ex) {
+			var message = ex.getMessage();
+			
+			gs.addErrorMessage(message);
+		}
+		
+	}
 
 })();]]></script>
         <servicenow>false</servicenow>
@@ -396,14 +447,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-04-25 15:04:45</sys_created_on>
         <sys_id>fa94ce67971a2110cbf53e2e6253af69</sys_id>
-        <sys_mod_count>106</sys_mod_count>
+        <sys_mod_count>118</sys_mod_count>
         <sys_name>Quotation</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_fa94ce67971a2110cbf53e2e6253af69</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-05-11 16:41:26</sys_updated_on>
+        <sys_updated_on>2023-05-12 18:06:00</sys_updated_on>
         <template><![CDATA[<div>
 	<div class="panel panel-default" ng-show="isShowListQuotations">
     <div class="panel-heading">
@@ -504,7 +555,7 @@
                       <i class="fa fa-address-card" aria-hidden="true" ng-click="showClient(record.client)"></i>
                     </span>
                     <span title="Ver votantes">
-                      <i class="fa fa-users" aria-hidden="true" ng-click="showVoters(record.voters)"></i>
+                      <i class="fa fa-users" aria-hidden="true" ng-click="showVoters(record)"></i>
                     </span>
                   </td>
                 </tr>
@@ -596,7 +647,7 @@
                   <td>{{ voter.voted }}</td>
                   <td>
                   	<button type="submit" class="btn btn-primary" ng-click="openTeams()">Open Teams</button>
-                    <button type="submit" class="btn btn-primary" ng-click="sendNotificationTeam()">Notification Team</button>
+                    <button type="submit" class="btn btn-primary" ng-click="sendNotificationTeam(quotation, voter.name)">Notification Team</button>
                   </td>
                 </tr>
               </tbody>
