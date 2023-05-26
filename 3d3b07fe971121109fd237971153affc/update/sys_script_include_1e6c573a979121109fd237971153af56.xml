@@ -242,7 +242,7 @@ GeneratePDFIncidentReport .prototype = {
 		
 		body += '<tr>';
 		for (var label in incident_labels) {
-			body += '<th style="padding: 10px 6px; background-color: #C1C1C1; border-left: 2px solid #C1C1C1; border-right: 2px solid #C1C1C1; text-align: center; font-weight: bold; color: #000; border: 2px solid #000; border-collapse: collapse; border-spacing: 0px;">' + incident_labels[label] + '</th>';
+			body += '<th style="padding: 10px 6px; background-color: #C1C1C1; border-left: 2px solid #C1C1C1; border-right: 2px solid #C1C1C1; text-align: center; font-weight: 600; color: #000; border: 2px solid #000; border-collapse: collapse; border-spacing: 0px;">' + incident_labels[label] + '</th>';
 		}
 		body += '</tr>';
 		
@@ -265,7 +265,9 @@ GeneratePDFIncidentReport .prototype = {
 			
 			body_data += '<tr>';
 			for (var property in incident) {
-				body_data += '<td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-collapse: collapse; border-spacing: 0px; font-weight: 600;">' + incident[property] + '</td>';
+				body_data += '<td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-collapse: collapse; border-spacing: 0px;">'; 
+				body_data += incident[property];
+				body_data += '</td>';
 			}
 			body_data += '</tr>';
 		});
@@ -357,13 +359,13 @@ GeneratePDFIncidentReport .prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-04 20:31:33</sys_created_on>
         <sys_id>1e6c573a979121109fd237971153af56</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>GeneratePDFIncidentReport</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sys_script_include_1e6c573a979121109fd237971153af56</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-04-25 13:34:52</sys_updated_on>
+        <sys_updated_on>2023-05-26 19:22:54</sys_updated_on>
     </sys_script_include>
 </record_update>
