@@ -16,7 +16,7 @@
 	
 	c.incident_label_fields = c.data.incident_label_fields;
 	c.incidents = organize_incidents(c.data.incidents);
-	
+
 	/*  
 	 * Set date and time when the report is issued.
 	 */
@@ -367,14 +367,14 @@ table.table-data tbody tr td {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-04 21:13:38</sys_created_on>
         <sys_id>6b56277a971521109fd237971153afd6</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>26</sys_mod_count>
         <sys_name>Incident Reports</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_6b56277a971521109fd237971153afd6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-05-18 21:24:40</sys_updated_on>
+        <sys_updated_on>2023-05-26 19:18:04</sys_updated_on>
         <template><![CDATA[<div id="report">
   
   <h4 class="page-title">{{ c.title }}</h4> <br />
@@ -406,12 +406,24 @@ table.table-data tbody tr td {
     <table style="" width="100%">
 	  	<thead>
         <tr>
-          <th style="padding: 10px 6px; background-color: #C1C1C1; border-left: 2px solid #C1C1C1; border-right: 2px solid #C1C1C1; text-align: center; font-weight: bold; color: #000; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;" ng-repeat="label in c.incident_label_fields">{{ label }}</th>
+          <th style="padding: 10px 6px; background-color: #C1C1C1; border-left: 2px solid #C1C1C1; border-right: 2px solid #C1C1C1; text-align: center; font-weight: bold; color: #000; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;" 
+              ng-repeat="label in c.incident_label_fields">
+            {{ label }}
+          </th>
         </tr>
       </thead>
     	<tbody>
         <tr ng-repeat="incident in c.incidents">
-          <td style="padding: 10px 6px; text-align: center; font-weight: 600; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;" ng-repeat="property in incident">{{ property }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.number }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.opened_at }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.short_description }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.caller_name }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.priority }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.state }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.category }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.assignment_group }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.assigned_to_name }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.sys_updated_on }}</td>
         </tr>
       </tbody>
 		</table>
@@ -454,7 +466,7 @@ table.table-data tbody tr td {
         <tr>
           <td></td>
           <td></td>
-          <td colspan="4" style="font-size: 22px;"><strong>Issue</strong> {{ c.issue_date }} {{ c.issue_hour }}</td>
+          <td colspan="4" style="font-size: 22px;"><strong>Issue: </strong> {{ c.issue_date }} {{ c.issue_hour }}</td>
           <td></td>
           <td></td>
           <td></td>
@@ -491,7 +503,16 @@ table.table-data tbody tr td {
           </td>
         </tr>
         <tr ng-repeat="incident in c.incidents">
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;" ng-repeat="property in incident">{{ property }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.number }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.opened_at }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.short_description }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.caller_name }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.priority }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.state }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.category }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.assignment_group }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.assigned_to_name }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.sys_updated_on }}</td>
         </tr>
       </tbody>
 		</table>
