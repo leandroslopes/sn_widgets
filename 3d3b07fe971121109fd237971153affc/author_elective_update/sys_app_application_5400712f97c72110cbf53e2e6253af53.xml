@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_application">
+    <sys_app_application action="DELETE">
+        <active>true</active>
+        <category display_value="Custom Applications">e0355b31ef303000a61d5a3615c0fb78</category>
+        <description/>
+        <device_type>browser</device_type>
+        <hint/>
+        <name>DataLookUp </name>
+        <order>100</order>
+        <roles>x_821667_my_widget.datalookup_table_user</roles>
+        <sys_class_name>sys_app_application</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-01 20:21:50</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>5400712f97c72110cbf53e2e6253af53</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DataLookUp </sys_name>
+        <sys_overrides/>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_app_application_5400712f97c72110cbf53e2e6253af53</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-01 20:21:50</sys_updated_on>
+        <title>DataLookUp </title>
+        <view_name/>
+    </sys_app_application>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="My Widgets">3d3b07fe971121109fd237971153affc</application>
+        <file_path/>
+        <instance_id>7ce0729fdb91f410e26fd7c8f4961917</instance_id>
+        <instance_name>dev118034</instance_name>
+        <name>sys_app_application_5400712f97c72110cbf53e2e6253af53</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_application"><sys_app_application action="INSERT_OR_UPDATE"><active>true</active><category display_value="Custom Applications">e0355b31ef303000a61d5a3615c0fb78</category><description/><device_type>browser</device_type><hint/><name>DataLookUp </name><order>100</order><roles>x_821667_my_widget.datalookup_table_user</roles><sys_class_name>sys_app_application</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-06-01 20:21:50</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>5400712f97c72110cbf53e2e6253af53</sys_id><sys_mod_count>0</sys_mod_count><sys_name>DataLookUp </sys_name><sys_overrides/><sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package><sys_policy/><sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope><sys_update_name>sys_app_application_5400712f97c72110cbf53e2e6253af53</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-06-01 20:21:50</sys_updated_on><title>DataLookUp </title><view_name/></sys_app_application></record_update>]]></payload>
+        <payload_hash>-122083261</payload_hash>
+        <record_name>DataLookUp </record_name>
+        <reverted_from/>
+        <source>c176edaf97522110cbf53e2e6253af90</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-01 20:21:50</sys_created_on>
+        <sys_id>1400712f97c72110cbf53e2e6253af63</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>188789fac820000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-01 20:21:50</sys_updated_on>
+        <type>Application Menu</type>
+        <update_guid>5800712ff0c721109e6f2f6122808c62</update_guid>
+        <update_guid_history>5800712ff0c721109e6f2f6122808c62:-122083261</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="DataLookUp ">6f8b312b970b2110cbf53e2e6253afdb</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-01 21:12:17</sys_created_on>
+        <sys_db_object display_value="" name="sys_app_application">sys_app_application</sys_db_object>
+        <sys_id>45b85ce20d0a4394947709d1c8844421</sys_id>
+        <sys_metadata>5400712f97c72110cbf53e2e6253af53</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DataLookUp </sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_scope_delete display_value="">1735843da8c24506b7924cef26a0ffe1</sys_scope_delete>
+        <sys_update_name>sys_app_application_5400712f97c72110cbf53e2e6253af53</sys_update_name>
+        <sys_update_version display_value="sys_app_application_5400712f97c72110cbf53e2e6253af53">1400712f97c72110cbf53e2e6253af63</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-01 21:12:17</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
+    <sys_security_acl action="DELETE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <condition/>
+        <description>Default access control on x_821667_my_widget_datalookup_table</description>
+        <name>x_821667_my_widget_datalookup_table</name>
+        <operation display_value="delete">delete</operation>
+        <script/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-01 20:21:51</sys_created_on>
+        <sys_id>e000712f97c72110cbf53e2e6253af8e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_821667_my_widget_datalookup_table</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_security_acl_e000712f97c72110cbf53e2e6253af8e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-01 20:21:51</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="My Widgets">3d3b07fe971121109fd237971153affc</application>
+        <file_path/>
+        <instance_id>7ce0729fdb91f410e26fd7c8f4961917</instance_id>
+        <instance_name>dev118034</instance_name>
+        <name>sys_security_acl_e000712f97c72110cbf53e2e6253af8e</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>true</active><admin_overrides>true</admin_overrides><advanced>false</advanced><condition/><description>Default access control on x_821667_my_widget_datalookup_table</description><name>x_821667_my_widget_datalookup_table</name><operation display_value="delete">delete</operation><script/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-06-01 20:21:51</sys_created_on><sys_id>e000712f97c72110cbf53e2e6253af8e</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_821667_my_widget_datalookup_table</sys_name><sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package><sys_policy/><sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope><sys_update_name>sys_security_acl_e000712f97c72110cbf53e2e6253af8e</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-06-01 20:21:51</sys_updated_on><type display_value="record">record</type></sys_security_acl></record_update>]]></payload>
+        <payload_hash>-1246448893</payload_hash>
+        <record_name>x_821667_my_widget_datalookup_table</record_name>
+        <reverted_from/>
+        <source>c176edaf97522110cbf53e2e6253af90</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-01 20:21:51</sys_created_on>
+        <sys_id>e400712f97c72110cbf53e2e6253af90</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>188789faf460000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-01 20:21:51</sys_updated_on>
+        <type>Access Control</type>
+        <update_guid>2c00712f3bc7211005de5205218a5a8f</update_guid>
+        <update_guid_history>2c00712f3bc7211005de5205218a5a8f:-1246448893</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-01 21:11:55</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl">sys_security_acl</sys_db_object>
+        <sys_id>62b03ad7b0f64021b40cff273af124b1</sys_id>
+        <sys_metadata>e000712f97c72110cbf53e2e6253af8e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_821667_my_widget_datalookup_table</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_parent display_value="">2c00712f97c72110cbf53e2e6253af93</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_scope_delete display_value="">1735843da8c24506b7924cef26a0ffe1</sys_scope_delete>
+        <sys_update_name>sys_security_acl_e000712f97c72110cbf53e2e6253af8e</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_e000712f97c72110cbf53e2e6253af8e">e400712f97c72110cbf53e2e6253af90</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-01 21:11:55</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
