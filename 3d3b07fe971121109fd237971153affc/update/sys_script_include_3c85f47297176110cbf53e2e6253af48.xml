@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_821667_my_widget.MyWidgetsGroups</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>MyWidgetsGroups</name>
+        <script><![CDATA[var MyWidgetsGroups = Class.create();
+MyWidgetsGroups.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    listString: function(userSysIdParameter) {
+
+        var groupsString = '';
+
+        var userSysId = userSysIdParameter || this.getParameter("sysparm_user_sys_id");
+
+        var glideRecordGroups = new GlideRecord('sys_user_grmember');
+        glideRecordGroups.addQuery('user', userSysId.toString());
+        glideRecordGroups.query();
+
+        while (glideRecordGroups.next()) {
+
+            var groupName = glideRecordGroups.group.getDisplayValue();
+
+            groupsString += groupName + '\n';
+        }
+
+        if (groupsString.length > 0) {
+            groupsString = groupsString.slice(0, -2);
+        }
+
+        return JSON.stringify(groupsString);
+    },
+
+    queryToReferenceQualifier: function(userSysIdParameter) {
+		gs.info('entrou: '+ userSysIdParameter);
+        var userSysId = userSysIdParameter;
+        var groups = [];
+        var query = '';
+        var queryInitial = 'sys_idIN';
+
+        var glideRecordGroups = new GlideRecord('sys_user_grmember');
+        glideRecordGroups.addQuery('user', userSysId.toString());
+        glideRecordGroups.query();
+
+        while (glideRecordGroups.next()) {
+
+			var groupSysID = glideRecordGroups.group;
+			
+            groups.push(groupSysID.toString());
+        }
+
+        query = queryInitial + groups.join(',');
+        gs.info('entrou query: ' + query);
+        return query;
+    },
+
+    type: 'MyWidgetsGroups'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-11 18:26:59</sys_created_on>
+        <sys_id>3c85f47297176110cbf53e2e6253af48</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>MyWidgetsGroups</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_script_include_3c85f47297176110cbf53e2e6253af48</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-11 20:12:20</sys_updated_on>
+    </sys_script_include>
+</record_update>
