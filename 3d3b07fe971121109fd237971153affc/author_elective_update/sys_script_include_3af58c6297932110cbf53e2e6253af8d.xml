@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_821667_my_widget.MyWidgetsGroups</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>MyWidgetsGroups</name>
+        <script><![CDATA[var MyWidgetsGroups = Class.create();
+MyWidgetsGroups.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    listString: function() {
+
+        var groupsString = '';
+
+        var userSysId = this.getParameter("sysparm_user_sys_id");
+
+        var glideRecordGroups = new GlideRecord('sys_user_grmember');
+        glideRecordGroups.addQuery('user', userSysId.toString());
+        glideRecordGroups.query();
+
+        while (glideRecordGrooups.next()) {
+
+            var groupName = glideRecordGroups.group.getDisplayValue();
+
+            groupsString += groupName + '\n';
+        }
+
+        if (groupsString.length > 0) {
+            groupsString = groupsString.slice(0, -2);
+        }
+		gs.info('leandro listString: ' + JSON.stringify(groupsString));
+        return JSON.stringify(groupsString);
+    },
+
+	queryToReferenceQualifier: function(userSysIdParameter) {
+
+		var userSysId = userSysIdParameter;
+		var groups = [];
+		var query = '';
+		var queryInitial = 'sys_idIN';
+
+        var glideRecordGroups = new GlideRecord('sys_user_grmember');
+        glideRecordGroups.addQuery('user', userSysId.toString());
+        glideRecordGroups.query();
+
+        while (glideRecordGrooups.next()) {
+
+            groups.push(glideRecordGroups.getUniqueValue());
+        }
+
+		query = queryInitial + groups.join(',');
+		gs.info('leandro queryToReferenceQualifier: ' + query);
+		return query;
+	},
+
+    type: 'MyWidgetsGroups'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-10 20:22:42</sys_created_on>
+        <sys_id>3af58c6297932110cbf53e2e6253af8d</sys_id>
+        <sys_mod_count>24</sys_mod_count>
+        <sys_name>MyWidgetsGroups</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_script_include_3af58c6297932110cbf53e2e6253af8d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-11 18:22:56</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="My Widgets">3d3b07fe971121109fd237971153affc</application>
+        <file_path/>
+        <instance_id>7ce0729fdb91f410e26fd7c8f4961917</instance_id>
+        <instance_name>dev118034</instance_name>
+        <name>sys_script_include_3af58c6297932110cbf53e2e6253af8d</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_821667_my_widget.MyWidgetsGroups&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;true&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;MyWidgetsGroups&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var MyWidgetsGroups = Class.create();
+MyWidgetsGroups.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    listString: function() {
+
+        var groupsString = '';
+
+        var userSysId = this.getParameter("sysparm_user_sys_id");
+
+        var glideRecordGroups = new GlideRecord('sys_user_grmember');
+        glideRecordGroups.addQuery('user', userSysId.toString());
+        glideRecordGroups.query();
+
+        while (glideRecordGrooups.next()) {
+
+            var groupName = glideRecordGroups.group.getDisplayValue();
+
+            groupsString += groupName + '\n';
+        }
+
+        if (groupsString.length &gt; 0) {
+            groupsString = groupsString.slice(0, -2);
+        }
+		gs.info('leandro listString: ' + JSON.stringify(groupsString));
+        return JSON.stringify(groupsString);
+    },
+
+	queryToReferenceQualifier: function(userSysIdParameter) {
+
+		var userSysId = userSysIdParameter;
+		var groups = [];
+		var query = '';
+		var queryInitial = 'sys_idIN';
+
+        var glideRecordGroups = new GlideRecord('sys_user_grmember');
+        glideRecordGroups.addQuery('user', userSysId.toString());
+        glideRecordGroups.query();
+
+        while (glideRecordGrooups.next()) {
+
+            groups.push(glideRecordGroups.getUniqueValue());
+        }
+
+		query = queryInitial + groups.join(',');
+		gs.info('leandro queryToReferenceQualifier: ' + query);
+		return query;
+	},
+
+    type: 'MyWidgetsGroups'
+});]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-06-10 20:22:42&lt;/sys_created_on&gt;&lt;sys_id&gt;3af58c6297932110cbf53e2e6253af8d&lt;/sys_id&gt;&lt;sys_mod_count&gt;24&lt;/sys_mod_count&gt;&lt;sys_name&gt;MyWidgetsGroups&lt;/sys_name&gt;&lt;sys_package display_value="My Widgets" source="x_821667_my_widget"&gt;3d3b07fe971121109fd237971153affc&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="My Widgets"&gt;3d3b07fe971121109fd237971153affc&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_3af58c6297932110cbf53e2e6253af8d&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-06-11 18:22:56&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>407915758</payload_hash>
+        <record_name>MyWidgetsGroups</record_name>
+        <reverted_from/>
+        <source>c176edaf97522110cbf53e2e6253af90</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-11 18:22:56</sys_created_on>
+        <sys_id>d0b4f47297176110cbf53e2e6253af1c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>188abb26ac30000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-11 18:22:56</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>98b4f472351761103bdaa983e0d1ed1b</update_guid>
+        <update_guid_history>98b4f472351761103bdaa983e0d1ed1b:407915758,5ca470fefdd36110482fbd78d1edd496:-2087970699,7832bcbec7d36110e8adb2d02ca8f044:407915758,4111fcba76d361107e451f028a37ff91:-199915538,3490fcba91d36110408f93e1373c9c8c:1306377292,0011bbee76df211072e259a8f9be2625:1726821652,18ac27aab7df211062058828eb2cfb35:-1266607911,5c7ba32affdf21106ebf972cf980f4f5:-635513425,4b2e80aa8f932110ab923477f2949444:-389871835,5a0ec0aa5e932110b903398576b6a990:1801639616,abdd846a13932110aaae21ab9eb566b4:1785763151,ddcd406a3293211033ef2b9deb6985b4:1436540934,587d846ac9932110e97ca1cd61a77f9c:-30557479,d53dcc2a19932110079e4e2582ee513a:-117250901,8eec006a25932110ce4820ddf7bbc3db:-1672020118,1a2cc0e67e9321103d376e8e93a531e0:1412578154,7a2b40e6ab9321104a051a4277440edf:2089208362,d49a80a6d393211082ea9d7ac340ab4e:-1780863332,cc5a44a6dc932110bc2d6ca686f69a61:-157539364,714a04a6ed932110a352db61ba07aba7:1168108476,82d94c66ab932110901ea6db078b409c:-1650851645,cd59006651932110a002da1db220ad2e:1401708244,08a88ce22c932110619dcebfa94efcf0:1762468757,0fc60062cf932110863744b76bb07e0b:1797307894,018684a27d932110d30ce764d684c7c9:-1089259196</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-11 18:26:27</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>0042ec3fc1df4b328359052d74086059</sys_id>
+        <sys_metadata>3af58c6297932110cbf53e2e6253af8d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>MyWidgetsGroups</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_scope_delete display_value="">1735843da8c24506b7924cef26a0ffe1</sys_scope_delete>
+        <sys_update_name>sys_script_include_3af58c6297932110cbf53e2e6253af8d</sys_update_name>
+        <sys_update_version display_value="sys_script_include_3af58c6297932110cbf53e2e6253af8d">d0b4f47297176110cbf53e2e6253af1c</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-11 18:26:27</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

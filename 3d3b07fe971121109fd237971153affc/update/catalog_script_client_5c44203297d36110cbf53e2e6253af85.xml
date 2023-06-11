@@ -33,7 +33,7 @@
     }
 
     var userSysId = g_form.getValue('choose_a_user');
-
+	
     var glideAjax = new GlideAjax('MyWidgetsGroups');
     glideAjax.addParam('sysparm_name', 'listString');
     glideAjax.addParam('sysparm_user_sys_id', userSysId.toString());
@@ -42,26 +42,26 @@
     function GroupsParse(response) {
 
         var answer = response.responseXML.documentElement.getAttribute("answer");
-
+		
         g_form.setValue('groups', JSON.parse(answer));
     }
 
 }]]></script>
         <sys_class_name>catalog_script_client</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2023-06-11 13:20:21</sys_created_on>
+        <sys_created_on>2023-06-11 17:11:08</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>6b6f276e97df2110cbf53e2e6253af99</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_id>5c44203297d36110cbf53e2e6253af85</sys_id>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>Popular Groups</sys_name>
         <sys_overrides/>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
-        <sys_update_name>catalog_script_client_6b6f276e97df2110cbf53e2e6253af99</sys_update_name>
+        <sys_update_name>catalog_script_client_5c44203297d36110cbf53e2e6253af85</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-11 13:40:12</sys_updated_on>
+        <sys_updated_on>2023-06-11 18:44:28</sys_updated_on>
         <table/>
         <type>onChange</type>
         <ui_type>10</ui_type>
