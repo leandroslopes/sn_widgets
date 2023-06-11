@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role">
+    <sys_user_role action="DELETE">
+        <assignable_by/>
+        <can_delegate>true</can_delegate>
+        <description/>
+        <elevated_privilege>false</elevated_privilege>
+        <grantable>true</grantable>
+        <includes_roles/>
+        <name>x_821667_my_widget.datalookup_table_user</name>
+        <requires_subscription>-1</requires_subscription>
+        <scoped_admin>false</scoped_admin>
+        <suffix>datalookup_table_user</suffix>
+        <sys_class_name>sys_user_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-01 20:21:50</sys_created_on>
+        <sys_id>9000712f97c72110cbf53e2e6253af4b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_821667_my_widget.datalookup_table_user</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_user_role_9000712f97c72110cbf53e2e6253af4b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-01 20:21:50</sys_updated_on>
+    </sys_user_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="My Widgets">3d3b07fe971121109fd237971153affc</application>
+        <file_path/>
+        <instance_id>7ce0729fdb91f410e26fd7c8f4961917</instance_id>
+        <instance_name>dev118034</instance_name>
+        <name>sys_user_role_9000712f97c72110cbf53e2e6253af4b</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role"><sys_user_role action="INSERT_OR_UPDATE"><assignable_by/><can_delegate>true</can_delegate><description/><elevated_privilege>false</elevated_privilege><grantable>true</grantable><includes_roles/><name>x_821667_my_widget.datalookup_table_user</name><requires_subscription>-1</requires_subscription><scoped_admin>false</scoped_admin><suffix>datalookup_table_user</suffix><sys_class_name>sys_user_role</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-06-01 20:21:50</sys_created_on><sys_id>9000712f97c72110cbf53e2e6253af4b</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_821667_my_widget.datalookup_table_user</sys_name><sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package><sys_policy/><sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope><sys_update_name>sys_user_role_9000712f97c72110cbf53e2e6253af4b</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-06-01 20:21:50</sys_updated_on></sys_user_role></record_update>]]></payload>
+        <payload_hash>650930826</payload_hash>
+        <record_name>x_821667_my_widget.datalookup_table_user</record_name>
+        <reverted_from/>
+        <source>c176edaf97522110cbf53e2e6253af90</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-01 20:21:50</sys_created_on>
+        <sys_id>5400712f97c72110cbf53e2e6253af4f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>188789fabd60000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-01 20:21:50</sys_updated_on>
+        <type>Role</type>
+        <update_guid>9800712ff3c72110e4c40221e8de864e</update_guid>
+        <update_guid_history>9800712ff3c72110e4c40221e8de864e:650930826</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="x_821667_my_widget.datalookup_table_user">1dbbf12b970b2110cbf53e2e6253afff</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-01 21:12:58</sys_created_on>
+        <sys_db_object display_value="" name="sys_user_role">sys_user_role</sys_db_object>
+        <sys_id>140339004f0044228c6a3fae92ee51a4</sys_id>
+        <sys_metadata>9000712f97c72110cbf53e2e6253af4b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_821667_my_widget.datalookup_table_user</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_scope_delete display_value="">1735843da8c24506b7924cef26a0ffe1</sys_scope_delete>
+        <sys_update_name>sys_user_role_9000712f97c72110cbf53e2e6253af4b</sys_update_name>
+        <sys_update_version display_value="sys_user_role_9000712f97c72110cbf53e2e6253af4b">5400712f97c72110cbf53e2e6253af4f</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-01 21:12:58</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
