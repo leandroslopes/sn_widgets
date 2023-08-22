@@ -34,6 +34,7 @@ $text-muted:#979797;
         <logo>398c837d97822110cbf53e2e6253af64</logo>
         <notfound_page/>
         <quick_start_config/>
+        <rtl_enabled>false</rtl_enabled>
         <sc_catalog/>
         <sc_catalog_page/>
         <sc_category_page/>

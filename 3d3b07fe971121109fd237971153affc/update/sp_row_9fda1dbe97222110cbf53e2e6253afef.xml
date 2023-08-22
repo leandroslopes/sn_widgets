@@ -2,6 +2,7 @@
     <sp_row action="INSERT_OR_UPDATE">
         <class_name/>
         <order>1</order>
+        <semantic_tag/>
         <sp_column/>
         <sp_container display_value="Demand Template - Container 1">06da91f297622110cbf53e2e6253af10</sp_container>
         <sys_class_name>sp_row</sys_class_name>

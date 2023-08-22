@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="f25ff00c97f47910cbf53e2e6253afee" extends="sys_import_set_row" label="Country Import Set" max_length="40" name="x_821667_my_widget_country_import_set" type="collection">
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Country" label="Country" max_length="40" name="u_country" type="string"/>
+        <element attributes="import_attribute_name=Currency" label="Currency" max_length="40" name="u_currency" type="integer"/>
+        <element attributes="import_attribute_name=ID" label="ID" max_length="40" name="u_id" type="integer"/>
+    </element>
+</database>

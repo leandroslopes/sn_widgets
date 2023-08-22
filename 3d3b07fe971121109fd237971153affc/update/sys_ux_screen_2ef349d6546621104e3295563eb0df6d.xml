@@ -3,6 +3,7 @@
         <active>true</active>
         <app_config display_value="My Wokspace Config">e6f349d66e662110bb7502498032ef7e</app_config>
         <description/>
+        <disable_auto_reflow>false</disable_auto_reflow>
         <event_mappings>[ ]</event_mappings>
         <macroponent display_value="Record default">26f349d6e36621105925986194ea796c</macroponent>
         <macroponent_config>{

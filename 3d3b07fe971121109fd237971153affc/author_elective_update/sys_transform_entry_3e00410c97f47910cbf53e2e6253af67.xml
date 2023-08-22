@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_transform_entry">
+    <sys_transform_entry action="DELETE">
+        <choice_action>create</choice_action>
+        <coalesce>false</coalesce>
+        <coalesce_case_sensitive>false</coalesce_case_sensitive>
+        <coalesce_empty_fields>false</coalesce_empty_fields>
+        <date_format>yyyy-MM-dd HH:mm:ss</date_format>
+        <map display_value="Country Transform Map">0d9fbc0c97f47910cbf53e2e6253af72</map>
+        <reference_value_field/>
+        <source_field>u_id</source_field>
+        <source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+        <source_table>x_821667_my_widget_country_import_set</source_table>
+        <sys_class_name>sys_transform_entry</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-08-16 19:43:26</sys_created_on>
+        <sys_id>3e00410c97f47910cbf53e2e6253af67</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>u_id</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_transform_entry_3e00410c97f47910cbf53e2e6253af67</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-08-16 19:43:26</sys_updated_on>
+        <target_field>id</target_field>
+        <target_table>x_821667_my_widget_country</target_table>
+        <use_source_script>false</use_source_script>
+    </sys_transform_entry>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="My Widgets">3d3b07fe971121109fd237971153affc</application>
+        <file_path/>
+        <instance_id>7ce0729fdb91f410e26fd7c8f4961917</instance_id>
+        <instance_name>dev118034</instance_name>
+        <name>sys_transform_entry_3e00410c97f47910cbf53e2e6253af67</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_transform_entry"&gt;&lt;sys_transform_entry action="INSERT_OR_UPDATE"&gt;&lt;choice_action&gt;create&lt;/choice_action&gt;&lt;coalesce&gt;false&lt;/coalesce&gt;&lt;coalesce_case_sensitive&gt;false&lt;/coalesce_case_sensitive&gt;&lt;coalesce_empty_fields&gt;false&lt;/coalesce_empty_fields&gt;&lt;date_format&gt;yyyy-MM-dd HH:mm:ss&lt;/date_format&gt;&lt;map display_value="Country Transform Map"&gt;0d9fbc0c97f47910cbf53e2e6253af72&lt;/map&gt;&lt;reference_value_field/&gt;&lt;source_field&gt;u_id&lt;/source_field&gt;&lt;source_script&gt;&lt;![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]&gt;&lt;/source_script&gt;&lt;source_table&gt;x_821667_my_widget_country_import_set&lt;/source_table&gt;&lt;sys_class_name&gt;sys_transform_entry&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-08-16 19:43:26&lt;/sys_created_on&gt;&lt;sys_id&gt;3e00410c97f47910cbf53e2e6253af67&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;u_id&lt;/sys_name&gt;&lt;sys_package display_value="My Widgets" source="x_821667_my_widget"&gt;3d3b07fe971121109fd237971153affc&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="My Widgets"&gt;3d3b07fe971121109fd237971153affc&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_transform_entry_3e00410c97f47910cbf53e2e6253af67&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-08-16 19:43:26&lt;/sys_updated_on&gt;&lt;target_field&gt;id&lt;/target_field&gt;&lt;target_table&gt;x_821667_my_widget_country&lt;/target_table&gt;&lt;use_source_script&gt;false&lt;/use_source_script&gt;&lt;/sys_transform_entry&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>513006182</payload_hash>
+        <record_name>u_id</record_name>
+        <reverted_from/>
+        <source>c176edaf97522110cbf53e2e6253af90</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-08-16 19:43:26</sys_created_on>
+        <sys_id>3e00c54c97f47910cbf53e2e6253af5f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>189ffdfd51d0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-08-16 19:43:26</sys_updated_on>
+        <type>Field Map</type>
+        <update_guid>7200c54cacf47910568281d92de5795f</update_guid>
+        <update_guid_history>7200c54cacf47910568281d92de5795f:513006182</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-08-16 19:45:42</sys_created_on>
+        <sys_db_object display_value="" name="sys_transform_entry">sys_transform_entry</sys_db_object>
+        <sys_id>002fd131392744f080018057f5ad5c40</sys_id>
+        <sys_metadata>3e00410c97f47910cbf53e2e6253af67</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>u_id</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_scope_delete display_value="">1735843da8c24506b7924cef26a0ffe1</sys_scope_delete>
+        <sys_update_name>sys_transform_entry_3e00410c97f47910cbf53e2e6253af67</sys_update_name>
+        <sys_update_version display_value="sys_transform_entry_3e00410c97f47910cbf53e2e6253af67">3e00c54c97f47910cbf53e2e6253af5f</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-08-16 19:45:42</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

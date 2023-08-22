@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_dependency_js_include">
+    <m2m_sp_dependency_js_include action="DELETE">
+        <order>200</order>
+        <sp_dependency display_value="Google Charts">67065dfa97503110cbf53e2e6253af4d</sp_dependency>
+        <sp_js_include display_value="Call Draw Pie Chart">dbb8117697903110cbf53e2e6253af20</sp_js_include>
+        <sys_class_name>m2m_sp_dependency_js_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-31 14:03:55</sys_created_on>
+        <sys_id>a9e8917697903110cbf53e2e6253afab</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Google Charts.Call Draw Pie Chart</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>m2m_sp_dependency_js_include_a9e8917697903110cbf53e2e6253afab</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-31 14:12:54</sys_updated_on>
+    </m2m_sp_dependency_js_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="My Widgets">3d3b07fe971121109fd237971153affc</application>
+        <file_path/>
+        <instance_id>7ce0729fdb91f410e26fd7c8f4961917</instance_id>
+        <instance_name>dev118034</instance_name>
+        <name>m2m_sp_dependency_js_include_a9e8917697903110cbf53e2e6253afab</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_dependency_js_include"><m2m_sp_dependency_js_include action="INSERT_OR_UPDATE"><order>200</order><sp_dependency display_value="Google Charts">67065dfa97503110cbf53e2e6253af4d</sp_dependency><sp_js_include display_value="Call Draw Pie Chart">dbb8117697903110cbf53e2e6253af20</sp_js_include><sys_class_name>m2m_sp_dependency_js_include</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-07-31 14:03:55</sys_created_on><sys_id>a9e8917697903110cbf53e2e6253afab</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Google Charts.Call Draw Pie Chart</sys_name><sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package><sys_policy/><sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope><sys_update_name>m2m_sp_dependency_js_include_a9e8917697903110cbf53e2e6253afab</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-07-31 14:12:54</sys_updated_on></m2m_sp_dependency_js_include></record_update>]]></payload>
+        <payload_hash>-521900332</payload_hash>
+        <record_name>Google Charts.Call Draw Pie Chart</record_name>
+        <reverted_from/>
+        <source>c176edaf97522110cbf53e2e6253af90</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-31 14:12:54</sys_created_on>
+        <sys_id>c9fa15f697903110cbf53e2e6253afe6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>189ac4b78560000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-31 14:12:54</sys_updated_on>
+        <type>Dependency JS Includes</type>
+        <update_guid>81fa15f65f903110585d0cd81dff21e6</update_guid>
+        <update_guid_history>81fa15f65f903110585d0cd81dff21e6:-521900332,ade891764690311038ef4f4a2759f5ac:-173272715</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Google Charts.Call Draw Pie Chart">e32f91fa97903110cbf53e2e6253af3a</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-31 14:31:21</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sp_dependency_js_include">m2m_sp_dependency_js_include</sys_db_object>
+        <sys_id>2b1041aeb0214e888daedbbcb4105240</sys_id>
+        <sys_metadata>a9e8917697903110cbf53e2e6253afab</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Google Charts.Call Draw Pie Chart</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_scope_delete display_value="">1735843da8c24506b7924cef26a0ffe1</sys_scope_delete>
+        <sys_update_name>m2m_sp_dependency_js_include_a9e8917697903110cbf53e2e6253afab</sys_update_name>
+        <sys_update_version display_value="m2m_sp_dependency_js_include_a9e8917697903110cbf53e2e6253afab">c9fa15f697903110cbf53e2e6253afe6</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-31 14:31:21</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

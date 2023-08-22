@@ -8,6 +8,7 @@
         <container_class_name/>
         <name>Table View Record By Record - Container 1</name>
         <order>1</order>
+        <semantic_tag/>
         <sp_page display_value="table_view_one_record">1b539d6b97712110cbf53e2e6253af83</sp_page>
         <subheader>false</subheader>
         <sys_class_name>sp_container</sys_class_name>

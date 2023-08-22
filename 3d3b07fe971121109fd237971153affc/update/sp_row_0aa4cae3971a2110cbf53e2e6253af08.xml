@@ -2,6 +2,7 @@
     <sp_row action="INSERT_OR_UPDATE">
         <class_name/>
         <order>1</order>
+        <semantic_tag/>
         <sp_column/>
         <sp_container display_value="Quotation - Container 1">37740aef97d62110cbf53e2e6253af07</sp_container>
         <sys_class_name>sp_row</sys_class_name>

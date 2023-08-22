@@ -3,6 +3,7 @@
         <active>true</active>
         <app_config display_value="My Wokspace Config">e6f349d66e662110bb7502498032ef7e</app_config>
         <description/>
+        <disable_auto_reflow>false</disable_auto_reflow>
         <event_mappings>[ {
   "eventMappingId" : "clddhhldhdggaajjtoddfggzhhrhxbbhhxu",
   "isConfiguration" : false,
@@ -165,7 +166,7 @@
     "type" : "EVENT"
   } ]
 } ]</event_mappings>
-        <macroponent display_value="All Dashboards">a6a8b88ec3702010ec37e0dd9740dd43</macroponent>
+        <macroponent display_value="Dashboard overview">a6a8b88ec3702010ec37e0dd9740dd43</macroponent>
         <macroponent_config>{
   "label" : {
     "type" : "TRANSLATION_LITERAL",

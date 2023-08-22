@@ -8,6 +8,7 @@
         <container_class_name/>
         <name>Complex Pagination - Container 1</name>
         <order>1</order>
+        <semantic_tag/>
         <sp_page display_value="complex_pagination">e60db1a497222110cbf53e2e6253afc8</sp_page>
         <subheader>false</subheader>
         <sys_class_name>sp_container</sys_class_name>

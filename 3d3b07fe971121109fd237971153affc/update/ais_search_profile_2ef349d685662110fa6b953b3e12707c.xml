@@ -2,10 +2,12 @@
     <ais_search_profile action="INSERT_OR_UPDATE">
         <active>true</active>
         <description>This is default AI Search profile for My Wokspace</description>
+        <exclude_from_evaluation>false</exclude_from_evaluation>
         <genius_result_assembly/>
         <label>my-wokspace search profile</label>
         <name>x_821667_my_widget_zwfnzmvc_search_profile</name>
         <publish_id>4b4c2134-9876-4894-b059-58d398587ca4</publish_id>
+        <qna_model_id/>
         <state>DRAFT</state>
         <sys_class_name>ais_search_profile</sys_class_name>
         <sys_created_by>admin</sys_created_by>
