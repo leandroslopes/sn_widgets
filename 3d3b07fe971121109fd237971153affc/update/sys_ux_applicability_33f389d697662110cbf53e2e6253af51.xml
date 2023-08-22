@@ -4,6 +4,7 @@
         <api_name>x_821667_my_widget.Audience for app my-wokspace</api_name>
         <description/>
         <name>Audience for app my-wokspace</name>
+        <role_names/>
         <roles name="x_821667_my_widget.admin">d94b83be971121109fd237971153afa3</roles>
         <sys_class_name>sys_ux_applicability</sys_class_name>
         <sys_created_by>admin</sys_created_by>

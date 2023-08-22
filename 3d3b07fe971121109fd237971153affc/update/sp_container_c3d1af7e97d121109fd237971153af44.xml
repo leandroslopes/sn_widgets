@@ -8,6 +8,7 @@
         <container_class_name/>
         <name>Cities - Container 1</name>
         <order>1</order>
+        <semantic_tag/>
         <sp_page display_value="cities_integration_api">0bd1af7e97d121109fd237971153af41</sp_page>
         <subheader>false</subheader>
         <sys_class_name>sp_container</sys_class_name>

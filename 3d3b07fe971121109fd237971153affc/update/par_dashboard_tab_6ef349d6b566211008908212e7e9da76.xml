@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><record_update table="par_dashboard_tab">
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_tab">
     <par_dashboard_tab action="INSERT_OR_UPDATE">
         <active>true</active>
         <dashboard display_value="My Wokspace">6ef349d6796621108de4fd80786ce968</dashboard>
@@ -7,9 +7,11 @@
         <sys_class_name>par_dashboard_tab</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-05-03 23:25:42</sys_created_on>
+        <sys_domain>global</sys_domain>
         <sys_id>6ef349d6b566211008908212e7e9da76</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Tab</sys_name>
+        <sys_overrides/>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>

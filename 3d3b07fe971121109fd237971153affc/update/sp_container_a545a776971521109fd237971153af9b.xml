@@ -8,6 +8,7 @@
         <container_class_name/>
         <name>Generate Custom PDF Report - Container 1</name>
         <order>1</order>
+        <semantic_tag/>
         <sp_page display_value="generate_custom_pdf_report">e945a776971521109fd237971153af98</sp_page>
         <subheader>false</subheader>
         <sys_class_name>sp_container</sys_class_name>

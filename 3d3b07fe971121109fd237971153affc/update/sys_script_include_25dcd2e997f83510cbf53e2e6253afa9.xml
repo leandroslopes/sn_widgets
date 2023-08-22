@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_821667_my_widget.GenerationFactoryCSV</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>GenerationFactoryCSV</name>
+        <script><![CDATA[var GenerationFactoryCSV = Class.create();
+GenerationFactoryCSV.prototype = {
+	initialize: function() {
+    },
+	
+	generate: function(csvString) {
+
+		var csvObject = {};
+		var hasCSVTemp;
+		var deletedCSVTemp;
+		var attchmentSysID = '';
+		var attchmentUrlCSV = '';
+		var errorMessage = 'Sem mensagem de erro';
+
+		csvObject = JSON.parse(csvString);
+
+		var csv = {
+			tableTarget: csvObject.tableTarget, // Table name target 
+			sysIDTarget: '',
+			filename: this.createFilename(),
+			columns: csvObject.columns, // Columns name
+			rows: csvObject.rows // Rows/records
+		};
+		
+		hasCSVTemp = this.hasCSVTemp(csv);
+		
+		if (hasCSVTemp) {
+
+			deletedCSVTemp= this.deleteCSVTemp(csv);
+			
+			if (deletedCSVTemp) {
+
+				csv.sysIDTarget = this.addCSVTemp(csv);
+				
+				if (csv.sysIDTarget && csv.sysIDTarget !== '') {
+
+					attchmentSysID = this.createCSV(csv);
+
+					if (attchmentSysID && attchmentSysID !== '') {
+
+						attchmentUrlCSV = this.createUrlCSVToDownload(attchmentSysID);
+
+						return attchmentUrlCSV;
+
+					} else {
+
+						errorMessage = 'Não foi possível gerar o arquivo CSV!';
+					}
+
+
+				} else {
+
+					errorMessage = 'Não foi possível gerar o arquivo CSV, por não ter sido adicionado o registro na tabela <CSV Temp>';
+				}
+
+			} else {
+
+				errorMessage = 'Não foi possível gerar o arquivo CSV, por não ter sido possível excluir o registro anterior na tabela <CSV Temp>';
+			}
+			
+		} else {
+
+			csv.sysIDTarget = this.addCSVTemp(csv);
+
+			if (csv.sysIDTarget && csv.sysIDTarget !== '') {
+
+				attchmentSysID = this.createCSV(csv);
+
+				if (attchmentSysID && attchmentSysID !== '') {
+
+					attchmentUrlCSV = this.createUrlCSVToDownload(attchmentSysID);
+
+					return attchmentUrlCSV;
+
+				} else {
+					
+					errorMessage = 'Não foi possível gerar o arquivo CSV!';
+				}
+
+
+			} else {
+				errorMessage = 'Não foi possível gerar o arquivo CSV, por não ter sido adicionado o registro na tabela <CSV Temp>';
+			}
+		}
+		
+		return errorMessage;
+		
+	},
+
+	createFilename: function() {
+
+        var filename = '';
+
+        filename = 'csv_' + gs.getUserID();
+
+        return filename;
+    },
+
+	hasCSVTemp: function(csv) {
+
+		var hasCSVTemp = false;
+		
+		var glideRecord = new GlideRecord(csv.tableTarget);
+
+		glideRecord.addQuery("name", csv.filename);
+		glideRecord.query();
+		
+		if (glideRecord.next()) {
+			hasCSVTemp = true;
+		}
+		
+		return hasCSVTemp;
+	},
+
+	deleteCSVTemp: function(csv) {
+
+		var deleted = false;
+		
+		var glideRecord = new GlideRecord(csv.tableTarget);
+		
+		glideRecord.addQuery("name", csv.filename);
+		glideRecord.query();
+		
+		if (glideRecord.next()) {
+			deleted = glideRecord.deleteRecord();
+		}
+		
+		return deleted;
+	},
+
+	addCSVTemp: function(csv) {
+
+		var csvTempSysId = '';
+		
+		var glideRecord = new GlideRecord(csv.tableTarget);
+		
+		glideRecord.initialize();
+		
+		glideRecord.name = csv.filename;
+
+		csvTempSysId = glideRecord.insert();
+		
+		return csvTempSysId;
+	},
+
+	createCSV: function(csv) {
+
+		var attachmentSysID = '';
+		var csvData = '';
+		var columns = csv.columns;
+		var rows = csv.rows;
+		var filename = csv.filename + '.csv';
+		
+		for (var j = 0; j < columns.length; j++) {
+			if ((j + 1) == columns.length)
+				csvData = csvData + '"' + columns[j] + '"';
+			else
+				csvData = csvData + '"' + columns[j] + '"' + ',';
+		}
+		
+		csvData = csvData + "\r\n";
+		
+		for (var i = 0; i < rows.length; i++) {
+
+			for (const property in rows[i]) {
+				csvData = csvData + '"' + rows[i][property] + '",';
+			}
+
+			csvData = csvData + "\r\n";
+		}
+		
+		attachmentSysID = this.addAttachment(csv, filename, csvData);
+
+		return attachmentSysID;
+	},
+
+	addAttachment: function(csv, filename, csvData) {
+
+		var attachmentSysID = '';
+		var contentType = 'application/csv';
+
+		var glideRecord = new GlideRecord(csv.tableTarget);
+		glideRecord.get(csv.sysIDTarget);
+
+		var glideSysAttachment = new GlideSysAttachment();
+
+		attachmentSysID = glideSysAttachment.write(glideRecord, filename, contentType, csvData);
+
+		return attachmentSysID;
+	},
+
+	createUrlCSVToDownload: function(attachmentSysID) {
+
+		var instace = 'https://' + gs.getProperty('instance_name') + '.service-now.com/';
+		var attachmentTable = 'sys_attachment.do';
+		var attachmentParamSysID = '?sys_id=' + attachmentSysID;
+		var attachmentUrl = instace + attachmentTable + attachmentParamSysID;
+		
+		return attachmentUrl;
+	},
+
+    type: 'GenerationFactoryCSV'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-08-21 18:19:44</sys_created_on>
+        <sys_id>25dcd2e997f83510cbf53e2e6253afa9</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>GenerationFactoryCSV</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_script_include_25dcd2e997f83510cbf53e2e6253afa9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-08-21 19:48:59</sys_updated_on>
+    </sys_script_include>
+</record_update>

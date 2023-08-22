@@ -8,6 +8,7 @@
         <container_class_name/>
         <name>Table Filter And Sort - Container 1</name>
         <order>1</order>
+        <semantic_tag/>
         <sp_page display_value="table_filter_and_sort">b65fd7ba97d121109fd237971153afc4</sp_page>
         <subheader>false</subheader>
         <sys_class_name>sp_container</sys_class_name>

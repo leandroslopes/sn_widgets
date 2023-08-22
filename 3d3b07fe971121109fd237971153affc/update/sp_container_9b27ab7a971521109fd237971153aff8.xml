@@ -8,6 +8,7 @@
         <container_class_name/>
         <name>Incident Reports - Container 1</name>
         <order>1</order>
+        <semantic_tag/>
         <sp_page display_value="incident_reports">df27ab7a971521109fd237971153aff5</sp_page>
         <subheader>false</subheader>
         <sys_class_name>sp_container</sys_class_name>

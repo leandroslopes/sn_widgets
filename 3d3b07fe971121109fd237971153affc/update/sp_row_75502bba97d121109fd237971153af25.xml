@@ -2,6 +2,7 @@
     <sp_row action="INSERT_OR_UPDATE">
         <class_name/>
         <order>1</order>
+        <semantic_tag/>
         <sp_column/>
         <sp_container display_value="Table Filter And Sort - Container 1">365f53fa97d121109fd237971153af02</sp_container>
         <sys_class_name>sp_row</sys_class_name>
