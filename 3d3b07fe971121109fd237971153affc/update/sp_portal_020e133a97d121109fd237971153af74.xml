@@ -24,6 +24,7 @@ $text-muted:#979797;
         <dark_theme/>
         <default>false</default>
         <enable_ais>false</enable_ais>
+        <enable_certificate_based_authentication>false</enable_certificate_based_authentication>
         <enable_favorites>false</enable_favorites>
         <hide_portal_name>false</hide_portal_name>
         <homepage display_value="home">1cbed3b697d121109fd237971153afe6</homepage>
@@ -65,6 +66,7 @@ $text-muted:#979797;
         <chunk_size_bytes>700000</chunk_size_bytes>
         <compressed>true</compressed>
         <content_type>image/png</content_type>
+        <encryption_context/>
         <file_name>icon</file_name>
         <hash>98e01624f38b48574c3157e7993f806771cd5ebd8eedf564f2e0ed2e758b6279</hash>
         <image_height>512</image_height>
