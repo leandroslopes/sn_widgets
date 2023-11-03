@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="2be19b95979eb110cbf53e2e6253afce" label="Mandatory" max_length="40" name="x_821667_my_widget_mandatory" type="collection">
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Percentage Completed" max_length="38" name="percentage_completed" type="percent_complete"/>
+        <element attributes="edge_encryption_enabled=true" label="Professional" max_length="255" name="professional" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Status Professional" max_length="60" name="status_professional" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Training Status" max_length="60" name="training_status" type="string"/>
+    </element>
+</database>

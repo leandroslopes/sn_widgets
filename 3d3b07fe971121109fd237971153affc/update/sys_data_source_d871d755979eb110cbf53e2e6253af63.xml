@@ -5,7 +5,7 @@
         <connection_alias/>
         <connection_override_last_success_time/>
         <connection_timeout>0</connection_timeout>
-        <connection_url>attachment://sys_data_source:265f340c97f47910cbf53e2e6253af46/currencies.xlsx</connection_url>
+        <connection_url>attachment://sys_data_source:d871d755979eb110cbf53e2e6253af63/mandatory.xlsx</connection_url>
         <connection_url_parameters/>
         <csv_delimiter/>
         <data_in_single_column>false</data_in_single_column>
@@ -21,13 +21,13 @@
         <database_port/>
         <discard_arrays>true</discard_arrays>
         <expand_node_children>false</expand_node_children>
-        <file_path>currencies.xlsx</file_path>
+        <file_path>mandatory.xlsx</file_path>
         <file_retrieval_method>Attachment</file_retrieval_method>
         <format>Excel</format>
         <glide_keystore>false</glide_keystore>
         <header_row>1</header_row>
         <import_set_table_label/>
-        <import_set_table_name>x_821667_my_widget_country_import_set</import_set_table_name>
+        <import_set_table_name>x_821667_my_widget_1699031116211</import_set_table_name>
         <instance_name/>
         <jdbc_password/>
         <jdbc_server/>
@@ -41,7 +41,7 @@
         <limit/>
         <maximum_rows/>
         <mid_server/>
-        <name>currencies.xlsx (Uploaded)</name>
+        <name>mandatory.xlsx (Uploaded)</name>
         <offset>0</offset>
         <oracle_port>1521</oracle_port>
         <oracle_sid>orcl</oracle_sid>
@@ -56,22 +56,22 @@
         <scp_server/>
         <scp_user_name/>
         <sheet_name>1</sheet_name>
-        <sheet_number>2</sheet_number>
+        <sheet_number>1</sheet_number>
         <sql_statement/>
         <ssh_keyfile_path/>
         <support_pagination>false</support_pagination>
         <sys_class_name>sys_data_source</sys_class_name>
-        <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2023-08-16 19:40:25</sys_created_on>
-        <sys_id>265f340c97f47910cbf53e2e6253af46</sys_id>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2023-11-03 17:05:16</sys_created_on>
+        <sys_id>d871d755979eb110cbf53e2e6253af63</sys_id>
         <sys_mod_count>1</sys_mod_count>
-        <sys_name>currencies.xlsx (Uploaded)</sys_name>
+        <sys_name>mandatory.xlsx (Uploaded)</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
-        <sys_update_name>sys_data_source_265f340c97f47910cbf53e2e6253af46</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-08-16 19:40:26</sys_updated_on>
+        <sys_update_name>sys_data_source_d871d755979eb110cbf53e2e6253af63</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2023-11-03 17:05:19</sys_updated_on>
         <table_name/>
         <type>File</type>
         <use_batch_import>false</use_batch_import>
@@ -80,5 +80,5 @@
         <xpath_root_node/>
         <zipped>false</zipped>
     </sys_data_source>
-    <sys_variable_value action="delete_multiple" query="document_key=265f340c97f47910cbf53e2e6253af46"/>
+    <sys_variable_value action="delete_multiple" query="document_key=d871d755979eb110cbf53e2e6253af63"/>
 </record_update>
