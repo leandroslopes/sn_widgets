@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_table">
+    <sp_instance_table action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <display_field/>
+        <field_list>zip,city,country,phone_territory,time_zone,latitude</field_list>
+        <filter/>
+        <glyph/>
+        <id/>
+        <maximum_entries>5</maximum_entries>
+        <order>1</order>
+        <order_by/>
+        <order_direction>asc</order_direction>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">0804265197888614cbf53e2e6253af8f</sp_column>
+        <sp_page/>
+        <sp_widget display_value="Simple List And Pagination">3bf3eed597488614cbf53e2e6253af5c</sp_widget>
+        <sys_class_name>sp_instance_table</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-01-29 19:00:23</sys_created_on>
+        <sys_id>fe1ea3119744c614cbf53e2e6253afbe</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_instance_table_fe1ea3119744c614cbf53e2e6253afbe</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-01-30 21:31:57</sys_updated_on>
+        <table>cmn_location</table>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"items_per_page": {
+		"value": null,
+		"displayValue": "10"
+	},
+	"max_size": {
+		"value": null,
+		"displayValue": "10"
+	},
+	"boundary_links": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"direction_links": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"force_ellipses": {
+		"value": "false",
+		"displayValue": "false"
+	},
+	"rotate": {
+		"value": "true",
+		"displayValue": "true"
+	}
+}]]></widget_parameters>
+    </sp_instance_table>
+    <sys_translated_text action="DELETE" query="documentkey=fe1ea3119744c614cbf53e2e6253afbe"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="My Widgets">3d3b07fe971121109fd237971153affc</application>
+        <file_path/>
+        <instance_id>7ce0729fdb91f410e26fd7c8f4961917</instance_id>
+        <instance_name>dev118034</instance_name>
+        <name>sp_instance_table_fe1ea3119744c614cbf53e2e6253afbe</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance_table"&gt;&lt;sp_instance_table action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;display_field/&gt;&lt;field_list&gt;zip,city,country,phone_territory,time_zone,latitude&lt;/field_list&gt;&lt;filter/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;maximum_entries&gt;5&lt;/maximum_entries&gt;&lt;order&gt;1&lt;/order&gt;&lt;order_by/&gt;&lt;order_direction&gt;asc&lt;/order_direction&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;0804265197888614cbf53e2e6253af8f&lt;/sp_column&gt;&lt;sp_page/&gt;&lt;sp_widget display_value="Simple List And Pagination"&gt;3bf3eed597488614cbf53e2e6253af5c&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance_table&lt;/sys_class_name&gt;&lt;sys_created_by&gt;leandro.lopes&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-01-29 19:00:23&lt;/sys_created_on&gt;&lt;sys_id&gt;fe1ea3119744c614cbf53e2e6253afbe&lt;/sys_id&gt;&lt;sys_mod_count&gt;20&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="My Widgets" source="x_821667_my_widget"&gt;3d3b07fe971121109fd237971153affc&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="My Widgets"&gt;3d3b07fe971121109fd237971153affc&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_table_fe1ea3119744c614cbf53e2e6253afbe&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;leandro.lopes&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-01-30 21:31:57&lt;/sys_updated_on&gt;&lt;table&gt;cmn_location&lt;/table&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"items_per_page": {
+		"value": null,
+		"displayValue": "10"
+	},
+	"max_size": {
+		"value": null,
+		"displayValue": "10"
+	},
+	"boundary_links": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"direction_links": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"force_ellipses": {
+		"value": "false",
+		"displayValue": "false"
+	},
+	"rotate": {
+		"value": "true",
+		"displayValue": "true"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance_table&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=fe1ea3119744c614cbf53e2e6253afbe"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1162700888</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>06f36c9b97113110cbf53e2e6253afcb</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-01-30 21:31:58</sys_created_on>
+        <sys_id>8d6a91f5970c8a14cbf53e2e6253af51</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18d5c4935d00000001</sys_recorded_at>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-01-30 21:31:58</sys_updated_on>
+        <type>Instance with Table</type>
+        <update_guid>456a91f5f70c8a1447345de86fea1c51</update_guid>
+        <update_guid_history>456a91f5f70c8a1447345de86fea1c51:-1162700888,ce4ad5f5720c8a14e28bc608f9f4f21d:-1195219544,b819d5f1310c8a145ed87b67aea9c781:-454411358,d2b851f1780c8a148a221d9f3df905b3:124385352,9197d1fd4ec88a14cc7983084ecced5d:-12803320,6d071dbd3ac88a14b8ec53ea6bc290b4:-1162700888,1ee615b587c88a14fd97c377f97e2304:-618018232,f0f5913ddcc88a142bc88fac1bd39520:-1162700888,e3b5d9b1cb488a14383c93d7098d0fc3:-276391897,3f4511f9a9c88a14937141e608fa15e4:1701719660,09f35df564c88a1499c471c51ac51ffb:-1413943051,7d27817916488a14fd4df5ebc953cd02:-1988932782,a806857527488a14b77f8af5e99a41a0:-1934112669,807409b1ed488a14f987d2932fab041b:-2067867836,9d7349f912848a1406828813c6eefac5:1575843666,d73130313d848a149cc553c549d8a454:-2067867836,fd11703578848a144ca14305f4ca06a6:1575843666,acc85479da808a14e9408b0692c5deb0:-779453913,3e6ab721398c4a14f72026ffc969c9a5:1560543199,985eaf95a544c6146acacd713d28837d:25955250,fe1ea3113b44c61484ce21c985e713c0:1899155652</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">b30bd939970c8a14cbf53e2e6253afa4</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-01-30 21:34:53</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance_table">sp_instance_table</sys_db_object>
+        <sys_id>5ff605dd08664f398a4da8f969c79a91</sys_id>
+        <sys_metadata>fe1ea3119744c614cbf53e2e6253afbe</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_scope_delete display_value="">1735843da8c24506b7924cef26a0ffe1</sys_scope_delete>
+        <sys_update_name>sp_instance_table_fe1ea3119744c614cbf53e2e6253afbe</sys_update_name>
+        <sys_update_version display_value="sp_instance_table_fe1ea3119744c614cbf53e2e6253afbe">8d6a91f5970c8a14cbf53e2e6253af51</sys_update_version>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-01-30 21:34:53</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

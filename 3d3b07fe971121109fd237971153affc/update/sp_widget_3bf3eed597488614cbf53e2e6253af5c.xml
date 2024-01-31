@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope) {
+  /* widget controller */
+  var c = this;
+	
+	var records = [];
+	
+	c.columns = JSON.parse(c.data.columns);
+	records = JSON.parse(c.data.records);
+	
+	$scope.totalItems = records.length;
+  $scope.currentPage = 1;
+  $scope.itemsPerPage = parseInt(c.options.items_per_page);
+	$scope.maxSize = parseInt(c.options.max_size);
+	$scope.boundaryLinks = c.options.boundary_links === 'true' ? true : false;
+	$scope.directionLinks = c.options.direction_links === 'true' ? true : false;
+	$scope.rotate = c.options.rotate === 'true' ? true : false;
+  
+	$scope.$watch("currentPage", function() { 
+    setPagingData($scope.currentPage);
+  });
+
+  function setPagingData(page) {
+		
+    var pagedData = records.slice(
+      (page - 1) * $scope.itemsPerPage,
+      page * $scope.itemsPerPage
+    );
+		
+    c.aRecords = pagedData;
+  }
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance_table</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>table,field_list</field_list>
+        <has_preview>false</has_preview>
+        <id>simple_list_and_pagination</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Simple List And Pagination</name>
+        <option_schema>[{"hint":"A value less than one indicates all items on one page","name":"items_per_page","section":"Presentation","default_value":"7","label":"Maximum number of items per page","type":"string"},{"name":"max_size","section":"Presentation","default_value":"5","label":"Limit number for pagination size","type":"string"},{"name":"boundary_links","section":"Presentation","default_value":"false","label":"Do you want to display the First/Last buttons?","type":"boolean"},{"name":"direction_links","section":"Presentation","default_value":"true","label":"Do you want to display the Previous/Next buttons?","type":"boolean"},{"name":"rotate","section":"Presentation","default_value":"false","label":"Do you want to keep the current page in the middle of the visible ones?","type":"boolean"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+	
+	data.records = '';
+	data.columns = '';
+	
+	loadColums(options.table, options.field_list);
+	loadRecords(options.table, options.field_list);
+	
+	function loadColums(tableParameter, fieldsString) {
+		
+		var table = '';
+		var fields = [];
+		var columns = [];
+		
+		table = tableParameter;
+		fields = fieldsString.split(',');
+		
+		for (var field of fields) {
+			
+			var column = '';
+					
+			column = new GlideRecord(table).getElement(field).getLabel();
+			
+			columns.push(column);
+		}
+		
+		data.columns = JSON.stringify(columns);	
+	}
+	
+	function loadRecords(tableParameter, fieldsString) {
+		
+		var table = '';
+		var fields = [];
+		var records = [];
+		var glideRecord;
+		
+		table = tableParameter;
+		fields = fieldsString.split(',');
+		
+		glideRecord = new GlideRecord(table);		
+		glideRecord.query();
+		
+		while (glideRecord.next()) {
+			
+			var record = {};
+			
+			for (var field of fields) {
+				record[field] = glideRecord.getValue(field);
+			}
+			
+			records.push(record);
+		}
+		
+		data.records = JSON.stringify(records);
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-01-29 13:36:36</sys_created_on>
+        <sys_id>3bf3eed597488614cbf53e2e6253af5c</sys_id>
+        <sys_mod_count>135</sys_mod_count>
+        <sys_name>Simple List And Pagination</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_3bf3eed597488614cbf53e2e6253af5c</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-01-31 00:52:06</sys_updated_on>
+        <template><![CDATA[<div>
+  <div class="table-responsive"> 
+    <table class="table table-bordered table-hover"> 
+      <thead> 
+        <tr>
+          <th ng-repeat="column in c.columns">
+          	{{ column }}
+          </th>
+        </tr> 
+      </thead> 
+      <tbody> 
+        <tr ng-repeat="record in c.aRecords"> 
+          <td ng-repeat="(key, value) in record">
+            {{ value }}
+          </td> 
+        </tr> 
+      </tbody> 
+    </table> 
+  </div>
+  <uib-pagination 
+                  total-items="totalItems" 
+                  ng-model="currentPage" 
+                  items-per-page="itemsPerPage"
+                  max-size="maxSize"
+                  boundary-links="boundaryLinks"
+                  direction-links="directionLinks"                  
+                  rotate="rotate"
+  >
+  </uib-pagination>
+</div>]]></template>
+    </sp_widget>
+</record_update>

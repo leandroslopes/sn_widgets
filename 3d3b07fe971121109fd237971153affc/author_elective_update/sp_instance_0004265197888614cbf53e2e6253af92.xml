@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">0804265197888614cbf53e2e6253af8f</sp_column>
+        <sp_widget display_value="Simple List And Pagination">3bf3eed597488614cbf53e2e6253af5c</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-01-29 13:36:36</sys_created_on>
+        <sys_id>0004265197888614cbf53e2e6253af92</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_instance_0004265197888614cbf53e2e6253af92</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-01-29 17:54:23</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"table": {
+		"value": "46fc8b39e8a1211076da10591ad287b7",
+		"displayValue": "Incident"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=0004265197888614cbf53e2e6253af92"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="My Widgets">3d3b07fe971121109fd237971153affc</application>
+        <file_path/>
+        <instance_id>7ce0729fdb91f410e26fd7c8f4961917</instance_id>
+        <instance_name>dev118034</instance_name>
+        <name>sp_instance_0004265197888614cbf53e2e6253af92</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;0804265197888614cbf53e2e6253af8f&lt;/sp_column&gt;&lt;sp_widget display_value="Simple List And Pagination"&gt;3bf3eed597488614cbf53e2e6253af5c&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;leandro.lopes&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-01-29 13:36:36&lt;/sys_created_on&gt;&lt;sys_id&gt;0004265197888614cbf53e2e6253af92&lt;/sys_id&gt;&lt;sys_mod_count&gt;4&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="My Widgets" source="x_821667_my_widget"&gt;3d3b07fe971121109fd237971153affc&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="My Widgets"&gt;3d3b07fe971121109fd237971153affc&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_0004265197888614cbf53e2e6253af92&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;leandro.lopes&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-01-29 17:54:23&lt;/sys_updated_on&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"table": {
+		"value": "46fc8b39e8a1211076da10591ad287b7",
+		"displayValue": "Incident"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=0004265197888614cbf53e2e6253af92"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-837011607</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>06f36c9b97113110cbf53e2e6253afcb</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-01-29 17:54:24</sys_created_on>
+        <sys_id>d00f9bdd9780c614cbf53e2e6253af79</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18d565ba9980000001</sys_recorded_at>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-01-29 17:54:24</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>980f9bdd6080c614fccba0f7d4a35778</update_guid>
+        <update_guid_history>980f9bdd6080c614fccba0f7d4a35778:-837011607,d0ae5711e5c0c614ab3f5803b3cc8557:866557686,028bdb95e080c61426ea0f0597e2610f:127947393,fe6b5f955e80c614e7f3b7a0985f4000:866557686,0c04265121888614bae0e04e91e8cc93:1415091595</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">2b84e75197c0c614cbf53e2e6253afad</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-01-29 18:18:39</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>17ae8554837641d98a9aee53806324c1</sys_id>
+        <sys_metadata>0004265197888614cbf53e2e6253af92</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_scope_delete display_value="">1735843da8c24506b7924cef26a0ffe1</sys_scope_delete>
+        <sys_update_name>sp_instance_0004265197888614cbf53e2e6253af92</sys_update_name>
+        <sys_update_version display_value="sp_instance_0004265197888614cbf53e2e6253af92">d00f9bdd9780c614cbf53e2e6253af79</sys_update_version>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-01-29 18:18:39</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
