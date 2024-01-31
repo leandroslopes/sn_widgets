@@ -7,13 +7,18 @@
 	
 	var records = [];
 	
+	var titleDefault = 'Incidents';
+	var colorDefault = 'default';
+	
+	c.title = c.options.title || titleDefault;
+	c.color = c.options.color || colorDefault;
 	c.columns = JSON.parse(c.data.columns);
 	records = JSON.parse(c.data.records);
 	
 	$scope.totalItems = records.length;
   $scope.currentPage = 1;
-  $scope.itemsPerPage = parseInt(c.options.items_per_page);
-	$scope.maxSize = parseInt(c.options.max_size);
+  $scope.itemsPerPage = parseInt(c.options.items_per_page) || 7;
+	$scope.maxSize = parseInt(c.options.max_size) || 5;
 	$scope.boundaryLinks = c.options.boundary_links === 'true' ? true : false;
 	$scope.directionLinks = c.options.direction_links === 'true' ? true : false;
 	$scope.rotate = c.options.rotate === 'true' ? true : false;
@@ -38,7 +43,7 @@
         <demo_data/>
         <description/>
         <docs/>
-        <field_list>table,field_list</field_list>
+        <field_list>table,field_list,title,color</field_list>
         <has_preview>false</has_preview>
         <id>simple_list_and_pagination</id>
         <internal>false</internal>
@@ -54,17 +59,23 @@
 	data.records = '';
 	data.columns = '';
 	
-	loadColums(options.table, options.field_list);
-	loadRecords(options.table, options.field_list);
+	const TABLE_DEFAULT = 'incident';
+	const FIELDS_DEFAULT = ['number', 'short_description', 'opened_at'];
 	
-	function loadColums(tableParameter, fieldsString) {
+	var table = options.table || TABLE_DEFAULT;
+	var fields = options.field_list ? options.field_list.split(',') : FIELDS_DEFAULT;
+	
+	loadColums(table, fields);
+	loadRecords(table, fields);
+	
+	function loadColums(tableParameter, fieldsParameter) {
 		
 		var table = '';
 		var fields = [];
 		var columns = [];
 		
 		table = tableParameter;
-		fields = fieldsString.split(',');
+		fields = fieldsParameter;
 		
 		for (var field of fields) {
 			
@@ -78,7 +89,7 @@
 		data.columns = JSON.stringify(columns);	
 	}
 	
-	function loadRecords(tableParameter, fieldsString) {
+	function loadRecords(tableParameter, fieldsParameter) {
 		
 		var table = '';
 		var fields = [];
@@ -86,7 +97,7 @@
 		var glideRecord;
 		
 		table = tableParameter;
-		fields = fieldsString.split(',');
+		fields = fieldsParameter;
 		
 		glideRecord = new GlideRecord(table);		
 		glideRecord.query();
@@ -110,43 +121,52 @@
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-01-29 13:36:36</sys_created_on>
         <sys_id>3bf3eed597488614cbf53e2e6253af5c</sys_id>
-        <sys_mod_count>135</sys_mod_count>
+        <sys_mod_count>148</sys_mod_count>
         <sys_name>Simple List And Pagination</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_3bf3eed597488614cbf53e2e6253af5c</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-01-31 00:52:06</sys_updated_on>
+        <sys_updated_on>2024-01-31 20:58:58</sys_updated_on>
         <template><![CDATA[<div>
-  <div class="table-responsive"> 
-    <table class="table table-bordered table-hover"> 
-      <thead> 
-        <tr>
-          <th ng-repeat="column in c.columns">
-          	{{ column }}
-          </th>
-        </tr> 
-      </thead> 
-      <tbody> 
-        <tr ng-repeat="record in c.aRecords"> 
-          <td ng-repeat="(key, value) in record">
-            {{ value }}
-          </td> 
-        </tr> 
-      </tbody> 
-    </table> 
+  <div class="panel panel-{{ ::c.color }}"> 
+    <div class="panel-heading"> 
+      <h3 class="panel-title">{{ ::c.title }}</h3> 
+    </div> 
+    <div class="panel-body"> 
+    	<div class="table-responsive"> 
+        <table class="table table-bordered table-hover"> 
+          <thead> 
+            <tr>
+              <th ng-repeat="column in c.columns">
+                {{ column }}
+              </th>
+            </tr> 
+          </thead> 
+          <tbody> 
+            <tr ng-repeat="record in c.aRecords"> 
+              <td ng-repeat="(key, value) in record">
+                {{ value }}
+              </td> 
+            </tr> 
+          </tbody> 
+        </table> 
+      </div>      
+    </div>
+    <div class="panel-footer">
+    	<uib-pagination 
+                      total-items="totalItems" 
+                      ng-model="currentPage" 
+                      items-per-page="itemsPerPage"
+                      max-size="maxSize"
+                      boundary-links="boundaryLinks"
+                      direction-links="directionLinks"                  
+                      rotate="rotate"
+      >
+      </uib-pagination>
+    </div>
   </div>
-  <uib-pagination 
-                  total-items="totalItems" 
-                  ng-model="currentPage" 
-                  items-per-page="itemsPerPage"
-                  max-size="maxSize"
-                  boundary-links="boundaryLinks"
-                  direction-links="directionLinks"                  
-                  rotate="rotate"
-  >
-  </uib-pagination>
 </div>]]></template>
     </sp_widget>
 </record_update>
