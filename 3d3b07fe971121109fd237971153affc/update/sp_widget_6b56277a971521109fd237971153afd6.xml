@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller = function($scope, $window, $location) {
+        <client_script><![CDATA[api.controller = function($scope, $window) {
     /* widget controller */
     var c = this;
 
@@ -11,6 +11,7 @@
     c.attachment_sys_id = '';
     c.issue_date = '';
     c.issue_hour = '';
+		c.instance_name = c.data.instance_name;
 
     get_date_hour_issue();
 
@@ -50,110 +51,119 @@
      * Generate PDF report.
      */
     c.generate_pdf = function() {
-        var attachment_url = '';
-        var error_message = '';
+			var attachment_url = '';
+			var error_message = '';
 
-        var obj = {
-            action: 'generate_pdf',
-        };
+			var obj = {
+				action: 'generate_pdf',
+			};
 
-        c.server.get(obj).then(function(response) {
-            c.data.action = undefined;
+			c.server.get(obj).then(function(response) {
+				c.data.action = undefined;
 
-            if (response.data.attachment_url && response.data.attachment_url !== '') {
-                attachment_url = response.data.attachment_url;
-                $window.open(attachment_url, '_self');
-            } else {
-                error_message = response.data.error_message;
-                alert(error_message);
-            }
-        });
-    }
+				if (response.data.attachment_url && response.data.attachment_url !== '') {
+					attachment_url = response.data.attachment_url;
+					$window.open(attachment_url, '_self');
+				} else {
+					error_message = response.data.error_message;
+					alert(error_message);
+				}
+			});
+    };
 
     /* 
      * Generate CSV.
      */
     c.generate_csv = function() {
-        var attachment_url = '';
-        var error_message = '';
+			var attachment_url = '';
+			var error_message = '';
 
-        var obj = {
-            action: 'generate_csv',
-        };
+			var obj = {
+				action: 'generate_csv',
+			};
 
-        c.server.get(obj).then(function(response) {
-            c.data.action = undefined;
+			c.server.get(obj).then(function(response) {
+				c.data.action = undefined;
 
-            if (response.data.attachment_url && response.data.attachment_url !== '') {
-                attachment_url = response.data.attachment_url;
-                $window.open(attachment_url, '_self');
-            } else {
-                error_message = response.data.error_message;
-                alert(error_message);
-            }
-        });
-    }
+				if (response.data.attachment_url && response.data.attachment_url !== '') {
+					attachment_url = response.data.attachment_url;
+					$window.open(attachment_url, '_self');
+				} else {
+					error_message = response.data.error_message;
+					alert(error_message);
+				}
+			});
+    };
 
     /* 
      * Generate Excel.
      */
     c.generate_excel = function() {
 
-        var file = {
-            name: 'incidents_report.xls',
-            sheet: 'Incidents Report'
-        };
+			var file = {
+				name: 'incidents_report.xls',
+				sheet: 'Incidents Report'
+			};
 
-        var uri = 'data:application/vnd.ms-excel;base64,';
+			var uri = 'data:application/vnd.ms-excel;base64,';
 
-        var template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">';
-        template += '<head><!--[if gte mso 9]>';
-        template += '<xml>';
-        template += '<x:ExcelWorkbook>';
-        template += '<x:ExcelWorksheets>';
-        template += '<x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet>';
-        template += '</x:ExcelWorksheets>';
-        template += '</x:ExcelWorkbook>';
-        template += '</xml>';
-        template += '<![endif]--></head>';
-        template += '<body>';
-        template += '<table>{table}</table>'; // Set DOM table 
-        template += '</body>';
-        template += '</html>';
+			var template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">';
+			template += '<head><!--[if gte mso 9]>';
+			template += '<xml>';
+			template += '<x:ExcelWorkbook>';
+			template += '<x:ExcelWorksheets>';
+			template += '<x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet>';
+			template += '</x:ExcelWorksheets>';
+			template += '</x:ExcelWorkbook>';
+			template += '</xml>';
+			template += '<![endif]--></head>';
+			template += '<body>';
+			template += '<table>{table}</table>'; // Set DOM table 
+			template += '</body>';
+			template += '</html>';
 
-        base64 = function(s) {
-            return window.btoa(unescape(encodeURIComponent(s)));
-        };
+			base64 = function(s) {
+				return window.btoa(unescape(encodeURIComponent(s)));
+			};
 
-        format = function(s, c) {
-            return s.replace(/{(\w+)}/g, function(m, p) {
-                return c[p];
-            });
-        };
+			format = function(s, c) {
+				return s.replace(/{(\w+)}/g, function(m, p) {
+					return c[p];
+				});
+			};
 
-        var table = document.getElementById("table-data-report");
+			var table = document.getElementById("table-data-report");
 
-        var ctx = {
-            worksheet: file.sheet,
-            table: table.innerHTML
-        };
+			var ctx = {
+				worksheet: file.sheet,
+				table: table.innerHTML
+			};
 
-        var element = document.createElement('a');
+			var element = document.createElement('a');
 
-        element.setAttribute('href', uri + base64(format(template, ctx)));
-        element.setAttribute('download', file.name);
-        element.style.display = 'none';
+			element.setAttribute('href', uri + base64(format(template, ctx)));
+			element.setAttribute('download', file.name);
+			element.style.display = 'none';
 
-        document.body.appendChild(element);
+			document.body.appendChild(element);
 
-        element.click();
+			element.click();
 
-        document.body.removeChild(element);
-
-    };
+			document.body.removeChild(element);
+	};
+	
+	c.generate_csv_via_url = function() {
+		
+		var url = '';
+		
+		url = 'https://' + c.instance_name + '.service-now.com/incident_list.do?CSV&sysparm_orderby=number';
+		
+		$window.open(url, '_self');
+	};
+	
 };]]></client_script>
         <controller_as>c</controller_as>
-        <css>.button-generate-pdf, .button-generate-csv {
+        <css>.button-generate-pdf, .button-generate-csv, .button-generate-csv-via-url {
   font-family: Roboto;
   margin-bottom: 24px;
 }
@@ -248,6 +258,7 @@ table.table-data tbody tr td {
         <script><![CDATA[(function() {
   /* populate the 'data' object */
   /* e.g., data.table = $sp.getValue('table'); */
+	
 	var table_name = 'incident';
 	
 	data.attachment_url = '';
@@ -255,7 +266,9 @@ table.table-data tbody tr td {
 	data.attachment_sys_id = '';	
 	data.incident_label_fields = [];
 	data.incidents = [];
+	data.instance_name = '';
 	
+	data.instance_name = gs.getProperty('instance_name');
 	data.incident_label_fields = get_incident_label_fields();
 	data.incidents = get_incidents();
 
@@ -381,23 +394,66 @@ table.table-data tbody tr td {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-04 21:13:38</sys_created_on>
         <sys_id>6b56277a971521109fd237971153afd6</sys_id>
-        <sys_mod_count>35</sys_mod_count>
+        <sys_mod_count>44</sys_mod_count>
         <sys_name>Incident Reports</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_6b56277a971521109fd237971153afd6</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-08-22 19:08:55</sys_updated_on>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-02-07 01:19:03</sys_updated_on>
         <template><![CDATA[<div id="report">
   
   <h4 class="page-title">{{ c.title }}</h4> <br />
 	
-  <button type="button" name="button-generate-pdf" class="button-generate-pdf" ng-click="c.generate_pdf()">Generate PDF</button>
-  
-  <button type="button" name="button-generate-excel" class="button-generate-csv" ng-click="c.generate_excel()">Generate Excel</button>
-  
-  <button type="button" name="button-generate-csv" class="button-generate-csv" ng-click="c.generate_csv()">Generate CSV</button>
+ 	<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+      	<button 
+                type="button" 
+                name="button-generate-pdf" 
+                class="button-generate-pdf" 
+                ng-click="c.generate_pdf()"
+                >
+          ${Generate PDF via Script Include}
+        </button>
+    	</div>
+      <div class="col-md-2">
+        <button 
+                type="button" 
+                name="button-generate-excel" 
+                class="button-generate-csv" 
+                ng-click="c.generate_excel()"
+                >
+          ${Generate Excel (.xls) via Vanilla JavaScript}
+        </button>
+    	</div>
+      <div class="col-md-2">
+        <button 
+                type="button" 
+                name="button-generate-csv" 
+                class="button-generate-csv" 
+                ng-click="c.generate_csv()"
+                >
+          ${Generate CSV via Script Include}
+        </button>
+    	</div>
+      <div class="col-md-2">
+        <button 
+                type="button" 
+                name="button-generate-csv-via-url" 
+                class="button-generate-csv-via-url" 
+                ng-click="c.generate_csv_via_url()"
+                >
+          ${Generate CSV via URL}
+        </button>
+    	</div>
+      <div class="col-md-2">
+    	</div>
+      <div class="col-md-2">
+    	</div>
+    </div>
+  </div>
   
   <div style="font-family: Roboto; font-size: 16px;">
     <table width="100%" style="border: 2px solid #000;">
