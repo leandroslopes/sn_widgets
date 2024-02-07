@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_tab">
     <par_dashboard_tab action="INSERT_OR_UPDATE">
         <active>true</active>
+        <background_color/>
         <dashboard display_value="My Wokspace">6ef349d6796621108de4fd80786ce968</dashboard>
         <name>Tab</name>
         <order>0</order>
