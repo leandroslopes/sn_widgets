@@ -2,177 +2,251 @@
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
         <client_script><![CDATA[api.controller = function($scope, $window) {
-    /* widget controller */
-    var c = this;
+	/* widget controller */
+	var c = this;
 
-    c.title = 'Incident Report';
-    c.incident_label_fields = [];
-    c.incidents = [];
-    c.attachment_sys_id = '';
-    c.issue_date = '';
-    c.issue_hour = '';
-		c.instance_name = c.data.instance_name;
+	c.title = 'Incident Report';
+	c.incident_label_fields = [];
+	c.incidents = [];
+	c.attachment_sys_id = '';
+	c.issue_date = '';
+	c.issue_hour = '';
+	c.instance_name = c.data.instance_name;
 
-    get_date_hour_issue();
+	get_date_hour_issue();
 
-    c.incident_label_fields = c.data.incident_label_fields;
-    c.incidents = organize_incidents(c.data.incidents);
+	c.incident_label_fields = c.data.incident_label_fields;
+	c.incidents = JSON.parse(c.data.incidents);
 
-    /*  
-     * Set date and time when the report is issued.
-     */
-    function get_date_hour_issue() {
-        c.issue_date = moment().format("DD/MM/YYYY");
-        c.issue_hour = moment().format("HH:mm:ss");
-    }
+	function get_date_hour_issue() {
+		c.issue_date = moment().format("DD/MM/YYYY");
+		c.issue_hour = moment().format("HH:mm:ss");
+	}
 
-    function organize_incidents(incidents) {
-        var incidents_organized = incidents;
+	function organize_incidents(incidents) {
+		
+		var incidents_organized = incidents;
 
-        incidents_organized.map(function(incident) {
-            return {
-                number: incident.number,
-                opened_at: incident.opened_at,
-                short_description: incident.short_description,
-                caller_name: incident.caller_name,
-                priority: incident.priority,
-                state: incident.state,
-                category: incident.category,
-                assignment_group: incident.assignment_group,
-                assigned_to_name: incident.assigned_to_name,
-                sys_updated_on: incident.sys_updated_on
-            }
-        });
+		incidents_organized.map(function(incident) {
+			return {
+				number: incident.number,
+				opened_at: incident.opened_at,
+				short_description: incident.short_description,
+				caller_name: incident.caller_name,
+				priority: incident.priority,
+				state: incident.state,
+				category: incident.category,
+				assignment_group: incident.assignment_group,
+				assigned_to_name: incident.assigned_to_name,
+				sys_updated_on: incident.sys_updated_on
+			}
+		});
 
-        return incidents_organized;
-    }
+		return incidents_organized;
+	}
 
-    /* 
-     * Generate PDF report.
-     */
-    c.generate_pdf = function() {
-			var attachment_url = '';
-			var error_message = '';
+	c.generate_pdf_script_include = function() {
+		
+		var attachment_url = '';
+		var error_message = '';
 
-			var obj = {
-				action: 'generate_pdf',
-			};
+		var obj = {
+			action: 'generate_pdf',
+		};
 
-			c.server.get(obj).then(function(response) {
-				c.data.action = undefined;
+		c.server.get(obj).then(function(response) {
+			
+			c.data.action = undefined;
 
-				if (response.data.attachment_url && response.data.attachment_url !== '') {
-					attachment_url = response.data.attachment_url;
-					$window.open(attachment_url, '_self');
-				} else {
-					error_message = response.data.error_message;
-					alert(error_message);
-				}
+			if (response.data.attachment_url && response.data.attachment_url !== '') {
+				
+				attachment_url = response.data.attachment_url;
+				
+				$window.open(attachment_url, '_self');
+				
+			} else {
+				
+				error_message = response.data.error_message;
+				
+				alert(error_message);
+			}
+		});
+	};
+
+	c.generate_excel_vanilla_javascript = function() {
+
+		var file = {
+			name: 'incidents_report.xls',
+			sheet: 'Incidents Report'
+		};
+
+		var uri = 'data:application/vnd.ms-excel;base64,';
+
+		var template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">';
+		template += '<head><!--[if gte mso 9]>';
+		template += '<xml>';
+		template += '<x:ExcelWorkbook>';
+		template += '<x:ExcelWorksheets>';
+		template += '<x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet>';
+		template += '</x:ExcelWorksheets>';
+		template += '</x:ExcelWorkbook>';
+		template += '</xml>';
+		template += '<![endif]--></head>';
+		template += '<body>';
+		template += '<table>{table}</table>'; // Set DOM table 
+		template += '</body>';
+		template += '</html>';
+
+		base64 = function(s) {
+			return window.btoa(unescape(encodeURIComponent(s)));
+		};
+
+		format = function(s, c) {
+			return s.replace(/{(\w+)}/g, function(m, p) {
+				return c[p];
 			});
-    };
+		};
 
-    /* 
-     * Generate CSV.
-     */
-    c.generate_csv = function() {
-			var attachment_url = '';
-			var error_message = '';
+		var table = document.getElementById("table-data-report");
 
-			var obj = {
-				action: 'generate_csv',
-			};
+		var ctx = {
+			worksheet: file.sheet,
+			table: table.innerHTML
+		};
 
-			c.server.get(obj).then(function(response) {
-				c.data.action = undefined;
+		var element = document.createElement('a');
+		element.setAttribute('href', uri + base64(format(template, ctx)));
+		element.setAttribute('download', file.name);
+		element.style.display = 'none';
 
-				if (response.data.attachment_url && response.data.attachment_url !== '') {
-					attachment_url = response.data.attachment_url;
-					$window.open(attachment_url, '_self');
-				} else {
-					error_message = response.data.error_message;
-					alert(error_message);
-				}
-			});
-    };
-
-    /* 
-     * Generate Excel.
-     */
-    c.generate_excel = function() {
-
-			var file = {
-				name: 'incidents_report.xls',
-				sheet: 'Incidents Report'
-			};
-
-			var uri = 'data:application/vnd.ms-excel;base64,';
-
-			var template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">';
-			template += '<head><!--[if gte mso 9]>';
-			template += '<xml>';
-			template += '<x:ExcelWorkbook>';
-			template += '<x:ExcelWorksheets>';
-			template += '<x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet>';
-			template += '</x:ExcelWorksheets>';
-			template += '</x:ExcelWorkbook>';
-			template += '</xml>';
-			template += '<![endif]--></head>';
-			template += '<body>';
-			template += '<table>{table}</table>'; // Set DOM table 
-			template += '</body>';
-			template += '</html>';
-
-			base64 = function(s) {
-				return window.btoa(unescape(encodeURIComponent(s)));
-			};
-
-			format = function(s, c) {
-				return s.replace(/{(\w+)}/g, function(m, p) {
-					return c[p];
-				});
-			};
-
-			var table = document.getElementById("table-data-report");
-
-			var ctx = {
-				worksheet: file.sheet,
-				table: table.innerHTML
-			};
-
-			var element = document.createElement('a');
-
-			element.setAttribute('href', uri + base64(format(template, ctx)));
-			element.setAttribute('download', file.name);
-			element.style.display = 'none';
-
-			document.body.appendChild(element);
-
-			element.click();
-
-			document.body.removeChild(element);
+		document.body.appendChild(element);
+		element.click();
+		document.body.removeChild(element);
 	};
 	
-	c.generate_csv_via_url = function() {
+	// Reference: https://medium.com/@idorenyinudoh10/how-to-export-data-from-javascript-to-a-csv-file-955bdfc394a9
+	c.generate_csv_vanilla_javascript = function() {
+		
+		var refined_data = [];
+		var incident_label_fields = [];
+		var incidents = [];
+		var csv_content = '';
+		var blob = null;
+		var obj_url = null;
+		var link = '';
+		var file_name = 'incidents.csv';
+		
+		// REMOVER ULTIMO VALOR DE UM REGISTRO INCIDENT OU ESCAPAR A VIRGULA DO SHORT DESCRIPTION
+		
+		incident_label_fields = c.incident_label_fields;
+		incidents = c.incidents;
+		
+		refined_data.push(incident_label_fields);
+		
+		incidents.forEach(function(item) {
+			refined_data.push(Object.values(item));
+		});
+
+		refined_data.forEach(function(row) {
+			csv_content += row.join(',') + '\n'
+		});
+		
+		blob = new Blob([csv_content], { type: 'text/csv;charset=utf-8,' });
+		obj_url = URL.createObjectURL(blob);
+
+		link = document.createElement('a');
+		link.setAttribute('href', obj_url);
+		link.setAttribute('download', file_name);
+		link.style.display = 'none';
+
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+	};
+	
+	c.generate_csv_script_include = function() {
+
+		var attachment_url = '';
+		var error_message = '';
+
+		var obj = {
+			action: 'generate_csv',
+		};
+
+		c.server.get(obj).then(function(response) {
+			c.data.action = undefined;
+
+			if (response.data.attachment_url && response.data.attachment_url !== '') {
+				
+				attachment_url = response.data.attachment_url;
+				
+				$window.open(attachment_url, '_self');
+				
+			} else {
+				
+				error_message = response.data.error_message;
+				
+				alert(error_message);
+			}
+		});
+	};
+
+	// Reference: https://docs.servicenow.com/bundle/vancouver-integrate-applications/page/administer/exporting-data/task/t_ExportDirectlyFromTheURL.html
+	c.generate_csv_url = function() {
+
+		var url = '';
+		var instance_name = '';
+
+		instance_name = c.instance_name;
+
+		url = 'https://' + instance_name + '.service-now.com/incident_list.do?CSV&sysparm_orderby=number';
+
+		$window.open(url, '_self');
+		
+	};
+	
+	// Reference: https://docs.servicenow.com/bundle/vancouver-integrate-applications/page/administer/exporting-data/task/t_ExportDirectlyFromTheURL.html
+	c.generate_pdf_url = function() {
 		
 		var url = '';
-		
-		url = 'https://' + c.instance_name + '.service-now.com/incident_list.do?CSV&sysparm_orderby=number';
-		
+		var instance_name = '';
+
+		instance_name = c.instance_name;
+
+		url = 'https://' + instance_name + '.service-now.com/incident_list.do?PDF&sysparm_orderby=number';
+
 		$window.open(url, '_self');
 	};
 	
+	// Reference: https://docs.servicenow.com/bundle/vancouver-integrate-applications/page/administer/exporting-data/task/t_ExportDirectlyFromTheURL.html
+	c.generate_excel_url = function() {
+		
+		var url = '';
+		var instance_name = '';
+		var excel_extension = '';
+
+		instance_name = c.instance_name;
+		excel_extension = 'XLSX'; //EXCEL OR XLS = .xls / XLSX = .xlsx
+
+		url = 'https://' + instance_name + '.service-now.com/incident_list.do?' + excel_extension + '&sysparm_orderby=number';
+
+		$window.open(url, '_self');
+	};
 };]]></client_script>
         <controller_as>c</controller_as>
-        <css>.button-generate-pdf, .button-generate-csv, .button-generate-csv-via-url {
-  font-family: Roboto;
-  margin-bottom: 24px;
-}
-
-.page-title {
+        <css>.page-title {
 	border-bottom: 1px solid #000;
 	padding-bottom: 5px;
   font-weight: 600;
   font-family: Roboto;
+}
+
+.margin-bottom-24 {
+	margin-bottom: 24px;
+}
+
+.text-align-center {
+	text-align: center;
 }
 
 /*.page-header {
@@ -358,6 +432,7 @@ table.table-data tbody tr td {
 	}
 	
 	function get_incidents() {
+		
 		var incidents = [];
 		
 		var glide_record_incidents = new GlideRecord(table_name);
@@ -385,7 +460,7 @@ table.table-data tbody tr td {
 			incident = {};
 		}
 		
-		return incidents;
+		return JSON.stringify(incidents);
 	}
 
 })();]]></script>
@@ -394,36 +469,81 @@ table.table-data tbody tr td {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-04 21:13:38</sys_created_on>
         <sys_id>6b56277a971521109fd237971153afd6</sys_id>
-        <sys_mod_count>44</sys_mod_count>
+        <sys_mod_count>89</sys_mod_count>
         <sys_name>Incident Reports</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_6b56277a971521109fd237971153afd6</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-02-07 01:19:03</sys_updated_on>
+        <sys_updated_on>2024-02-08 01:05:14</sys_updated_on>
         <template><![CDATA[<div id="report">
   
-  <h4 class="page-title">{{ c.title }}</h4> <br />
+  <h4 class="page-title">{{ ::c.title }}</h4> <br />
 	
  	<div class="container-fluid">
-    <div class="row">
+    <div class="row margin-bottom-24 text-align-center">
+      <div class="col-md-2">
+      	<label>
+        	<strong>${Server (Custom)}</strong>
+        </label>
+    	</div>
+      <div class="col-md-2">
+        <label>
+        	<strong>${Client (Custom)}</strong>
+        </label>
+    	</div>
+      <div class="col-md-2">
+        <label>
+        	<strong>${Client}</strong>
+        </label>
+    	</div>
+      <div class="col-md-2">
+    	</div>
+      <div class="col-md-2">
+    	</div>
+      <div class="col-md-2">
+    	</div>
+    </div>
+    <div class="row margin-bottom-24 text-align-center">
       <div class="col-md-2">
       	<button 
                 type="button" 
                 name="button-generate-pdf" 
                 class="button-generate-pdf" 
-                ng-click="c.generate_pdf()"
-                >
+                ng-click="c.generate_pdf_script_include()"
+        >
           ${Generate PDF via Script Include}
         </button>
+    	</div>
+      <div class="col-md-2">        
+    	</div>
+      <div class="col-md-2">
+        <button 
+                type="button" 
+                name="button-generate-pdf" 
+                class="button-generate-pdf" 
+                ng-click="c.generate_pdf_url()"
+        >
+          ${Generate PDF via URL}
+        </button>
+    	</div>
+      <div class="col-md-2">
+    	</div>
+      <div class="col-md-2">
+    	</div>
+      <div class="col-md-2">
+    	</div>
+    </div>
+    <div class="row margin-bottom-24 text-align-center">
+      <div class="col-md-2">        
     	</div>
       <div class="col-md-2">
         <button 
                 type="button" 
                 name="button-generate-excel" 
-                class="button-generate-csv" 
-                ng-click="c.generate_excel()"
+                class="button-generate-excel" 
+                ng-click="c.generate_excel_vanilla_javascript()"
                 >
           ${Generate Excel (.xls) via Vanilla JavaScript}
         </button>
@@ -431,42 +551,80 @@ table.table-data tbody tr td {
       <div class="col-md-2">
         <button 
                 type="button" 
-                name="button-generate-csv" 
-                class="button-generate-csv" 
-                ng-click="c.generate_csv()"
+                name="button-generate-excel" 
+                class="button-generate-excel" 
+                ng-click="c.generate_excel_url()"
                 >
-          ${Generate CSV via Script Include}
+          ${Generate Excel (.xls ou .xlsx) via URL}
         </button>
     	</div>
-      <div class="col-md-2">
-        <button 
-                type="button" 
-                name="button-generate-csv-via-url" 
-                class="button-generate-csv-via-url" 
-                ng-click="c.generate_csv_via_url()"
-                >
-          ${Generate CSV via URL}
-        </button>
+      <div class="col-md-2">        
     	</div>
       <div class="col-md-2">
     	</div>
       <div class="col-md-2">
     	</div>
     </div>
+    <div class="row margin-bottom-24 text-align-center">
+      <div class="col-md-2">
+      	<button 
+                type="button" 
+                name="button-generate-csv" 
+                class="button-generate-csv" 
+                ng-click="c.generate_csv_script_include()"
+        >
+          ${Generate CSV via Script Include}
+        </button>
+    	</div>
+      <div class="col-md-2">
+        <button 
+                type="button" 
+                name="button-generate-csv" 
+                class="button-generate-csv" 
+                ng-click="c.generate_csv_vanilla_javascript()"
+                >
+          ${Generate CSV via Vanilla JavaScript}
+        </button>
+    	</div>
+      <div class="col-md-2">
+        <button 
+                type="button" 
+                name="button-generate-csv" 
+                class="button-generate-csv" 
+                ng-click="c.generate_csv_url()"
+                >
+          ${Generate CSV via URL}
+        </button>
+    	</div>
+      <div class="col-md-2">        
+    	</div>
+      <div class="col-md-2">
+    	</div>
+      <div class="col-md-2">
+    	</div>
+    </div>    
   </div>
   
   <div style="font-family: Roboto; font-size: 16px;">
     <table width="100%" style="border: 2px solid #000;">
       <tbody>
       	<tr>
-          <td rowspan="3"><img src="logo_sn.png" width="110" height="110" style="margin-top: -1px; margin-bottom: -1px;"/></td>
-          <td style="font-weight: bold;">${Incident Report}</td>
+          <td rowspan="3">
+            <img src="logo_sn.png" width="110" height="110" style="margin-top: -1px; margin-bottom: -1px;"/>
+          </td>
+          <td style="font-weight: bold;">
+            ${Incident Report}
+          </td>
         </tr>
         <tr>
-          <td><strong>Issue:</strong> {{ c.issue_date }} {{ c.issue_hour }}</td>
+          <td>
+            <strong>Issue:</strong> {{ c.issue_date }} {{ c.issue_hour }}
+          </td>
         </tr>
         <tr>
-          <td><strong>Page:</strong> <span class="current-page-number"></span> de <span class="current-page-number"></span></td>
+          <td>
+            <strong>Page:</strong> <span class="current-page-number"></span> de <span class="current-page-number"></span>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -503,7 +661,9 @@ table.table-data tbody tr td {
     <table style="" width="100%" id="table-data-report">
 	  	<thead>
         <tr>
-          <td rowspan="6"><img src="logo_sn.png" width="123" height="123" style=""/></td>
+          <td rowspan="6">
+            <img src="https://dev118034.service-now.com/logo_sn.png" width="123" height="123" style=""/>
+          </td>
           <td></td>
           <td></td>
           <td></td>
