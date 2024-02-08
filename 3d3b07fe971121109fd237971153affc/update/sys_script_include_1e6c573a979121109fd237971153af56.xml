@@ -60,23 +60,29 @@ GeneratePDFIncidentReport .prototype = {
 		body_data = this.create_body_data(incidents);
 		
 		pdf_config.html = meta_tags + css + header + body + body_data;
-		gs.info(pdf_config.html);
+		
 		has_report_temp = this.has_report_temp(pdf_config);
 		
 		if (has_report_temp) {
+
 			deleted_report_temp = this.delete_report_Temp(pdf_config);
 			
 			if (deleted_report_temp) {
+
 				pdf_config.sys_id_target = this.add_report_temp(pdf_config);
 
 				if (pdf_config.sys_id_target && pdf_config.sys_id_target !== '') {
-					pdf = this.convert_html_to_pdf(pdf_config);
+
+					var pdf = this.convert_html_to_pdf(pdf_config);
 
 					if (pdf && pdf.attachment_id !== '') {
+
 						pdf_url = this.create_pdf_url_to_download(pdf.attachment_id);
 
 						return pdf_url;
+
 					} else {
+
 						no_generate_pdf = 'Não foi possível gerar o relatório!';
 
 						return no_generate_pdf;
@@ -84,33 +90,41 @@ GeneratePDFIncidentReport .prototype = {
 
 
 				} else {
+
 					no_add_report_temp = 'Não foi possível gerar o relatório, por não ter sido adicionado o registro na tabela <Report Temp>';
 
 					return no_add_report_temp;
 				}
 
 			} else {
+
 				var no_deleted_report_temp = 'Não foi possível gerar o relatório, por não ter sido possível excluir o registro anterior na tabela <Report Temp>';
 
 				return no_deleted_report_temp;
 			}
 			
 		} else {
+
 			pdf_config.sys_id_target = this.add_report_temp(pdf_config);
 
 			if (pdf_config.sys_id_target && pdf_config.sys_id_target !== '') {
+
 				pdf = this.convert_html_to_pdf(pdf_config);
 
 				if (pdf && pdf.attachment_id !== '') {
+
 					pdf_url = this.create_pdf_url_to_download(pdf.attachment_id);
 
 					return pdf_url;
+
 				} else {
+
 					no_generate_pdf = 'Não foi possível gerar o relatório!';
 
 					return no_generate_pdf;
 				}
 			} else {
+				
 				no_add_report_temp = 'Não foi possível gerar o relatório, por não ter sido adicionado o registro na tabela <Report Temp>';
 
 				return no_add_report_temp;
@@ -334,8 +348,6 @@ GeneratePDFIncidentReport .prototype = {
 			pdf_config.sys_id_font_family
         );
 		
-		gs.info(JSON.stringify(pdf));
-		
 		return pdf;
 	},
 	
@@ -359,13 +371,13 @@ GeneratePDFIncidentReport .prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-04 20:31:33</sys_created_on>
         <sys_id>1e6c573a979121109fd237971153af56</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>GeneratePDFIncidentReport</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sys_script_include_1e6c573a979121109fd237971153af56</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-05-26 19:22:54</sys_updated_on>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-02-07 21:15:02</sys_updated_on>
     </sys_script_include>
 </record_update>
