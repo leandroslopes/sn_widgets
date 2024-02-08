@@ -23,28 +23,8 @@
 		c.issue_hour = moment().format("HH:mm:ss");
 	}
 
-	function organize_incidents(incidents) {
-		
-		var incidents_organized = incidents;
-
-		incidents_organized.map(function(incident) {
-			return {
-				number: incident.number,
-				opened_at: incident.opened_at,
-				short_description: incident.short_description,
-				caller_name: incident.caller_name,
-				priority: incident.priority,
-				state: incident.state,
-				category: incident.category,
-				assignment_group: incident.assignment_group,
-				assigned_to_name: incident.assigned_to_name,
-				sys_updated_on: incident.sys_updated_on
-			}
-		});
-
-		return incidents_organized;
-	}
-
+	// Reference: https://developer.servicenow.com/dev.do#!/reference/api/washingtondc/server/sn_pdfgeneratorutils-namespace/PDFGenerationAPIBothAPI
+	// Reference: https://www.servicenow.com/community/brazil-snug/building-a-pdf-report-using-pdfgenerationapi/ta-p/2436540
 	c.generate_pdf_script_include = function() {
 		
 		var attachment_url = '';
@@ -72,98 +52,9 @@
 			}
 		});
 	};
-
-	c.generate_excel_vanilla_javascript = function() {
-
-		var file = {
-			name: 'incidents_report.xls',
-			sheet: 'Incidents Report'
-		};
-
-		var uri = 'data:application/vnd.ms-excel;base64,';
-
-		var template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">';
-		template += '<head><!--[if gte mso 9]>';
-		template += '<xml>';
-		template += '<x:ExcelWorkbook>';
-		template += '<x:ExcelWorksheets>';
-		template += '<x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet>';
-		template += '</x:ExcelWorksheets>';
-		template += '</x:ExcelWorkbook>';
-		template += '</xml>';
-		template += '<![endif]--></head>';
-		template += '<body>';
-		template += '<table>{table}</table>'; // Set DOM table 
-		template += '</body>';
-		template += '</html>';
-
-		base64 = function(s) {
-			return window.btoa(unescape(encodeURIComponent(s)));
-		};
-
-		format = function(s, c) {
-			return s.replace(/{(\w+)}/g, function(m, p) {
-				return c[p];
-			});
-		};
-
-		var table = document.getElementById("table-data-report");
-
-		var ctx = {
-			worksheet: file.sheet,
-			table: table.innerHTML
-		};
-
-		var element = document.createElement('a');
-		element.setAttribute('href', uri + base64(format(template, ctx)));
-		element.setAttribute('download', file.name);
-		element.style.display = 'none';
-
-		document.body.appendChild(element);
-		element.click();
-		document.body.removeChild(element);
-	};
 	
-	// Reference: https://medium.com/@idorenyinudoh10/how-to-export-data-from-javascript-to-a-csv-file-955bdfc394a9
-	c.generate_csv_vanilla_javascript = function() {
-		
-		var refined_data = [];
-		var incident_label_fields = [];
-		var incidents = [];
-		var csv_content = '';
-		var blob = null;
-		var obj_url = null;
-		var link = '';
-		var file_name = 'incidents.csv';
-		
-		// REMOVER ULTIMO VALOR DE UM REGISTRO INCIDENT OU ESCAPAR A VIRGULA DO SHORT DESCRIPTION
-		
-		incident_label_fields = c.incident_label_fields;
-		incidents = c.incidents;
-		
-		refined_data.push(incident_label_fields);
-		
-		incidents.forEach(function(item) {
-			refined_data.push(Object.values(item));
-		});
-
-		refined_data.forEach(function(row) {
-			csv_content += row.join(',') + '\n'
-		});
-		
-		blob = new Blob([csv_content], { type: 'text/csv;charset=utf-8,' });
-		obj_url = URL.createObjectURL(blob);
-
-		link = document.createElement('a');
-		link.setAttribute('href', obj_url);
-		link.setAttribute('download', file_name);
-		link.style.display = 'none';
-
-		document.body.appendChild(link);
-		link.click();
-		document.body.removeChild(link);
-	};
-	
+	// Reference: https://www.servicenow.com/community/brazil-snug/building-an-script-include-to-generate-file-in-csv-format/ta-p/2532414
+	// Use GlideSysAttachment
 	c.generate_csv_script_include = function() {
 
 		var attachment_url = '';
@@ -174,6 +65,7 @@
 		};
 
 		c.server.get(obj).then(function(response) {
+			
 			c.data.action = undefined;
 
 			if (response.data.attachment_url && response.data.attachment_url !== '') {
@@ -191,18 +83,79 @@
 		});
 	};
 
-	// Reference: https://docs.servicenow.com/bundle/vancouver-integrate-applications/page/administer/exporting-data/task/t_ExportDirectlyFromTheURL.html
-	c.generate_csv_url = function() {
+	// Reference: https://www.codexworld.com/export-html-table-data-to-excel-using-javascript/
+	// Reference: https://stackoverflow.com/a/37516332/10407880 - Não é possível gerar .xlsx com Vanilla JS, mas somente com o auxílio de uma biblioteca JS
+	c.generate_excel_vanilla_javascript = function() {
 
-		var url = '';
-		var instance_name = '';
-
-		instance_name = c.instance_name;
-
-		url = 'https://' + instance_name + '.service-now.com/incident_list.do?CSV&sysparm_orderby=number';
-
-		$window.open(url, '_self');
+		var filename = '';
+		var table = '';
+		var table_id = null;
+		var table_string = '';
+		var blob_data = null;
+		var url = null;
+		var link = '';
+		var data_type_excel = 'application/vnd.ms-excel';
 		
+		filename = 'incidents_vanilla_javascript';
+		table_id = document.getElementById("table-data-report");		
+		table_string = '<table style="background-color: none; font-size: 14pt"><thead><tr><th>Nome</th></tr></thead><tbody><tr><td>Léandro</td></tr><tr><td>Kêrly</td></tr><tr><td>Lavínia</td></tr><tr><td>Lisbellá</td></tr></tbody></table>';
+		table = table_id ? table_id.outerHTML : table_string; // Ou tabela na página ou tabela formada como string
+				         
+    blob_data = new Blob(['\ufeff' + table], { type: data_type_excel }); // Esse "\ufeff" é importante para manter os acentos
+    url = URL.createObjectURL(blob_data);
+
+		link = document.createElement('a');		
+		link.setAttribute('href', url);		
+		link.setAttribute('download', filename);
+		link.style.display = 'none';
+
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+	};
+	
+	// Reference: https://medium.com/@idorenyinudoh10/how-to-export-data-from-javascript-to-a-csv-file-955bdfc394a9
+	c.generate_csv_vanilla_javascript = function() {
+		
+		var refined_data = [];
+		var incident_label_fields = [];
+		var incidents = [];
+		var csv_content = '';
+		var blob = null;
+		var obj_url = null;
+		var link = '';
+		var file_name = '';
+		
+		file_name = 'incidents_vanilla_javascript';
+		incident_label_fields = c.incident_label_fields;
+		incidents = c.incidents;
+		
+		incidents.forEach(function(item) {
+			refined_data.push(Object.values(item));
+		});
+		
+		// Header Row
+		csv_content += incident_label_fields.join(';') + '\n';
+		
+		// Registers Rows
+		refined_data.forEach(function(row) {
+			
+			row.pop(); // Remove o último elemento do array, que não é necessário. Exemplo do elemento: 'object:328'
+			
+			csv_content += row.join(';') + '\n';
+		});
+
+		blob = new Blob([csv_content], { type: 'text/csv;charset=utf-8,' });
+		obj_url = URL.createObjectURL(blob);
+
+		link = document.createElement('a');
+		link.setAttribute('href', obj_url);
+		link.setAttribute('download', file_name);
+		link.style.display = 'none';
+
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
 	};
 	
 	// Reference: https://docs.servicenow.com/bundle/vancouver-integrate-applications/page/administer/exporting-data/task/t_ExportDirectlyFromTheURL.html
@@ -231,6 +184,20 @@
 		url = 'https://' + instance_name + '.service-now.com/incident_list.do?' + excel_extension + '&sysparm_orderby=number';
 
 		$window.open(url, '_self');
+	};
+	
+	// Reference: https://docs.servicenow.com/bundle/vancouver-integrate-applications/page/administer/exporting-data/task/t_ExportDirectlyFromTheURL.html
+	c.generate_csv_url = function() {
+
+		var url = '';
+		var instance_name = '';
+
+		instance_name = c.instance_name;
+
+		url = 'https://' + instance_name + '.service-now.com/incident_list.do?CSV&sysparm_orderby=number';
+
+		$window.open(url, '_self');
+		
 	};
 };]]></client_script>
         <controller_as>c</controller_as>
@@ -469,14 +436,14 @@ table.table-data tbody tr td {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-04 21:13:38</sys_created_on>
         <sys_id>6b56277a971521109fd237971153afd6</sys_id>
-        <sys_mod_count>89</sys_mod_count>
+        <sys_mod_count>130</sys_mod_count>
         <sys_name>Incident Reports</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_6b56277a971521109fd237971153afd6</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-02-08 01:05:14</sys_updated_on>
+        <sys_updated_on>2024-02-08 16:23:08</sys_updated_on>
         <template><![CDATA[<div id="report">
   
   <h4 class="page-title">{{ ::c.title }}</h4> <br />
@@ -545,7 +512,7 @@ table.table-data tbody tr td {
                 class="button-generate-excel" 
                 ng-click="c.generate_excel_vanilla_javascript()"
                 >
-          ${Generate Excel (.xls) via Vanilla JavaScript}
+          ${Generate Excel (only .xls) via Vanilla JavaScript}
         </button>
     	</div>
       <div class="col-md-2">
@@ -657,8 +624,8 @@ table.table-data tbody tr td {
 		</table>
   </div>
   
-  <div ng-show="false">
-    <table style="" width="100%" id="table-data-report">
+  <div ng-show="false" id="table-data-report">
+    <table style="" width="100%">
 	  	<thead>
         <tr>
           <td rowspan="6">
