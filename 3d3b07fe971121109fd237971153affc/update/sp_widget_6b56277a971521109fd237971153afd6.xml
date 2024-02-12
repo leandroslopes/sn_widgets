@@ -12,11 +12,13 @@
 	c.issue_date = '';
 	c.issue_hour = '';
 	c.instance_name = c.data.instance_name;
+	c.logo_url = '';
 
 	get_date_hour_issue();
 
 	c.incident_label_fields = c.data.incident_label_fields;
 	c.incidents = JSON.parse(c.data.incidents);
+	c.logo_url = 'https://' + c.instance_name + '.service-now.com/logo_sn.png';
 
 	function get_date_hour_issue() {
 		c.issue_date = moment().format("DD/MM/YYYY");
@@ -83,8 +85,16 @@
 		});
 	};
 
+	// Reference: https://developer.mozilla.org/pt-BR/docs/Web/API/Window/print
+	// Observation: Não há suporte para @page e page number no momento - https://stackoverflow.com/a/17752489
+    c.generate_pdf_vanilla_javascript = function() {
+
+		print();
+    },
+
 	// Reference: https://www.codexworld.com/export-html-table-data-to-excel-using-javascript/
 	// Reference: https://stackoverflow.com/a/37516332/10407880 - Não é possível gerar .xlsx com Vanilla JS, mas somente com o auxílio de uma biblioteca JS
+	// Observation: Para que os estilos como cores apareçam no Excel é necessário usar o CSS style inline
 	c.generate_excel_vanilla_javascript = function() {
 
 		var filename = '';
@@ -101,8 +111,8 @@
 		table_string = '<table style="background-color: none; font-size: 14pt"><thead><tr><th>Nome</th></tr></thead><tbody><tr><td>Léandro</td></tr><tr><td>Kêrly</td></tr><tr><td>Lavínia</td></tr><tr><td>Lisbellá</td></tr></tbody></table>';
 		table = table_id ? table_id.outerHTML : table_string; // Ou tabela na página ou tabela formada como string
 				         
-    blob_data = new Blob(['\ufeff' + table], { type: data_type_excel }); // Esse "\ufeff" é importante para manter os acentos
-    url = URL.createObjectURL(blob_data);
+    	blob_data = new Blob(['\ufeff' + table], { type: data_type_excel }); // Esse "\ufeff" é importante para manter os acentos
+    	url = URL.createObjectURL(blob_data);
 
 		link = document.createElement('a');		
 		link.setAttribute('href', url);		
@@ -204,8 +214,8 @@
         <css>.page-title {
 	border-bottom: 1px solid #000;
 	padding-bottom: 5px;
-  font-weight: 600;
-  font-family: Roboto;
+  	font-weight: 600;
+  	font-family: Roboto;
 }
 
 .margin-bottom-24 {
@@ -216,73 +226,20 @@
 	text-align: center;
 }
 
-/*.page-header {
-	border-bottom: 0px !important;
-  padding-bottom: 0px !important;
-}
-      
-.page-header, .page-body {
-	font-family: Roboto;
+#page-numbering {
+	display: none;
 }
 
-.page-body {
-  font-size: 12px;
-}
+@media print { 
 
-.table-header { 
-	box-shadow: 0 0 0 2px rgb(0, 0, 0) inset;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-}
+	table tbody tr th {
+		background-color: #C1C1C1 !important; 
+	}
 
-.title {
-	padding: 20px;
-  margin-left: 190px;
-  font-size: 16px !important;
-}
-
-table.table-data thead tr th {
-	padding: 10px 6px; 
-	background-color: #C1C1C1;
-  border-left: 2px solid #C1C1C1;
-  border-right: 2px solid #C1C1C1;
-	text-align: center; 
-	font-weight: bold; 
-	color: #000;
-  border: 2px solid #000;
-}
-      
-table.table-data tbody tr td {
-	padding: 10px 6px;
-	text-align: center;
-  border: 2px solid #000;
-  font-weight: 600;
-}
-      
-.table-data { 
-	border: 0px;
-}
-
-.font-bold {
-  font-weight: bold;
-}
-      
-.flex {
-	display: flex;
-}
-    
-.flex-1 {
-	flex: 1
-}
-    
-.flex-2 {
-	flex: 2
-}
-    
-.left {
-	text-align: left;
-}*/</css>
+	.no-printable { 
+		display: none;
+	}
+}</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -436,19 +393,19 @@ table.table-data tbody tr td {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-04 21:13:38</sys_created_on>
         <sys_id>6b56277a971521109fd237971153afd6</sys_id>
-        <sys_mod_count>130</sys_mod_count>
+        <sys_mod_count>410</sys_mod_count>
         <sys_name>Incident Reports</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_6b56277a971521109fd237971153afd6</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-02-08 16:23:08</sys_updated_on>
+        <sys_updated_on>2024-02-12 14:51:07</sys_updated_on>
         <template><![CDATA[<div id="report">
   
-  <h4 class="page-title">{{ ::c.title }}</h4> <br />
+  <h4 class="page-title no-printable">{{ ::c.title }}</h4> <br />
 	
- 	<div class="container-fluid">
+ 	<div class="container-fluid no-printable">
     <div class="row margin-bottom-24 text-align-center">
       <div class="col-md-2">
       	<label>
@@ -462,10 +419,13 @@ table.table-data tbody tr td {
     	</div>
       <div class="col-md-2">
         <label>
-        	<strong>${Client}</strong>
+        	<strong>${Client (OOB)}</strong>
         </label>
-    	</div>
+        </div>
       <div class="col-md-2">
+        <label>
+        	<strong>${Client (Low Custom)}</strong>
+        </label>
     	</div>
       <div class="col-md-2">
     	</div>
@@ -496,6 +456,14 @@ table.table-data tbody tr td {
         </button>
     	</div>
       <div class="col-md-2">
+        <button 
+                type="button" 
+                name="button-generate-pdf" 
+                class="button-generate-pdf" 
+                ng-click="c.generate_pdf_vanilla_javascript()"
+        >
+          ${Generate PDF via Vanilla JavaScript}
+        </button>
     	</div>
       <div class="col-md-2">
     	</div>
@@ -572,147 +540,114 @@ table.table-data tbody tr td {
     </div>    
   </div>
   
-  <div style="font-family: Roboto; font-size: 16px;">
-    <table width="100%" style="border: 2px solid #000;">
-      <tbody>
+  <div>
+    <table 
+      id="table-data-report" 
+      width="100%"
+      style="
+        font-family: sans-serif; 
+        border: 2px solid #000; 
+        border-spacing: 0px; 
+        border-collapse: collapse;"  
+    >
+      <thead>
+        <tr>
+          <td colspan="3" rowspan="7">
+            <img src="https://dev118034.service-now.com/logo_sn.png" alt="Image" width="128" height="128">
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
       	<tr>
-          <td rowspan="3">
-            <img src="logo_sn.png" width="110" height="110" style="margin-top: -1px; margin-bottom: -1px;"/>
+          <td colspan="2">
+            <strong>${Incident Report}</strong>
           </td>
-          <td style="font-weight: bold;">
-            ${Incident Report}
-          </td>
+          <td></td>
+          <td></td>
+          <td></td>          
+          <td></td>
+          <td></td>
         </tr>
         <tr>
-          <td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="2">
             <strong>Issue:</strong> {{ c.issue_date }} {{ c.issue_hour }}
           </td>
+          <td></td>          
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <tr>
-          <td>
-            <strong>Page:</strong> <span class="current-page-number"></span> de <span class="current-page-number"></span>
-          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
-      </tbody>
-    </table>
-  </div>
-  
-  <div style="font-family: Roboto; font-size: 12px; margin-top: 24px;" class="report-body">
-    <table style="" width="100%">
-	  	<thead>
         <tr>
-          <th style="padding: 10px 6px; background-color: #C1C1C1; border-left: 2px solid #C1C1C1; border-right: 2px solid #C1C1C1; text-align: center; font-weight: bold; color: #000; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;" 
-              ng-repeat="label in c.incident_label_fields">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>          
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th 
+            style="
+              padding: 10px 6px; 
+              text-align: center; 
+              font-weight: 600;
+              background-color: #C1C1C1;
+              border: 2px solid #000; 
+              border-spacing: 0px;"
+            ng-repeat="label in c.incident_label_fields">
             {{ label }}
           </th>
         </tr>
-      </thead>
-    	<tbody>
         <tr ng-repeat="incident in c.incidents">
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.number }}</td>
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.opened_at }}</td>
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.short_description }}</td>
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.caller_name }}</td>
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.priority }}</td>
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.state }}</td>
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.category }}</td>
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.assignment_group }}</td>
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.assigned_to_name }}</td>
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.sys_updated_on }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px;">{{ incident.number }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px;">{{ incident.opened_at }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px;">{{ incident.short_description }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px;">{{ incident.caller_name }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px;">{{ incident.priority }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px;">{{ incident.state }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px;">{{ incident.category }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px;">{{ incident.assignment_group }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px;">{{ incident.assigned_to_name }}</td>
+          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px;">{{ incident.sys_updated_on }}</td>
         </tr>
       </tbody>
-		</table>
-  </div>
-  
-  <div ng-show="false" id="table-data-report">
-    <table style="" width="100%">
-	  	<thead>
-        <tr>
-          <td rowspan="6">
-            <img src="https://dev118034.service-now.com/logo_sn.png" width="123" height="123" style=""/>
-          </td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td colspan="4" style="font-size: 22px;"><strong>Incident Report</strong></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td colspan="4" style="font-size: 22px;"><strong>Issue: </strong> {{ c.issue_date }} {{ c.issue_hour }}</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </thead>
-    	<tbody>
-        <tr>
-          <td style="padding: 10px 6px; background-color: #C1C1C1; border-left: 2px solid #C1C1C1; border-right: 2px solid #C1C1C1; text-align: center; font-weight: bold; color: #000; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;" 
-              ng-repeat="label in c.incident_label_fields"
-              >
-            {{ label }}
-          </td>
-        </tr>
-        <tr ng-repeat="incident in c.incidents">
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.number }}</td>
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.opened_at }}</td>
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.short_description }}</td>
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.caller_name }}</td>
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.priority }}</td>
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.state }}</td>
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.category }}</td>
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.assignment_group }}</td>
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.assigned_to_name }}</td>
-          <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px; border-collapse: collapse;">{{ incident.sys_updated_on }}</td>
-        </tr>
-      </tbody>
-		</table>
+    </table>
   </div>
   
 </div>]]></template>
