@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_js_include">
+    <sp_js_include action="INSERT_OR_UPDATE">
+        <display_name>html2canvas</display_name>
+        <source>local</source>
+        <sys_class_name>sp_js_include</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-02-12 20:10:52</sys_created_on>
+        <sys_id>b45440ce9754c210cbf53e2e6253af99</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>html2canvas</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_ui_script/>
+        <sys_update_name>sp_js_include_b45440ce9754c210cbf53e2e6253af99</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-02-12 20:10:52</sys_updated_on>
+        <url/>
+    </sp_js_include>
+</record_update>
