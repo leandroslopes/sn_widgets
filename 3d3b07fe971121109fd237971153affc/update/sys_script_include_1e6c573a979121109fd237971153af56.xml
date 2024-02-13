@@ -17,7 +17,9 @@ GeneratePDFIncidentReport .prototype = {
 	 * @param {object} pdf_data Object with data from the PDF file.
 	 * @return {string} pdf_url PDF URL.
      */
-    generate: function(pdf_data) {
+    generate: function(pdf_data_string) {
+		
+		var pdf_data;
         var meta_tags = '';
 		var css = '';
 		var header = '';
@@ -35,7 +37,7 @@ GeneratePDFIncidentReport .prototype = {
 			html: '',
 			table_target: 'x_821667_my_widget_report_temp',
 			sys_id_target: '',
-			pdf_name: this.create_pdf_name(),
+			pdf_name: 'incidents_pdfgenerationapi',
 			header_footer_info: {
 				PageSize: 'A4 ',
 				PageOrientation: 'LANDSCAPE',
@@ -45,6 +47,8 @@ GeneratePDFIncidentReport .prototype = {
 			},
 			sys_id_font_family: '349f216397d62110cbf53e2e6253af0e' //sys_id of a font family record on the 'sys_pdf_generation_font_family' table
 		};
+
+		pdf_data = JSON.parse(pdf_data_string);
 		
         meta_tags = this.create_metatags(pdf_data.title);
 		
@@ -138,12 +142,13 @@ GeneratePDFIncidentReport .prototype = {
 	* @return {booelan} has_report_temp True if it has a record. False if it doesn't
 	*/
 	has_report_temp: function(pdf_config) {
-		var pdf_name = pdf_config.pdf_name;
+		
+		var user_name = gs.getUserName();
 		var has_report_temp = false;
 		
 		var glide_record = new GlideRecord(pdf_config.table_target);
 
-		glide_record.addQuery("name", pdf_name);
+		glide_record.addQuery("sys_created_by", user_name);
 		glide_record.query();
 		
 		if (glide_record.next()) {
@@ -153,17 +158,81 @@ GeneratePDFIncidentReport .prototype = {
 		return has_report_temp;
 	},
 
-    /**
-     * Create a name for the PDF file.
-     * @return {string} pdf_name Name for the PDF file.
-     */
-    create_pdf_name: function() {
-        var pdf_name = '';
+	/**
+	 * Deletes a record from the 'Report Temp' table and consequently the associated attachment record in the 'sys_attachment' table.
+	 * @param {Object} pdf_config - PDF attachment settings.
+	 * @return {Boolean} deleted - If deleted return true else false.
+	 */
+	delete_report_Temp: function(pdf_config) {
 
-        pdf_name = 'incident_report_' + gs.getUserID();
+		var user_name = gs.getUserName();
+		var deleted = false;
+		
+		var glide_record = new GlideRecord(pdf_config.table_target);
+		
+		glide_record.addQuery("sys_created_by", user_name);
+		glide_record.query();
+		
+		if (glide_record.next()) {
+			deleted = glide_record.deleteRecord();
+		}
+		
+		return deleted;
+	},
+	
+	/**
+	 * Adds a record in the 'Report Temp' table.
+	 * @param {Object} pdf_config - PDF attachment settings.
+	 * @return {String} report_temp_sys_id - Sys ID of a Report Temp.
+	 */
+	add_report_temp: function (pdf_config) {
 
-        return pdf_name;
-    },
+		var report_temp_sys_id = '';
+		
+		var glide_record = new GlideRecord(pdf_config.table_target);
+		
+		glide_record.initialize();
+		
+		glide_record.name = pdf_config.pdf_name;
+
+		report_temp_sys_id = glide_record.insert();
+		
+		return report_temp_sys_id;
+	},
+	
+	/**
+	 * Convert HTML to PDF.
+	 * @param {Object} pdf_config PDF attachment settings.
+	 * @return {Object} pdf Object with information from the created PDF.
+	 */
+	convert_html_to_pdf: function(pdf_config) {
+		var pdf_generation_api = new sn_pdfgeneratorutils.PDFGenerationAPI();
+		
+		var pdf = pdf_generation_api.convertToPDFWithHeaderFooter(
+            pdf_config.html, 
+            pdf_config.table_target, 
+            pdf_config.sys_id_target, 
+            pdf_config.pdf_name, 
+            pdf_config.header_footer_info,
+			pdf_config.sys_id_font_family
+        );
+		
+		return pdf;
+	},
+	
+	/**
+	 * Creates the URL of the PDF for download.
+	 * @param {string} attachmentSysID Sys Attachment ID.
+	 * @return {string} attachmentUrl Attachment URL.
+	 */
+	create_pdf_url_to_download: function(attachment_sys_id) {
+		var instace = 'https://' + gs.getProperty('instance_name') + '.service-now.com/';
+		var attachment_table = 'sys_attachment.do';
+		var attachment_param_sys_id = '?sys_id=' + attachment_sys_id;
+		var attachment_url = instace + attachment_table + attachment_param_sys_id;
+		
+		return attachment_url;
+	},
 
     /**
      * Create the initial HTML to convert to PDF.
@@ -248,6 +317,7 @@ GeneratePDFIncidentReport .prototype = {
 	 * @return {string} body Report body.
 	 */
 	create_body: function(incident_labels) {
+		
 		var body = '';
 		
 		body = '<div style="font-family: Roboto; font-size: 12px;" class="report-body">' +
@@ -268,12 +338,16 @@ GeneratePDFIncidentReport .prototype = {
 	
 	/**
 	 * Creates the data for the body of the report.
-	 * @param {array} titulosPublicosParameter Array of 'Public Titles' objects.
-	 * @return {string} body_data Data for the body of the report.
+	 * @param {Array} incidents - Incidents array.
+	 * @return {String} body_data - Data for the body of the report.
 	 */
-	create_body_data: function(incidents) {
+	create_body_data: function(incidentsParam) {
+
+		
+		var incidents = [];
 		var body_data = '';
-		var self  = this;
+
+		incidents = incidentsParam;
 		
 		incidents.forEach(function(incident) {
 			
@@ -290,80 +364,6 @@ GeneratePDFIncidentReport .prototype = {
 		
 		return body_data;
 	},
-	
-	/**
-	 * Deletes a record from the 'Report Temp' table and consequently the associated attachment record in the 'sys_attachment' table.
-	 * @param {object} pdf_config PDF attachment settings.
-	 * @return {void}
-	 */
-	delete_report_Temp: function(pdf_config) {
-		var pdf_name = pdf_config.pdf_name;
-		var deleted = false;
-		
-		var glide_record = new GlideRecord(pdf_config.table_target);
-		
-		glide_record.addQuery("name", pdf_name);
-		glide_record.query();
-		
-		if (glide_record.next()) {
-			deleted = glide_record.deleteRecord();
-		}
-		
-		return deleted;
-	},
-	
-	/**
-	 * Adds a record in the 'Report Temp' table.
-	 * @param {object} pdf_config PDF attachment settings.
-	 * @return {string} reportTempSysID Sys ID of a Report Temp.
-	 */
-	add_report_temp: function (pdf_config) {
-		var report_temp_sys_id = '';
-		
-		var glide_record = new GlideRecord(pdf_config.table_target);
-		
-		glide_record.initialize();
-		
-		glide_record.name = pdf_config.pdf_name;
-
-		report_temp_sys_id = glide_record.insert();
-		
-		return report_temp_sys_id;
-	},
-	
-	/**
-	 * Convert HTML to PDF.
-	 * @param {object} pdf_config PDF attachment settings.
-	 * @return {object} pdf Object with information from the created PDF.
-	 */
-	convert_html_to_pdf: function(pdf_config) {
-		var pdf_generation_api = new sn_pdfgeneratorutils.PDFGenerationAPI();
-		
-		var pdf = pdf_generation_api.convertToPDFWithHeaderFooter(
-            pdf_config.html, 
-            pdf_config.table_target, 
-            pdf_config.sys_id_target, 
-            pdf_config.pdf_name, 
-            pdf_config.header_footer_info,
-			pdf_config.sys_id_font_family
-        );
-		
-		return pdf;
-	},
-	
-	/**
-	 * Creates the URL of the PDF for download.
-	 * @param {string} attachmentSysID Sys Attachment ID.
-	 * @return {string} attachmentUrl Attachment URL.
-	 */
-	create_pdf_url_to_download: function(attachment_sys_id) {
-		var instace = 'https://' + gs.getProperty('instance_name') + '.service-now.com/';
-		var attachment_table = 'sys_attachment.do';
-		var attachment_param_sys_id = '?sys_id=' + attachment_sys_id;
-		var attachment_url = instace + attachment_table + attachment_param_sys_id;
-		
-		return attachment_url;
-	},
 
     type: 'GeneratePDFIncidentReport '
 };]]></script>
@@ -371,13 +371,13 @@ GeneratePDFIncidentReport .prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-04 20:31:33</sys_created_on>
         <sys_id>1e6c573a979121109fd237971153af56</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>17</sys_mod_count>
         <sys_name>GeneratePDFIncidentReport</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sys_script_include_1e6c573a979121109fd237971153af56</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-02-07 21:15:02</sys_updated_on>
+        <sys_updated_on>2024-02-13 20:40:10</sys_updated_on>
     </sys_script_include>
 </record_update>

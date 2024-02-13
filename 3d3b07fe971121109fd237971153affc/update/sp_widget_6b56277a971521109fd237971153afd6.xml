@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller = function($scope, $window) {
+        <client_script><![CDATA[api.controller = function($scope, $window, spUtil) {
 	/* widget controller */
 	var c = this;
 
@@ -13,13 +13,15 @@
 	c.issue_hour = '';
 	c.instance_name = c.data.instance_name;
 	c.logo_url = '';
+	c.loading = false;
 
 	get_date_hour_issue();
-
+	
 	c.incident_label_fields = c.data.incident_label_fields;
 	c.incidents = JSON.parse(c.data.incidents);
+	
 	c.logo_url = 'https://' + c.instance_name + '.service-now.com/logo_sn.png';
-
+	
 	function get_date_hour_issue() {
 		c.issue_date = moment().format("DD/MM/YYYY");
 		c.issue_hour = moment().format("HH:mm:ss");
@@ -86,6 +88,10 @@
 	};
 
 	// Reference: https://developer.mozilla.org/pt-BR/docs/Web/API/Window/print
+	//
+	// Reference:	Em vez de obter um table na página, pode-se criar com JS uma estrutra de HTML para imprimir em PDF
+	// 				https://gist.github.com/sam-ngu/ee10b650112f891013271b8d7ca3e6f3
+	//
 	// Observation: Não há suporte para @page e page number no momento - https://stackoverflow.com/a/17752489
     c.generate_pdf_vanilla_javascript = function() {
 
@@ -171,8 +177,8 @@
 	// Reference: https://docs.servicenow.com/bundle/vancouver-integrate-applications/page/administer/exporting-data/task/t_ExportDirectlyFromTheURL.html
 	c.generate_pdf_url = function() {
 		
-		var url = '';
-		var instance_name = '';
+		var url;
+		var instance_name;
 
 		instance_name = c.instance_name;
 
@@ -209,6 +215,138 @@
 		$window.open(url, '_self');
 		
 	};
+
+	// Reference: https://docs.sheetjs.com/docs/
+	c.generate_excel_sheetjs = function() {
+		
+		var worksheet;
+		var workbook;
+		var filename;
+		var incident_label_fields;
+		var incidents;
+		var incidents_values;
+		var refined_data;
+		
+		filename = 'incidents_sheetjs.xlsx';
+		incidents_values = [];
+		refined_data = [];
+		
+		incident_label_fields = c.incident_label_fields;
+		incidents = c.incidents;
+		
+		refined_data.push(incident_label_fields);
+		
+		incidents.forEach(function(item) {
+			incidents_values.push(Object.values(item));
+		});
+		
+		incidents_values.forEach(function(row) {
+			row.pop(); // Remove o último elemento do array, que não é necessário. Exemplo do elemento: 'object:328'
+
+			refined_data.push(row);
+		});		
+		
+		worksheet = XLSX.utils.aoa_to_sheet(refined_data);
+		workbook = XLSX.utils.book_new();
+    	XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+		XLSX.writeFile(workbook, filename);
+	}
+
+	// Reference: https://www.npmjs.com/package/exceljs
+	c.generate_excel_exceljs = function() {
+
+		var workbook;
+		var worksheet;
+		var worksheet_name;
+		var filename;
+		var incident_label_fields;
+		var incidents;
+		var font_rows;
+		var font_header;
+		var fill_header;
+		var countsArray;
+		var countsArrayValues;
+
+		worksheet_name = 'Sheet1';
+		filename = 'incidents_exceljs.xlsx';
+		incident_label_fields = c.incident_label_fields;
+		incidents = c.incidents;
+		
+		workbook = new ExcelJS.Workbook();
+		worksheet = workbook.addWorksheet(worksheet_name);
+		
+		worksheet.addRow(incident_label_fields);
+
+		font_rows = {
+			family: 2,
+			size: 12,
+		}
+		font_header = {
+			family: 2,
+			size: 12,
+			bold: true
+		};
+		fill_header = {
+			type: 'pattern',
+			pattern:'solid',
+			fgColor:{argb:'FC1C1C1'},
+		};
+
+		countsArray = incidents.reduce(function(counts, incident) {
+
+			Object.keys(incident).forEach(function(property) {
+
+			  var length = String(incident[property]).length;
+
+			  counts[property] = Math.max(counts[property] || 0, length);
+			});
+
+			return counts;
+		  }, {});
+		  
+		countsArrayValues = Object.values(countsArray);
+		
+		incident_label_fields.forEach(function(label, index) {
+
+			var new_index = index + 1;
+			var cell = String.fromCharCode(64 + new_index) + 1;			
+
+			var column_selected = worksheet.getColumn(new_index);
+			column_selected.width = countsArrayValues[index] >= label.length ? (countsArrayValues[index] + 2) : (label.length + 2);
+			column_selected.font = font_rows;
+
+			worksheet.getCell(cell).font = font_header;
+			worksheet.getCell(cell).fill = fill_header;
+		});
+		
+		incidents.forEach(function(incident) {
+			worksheet.addRow(
+				[
+					incident.number, 
+					incident.opened_at, 
+					incident.short_description,
+					incident.caller_name,
+					incident.priority,
+					incident.state,
+					incident.category,
+					incident.assignment_group,
+					incident.assigned_to_name,
+					incident.sys_updated_on,
+				]
+			);
+		});		
+
+		workbook.xlsx.writeBuffer().then(function(buffer) {
+
+			var blob = new Blob([buffer], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+			var url = URL.createObjectURL(blob);
+			var link = document.createElement('a');
+			
+			link.href = url;
+			link.download = filename;
+			link.click();
+		});
+	}
 };]]></client_script>
         <controller_as>c</controller_as>
         <css>.page-title {
@@ -224,10 +362,6 @@
 
 .text-align-center {
 	text-align: center;
-}
-
-#page-numbering {
-	display: none;
 }
 
 @media print { 
@@ -272,32 +406,43 @@
 
 	if (input && input.action == 'generate_pdf') {
 	
-		var pdf_data = {
-			title: 'Incident Report',
-			incident_labels: get_incident_label_fields(),
-			incidents: get_incidents()
+		var pdf_data_json;
+		var pdf_data_string;
+
+		pdf_data_json = {
+			title: 'Incident by PDF Generation API',
+			incident_labels: data.incident_label_fields,
+			incidents: JSON.parse(data.incidents)
 		};
+
+		pdf_data_string = JSON.stringify(pdf_data_json);
 		
-		generate_report_pdf(pdf_data);
+		generate_report_pdf(pdf_data_string);
 	}
 	
 	if (input && input.action == 'generate_csv') {
 		
-		var csv_data = {
+		var csv_data_json;
+		var csv_data_string;
+
+		var csv_data_json = {
 			tableTarget: 'x_821667_my_widget_csv_temp',
-			columns: get_incident_label_fields(),
-			rows: get_incidents()
+			columns: data.incident_label_fields,
+			rows: JSON.parse(data.incidents)
 		};
+
+		csv_data_string = JSON.stringify(csv_data_json);
 		
-		generate_csv(csv_data);
+		generate_csv(csv_data_string);
 	}
 	
 	/**
 	 * Generates and returns the url of the PDF file, or an error message if the PDF file is not generated.
-	 * @param {object} pdfData PDF report data.
-	 * @return {string} URL of the PDF file or error message.
+	 * @param {String} pdf_data - PDF report data.
+	 * @return {String} URL of the PDF file or error message.
 	 */
 	function generate_report_pdf(pdf_data) {
+
 		var response_generate_pdf = '';
 		var is_url_response_generate_pdf = '';
 		
@@ -312,13 +457,10 @@
 			data.error_message = response_generate_pdf;
 	}
 	
-	function generate_csv(csv_data) {
+	function generate_csv(csv_data_string) {
 		
 		var response_generate_csv = '';
 		var is_url_response_generate_csv = '';
-		var csv_data_string = '';
-		
-		csv_data_string = JSON.stringify(csv_data);
 		
 		var generate_csv = new GenerationFactoryCSV();
 		
@@ -332,6 +474,7 @@
 	}
 	
 	function get_incident_label_fields() {
+
 		var incident_label_names = [];
 		
 		var glide_record_incidents = new GlideRecord(table_name);
@@ -340,16 +483,17 @@
 		glide_record_incidents.query();
 
 		if (glide_record_incidents.next()) {
-				incident_label_names.push(glide_record_incidents.number.getLabel());
-				incident_label_names.push(glide_record_incidents.opened_at.getLabel());
-				incident_label_names.push(glide_record_incidents.short_description.getLabel());
-				incident_label_names.push(glide_record_incidents.caller_id.getLabel());
-				incident_label_names.push(glide_record_incidents.priority.getLabel());
-				incident_label_names.push(glide_record_incidents.state.getLabel());
-				incident_label_names.push(glide_record_incidents.category.getLabel());
-				incident_label_names.push(glide_record_incidents.assignment_group.getLabel());
-				incident_label_names.push(glide_record_incidents.assigned_to.getLabel());
-				incident_label_names.push(glide_record_incidents.sys_updated_on.getLabel());
+
+			incident_label_names.push(glide_record_incidents.number.getLabel());
+			incident_label_names.push(glide_record_incidents.opened_at.getLabel());
+			incident_label_names.push(glide_record_incidents.short_description.getLabel());
+			incident_label_names.push(glide_record_incidents.caller_id.getLabel());
+			incident_label_names.push(glide_record_incidents.priority.getLabel());
+			incident_label_names.push(glide_record_incidents.state.getLabel());
+			incident_label_names.push(glide_record_incidents.category.getLabel());
+			incident_label_names.push(glide_record_incidents.assignment_group.getLabel());
+			incident_label_names.push(glide_record_incidents.assigned_to.getLabel());
+			incident_label_names.push(glide_record_incidents.sys_updated_on.getLabel());
 		}
 		
 		return incident_label_names;
@@ -357,34 +501,40 @@
 	
 	function get_incidents() {
 		
-		var incidents = [];
+		var incidents;
+		var incidents_string;
+
+		incidents = [];
+		incidents_string = '';
 		
 		var glide_record_incidents = new GlideRecord(table_name);
 
-    glide_record_incidents.orderByDesc('sys_updated_on');
+    	glide_record_incidents.orderByDesc('sys_updated_on');
 		glide_record_incidents.query();
 
 		while (glide_record_incidents.next()) {
 			
 			var incident = {
-      	number: glide_record_incidents.number.toString(),
-        opened_at: glide_record_incidents.opened_at.toString(),
-        short_description: glide_record_incidents.short_description.toString(),
-       	caller_name: glide_record_incidents.caller_id.first_name.toString() + ' ' + glide_record_incidents.caller_id.last_name.toString(),
-        priority: glide_record_incidents.priority.getDisplayValue().toString(),
-        state: glide_record_incidents.state.getDisplayValue().toString(),
-       	category: glide_record_incidents.category.getDisplayValue().toString(),
-        assignment_group: glide_record_incidents.assignment_group.name.toString(),
-        assigned_to_name: glide_record_incidents.assigned_to.first_name.toString() + ' ' + glide_record_incidents.assigned_to.last_name.toString(),
-        sys_updated_on: glide_record_incidents.sys_updated_on.toString()
+				number: glide_record_incidents.number.toString(),
+				opened_at: glide_record_incidents.opened_at.toString(),
+				short_description: glide_record_incidents.short_description.toString(),
+				caller_name: glide_record_incidents.caller_id.first_name.toString() + ' ' + glide_record_incidents.caller_id.last_name.toString(),
+				priority: glide_record_incidents.priority.getDisplayValue().toString(),
+				state: glide_record_incidents.state.getDisplayValue().toString(),
+				category: glide_record_incidents.category.getDisplayValue().toString(),
+				assignment_group: glide_record_incidents.assignment_group.name.toString(),
+				assigned_to_name: glide_record_incidents.assigned_to.first_name.toString() + ' ' + glide_record_incidents.assigned_to.last_name.toString(),
+				sys_updated_on: glide_record_incidents.sys_updated_on.toString()
 			};
-				
-      incidents.push(incident);
+						
+			incidents.push(incident);
 			
 			incident = {};
 		}
 		
-		return JSON.stringify(incidents);
+		incidents_string = JSON.stringify(incidents);
+
+		return incidents_string;
 	}
 
 })();]]></script>
@@ -393,14 +543,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-04 21:13:38</sys_created_on>
         <sys_id>6b56277a971521109fd237971153afd6</sys_id>
-        <sys_mod_count>410</sys_mod_count>
+        <sys_mod_count>579</sys_mod_count>
         <sys_name>Incident Reports</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_6b56277a971521109fd237971153afd6</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-02-12 14:51:07</sys_updated_on>
+        <sys_updated_on>2024-02-13 21:04:40</sys_updated_on>
         <template><![CDATA[<div id="report">
   
   <h4 class="page-title no-printable">{{ ::c.title }}</h4> <br />
@@ -421,13 +571,16 @@
         <label>
         	<strong>${Client (OOB)}</strong>
         </label>
-        </div>
+      </div>
       <div class="col-md-2">
         <label>
-        	<strong>${Client (Low Custom)}</strong>
+        	<strong>${Client (SheetJS, No Styling)}</strong>
         </label>
     	</div>
       <div class="col-md-2">
+        <label>
+        	<strong>${Client (ExcelJS, Custom)}</strong>
+        </label>
     	</div>
       <div class="col-md-2">
     	</div>
@@ -443,7 +596,15 @@
           ${Generate PDF via Script Include}
         </button>
     	</div>
-      <div class="col-md-2">        
+      <div class="col-md-2">
+        <button 
+                type="button" 
+                name="button-generate-pdf" 
+                class="button-generate-pdf" 
+                ng-click="c.generate_pdf_vanilla_javascript()"
+        >
+          ${Generate PDF via Vanilla JavaScript}
+        </button>        
     	</div>
       <div class="col-md-2">
         <button 
@@ -455,15 +616,7 @@
           ${Generate PDF via URL}
         </button>
     	</div>
-      <div class="col-md-2">
-        <button 
-                type="button" 
-                name="button-generate-pdf" 
-                class="button-generate-pdf" 
-                ng-click="c.generate_pdf_vanilla_javascript()"
-        >
-          ${Generate PDF via Vanilla JavaScript}
-        </button>
+      <div class="col-md-2">       
     	</div>
       <div class="col-md-2">
     	</div>
@@ -493,9 +646,25 @@
           ${Generate Excel (.xls ou .xlsx) via URL}
         </button>
     	</div>
-      <div class="col-md-2">        
+      <div class="col-md-2">
+        <button 
+                type="button" 
+                name="button-generate-excel" 
+                class="button-generate-excel" 
+                ng-click="c.generate_excel_sheetjs()"
+                >
+          ${Generate Excel}
+        </button>        
     	</div>
       <div class="col-md-2">
+        <button 
+                type="button" 
+                name="button-generate-excel" 
+                class="button-generate-excel" 
+                ng-click="c.generate_excel_exceljs()"
+                >
+          ${Generate Excel}
+        </button>
     	</div>
       <div class="col-md-2">
     	</div>
@@ -545,7 +714,7 @@
       id="table-data-report" 
       width="100%"
       style="
-        font-family: sans-serif; 
+        font-family: sans-serif;
         border: 2px solid #000; 
         border-spacing: 0px; 
         border-collapse: collapse;"  
