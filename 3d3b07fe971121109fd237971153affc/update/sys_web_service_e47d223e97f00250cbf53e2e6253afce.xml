@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_web_service">
+    <sys_web_service action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <function_name>create</function_name>
+        <name>IncidentRecord</name>
+        <scoped_name>x_821667_my_widget_IncidentRecord</scoped_name>
+        <script><![CDATA[(function scriptedWebServiceOperation(request, response) {
+
+    var v1 = mandatoryValidation();
+
+    if (v1 == true) {
+
+		var grInc = new GlideRecord('incident');
+		grInc.initialize();
+		grInc.caller_id = request.caller_id;
+		grInc.short_description = request.short_description;
+		grInc.ci = request.ci;
+		if (request.impact) {
+			grInc.impact = request.impact;
+		}
+		if (request.urgency) {
+			grInc.urgency = request.urgency;
+		}
+		grInc.insert();
+
+		response.request = 'Incident created';
+		response.sys_id = grInc.sys_id;
+		response.number = grInc.number;
+
+    } else {
+        response.result = v1;
+    }
+
+    function mandatoryValidation() {
+
+        if (request.caller_id) {
+
+            if (request.ci) {
+
+                var grCI = new GlideRecord('cmdb_ci');
+                grCI.addQuery('name', request.ci);
+                grCI.addQuery('operational_status', 1);
+                grCI.query();
+
+                if (grCI.next()) {
+
+                    if (request.short_description) {
+
+                        if (request.impact && request.impact == 1) {
+                            return 'Impact cant be 1';
+                        } else {
+                            if(request.urgency && request.urgency == 1) {
+                                return 'Urgency cant be 1';
+                            } else {
+								return true;
+                            }
+                        }
+
+                    } else {
+                        return 'Short Description cant be blank';
+                    }
+
+                } else {
+
+                    return 'CI may be not found or not operational';
+                }
+
+            } else {
+                return 'CI cant be blank';
+            }
+
+        } else {
+            return 'Caller ID cant be blank';
+        }
+    }
+
+})(request, response);]]></script>
+        <short_description/>
+        <sys_class_name>sys_web_service</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-03-11 12:57:39</sys_created_on>
+        <sys_id>e47d223e97f00250cbf53e2e6253afce</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>IncidentRecord</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_web_service_e47d223e97f00250cbf53e2e6253afce</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-03-11 18:12:06</sys_updated_on>
+        <wsdl>https://dev118034.service-now.com/x_821667_my_widget_IncidentRecord.do?WSDL</wsdl>
+        <wsdl_compliance>false</wsdl_compliance>
+    </sys_web_service>
+</record_update>
