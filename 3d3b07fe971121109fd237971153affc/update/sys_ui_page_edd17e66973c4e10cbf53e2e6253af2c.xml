@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script/>
+        <description>My Jelly Sample </description>
+        <direct>false</direct>
+        <endpoint>x_821667_my_widget_JellySample.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+	<div class="container-fluid wizard-container">
+		<a href="change_request.do?sysparm_query=type=standard">
+			Standard Change - A predefined change. 
+		</a> <br />
+		<a href="change_request.do?sysparm_query=type=normal">
+			Normal Change - A regular change with over two weeks until start. 
+		</a> <br />
+		<a href="change_request.do?sysparm_query=type=emergency">
+			Emergency Change - A change occuring within two weeks. 
+		</a>
+	</div>
+</j:jelly>]]></html>
+        <name>JellySample</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-03-10 18:39:46</sys_created_on>
+        <sys_id>edd17e66973c4e10cbf53e2e6253af2c</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>JellySample</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_ui_page_edd17e66973c4e10cbf53e2e6253af2c</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-03-10 18:51:30</sys_updated_on>
+    </sys_ui_page>
+</record_update>
