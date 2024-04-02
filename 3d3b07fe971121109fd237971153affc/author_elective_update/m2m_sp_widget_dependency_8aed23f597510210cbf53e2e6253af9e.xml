@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency">
+    <m2m_sp_widget_dependency action="DELETE">
+        <sp_dependency display_value="angular-truncate">09e1f1416712220023c82e08f585ef1e</sp_dependency>
+        <sp_widget display_value="Copy of Header Menu">86ed23f597510210cbf53e2e6253af9b</sp_widget>
+        <sys_class_name>m2m_sp_widget_dependency</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-04-02 11:34:58</sys_created_on>
+        <sys_id>8aed23f597510210cbf53e2e6253af9e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>angular-truncate.Copy of Header Menu</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>m2m_sp_widget_dependency_8aed23f597510210cbf53e2e6253af9e</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-04-02 11:34:58</sys_updated_on>
+    </m2m_sp_widget_dependency>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="My Widgets">3d3b07fe971121109fd237971153affc</application>
+        <file_path/>
+        <instance_id>7ce0729fdb91f410e26fd7c8f4961917</instance_id>
+        <instance_name>dev118034</instance_name>
+        <name>m2m_sp_widget_dependency_8aed23f597510210cbf53e2e6253af9e</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency"><m2m_sp_widget_dependency action="INSERT_OR_UPDATE"><sp_dependency display_value="angular-truncate">09e1f1416712220023c82e08f585ef1e</sp_dependency><sp_widget display_value="Copy of Header Menu">86ed23f597510210cbf53e2e6253af9b</sp_widget><sys_class_name>m2m_sp_widget_dependency</sys_class_name><sys_created_by>leandro.lopes</sys_created_by><sys_created_on>2024-04-02 11:34:58</sys_created_on><sys_id>8aed23f597510210cbf53e2e6253af9e</sys_id><sys_mod_count>0</sys_mod_count><sys_name>angular-truncate.Copy of Header Menu</sys_name><sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package><sys_policy/><sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope><sys_update_name>m2m_sp_widget_dependency_8aed23f597510210cbf53e2e6253af9e</sys_update_name><sys_updated_by>leandro.lopes</sys_updated_by><sys_updated_on>2024-04-02 11:34:58</sys_updated_on></m2m_sp_widget_dependency></record_update>]]></payload>
+        <payload_hash>-1737124225</payload_hash>
+        <record_name>angular-truncate.Copy of Header Menu</record_name>
+        <reverted_from/>
+        <source>06f36c9b97113110cbf53e2e6253afcb</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-04-02 11:34:58</sys_created_on>
+        <sys_id>d6ed23f597510210cbf53e2e6253afa1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18e9e9749af0000001</sys_recorded_at>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-04-02 11:34:58</sys_updated_on>
+        <type>Widget Dependency</type>
+        <update_guid>8aed23f58151021055987c239fbad1a0</update_guid>
+        <update_guid_history>8aed23f58151021055987c239fbad1a0:-1737124225</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="angular-truncate.Copy of Header Menu">836eeb3997510210cbf53e2e6253af39</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-04-02 11:37:13</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sp_widget_dependency">m2m_sp_widget_dependency</sys_db_object>
+        <sys_id>12da485fbf3343078313bff850936429</sys_id>
+        <sys_metadata>8aed23f597510210cbf53e2e6253af9e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>angular-truncate.Copy of Header Menu</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_scope_delete display_value="">1735843da8c24506b7924cef26a0ffe1</sys_scope_delete>
+        <sys_update_name>m2m_sp_widget_dependency_8aed23f597510210cbf53e2e6253af9e</sys_update_name>
+        <sys_update_version display_value="m2m_sp_widget_dependency_8aed23f597510210cbf53e2e6253af9e">d6ed23f597510210cbf53e2e6253afa1</sys_update_version>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-04-02 11:37:13</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

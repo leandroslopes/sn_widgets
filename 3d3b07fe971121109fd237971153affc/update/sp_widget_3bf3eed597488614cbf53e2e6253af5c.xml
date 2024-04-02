@@ -38,7 +38,9 @@
   }
 };]]></client_script>
         <controller_as>c</controller_as>
-        <css/>
+        <css>/*#simple-list-and-pagination {&#13;
+  font-family: "Poppins", sans-serif;&#13;
+}*/</css>
         <data_table>sp_instance_table</data_table>
         <demo_data/>
         <description/>
@@ -121,15 +123,15 @@
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-01-29 13:36:36</sys_created_on>
         <sys_id>3bf3eed597488614cbf53e2e6253af5c</sys_id>
-        <sys_mod_count>148</sys_mod_count>
+        <sys_mod_count>150</sys_mod_count>
         <sys_name>Simple List And Pagination</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_3bf3eed597488614cbf53e2e6253af5c</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-01-31 20:58:58</sys_updated_on>
-        <template><![CDATA[<div>
+        <sys_updated_on>2024-03-26 11:53:38</sys_updated_on>
+        <template><![CDATA[<div id="simple-list-and-pagination">
   <div class="panel panel-{{ ::c.color }}"> 
     <div class="panel-heading"> 
       <h3 class="panel-title">{{ ::c.title }}</h3> 
