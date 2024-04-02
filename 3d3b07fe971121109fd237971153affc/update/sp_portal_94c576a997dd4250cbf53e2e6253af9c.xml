@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_portal">
+    <sp_portal action="INSERT_OR_UPDATE">
+        <css_variables/>
+        <dark_theme/>
+        <default>false</default>
+        <enable_ais>false</enable_ais>
+        <enable_certificate_based_authentication>false</enable_certificate_based_authentication>
+        <enable_favorites>false</enable_favorites>
+        <hide_portal_name>true</hide_portal_name>
+        <homepage display_value="govbr_home">1947f2ad97dd4250cbf53e2e6253afb9</homepage>
+        <icon/>
+        <kb_knowledge_base/>
+        <kb_knowledge_page/>
+        <login_page/>
+        <logo>0b7676e5971d4250cbf53e2e6253af3f</logo>
+        <notfound_page/>
+        <quick_start_config/>
+        <rtl_enabled>false</rtl_enabled>
+        <sc_catalog/>
+        <sc_catalog_page/>
+        <sc_category_page/>
+        <search_application/>
+        <search_results_configuration/>
+        <sp_chat_queue/>
+        <sp_rectangle_menu display_value="GOV.BR Demo Header Menu">27df63f597510210cbf53e2e6253afb4</sp_rectangle_menu>
+        <sys_class_name>sp_portal</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-04-01 12:54:04</sys_created_on>
+        <sys_id>94c576a997dd4250cbf53e2e6253af9c</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>GOV.BR Demo</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_portal_94c576a997dd4250cbf53e2e6253af9c</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-04-02 12:16:26</sys_updated_on>
+        <theme display_value="GOV.BR Demo Theme">131117ed97d18250cbf53e2e6253afba</theme>
+        <title>GOV.BR Demo</title>
+        <ts_index_group/>
+        <url_suffix>sngovbr</url_suffix>
+    </sp_portal>
+    <sys_translated_text action="delete_multiple" query="documentkey=94c576a997dd4250cbf53e2e6253af9c"/>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#3366</average_image_color>
+        <chunk_size_bytes>700000</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <encryption_context/>
+        <file_name>logo</file_name>
+        <hash>1d524958c6e5bc073a2dbaf2319601e62156efca1d5d143857cb2d70d64232ce</hash>
+        <image_height>40</image_height>
+        <image_width>111</image_width>
+        <size_bytes>1008</size_bytes>
+        <size_compressed>1031</size_compressed>
+        <state>available</state>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-04-01 12:54:21</sys_created_on>
+        <sys_id>0b7676e5971d4250cbf53e2e6253af3f</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-04-01 12:54:21</sys_updated_on>
+        <table_name>ZZ_YYsp_portal</table_name>
+        <table_sys_id>94c576a997dd4250cbf53e2e6253af9c</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAA/w==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="logo" sys_id="0b7676e5971d4250cbf53e2e6253af3f">0b7676e5971d4250cbf53e2e6253af3f</sys_attachment>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-04-01 12:54:21</sys_created_on>
+        <sys_id>4b7676e5971d4250cbf53e2e6253af3f</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>AfADD/yJUE5HDQoaCgAAAA1JSERSAAAAbwAAACgIAwAAAMdGVIYAAAB+UExURUdwTPq9EDF3kihkryh2lCdjrvq9EPm9EChkrShkrihjrkatRCVlrydmqidjrihjrvu9ECZjr/+/EPq9EEStQ/q/EPy8ECdkrkWtREWtQ0WsQydjrvq9EChirfm8EP+/EEWqRkWsQ0StRPi8EEasQ6G0Kde5Gihkrvq9EEatRJnb43UAAAAndFJOUwDWIEAQ8PDBgMCgfzBw0OB/UBBkZzBFsMDamJCQYLAgsPA4o1Cdi2jzQskAAAL6SURBVFjD7ZfZmpswDEbNbjMQAgTIRhYyLen7v2CxLclmm7lpctFvdIUTWSeSfwmHsX9jvTbO3mQ/vB/e/8RLPM9L3sXzeaa8s3ZYCL0TvqrPzlNatK3k8kPbDnd2uDY8N5URsjhXDuVWmXyKwufTkZ/lQY+28Ue8rYZpc2rGbn+0+cCD9YfhcQompFOk97JCR5K8trcs8w2vsmnSLsUn8DDBu166xIutWIFreBAqGvIPbF7fEK8Kn1NzCgAcNQ7wezq/cayhWsArn8Rr+kVjxRw3AI+acNe8I2W7HIQjLySeS1/GaRqb38ce4BKWdVGfEfgbCtop3oFO06qiEBkt/GhyIixFN9UN7gY9K8RVWqe4PKBCpLcprvnV8gsM2qeGd6mv7HqlckLn0GliRiUoA9e/NOMgP9vp50+LF2tvBAriYRxMCBWOAgNBhdhpV9j3sDriZs6yn4TBkkZUyPFg2OAau8MICgyOPNqTRnxLq5gPep8mvGrCI0dvzNsSD3ZGUMQbdUO3NM/4mBeytfzyb3iOf8cqHs1JfsczZcJCs8n5rdYTm66DbtjZvGalniYMjJO+hdEdjPXizPSCZTx2OMssXsAmMpzxOA1OtaRpg/qvwW9rdK3zOuzwHG19pmMViBkvobmQ+ywX/bTfnUK54TANC5piUM68EanhBZ6qEqZ3mvEo8+n8RCU7Q0ZFGVr6gbGiZcO12szGOPdONBbdOc9b4V0X53VhjU1VTijjcpCGzXkkpfFOMzItg2G6MzxwR1WLUazAX+Ix+x0ZM9Mf9TRDB6aET7gDVAdVN3qZylfAEo952IRZju8n1f/FwyaGpvfxWjHMso2OjL8yMXIIcrbCG1TKY9Hw3MwXmG9FedFI51Fa7t0ezFVvsCEyVcVP4e7FVYOdI2Xn1buamAwK2ep18dXtzk1md0v+5d3StZ7bcd++5m4Md0V5EcXiJy++i4uY85NRs3ghbqnhvffyTuytvNf+q0qyydBL2IvNbbkQgbqq8tZ/Keov+vkP/ekHNMkAAAAASUVORK5CYIL+D2Eg8AMAAA==</data>
+        <length>1364</length>
+        <position>1</position>
+        <sys_attachment display_value="logo" sys_id="0b7676e5971d4250cbf53e2e6253af3f">0b7676e5971d4250cbf53e2e6253af3f</sys_attachment>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-04-01 12:54:21</sys_created_on>
+        <sys_id>cb7676e5971d4250cbf53e2e6253af3f</sys_id>
+    </sys_attachment_doc>
+</record_update>

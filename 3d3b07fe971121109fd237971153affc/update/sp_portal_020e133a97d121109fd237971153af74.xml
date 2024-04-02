@@ -47,15 +47,15 @@ $text-muted:#979797;
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-04 20:38:24</sys_created_on>
         <sys_id>020e133a97d121109fd237971153af74</sys_id>
-        <sys_mod_count>42</sys_mod_count>
+        <sys_mod_count>43</sys_mod_count>
         <sys_name>My Widgets</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_portal_020e133a97d121109fd237971153af74</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-01-29 16:13:16</sys_updated_on>
-        <theme display_value="Stock">79315153cb33310000f8d856634c9c4b</theme>
+        <sys_updated_on>2024-03-25 18:09:57</sys_updated_on>
+        <theme display_value="My Widgets Theme">bb5bfb1f9745c210cbf53e2e6253af9e</theme>
         <title>My Widgets</title>
         <ts_index_group/>
         <url_suffix>widgets</url_suffix>
