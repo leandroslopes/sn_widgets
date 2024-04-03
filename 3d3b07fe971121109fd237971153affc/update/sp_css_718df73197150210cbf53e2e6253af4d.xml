@@ -1,47 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_css">
     <sp_css action="INSERT_OR_UPDATE">
         <css>@font-face {&#13;
-   font-family: 'Rawline';&#13;
-      src: url('Ubuntu-RI-webfont.eot');&#13;
-      src: url('Ubuntu-RI-webfont.eot?#iefix') format('embedded-opentype'),&#13;
-           url('Ubuntu-RI-webfont.woff') format('woff'),&#13;
-           url('Ubuntu-RI-webfont.ttf') format('truetype'),&#13;
-           url('Ubuntu-RI-webfont.svg#UbuntuItalic') format('svg');&#13;
+   font-family: 'RawlineRegular';&#13;
+      src: url('/sys_attachment.do?sys_id=8bb7899a97d5c210cbf53e2e6253af9b');&#13;
+      src: url('/sys_attachment.do?sys_id=8bb7899a97d5c210cbf53e2e6253af9?#iefix') format('embedded-opentype'),&#13;
+           url('/sys_attachment.do?sys_id=c7b7899a97d5c210cbf53e2e6253afa1') format('woff'),&#13;
+           url('/sys_attachment.do?sys_id=0bb7899a97d5c210cbf53e2e6253af9f') format('truetype'),&#13;
+           url('/sys_attachment.do?sys_id=4bb7899a97d5c210cbf53e2e6253af9d#RawlineRegular') format('svg');&#13;
    font-weight: normal;&#13;
    font-style: normal;&#13;
 }&#13;
 &#13;
 @font-face {&#13;
-   font-family: 'UbuntuBold';&#13;
-      src: url('Ubuntu-B-webfont.eot');&#13;
-      src: url('Ubuntu-B-webfont.eot?#iefix') format('embedded-opentype'),&#13;
-           url('Ubuntu-B-webfont.woff') format('woff'),&#13;
-           url('Ubuntu-B-webfont.ttf') format('truetype'),&#13;
-           url('Ubuntu-B-webfont.svg#UbuntuBold') format('svg');&#13;
+   font-family: 'RawlineRegularItalic';&#13;
+      src: url('/sys_attachment.do?sys_id=36b70dd69795c210cbf53e2e6253af54');&#13;
+      src: url('/sys_attachment.do?sys_id=36b70dd69795c210cbf53e2e6253af54?#iefix') format('embedded-opentype'),&#13;
+           url('/sys_attachment.do?sys_id=43b70dd69795c210cbf53e2e6253af5a') format('woff'),&#13;
+           url('/sys_attachment.do?sys_id=b2b70dd69795c210cbf53e2e6253af58') format('truetype'),&#13;
+           url('/sys_attachment.do?sys_id=f2b70dd69795c210cbf53e2e6253af56#RawlineRegularItalic') format('svg');&#13;
+   font-weight: normal;&#13;
+   font-style: normal;&#13;
+}&#13;
+&#13;
+@font-face {&#13;
+   font-family: 'RawlineMediumRegular';&#13;
+      src: url('/sys_attachment.do?sys_id=d7b7899a97d5c210cbf53e2e6253afbb');&#13;
+      src: url('/sys_attachment.do?sys_id=d7b7899a97d5c210cbf53e2e6253afbb?#iefix') format('embedded-opentype'),&#13;
+           url('/sys_attachment.do?sys_id=5bb7899a97d5c210cbf53e2e6253afe6') format('woff'),&#13;
+           url('/sys_attachment.do?sys_id=57b7899a97d5c210cbf53e2e6253afbf') format('truetype'),&#13;
+           url('/sys_attachment.do?sys_id=97b7899a97d5c210cbf53e2e6253afbd#RawlineMediumRegular') format('svg');&#13;
+   font-weight: normal;&#13;
+   font-style: normal;&#13;
+}&#13;
+&#13;
+@font-face {&#13;
+   font-family: 'RawlineMediumItalic';&#13;
+      src: url('/sys_attachment.do?sys_id=47b7899a97d5c210cbf53e2e6253afa5');&#13;
+      src: url('/sys_attachment.do?sys_id=47b7899a97d5c210cbf53e2e6253afa5?#iefix') format('embedded-opentype'),&#13;
+           url('/sys_attachment.do?sys_id=5bb7899a97d5c210cbf53e2e6253afe6') format('woff'),&#13;
+           url('/sys_attachment.do?sys_id=5bb7899a97d5c210cbf53e2e6253afb7') format('truetype'),&#13;
+           url('/sys_attachment.do?sys_id=17b7899a97d5c210cbf53e2e6253afa7#RawlineMediumItalic') format('svg');&#13;
+   font-weight: normal;&#13;
+   font-style: normal;&#13;
+}&#13;
+&#13;
+@font-face {&#13;
+   font-family: 'RawlineBold';&#13;
+      src: url('/sys_attachment.do?sys_id=e7b7c99a97d5c210cbf53e2e6253af19');&#13;
+      src: url('/sys_attachment.do?sys_id=e7b7c99a97d5c210cbf53e2e6253af19?#iefix') format('embedded-opentype'),&#13;
+           url('/sys_attachment.do?sys_id=37b7c99a97d5c210cbf53e2e6253af1f') format('woff'),&#13;
+           url('/sys_attachment.do?sys_id=77b7c99a97d5c210cbf53e2e6253af1d') format('truetype'),&#13;
+           url('/sys_attachment.do?sys_id=b7b7c99a97d5c210cbf53e2e6253af1b#RawlineBold') format('svg');&#13;
+   font-weight: normal;&#13;
+   font-style: normal;&#13;
+}&#13;
+&#13;
+@font-face {&#13;
+   font-family: 'RawlineBoldItalic';&#13;
+      src: url('/sys_attachment.do?sys_id=e7b7899a97d5c210cbf53e2e6253afea');&#13;
+      src: url('/sys_attachment.do?sys_id=e7b7899a97d5c210cbf53e2e6253afea?#iefix') format('embedded-opentype'),&#13;
+           url('/sys_attachment.do?sys_id=27b7899a97d5c210cbf53e2e6253aff0') format('woff'),&#13;
+           url('/sys_attachment.do?sys_id=67b7899a97d5c210cbf53e2e6253afee') format('truetype'),&#13;
+           url('/sys_attachment.do?sys_id=a7b7899a97d5c210cbf53e2e6253afec#RawlineBoldItalic') format('svg');&#13;
    font-weight: normal;&#13;
    font-style: normal;&#13;
 }&#13;
 &#13;
 body {&#13;
-	font-family: "Rawline", "Raleway", Helvetica, sans-serif;&#13;
+	font-family: "RawlineRegular", "Raleway", Helvetica, sans-serif;&#13;
 }&#13;
 &#13;
 nav #tour-dropdown {&#13;
   display: none;&#13;
+}&#13;
+&#13;
+.navbar {&#13;
+  border-bottom: 0 !important;&#13;
+}&#13;
+&#13;
+header {&#13;
+  margin: 0 auto;&#13;
+}&#13;
+&#13;
+@media only screen and (min-width: 1280px) {&#13;
+  header {&#13;
+    width: 1152px;&#13;
+    padding-right: 0;&#13;
+    padding-left: 0;&#13;
+  }&#13;
+}&#13;
+&#13;
+@media only screen and (min-width: 768px) {&#13;
+  header {&#13;
+      padding-bottom: 0;&#13;
+      padding-top: 16px;&#13;
+  }&#13;
 }</css>
         <name>govbr-demo-styles.css</name>
         <sys_class_name>sp_css</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-04-02 12:44:32</sys_created_on>
         <sys_id>718df73197150210cbf53e2e6253af4d</sys_id>
-        <sys_mod_count>37</sys_mod_count>
+        <sys_mod_count>80</sys_mod_count>
         <sys_name>govbr-demo-styles.css</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_css_718df73197150210cbf53e2e6253af4d</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-04-02 12:58:05</sys_updated_on>
+        <sys_updated_on>2024-04-03 14:33:42</sys_updated_on>
         <turn_off_scss_compilation>false</turn_off_scss_compilation>
     </sp_css>
 </record_update>

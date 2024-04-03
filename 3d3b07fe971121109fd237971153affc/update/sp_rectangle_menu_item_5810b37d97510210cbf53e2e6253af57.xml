@@ -13,7 +13,7 @@
         <kb_category/>
         <kb_topic/>
         <label>Órgãos do Governo</label>
-        <order>200</order>
+        <order>100</order>
         <record_script/>
         <sc_cat_item/>
         <sc_category/>
@@ -25,14 +25,14 @@
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-04-02 11:45:41</sys_created_on>
         <sys_id>5810b37d97510210cbf53e2e6253af57</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>Órgãos do Governo</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_rectangle_menu_item_5810b37d97510210cbf53e2e6253af57</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-04-02 12:23:24</sys_updated_on>
+        <sys_updated_on>2024-04-03 14:09:00</sys_updated_on>
         <table/>
         <type>url</type>
         <url>https://www.gov.br/acessoainformacao/pt-br</url>
