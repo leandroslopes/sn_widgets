@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.secondary-menu {&#13;
+  -webkit-box-flex: 1;&#13;
+  -ms-flex: 1;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+}&#13;
+&#13;
+.secondary-menu-title h1 {&#13;
+  margin: 0 0 12px 0px;&#13;
+}&#13;
+&#13;
+.secondary-menu-title h1 a {&#13;
+  font-size: 2.4rem;&#13;
+  font-weight: 500;&#13;
+  color: $gray-dark;&#13;
+  line-height: 26px;&#13;
+  padding: 0 0 4px;&#13;
+}&#13;
+&#13;
+.secondary-menu-title h1 a:hover {&#13;
+  color: $brand-primary;&#13;
+  text-decoration: none;&#13;
+}&#13;
+  &#13;
+.fa-bars {&#13;
+  font-size: 24px;&#13;
+  line-height: 32px;&#13;
+  width: 32px;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>gbd-secondary-menu</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>GBD Secondary Menu</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-04-04 17:39:02</sys_created_on>
+        <sys_id>41349bea9715c610cbf53e2e6253af1b</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>GBD Secondary Menu</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_41349bea9715c610cbf53e2e6253af1b</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-04-04 18:45:48</sys_updated_on>
+        <template><![CDATA[<div>
+  <div class="secondary-menu">
+    <div class="secondary-menu-icon">
+      <a href="javascript:void(0)">
+      	<i class="fa fa-bars" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="secondary-menu-title">
+      	<h1>
+          <a href="https://dev118034.service-now.com/sngovbr">Serviços e Informações do Brasil</a>
+      	</h1>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>
