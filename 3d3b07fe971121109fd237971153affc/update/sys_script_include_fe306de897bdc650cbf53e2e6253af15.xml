@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_821667_my_widget.Member</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>Member</name>
+        <script><![CDATA[var Member = Class.create();
+Member.prototype = {
+    initialize: function(name, lastName) {
+		this._name = name;
+		this_lastName = lastName;
+    },
+
+	setName: function (name) {
+		this._name = name;
+	},
+
+	getName: function () {
+		return this._name;
+	},
+	
+	setLastname: function (lastName) {
+		this._lastName = lastName;
+	},
+
+	getLastname: function () {
+		return this._lastName;
+	},
+
+    type: 'Member'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-04-23 00:37:27</sys_created_on>
+        <sys_id>fe306de897bdc650cbf53e2e6253af15</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Member</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_script_include_fe306de897bdc650cbf53e2e6253af15</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-04-23 00:40:08</sys_updated_on>
+    </sys_script_include>
+</record_update>

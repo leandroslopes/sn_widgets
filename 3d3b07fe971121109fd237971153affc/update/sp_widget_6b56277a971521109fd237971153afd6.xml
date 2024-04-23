@@ -253,6 +253,7 @@
 	}
 
 	// Reference: https://www.npmjs.com/package/exceljs
+	// https://www.servicenow.com/community/developer-articles/custom-excel-export-or-import-in-client-side-using-exceljs/ta-p/2519012
 	c.generate_excel_exceljs = function() {
 
 		var workbook;
@@ -349,30 +350,30 @@
 	}
 };]]></client_script>
         <controller_as>c</controller_as>
-        <css>.page-title {
-	border-bottom: 1px solid #000;
-	padding-bottom: 5px;
-  	font-weight: 600;
-  	font-family: Roboto;
-}
-
-.margin-bottom-24 {
-	margin-bottom: 24px;
-}
-
-.text-align-center {
-	text-align: center;
-}
-
-@media print { 
-
-	table tbody tr th {
-		background-color: #C1C1C1 !important; 
-	}
-
-	.no-printable { 
-		display: none;
-	}
+        <css>.page-title {&#13;
+	border-bottom: 1px solid #000;&#13;
+	padding-bottom: 5px;&#13;
+  	font-weight: 600;&#13;
+  	font-family: Roboto;&#13;
+}&#13;
+&#13;
+.margin-bottom-24 {&#13;
+	margin-bottom: 24px;&#13;
+}&#13;
+&#13;
+.text-align-center {&#13;
+	text-align: center;&#13;
+}&#13;
+&#13;
+@media print { &#13;
+&#13;
+	table thead tr th {&#13;
+		background-color: #C1C1C1 !important; &#13;
+	}&#13;
+&#13;
+	.no-printable { &#13;
+		display: none;&#13;
+	}&#13;
 }</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -543,14 +544,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-04 21:13:38</sys_created_on>
         <sys_id>6b56277a971521109fd237971153afd6</sys_id>
-        <sys_mod_count>579</sys_mod_count>
+        <sys_mod_count>583</sys_mod_count>
         <sys_name>Incident Reports</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_6b56277a971521109fd237971153afd6</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-02-13 21:04:40</sys_updated_on>
+        <sys_updated_on>2024-04-23 11:14:06</sys_updated_on>
         <template><![CDATA[<div id="report">
   
   <h4 class="page-title no-printable">{{ ::c.title }}</h4> <br />
@@ -788,8 +789,6 @@
           <td></td>
           <td></td>
         </tr>
-      </thead>
-      <tbody>
         <tr>
           <th 
             style="
@@ -803,6 +802,8 @@
             {{ label }}
           </th>
         </tr>
+      </thead>
+      <tbody> 
         <tr ng-repeat="incident in c.incidents">
           <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px;">{{ incident.number }}</td>
           <td style="padding: 10px 6px; text-align: center; border: 2px solid #000; border-spacing: 0px;">{{ incident.opened_at }}</td>
