@@ -11,6 +11,7 @@
         <copied_from/>
         <copied_from_name/>
         <description/>
+        <display_name_after_preview/>
         <flow_priority/>
         <generation_source/>
         <internal_name>send_notification_to_a_teams_team</internal_name>
@@ -27,6 +28,7 @@
         <show_draft_actions>false</show_draft_actions>
         <show_triggered_flows>false</show_triggered_flows>
         <status>published</status>
+        <substatus/>
         <sys_class_name>sys_hub_flow</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-05-11 14:47:17</sys_created_on>
