@@ -154,6 +154,12 @@ nav #tour-dropdown {&#13;
   font-size: 16px;&#13;
 }&#13;
 &#13;
+.sp-loading-indicator {&#13;
+  color: $color-primary-default;&#13;
+  font-weight: 600;&#13;
+  margin-top: 3px;&#13;
+}&#13;
+&#13;
 @media only screen and (min-width: 1280px) {&#13;
   header {&#13;
     width: 1152px;&#13;
@@ -173,14 +179,14 @@ nav #tour-dropdown {&#13;
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-04-02 12:44:32</sys_created_on>
         <sys_id>718df73197150210cbf53e2e6253af4d</sys_id>
-        <sys_mod_count>106</sys_mod_count>
+        <sys_mod_count>114</sys_mod_count>
         <sys_name>govbr-demo-styles.css</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_css_718df73197150210cbf53e2e6253af4d</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-04-04 18:08:10</sys_updated_on>
+        <sys_updated_on>2024-06-27 18:14:30</sys_updated_on>
         <turn_off_scss_compilation>false</turn_off_scss_compilation>
     </sp_css>
 </record_update>

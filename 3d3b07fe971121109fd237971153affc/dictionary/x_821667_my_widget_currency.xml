@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="dd8174c897b47910cbf53e2e6253afc1" label="Currency" max_length="40" name="x_821667_my_widget_currency" type="collection">
-        <element attributes="edge_encryption_enabled=true" label="Currency" max_length="40" name="currency" type="string"/>
         <element label="ID" max_length="40" name="id" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Currency" max_length="40" name="currency" type="string"/>
     </element>
 </database>
