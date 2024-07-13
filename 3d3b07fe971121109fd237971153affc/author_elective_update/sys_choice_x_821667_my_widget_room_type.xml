@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="type" table="x_821667_my_widget_room" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>type</element>
+            <name>x_821667_my_widget_room</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-07-12 22:36:36</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>type</sys_name>
+            <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+            <sys_update_name>sys_choice_x_821667_my_widget_room_type</sys_update_name>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-07-12 22:36:36</sys_updated_on>
+        </sys_choice_set>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Presidencial</label>
+            <language>pb</language>
+            <name>x_821667_my_widget_room</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-07-12 22:37:10</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-07-12 22:40:53</sys_updated_on>
+            <value>Presidential</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Presidential</label>
+            <language>en</language>
+            <name>x_821667_my_widget_room</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-07-12 22:36:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-07-12 22:40:19</sys_updated_on>
+            <value>Presidential</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Simples</label>
+            <language>pb</language>
+            <name>x_821667_my_widget_room</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-07-12 22:37:22</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-07-12 22:41:06</sys_updated_on>
+            <value>Simple</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Simple</label>
+            <language>en</language>
+            <name>x_821667_my_widget_room</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-07-12 22:36:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-07-12 22:40:44</sys_updated_on>
+            <value>Simple</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Padrão</label>
+            <language>pb</language>
+            <name>x_821667_my_widget_room</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-07-12 22:37:34</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-07-12 22:41:16</sys_updated_on>
+            <value>Standard</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Standard</label>
+            <language>en</language>
+            <name>x_821667_my_widget_room</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-07-12 22:37:02</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-07-12 22:40:39</sys_updated_on>
+            <value>Standard</value>
+        </sys_choice>
+    </sys_choice>
+</record_update>
