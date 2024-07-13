@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="cebf0aa297570618cbf53e2e6253afe6" label="Room reservation" max_length="40" name="x_821667_my_widget_room_reservation" text_index="true" type="collection">
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Occupant" max_length="32" name="occupant" reference="sys_user" type="reference"/>
+        <element label="Enddate stay" max_length="40" name="enddate_stay" type="glide_date_time"/>
+        <element label="Startdate stay" max_length="40" name="startdate_stay" type="glide_date_time"/>
+        <element label="Room" max_length="32" name="room" reference="x_821667_my_widget_room" type="reference"/>
+        <index name="index">
+            <element name="occupant"/>
+        </index>
+        <index name="index2">
+            <element name="room"/>
+        </index>
+    </element>
+</database>

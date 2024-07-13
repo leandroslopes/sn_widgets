@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_search_source">
+    <sys_search_source action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition table="x_821667_my_widget_room_reservation">active=true</condition>
+        <group/>
+        <name>Hotel Management - x_821667_my_widget_room_reserva</name>
+        <roles/>
+        <source_table>x_821667_my_widget_room_reservation</source_table>
+        <sys_class_name>sys_search_source</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-07-12 22:51:34</sys_created_on>
+        <sys_id>4a5112e697570618cbf53e2e6253aff8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Hotel Management - x_821667_my_widget_room_reserva</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_search_source_4a5112e697570618cbf53e2e6253aff8</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-07-12 22:51:34</sys_updated_on>
+    </sys_search_source>
+    <sys_translated_text action="delete_multiple" query="documentkey=4a5112e697570618cbf53e2e6253aff8"/>
+</record_update>
