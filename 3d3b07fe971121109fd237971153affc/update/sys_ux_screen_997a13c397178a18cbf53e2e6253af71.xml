@@ -6,13 +6,13 @@
         <disable_auto_reflow>false</disable_auto_reflow>
         <event_mappings>[
     {
-        "eventMappingId": "clyjewukvaajjgjddjhhtsykbieege",
+        "eventMappingId": "clylxeffedaabbxggccviigckleqggkbb",
         "isConfiguration": false,
         "offRowStorageId": null,
-        "sourceEventApiName": "x_821667_my_widget.MODAL_SELECTED_RELAY_5e8912ea97970618cbf53e2e6253afcb",
+        "sourceEventApiName": "x_821667_my_widget.MODAL_SELECTED_RELAY_957a13c397178a18cbf53e2e6253af6e",
         "sourceEventCorrelationId": null,
         "sourceEventDefinition": {
-            "apiName": "x_821667_my_widget.MODAL_SELECTED_RELAY_5e8912ea97970618cbf53e2e6253afcb",
+            "apiName": "x_821667_my_widget.MODAL_SELECTED_RELAY_957a13c397178a18cbf53e2e6253af6e",
             "id": null,
             "type": "UXEVENT"
         },
@@ -107,13 +107,13 @@
                     "sysId": "882eed4091382d3a41f1bb3f382ae089"
                 },
                 "operation": null,
-                "targetId": "clyjewukuaajjgiddjhhtvaanbbgrpn",
+                "targetId": "clylxeffecaabbxffccviigbbabbbaahhqcc",
                 "type": "EVENT"
             }
         ]
     }
 ]</event_mappings>
-        <macroponent display_value="Verify Room Reservation Default">5e8912ea97970618cbf53e2e6253afcb</macroponent>
+        <macroponent display_value="Room Reservation Calendar Default">957a13c397178a18cbf53e2e6253af6e</macroponent>
         <macroponent_config>{
     "bare": {
         "type": "JSON_LITERAL",
@@ -144,28 +144,28 @@
         "value": "y"
     }
 }</macroponent_config>
-        <name>Verify Room Reservation Default</name>
+        <name>Room Reservation Calendar Default</name>
         <order>0</order>
         <parent_macroponent display_value="Workspace App Shell">c276387cc331101080d6d3658940ddd2</parent_macroponent>
         <required_translations>[ ]</required_translations>
         <rollback_screen/>
         <screen_condition/>
-        <screen_type display_value="Room Reservation">128912ea97970618cbf53e2e6253afc6</screen_type>
+        <screen_type display_value="Room Reservation Calendar">557a570397178a18cbf53e2e6253af81</screen_type>
         <sys_class_name>sys_ux_screen</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>
-        <sys_created_on>2024-07-12 23:27:21</sys_created_on>
+        <sys_created_on>2024-07-14 17:27:58</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>96895a2e97970618cbf53e2e6253af00</sys_id>
-        <sys_mod_count>58</sys_mod_count>
-        <sys_name>Verify Room Reservation Default</sys_name>
+        <sys_id>997a13c397178a18cbf53e2e6253af71</sys_id>
+        <sys_mod_count>72</sys_mod_count>
+        <sys_name>Room Reservation Calendar Default</sys_name>
         <sys_overrides/>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
-        <sys_update_name>sys_ux_screen_96895a2e97970618cbf53e2e6253af00</sys_update_name>
+        <sys_update_name>sys_ux_screen_997a13c397178a18cbf53e2e6253af71</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-07-14 17:23:25</sys_updated_on>
+        <sys_updated_on>2024-07-14 19:29:45</sys_updated_on>
     </sys_ux_screen>
-    <sys_translated_text action="delete_multiple" query="documentkey=96895a2e97970618cbf53e2e6253af00"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=997a13c397178a18cbf53e2e6253af71"/>
 </record_update>

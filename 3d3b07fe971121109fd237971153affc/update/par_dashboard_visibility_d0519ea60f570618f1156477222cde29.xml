@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_visibility">
     <par_dashboard_visibility action="INSERT_OR_UPDATE">
-        <dashboard display_value="Hotel Management">9c519ea6185706182ecebb859678e72a</dashboard>
-        <experience display_value="Hotel Management">9c519ea69f570618111c9558f46e4131</experience>
+        <dashboard display_value="Hotel Transilvânia Management">9c519ea6185706182ecebb859678e72a</dashboard>
+        <experience display_value="Hotel Transilvânia Management">9c519ea69f570618111c9558f46e4131</experience>
         <sys_class_name>par_dashboard_visibility</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-07-12 22:51:28</sys_created_on>

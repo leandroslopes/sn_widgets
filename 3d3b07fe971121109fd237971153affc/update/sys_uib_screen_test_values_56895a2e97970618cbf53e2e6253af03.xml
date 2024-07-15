@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_uib_screen_test_values">
     <sys_uib_screen_test_values action="INSERT_OR_UPDATE">
         <macroponent_config>{}</macroponent_config>
-        <screen display_value="Roon Reservation Default">96895a2e97970618cbf53e2e6253af00</screen>
+        <screen display_value="Verify Room Reservation Default">96895a2e97970618cbf53e2e6253af00</screen>
         <sys_class_name>sys_uib_screen_test_values</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-07-12 23:27:21</sys_created_on>

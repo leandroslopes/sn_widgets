@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_canvas">
     <par_dashboard_canvas action="INSERT_OR_UPDATE">
-        <dashboard display_value="Hotel Management">9c519ea6185706182ecebb859678e72a</dashboard>
+        <dashboard display_value="Hotel Transilvânia Management">9c519ea6185706182ecebb859678e72a</dashboard>
         <dashboard_tab/>
         <layout>[]</layout>
         <sys_class_name>par_dashboard_canvas</sys_class_name>

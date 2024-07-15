@@ -3,7 +3,7 @@
         <choices/>
         <description>Contains references to global search configurations to be consumed by search components</description>
         <name>global_search_configurations</name>
-        <page display_value="Hotel Management">9c519ea69f570618111c9558f46e4131</page>
+        <page display_value="Hotel Transilvânia Management">9c519ea69f570618111c9558f46e4131</page>
         <required_translations>[]</required_translations>
         <route/>
         <suffix/>
