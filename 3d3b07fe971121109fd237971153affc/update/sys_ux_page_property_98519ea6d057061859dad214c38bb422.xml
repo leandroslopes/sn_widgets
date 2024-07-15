@@ -3,7 +3,7 @@
         <choices/>
         <description>sys_ux_applicability sys_id for Workspace audience</description>
         <name>wbApplicabilityConfigId</name>
-        <page display_value="Hotel Management">9c519ea69f570618111c9558f46e4131</page>
+        <page display_value="Hotel Transilvânia Management">9c519ea69f570618111c9558f46e4131</page>
         <required_translations/>
         <route/>
         <suffix/>

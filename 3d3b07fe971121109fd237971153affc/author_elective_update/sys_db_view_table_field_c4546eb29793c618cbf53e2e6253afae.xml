@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_view_table_field">
+    <sys_db_view_table_field action="DELETE">
+        <field>sys_id</field>
+        <sys_class_name>sys_db_view_table_field</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-07-13 18:53:06</sys_created_on>
+        <sys_id>c4546eb29793c618cbf53e2e6253afae</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sys_id</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_db_view_table_field_c4546eb29793c618cbf53e2e6253afae</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-07-13 18:53:06</sys_updated_on>
+        <table>x_821667_my_widget_room</table>
+        <view_table display_value="x_821667_my_widget_room">67042a729793c618cbf53e2e6253af93</view_table>
+    </sys_db_view_table_field>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="My Widgets">3d3b07fe971121109fd237971153affc</application>
+        <file_path/>
+        <instance_id>7ce0729fdb91f410e26fd7c8f4961917</instance_id>
+        <instance_name>dev118034</instance_name>
+        <name>sys_db_view_table_field_c4546eb29793c618cbf53e2e6253afae</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_view_table_field"><sys_db_view_table_field action="INSERT_OR_UPDATE"><field>sys_id</field><sys_class_name>sys_db_view_table_field</sys_class_name><sys_created_by>leandro.lopes</sys_created_by><sys_created_on>2024-07-13 18:53:06</sys_created_on><sys_id>c4546eb29793c618cbf53e2e6253afae</sys_id><sys_mod_count>0</sys_mod_count><sys_name>sys_id</sys_name><sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package><sys_policy/><sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope><sys_update_name>sys_db_view_table_field_c4546eb29793c618cbf53e2e6253afae</sys_update_name><sys_updated_by>leandro.lopes</sys_updated_by><sys_updated_on>2024-07-13 18:53:06</sys_updated_on><table>x_821667_my_widget_room</table><view_table display_value="x_821667_my_widget_room">67042a729793c618cbf53e2e6253af93</view_table></sys_db_view_table_field></record_update>]]></payload>
+        <payload_hash>542614852</payload_hash>
+        <record_name>sys_id</record_name>
+        <reverted_from/>
+        <source>06f36c9b97113110cbf53e2e6253afcb</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-07-13 18:53:06</sys_created_on>
+        <sys_id>a654eeb29793c618cbf53e2e6253af6d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>190ad7110ae0000001</sys_recorded_at>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-07-13 18:53:06</sys_updated_on>
+        <type>View Field</type>
+        <update_guid>6a54eeb2fc93c618d583284104557c6c</update_guid>
+        <update_guid_history>6a54eeb2fc93c618d583284104557c6c:542614852</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-07-13 18:59:25</sys_created_on>
+        <sys_db_object display_value="" name="sys_db_view_table_field">sys_db_view_table_field</sys_db_object>
+        <sys_id>004a33fd60e3464c870d409a76cfb129</sys_id>
+        <sys_metadata>c4546eb29793c618cbf53e2e6253afae</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sys_id</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_parent display_value="">67042a729793c618cbf53e2e6253af93</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_scope_delete display_value="">1735843da8c24506b7924cef26a0ffe1</sys_scope_delete>
+        <sys_update_name>sys_db_view_table_field_c4546eb29793c618cbf53e2e6253afae</sys_update_name>
+        <sys_update_version display_value="sys_db_view_table_field_c4546eb29793c618cbf53e2e6253afae">a654eeb29793c618cbf53e2e6253af6d</sys_update_version>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-07-13 18:59:25</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

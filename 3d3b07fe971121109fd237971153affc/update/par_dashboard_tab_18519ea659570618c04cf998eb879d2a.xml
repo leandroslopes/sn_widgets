@@ -2,7 +2,7 @@
     <par_dashboard_tab action="INSERT_OR_UPDATE">
         <active>true</active>
         <background_color/>
-        <dashboard display_value="Hotel Management">9c519ea6185706182ecebb859678e72a</dashboard>
+        <dashboard display_value="Hotel Transilvânia Management">9c519ea6185706182ecebb859678e72a</dashboard>
         <name>Tab</name>
         <order>0</order>
         <sys_class_name>par_dashboard_tab</sys_class_name>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_view">
+    <sys_db_view action="DELETE">
+        <description>Total de Quartos Disponíveis</description>
+        <label>Total de Quartos Disponíveis</label>
+        <name>x_821667_my_widget_total_de_quartos_disponiveis</name>
+        <plural>Total de Quartos Disponíveis</plural>
+        <sys_class_name>sys_db_view</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-07-13 17:40:14</sys_created_on>
+        <sys_id>cd93d2b297df8618cbf53e2e6253afba</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_821667_my_widget_total_de_quartos_disponiveis</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_db_view_cd93d2b297df8618cbf53e2e6253afba</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-07-13 17:40:14</sys_updated_on>
+    </sys_db_view>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="My Widgets">3d3b07fe971121109fd237971153affc</application>
+        <file_path/>
+        <instance_id>7ce0729fdb91f410e26fd7c8f4961917</instance_id>
+        <instance_name>dev118034</instance_name>
+        <name>sys_db_view_cd93d2b297df8618cbf53e2e6253afba</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_view"><sys_db_view action="INSERT_OR_UPDATE"><description>Total de Quartos Disponíveis</description><label>Total de Quartos Disponíveis</label><name>x_821667_my_widget_total_de_quartos_disponiveis</name><plural>Total de Quartos Disponíveis</plural><sys_class_name>sys_db_view</sys_class_name><sys_created_by>leandro.lopes</sys_created_by><sys_created_on>2024-07-13 17:40:14</sys_created_on><sys_id>cd93d2b297df8618cbf53e2e6253afba</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_821667_my_widget_total_de_quartos_disponiveis</sys_name><sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package><sys_policy/><sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope><sys_update_name>sys_db_view_cd93d2b297df8618cbf53e2e6253afba</sys_update_name><sys_updated_by>leandro.lopes</sys_updated_by><sys_updated_on>2024-07-13 17:40:14</sys_updated_on></sys_db_view></record_update>]]></payload>
+        <payload_hash>-1808924660</payload_hash>
+        <record_name>x_821667_my_widget_total_de_quartos_disponiveis</record_name>
+        <reverted_from/>
+        <source>06f36c9b97113110cbf53e2e6253afcb</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-07-13 17:40:14</sys_created_on>
+        <sys_id>dfa31eb697df8618cbf53e2e6253af56</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>190ad2e5bbc0000001</sys_recorded_at>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-07-13 17:40:14</sys_updated_on>
+        <type>Database View</type>
+        <update_guid>93a31eb68cdf8618965c0133e3980b56</update_guid>
+        <update_guid_history>93a31eb68cdf8618965c0133e3980b56:-1808924660</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-07-13 19:01:35</sys_created_on>
+        <sys_db_object display_value="" name="sys_db_view">sys_db_view</sys_db_object>
+        <sys_id>42036e5022b548d894a9e2b2d481e240</sys_id>
+        <sys_metadata>cd93d2b297df8618cbf53e2e6253afba</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_821667_my_widget_total_de_quartos_disponiveis</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_scope_delete display_value="">1735843da8c24506b7924cef26a0ffe1</sys_scope_delete>
+        <sys_update_name>sys_db_view_cd93d2b297df8618cbf53e2e6253afba</sys_update_name>
+        <sys_update_version display_value="sys_db_view_cd93d2b297df8618cbf53e2e6253afba">dfa31eb697df8618cbf53e2e6253af56</sys_update_version>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-07-13 19:01:35</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

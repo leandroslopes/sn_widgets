@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_view_table">
+    <sys_db_view_table action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <left_join>false</left_join>
+        <order>100</order>
+        <sys_class_name>sys_db_view_table</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-07-13 17:29:41</sys_created_on>
+        <sys_id>ef11deb6979f8618cbf53e2e6253af93</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_821667_my_widget_room</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_db_view_table_ef11deb6979f8618cbf53e2e6253af93</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-07-13 17:29:41</sys_updated_on>
+        <table>x_821667_my_widget_room</table>
+        <variable_prefix>room</variable_prefix>
+        <view display_value="x_821667_my_widget_total_de_quartos_ocupados">4ffeceba979f8618cbf53e2e6253afd4</view>
+        <where_clause/>
+    </sys_db_view_table>
+</record_update>
