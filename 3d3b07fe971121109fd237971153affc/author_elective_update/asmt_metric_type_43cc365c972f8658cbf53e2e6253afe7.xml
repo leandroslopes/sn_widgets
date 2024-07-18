@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="asmt_metric_type">
+    <asmt_metric_type action="DELETE">
+        <active>true</active>
+        <allow_public>false</allow_public>
+        <allow_retake>false</allow_retake>
+        <anonymize>false</anonymize>
+        <business_rule/>
+        <chat_survey>false</chat_survey>
+        <condition/>
+        <default_filter/>
+        <delete_business_rule/>
+        <description/>
+        <disable_ui_action/>
+        <display_all_filters>false</display_all_filters>
+        <display_field/>
+        <duration>1970-01-15 00:00:00</duration>
+        <enable_ui_action/>
+        <end_note/>
+        <enforce_condition>false</enforce_condition>
+        <evaluation_method>assessment</evaluation_method>
+        <filter_condition/>
+        <filter_table/>
+        <grc_classification display_value="None">ebfbf2b7076220100deb2bfb9bd300ba</grc_classification>
+        <grc_type/>
+        <introduction/>
+        <job/>
+        <live_feed>false</live_feed>
+        <name>My Survey Test</name>
+        <not_show_intro_note>false</not_show_intro_note>
+        <notify_if_overdue>false</notify_if_overdue>
+        <notify_user>true</notify_user>
+        <one_click_survey>false</one_click_survey>
+        <overdue_notify_user/>
+        <portal_pagination>category</portal_pagination>
+        <publish_state>draft</publish_state>
+        <roles/>
+        <sample_metric/>
+        <scale_factor/>
+        <schedule_period>0</schedule_period>
+        <schedule_type>on_demand</schedule_type>
+        <scoring_type>percent</scoring_type>
+        <signature/>
+        <source_table/>
+        <survey_owners>9cb41f4c97453110cbf53e2e6253affc</survey_owners>
+        <sys_class_name>asmt_metric_type</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-07-18 12:31:31</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>43cc365c972f8658cbf53e2e6253afe7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>My Survey Test</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>asmt_metric_type_43cc365c972f8658cbf53e2e6253afe7</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-07-18 12:31:31</sys_updated_on>
+        <table/>
+        <url/>
+        <user_field/>
+        <user_field_business_rule/>
+    </asmt_metric_type>
+    <sys_translated_text action="DELETE" query="documentkey=43cc365c972f8658cbf53e2e6253afe7"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="My Widgets">3d3b07fe971121109fd237971153affc</application>
+        <file_path/>
+        <instance_id>7ce0729fdb91f410e26fd7c8f4961917</instance_id>
+        <instance_name>dev118034</instance_name>
+        <name>asmt_metric_type_43cc365c972f8658cbf53e2e6253afe7</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="asmt_metric_type"><asmt_metric_type action="INSERT_OR_UPDATE"><active>true</active><allow_public>false</allow_public><allow_retake>false</allow_retake><anonymize>false</anonymize><business_rule/><chat_survey>false</chat_survey><condition/><default_filter/><delete_business_rule/><description/><disable_ui_action/><display_all_filters>false</display_all_filters><display_field/><duration>1970-01-15 00:00:00</duration><enable_ui_action/><end_note/><enforce_condition>false</enforce_condition><evaluation_method>assessment</evaluation_method><filter_condition/><filter_table/><grc_classification display_value="None">ebfbf2b7076220100deb2bfb9bd300ba</grc_classification><grc_type/><introduction/><job/><live_feed>false</live_feed><name>My Survey Test</name><not_show_intro_note>false</not_show_intro_note><notify_if_overdue>false</notify_if_overdue><notify_user>true</notify_user><one_click_survey>false</one_click_survey><overdue_notify_user/><portal_pagination>category</portal_pagination><publish_state>draft</publish_state><roles/><sample_metric/><scale_factor/><schedule_period>0</schedule_period><schedule_type>on_demand</schedule_type><scoring_type>percent</scoring_type><signature/><source_table/><survey_owners>9cb41f4c97453110cbf53e2e6253affc</survey_owners><sys_class_name>asmt_metric_type</sys_class_name><sys_created_by>leandro.lopes</sys_created_by><sys_created_on>2024-07-18 12:31:31</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>43cc365c972f8658cbf53e2e6253afe7</sys_id><sys_mod_count>0</sys_mod_count><sys_name>My Survey Test</sys_name><sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package><sys_policy/><sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope><sys_update_name>asmt_metric_type_43cc365c972f8658cbf53e2e6253afe7</sys_update_name><sys_updated_by>leandro.lopes</sys_updated_by><sys_updated_on>2024-07-18 12:31:31</sys_updated_on><table/><url/><user_field/><user_field_business_rule/></asmt_metric_type><sys_translated_text action="delete_multiple" query="documentkey=43cc365c972f8658cbf53e2e6253afe7"/></record_update>]]></payload>
+        <payload_hash>777169663</payload_hash>
+        <record_name>My Survey Test</record_name>
+        <reverted_from/>
+        <source>06f36c9b97113110cbf53e2e6253afcb</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-07-18 12:31:31</sys_created_on>
+        <sys_id>f1fc725c972f8658cbf53e2e6253aff2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>190c5d384790000001</sys_recorded_at>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-07-18 12:31:31</sys_updated_on>
+        <type>Assessment Metric Type</type>
+        <update_guid>b5fc725c832f86583bac79941b3317f1</update_guid>
+        <update_guid_history>b5fc725c832f86583bac79941b3317f1:777169663</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="My Survey Test">ff76c39497af8658cbf53e2e6253afea</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-07-18 13:13:10</sys_created_on>
+        <sys_db_object display_value="" name="asmt_metric_type">asmt_metric_type</sys_db_object>
+        <sys_id>0c12450137c74e20a98107fc00bc7790</sys_id>
+        <sys_metadata>43cc365c972f8658cbf53e2e6253afe7</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>My Survey Test</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_scope_delete display_value="">1735843da8c24506b7924cef26a0ffe1</sys_scope_delete>
+        <sys_update_name>asmt_metric_type_43cc365c972f8658cbf53e2e6253afe7</sys_update_name>
+        <sys_update_version display_value="asmt_metric_type_43cc365c972f8658cbf53e2e6253afe7">f1fc725c972f8658cbf53e2e6253aff2</sys_update_version>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-07-18 13:13:10</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
