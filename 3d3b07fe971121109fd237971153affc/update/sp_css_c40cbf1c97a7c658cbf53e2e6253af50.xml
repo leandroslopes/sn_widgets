@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_css">
+    <sp_css action="INSERT_OR_UPDATE">
+        <css>@font-face {&#13;
+   font-family: 'Font Awesome 6 Free';&#13;
+  	  /* Regular */&#13;
+      src: url('/sys_attachment.do?sys_id=8ad04ce897e7c658cbf53e2e6253afe9');&#13;
+      src: url('/sys_attachment.do?sys_id=8ad04ce897e7c658cbf53e2e6253afe9') format('truetype'),&#13;
+           url('/sys_attachment.do?sys_id=c2d0802c97e7c658cbf53e2e6253af19') format('woff2');&#13;
+  	&#13;
+  	  /* Brand&#13;
+  	  src: url('/sys_attachment.do?sys_id=7dd04ce897e7c658cbf53e2e6253afe4');&#13;
+      src: url('/sys_attachment.do?sys_id=7dd04ce897e7c658cbf53e2e6253afe4') format('truetype'),&#13;
+           url('/sys_attachment.do?sys_id=cad04ce897e7c658cbf53e2e6253afe7') format('woff2');&#13;
+  &#13;
+  	  /* Solid&#13;
+  	  src: url('/sys_attachment.do?sys_id=82d0802c97e7c658cbf53e2e6253af1b');&#13;
+      src: url('/sys_attachment.do?sys_id=82d0802c97e7c658cbf53e2e6253af1b') format('truetype'),&#13;
+           url('/sys_attachment.do?sys_id=52d0802c97e7c658cbf53e2e6253af1d') format('woff2');&#13;
+   &#13;
+      /* V4 Compability&#13;
+  	  src: url('/sys_attachment.do?sys_id=12d0802c97e7c658cbf53e2e6253af1f');&#13;
+      src: url('/sys_attachment.do?sys_id=12d0802c97e7c658cbf53e2e6253af1f') format('truetype'),&#13;
+           url('/sys_attachment.do?sys_id=ded0802c97e7c658cbf53e2e6253af20') format('woff2');*/&#13;
+  	&#13;
+   font-weight: normal;&#13;
+   font-style: normal;&#13;
+}</css>
+        <name>my-widgets.css</name>
+        <sys_class_name>sp_css</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-07-18 17:07:17</sys_created_on>
+        <sys_id>c40cbf1c97a7c658cbf53e2e6253af50</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>my-widgets.css</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_css_c40cbf1c97a7c658cbf53e2e6253af50</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-07-18 17:48:28</sys_updated_on>
+        <turn_off_scss_compilation>false</turn_off_scss_compilation>
+    </sp_css>
+</record_update>

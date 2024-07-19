@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_css_include">
+    <sp_css_include action="INSERT_OR_UPDATE">
+        <lazy_load>false</lazy_load>
+        <name>fontawesome.min.css</name>
+        <rtl_css_file_url/>
+        <source>local</source>
+        <sp_css display_value="fontawesome.min.css">c60b335c97a7c658cbf53e2e6253af1f</sp_css>
+        <sys_class_name>sp_css_include</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-07-18 16:42:36</sys_created_on>
+        <sys_id>6ca5f79c9767c658cbf53e2e6253affd</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>fontawesome.min.css</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_css_include_6ca5f79c9767c658cbf53e2e6253affd</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-07-18 17:25:06</sys_updated_on>
+        <url>https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css</url>
+    </sp_css_include>
+</record_update>

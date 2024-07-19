@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_dependency_css_include">
+    <m2m_sp_dependency_css_include action="DELETE">
+        <order>100</order>
+        <sp_css_include display_value="Font Awesome v. 6.6.0">6ca5f79c9767c658cbf53e2e6253affd</sp_css_include>
+        <sp_dependency display_value="My Widgets Dependencies">8323b7799714c210cbf53e2e6253af4f</sp_dependency>
+        <sys_class_name>m2m_sp_dependency_css_include</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-07-18 16:42:36</sys_created_on>
+        <sys_id>bf66bf1097a7c658cbf53e2e6253af1e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Font Awesome v. 6.6.0.My Widgets Dependencies</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>m2m_sp_dependency_css_include_bf66bf1097a7c658cbf53e2e6253af1e</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-07-18 16:42:36</sys_updated_on>
+    </m2m_sp_dependency_css_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="My Widgets">3d3b07fe971121109fd237971153affc</application>
+        <file_path/>
+        <instance_id>7ce0729fdb91f410e26fd7c8f4961917</instance_id>
+        <instance_name>dev118034</instance_name>
+        <name>m2m_sp_dependency_css_include_bf66bf1097a7c658cbf53e2e6253af1e</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_dependency_css_include"><m2m_sp_dependency_css_include action="INSERT_OR_UPDATE"><order>100</order><sp_css_include display_value="Font Awesome v. 6.6.0">6ca5f79c9767c658cbf53e2e6253affd</sp_css_include><sp_dependency display_value="My Widgets Dependencies">8323b7799714c210cbf53e2e6253af4f</sp_dependency><sys_class_name>m2m_sp_dependency_css_include</sys_class_name><sys_created_by>leandro.lopes</sys_created_by><sys_created_on>2024-07-18 16:42:36</sys_created_on><sys_id>bf66bf1097a7c658cbf53e2e6253af1e</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Font Awesome v. 6.6.0.My Widgets Dependencies</sys_name><sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package><sys_policy/><sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope><sys_update_name>m2m_sp_dependency_css_include_bf66bf1097a7c658cbf53e2e6253af1e</sys_update_name><sys_updated_by>leandro.lopes</sys_updated_by><sys_updated_on>2024-07-18 16:42:36</sys_updated_on></m2m_sp_dependency_css_include></record_update>]]></payload>
+        <payload_hash>693426802</payload_hash>
+        <record_name>Font Awesome v. 6.6.0.My Widgets Dependencies</record_name>
+        <reverted_from/>
+        <source>06f36c9b97113110cbf53e2e6253afcb</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-07-18 16:42:37</sys_created_on>
+        <sys_id>3f66bf1097a7c658cbf53e2e6253af21</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>190c6b964690000001</sys_recorded_at>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-07-18 16:42:37</sys_updated_on>
+        <type>Dependency CSS Includes</type>
+        <update_guid>ff66bf1043a7c658f2ed092675eb8b20</update_guid>
+        <update_guid_history>ff66bf1043a7c658f2ed092675eb8b20:693426802</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Font Awesome v. 6.6.0.My Widgets Dependencies">a66f77d497e7c658cbf53e2e6253af50</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-07-18 17:21:51</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sp_dependency_css_include">m2m_sp_dependency_css_include</sys_db_object>
+        <sys_id>1dc76c15429d444886b7bdc4fc356381</sys_id>
+        <sys_metadata>bf66bf1097a7c658cbf53e2e6253af1e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Font Awesome v. 6.6.0.My Widgets Dependencies</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_scope_delete display_value="">1735843da8c24506b7924cef26a0ffe1</sys_scope_delete>
+        <sys_update_name>m2m_sp_dependency_css_include_bf66bf1097a7c658cbf53e2e6253af1e</sys_update_name>
+        <sys_update_version display_value="m2m_sp_dependency_css_include_bf66bf1097a7c658cbf53e2e6253af1e">3f66bf1097a7c658cbf53e2e6253af21</sys_update_version>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-07-18 17:21:51</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

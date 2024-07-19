@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_theme_css_include">
+    <m2m_sp_theme_css_include action="INSERT_OR_UPDATE">
+        <order>200</order>
+        <sp_css_include display_value="my-widgets">33ebb35897a7c658cbf53e2e6253afab</sp_css_include>
+        <sp_theme display_value="My Widgets Theme">bb5bfb1f9745c210cbf53e2e6253af9e</sp_theme>
+        <sys_class_name>m2m_sp_theme_css_include</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-07-18 17:07:20</sys_created_on>
+        <sys_id>8a1c7fdc97a7c658cbf53e2e6253afad</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>my-widgets.My Widgets Theme</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>m2m_sp_theme_css_include_8a1c7fdc97a7c658cbf53e2e6253afad</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-07-18 17:23:01</sys_updated_on>
+    </m2m_sp_theme_css_include>
+</record_update>
