@@ -79,7 +79,7 @@
         <sys_id>37bfe76e97df2110cbf53e2e6253af94</sys_id>
         <sys_mod_count>2</sys_mod_count>
         <sys_name>formatter</sys_name>
-        <sys_package/>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>item_option_new_37bfe76e97df2110cbf53e2e6253af94</sys_update_name>

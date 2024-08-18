@@ -6,6 +6,7 @@
         <caller_access/>
         <client_callable>false</client_callable>
         <description/>
+        <mobile_callable>false</mobile_callable>
         <name>GenerationFactoryCSV</name>
         <script><![CDATA[var GenerationFactoryCSV = Class.create();
 GenerationFactoryCSV.prototype = {

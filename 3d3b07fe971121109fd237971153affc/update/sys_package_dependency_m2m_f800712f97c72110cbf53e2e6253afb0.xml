@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_package_dependency_m2m">
     <sys_package_dependency_m2m action="INSERT_OR_UPDATE">
-        <dependency display_value="Data Lookup and Record Matching Support" source="com.glide.data_lookup">413e07b1e8e1211076da10591ad28795</dependency>
+        <dependency display_value="Data Lookup and Record Matching Support" source="com.glide.data_lookup">7f19b0b17df1311076daf29f52070d0e</dependency>
         <min_version>1.0.6</min_version>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-06-01 20:21:51</sys_created_on>

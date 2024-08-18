@@ -88,7 +88,7 @@
         <sys_update_name>sys_web_service_e47d223e97f00250cbf53e2e6253afce</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
         <sys_updated_on>2024-03-11 18:12:06</sys_updated_on>
-        <wsdl>https://dev118034.service-now.com/x_821667_my_widget_IncidentRecord.do?WSDL</wsdl>
+        <wsdl>https://dev195706.service-now.com/x_821667_my_widget_IncidentRecord.do?WSDL</wsdl>
         <wsdl_compliance>false</wsdl_compliance>
     </sys_web_service>
 </record_update>

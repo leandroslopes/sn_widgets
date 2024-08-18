@@ -3,6 +3,7 @@
         <active>true</active>
         <condition/>
         <datasource display_value="">x_821667_my_widget_room</datasource>
+        <has_dynamic_filters>false</has_dynamic_filters>
         <name>Room</name>
         <sys_class_name>ais_search_source</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>

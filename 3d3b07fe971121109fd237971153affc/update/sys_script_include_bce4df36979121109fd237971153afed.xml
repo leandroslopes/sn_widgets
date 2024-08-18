@@ -6,6 +6,7 @@
         <caller_access/>
         <client_callable>false</client_callable>
         <description/>
+        <mobile_callable>false</mobile_callable>
         <name>Cities</name>
         <script><![CDATA[var Cities = Class.create();
 Cities.prototype = {

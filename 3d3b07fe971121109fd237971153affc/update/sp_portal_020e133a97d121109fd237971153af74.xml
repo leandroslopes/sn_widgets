@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_portal">
     <sp_portal action="INSERT_OR_UPDATE">
+        <alternate_portal/>
         <css_variables>$brand-primary:#103044;
 $body-bg:#ffffff;
 $state-success-text:#202022;
@@ -29,6 +30,7 @@ $text-muted:#979797;
         <hide_portal_name>false</hide_portal_name>
         <homepage display_value="home">1cbed3b697d121109fd237971153afe6</homepage>
         <icon>cd0f977a97d121109fd237971153af6c</icon>
+        <inactive>false</inactive>
         <kb_knowledge_base/>
         <kb_knowledge_page/>
         <login_page/>
@@ -66,7 +68,6 @@ $text-muted:#979797;
         <chunk_size_bytes>700000</chunk_size_bytes>
         <compressed>true</compressed>
         <content_type>image/png</content_type>
-        <encryption_context/>
         <file_name>icon</file_name>
         <hash>98e01624f38b48574c3157e7993f806771cd5ebd8eedf564f2e0ed2e758b6279</hash>
         <image_height>512</image_height>

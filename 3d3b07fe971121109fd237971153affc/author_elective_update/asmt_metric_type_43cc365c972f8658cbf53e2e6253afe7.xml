@@ -88,7 +88,7 @@
         <update_guid_history>b5fc725c832f86583bac79941b3317f1:777169663</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="My Survey Test">ff76c39497af8658cbf53e2e6253afea</sys_audit_delete>
+        <sys_audit_delete display_value="">ff76c39497af8658cbf53e2e6253afea</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-07-18 13:13:10</sys_created_on>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="wehook_url" label="Wehook URL" language="en" table="var__m_sys_hub_flow_input_3e0a14b497b6a110cbf53e2e6253afaa">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>wehook_url</element>
+            <help/>
+            <hint/>
+            <label>Wehook URL</label>
+            <language>en</language>
+            <name>var__m_sys_hub_flow_input_3e0a14b497b6a110cbf53e2e6253afaa</name>
+            <plural/>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2023-05-11 15:54:21</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Wehook URL</sys_name>
+            <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+            <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_3e0a14b497b6a110cbf53e2e6253afaa_wehook_url_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2023-05-11 15:54:21</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>
