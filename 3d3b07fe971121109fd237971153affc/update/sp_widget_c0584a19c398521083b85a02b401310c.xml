@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function(spUtil, $scope, $timeout) {
+  /* widget controller */
+  var c = this;
+	
+	c.selectAg = function(record) {
+		
+		c.data.selectedAg = record.agValue;
+		
+		c.server.update();
+	};
+	
+	c.sortOrder = false;
+	c.changeSortCol = function(key) {
+	
+		if (key == c.orderCol)
+			c.sortOrder = !c.sortOrder;
+		else
+			c.sortOrder = false;
+		
+		c.orderCol = key;
+	};
+	
+	c.updatedFromServer = false;
+	
+	// empty string is a filter. Example: 'active=true'
+	spUtil.recordWatch($scope, c.data.table, '', function(updateObj) {
+		
+		spUtil.update($scope);
+		
+		c.updatedFromServer = true;
+		
+		if (!c.updatedRegs)
+			c.updatedRegs = {};
+		
+		c.updatedRegs[updateObj.data.sys_id] = true;
+		
+		$timeout(function() {
+			c.updatedRegs[updateObj.data.sys_id] = false;
+		}, 6000);
+		
+	});
+	
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.badge{
+  background: red;
+}
+
+.selected {
+  background-color: #4280C0; 
+  color: white;
+}
+
+.customClass .tooltip-inner {
+  background-color: red; 
+  color: white;
+}</css>
+        <data_table>sp_instance_table</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>table</field_list>
+        <has_preview>true</has_preview>
+        <id>table_summary</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+  var $window = $injector.get('$window');
+  
+  if (controller.options.enable_arrow_key_selection != "false")
+	registerWindowEvents();
+
+  function registerWindowEvents() {
+
+	angular.element($window).on("keyup", function() {
+
+		var direction = event.keyCode == 40 ? "down" : (event.keyCode == 38 ? "up" : false);
+
+		if (!direction)
+			return;
+
+		var selected = element.find(".selected");
+
+		var next = direction == "up" ? selected.prev() : selected.next();
+
+		if (!next.length) {
+
+			var allItems = element.find(".list-group-item");
+
+			if (direction == "up") {
+				next = allItems[allItems.length - 1];
+			} else {
+				next = allItems[0];
+			}
+		}
+
+		next.click();
+
+	});
+  }
+}]]></link>
+        <name>Table Summary</name>
+        <option_schema>[{"name":"aggregate_field","section":"Data","label":"Aggregate field","type":"field_name"},{"name":"title","section":"Presentation","default_value":"Table Summary","label":"Title","type":"string"},{"name":"display_fields","section":"Presentation","label":"Display fields","type":"field_list"},{"name":"enable_arrow_key_selection","section":"Behavior","default_value":"false","label":"Enable arrow key selection","type":"boolean"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+	if (!input) {
+		
+		data.summary = [];
+		data.table = $sp.getParameter("table") || options.table || "incident";
+		data.groupBy = $sp.getParameter("groupBy") || options.aggregate_field  || "category";
+		data.aggregate = "COUNT";
+		data.fields = $sp.getParameter("fields") || options.display_fields || "short_description,caller_id,category";
+		
+		var ga = new GlideAggregate(data.table);
+		ga.addQuery("active", true);
+		ga.setGroup(true);		
+		ga.groupBy(data.groupBy);
+		ga.addAggregate(data.aggregate);
+		ga.query();
+		
+		while(ga.next()) {
+			data.summary.push({
+				agName: ga[data.groupBy].getDisplayValue() || "None",
+				agValue: ga[data.groupBy].toString(),
+				agCount: ga.getAggregate(data.aggregate)
+			});
+		}
+		
+	}
+	
+	if (input) {
+		
+		data.records = [];
+		
+		var grs = new GlideRecordSecure(input.table);
+		grs.addQuery("active", true);
+		grs.addQuery(input.groupBy, input.selectedAg);
+		grs.query();
+		
+		data.labels = [];
+		var labels = $sp.getFieldsObject(grs, input.fields);
+		
+		for (var label in labels) {
+			data.labels.push({
+				"key": label,
+				"type": labels[label].type,
+				"value": labels[label].label
+			});
+		}
+		
+		while(grs.next()) {
+			
+			var o = {};
+			
+			$sp.getRecordDisplayValues(o, grs, input.fields);
+			$sp.getRecordValues(o, grs, "sys_id");
+			data.records.push(o);
+		}
+		
+	}
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-08-27 18:02:30</sys_created_on>
+        <sys_id>c0584a19c398521083b85a02b401310c</sys_id>
+        <sys_mod_count>56</sys_mod_count>
+        <sys_name>Table Summary</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_c0584a19c398521083b85a02b401310c</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-08-28 14:50:03</sys_updated_on>
+        <template><![CDATA[<div>
+  
+  <form>
+    
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <span 
+              class="fa fa-bolt" 
+              ng-show="c.updatedFromServer"
+              uib-tooltip="Updated from server!" tooltip-class="customClass"
+              >
+        </span>
+        {{ ::c.options.title }}
+      </div>
+
+      <!-- List group -->
+      <ul class="list-group">
+        <li class="list-group-item"
+            ng-repeat="s in c.data.summary"
+            ng-click="c.selectAg(s)"
+            ng-class="{ 'selected' : c.data.selectedAg == s.agValue }"
+            >
+          {{ ::s.agName }}
+          <span class="badge">{{ ::s.agCount }}</span>
+        </li>
+      </ul>
+    </div>
+    
+  </form>
+  
+  <table class="table table-bordered table-hover cloud-widgets" ng-if="c.data.records"> 
+    <thead> 
+      <tr> 
+        <th ng-repeat="label in c.data.labels"
+            ng-click="c.changeSortCol(label.key)"
+            >
+          {{ ::label.value }}
+          <span ng-show="c.orderCol==label.key">
+          	<span class="fa fa-sort-up" ng-show="!c.sortOrder"></span>
+            <span class="fa fa-sort-down" ng-show="c.sortOrder"></span>
+          </span>
+        </th>
+      </tr> 
+    </thead> 
+    <tbody> 
+      <tr ng-repeat="record in c.data.records | orderBy: c.orderCol : c.sortOrder"> 
+        <td ng-repeat="label in c.data.labels">
+        	{{ record[label.key] }}
+        </td>
+      </tr> 
+      <tr> 
+    </tbody>
+  </table>
+  
+</div>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>c0584a19c398521083b85a02b401310c</id>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-08-28 00:14:41</sys_created_on>
+        <sys_id>c88d9f55c350921083b85a02b401319d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-08-28 00:14:41</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

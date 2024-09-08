@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_portal">
+    <sp_portal action="INSERT_OR_UPDATE">
+        <alternate_portal/>
+        <css_variables/>
+        <dark_theme/>
+        <default>false</default>
+        <enable_ais>false</enable_ais>
+        <enable_certificate_based_authentication>false</enable_certificate_based_authentication>
+        <enable_favorites>false</enable_favorites>
+        <hide_portal_name>false</hide_portal_name>
+        <homepage display_value="cde_index">d4f98a4dc394121083b85a02b4013100</homepage>
+        <icon/>
+        <inactive>false</inactive>
+        <kb_knowledge_base/>
+        <kb_knowledge_page/>
+        <login_page display_value="landing">36c61807cb31120000f8d856634c9ca9</login_page>
+        <logo>8de9bc5dc314521083b85a02b40131fa</logo>
+        <notfound_page display_value="404">3c2c9063cb11020000f8d856634c9c1f</notfound_page>
+        <quick_start_config/>
+        <rtl_enabled>false</rtl_enabled>
+        <sc_catalog/>
+        <sc_catalog_page/>
+        <sc_category_page/>
+        <search_application/>
+        <search_results_configuration/>
+        <sp_chat_queue/>
+        <sp_rectangle_menu display_value="CDE Header Menu">f3b10a19c398521083b85a02b40131f8</sp_rectangle_menu>
+        <sys_class_name>sp_portal</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-08-26 23:28:22</sys_created_on>
+        <sys_id>06d8c28dc394121083b85a02b40131dd</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Cloud Dimensions Events</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_portal_06d8c28dc394121083b85a02b40131dd</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-08-27 17:34:48</sys_updated_on>
+        <theme display_value="Cloud Dimensions">d9580a4dc394121083b85a02b40131fc</theme>
+        <title>Cloud Dimensions Events</title>
+        <ts_index_group/>
+        <url_suffix>cloudevents</url_suffix>
+    </sp_portal>
+    <sys_translated_text action="delete_multiple" query="documentkey=06d8c28dc394121083b85a02b40131dd"/>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#a1d5f4</average_image_color>
+        <chunk_size_bytes>700000</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <file_name>logo</file_name>
+        <hash>9729b38c6730c684829f33a1709bf78ed241412115543f3501087a2ba14c5f31</hash>
+        <image_height>64</image_height>
+        <image_width>64</image_width>
+        <size_bytes>2940</size_bytes>
+        <size_compressed>2963</size_compressed>
+        <state>available</state>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-08-27 12:19:51</sys_created_on>
+        <sys_id>8de9bc5dc314521083b85a02b40131fa</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-08-27 12:19:52</sys_updated_on>
+        <table_name>ZZ_YYsp_portal</table_name>
+        <table_sys_id>06d8c28dc394121083b85a02b40131dd</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAA/w==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="logo" sys_id="8de9bc5dc314521083b85a02b40131fa">8de9bc5dc314521083b85a02b40131fa</sys_attachment>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-08-27 12:19:51</sys_created_on>
+        <sys_id>cde9bc5dc314521083b85a02b40131fa</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>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</data>
+        <length>3940</length>
+        <position>1</position>
+        <sys_attachment display_value="logo" sys_id="8de9bc5dc314521083b85a02b40131fa">8de9bc5dc314521083b85a02b40131fa</sys_attachment>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-08-27 12:19:51</sys_created_on>
+        <sys_id>41e9bc5dc314521083b85a02b40131fb</sys_id>
+    </sys_attachment_doc>
+</record_update>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_module">
+    <sys_ui_module action="DELETE">
+        <active>true</active>
+        <application display_value="">bacec0bc972021109fd237971153afc3</application>
+        <filter/>
+        <name>Cities</name>
+        <order/>
+        <path/>
+        <path_relative_to_root>false</path_relative_to_root>
+        <roles>x_821667_my_widget.city_user</roles>
+        <sys_class_name>sys_ui_module</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-04 19:56:38</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>27b45b36979121109fd237971153af3a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Cities</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_ui_module_27b45b36979121109fd237971153af3a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-04 19:56:38</sys_updated_on>
+        <table>x_821667_my_widget_city</table>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+    </sys_ui_module>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="My Widgets">3d3b07fe971121109fd237971153affc</application>
+        <file_path/>
+        <instance_id>efe1ae8b1bce3dd07d9d2f8dee4bcb68</instance_id>
+        <instance_name>dev195706</instance_name>
+        <name>sys_ui_module_27b45b36979121109fd237971153af3a</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_module">
+    <sys_ui_module action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <application display_value="">bacec0bc972021109fd237971153afc3</application>
+        <filter/>
+        <name>Cities</name>
+        <order/>
+        <path/>
+        <path_relative_to_root>false</path_relative_to_root>
+        <roles>x_821667_my_widget.city_user</roles>
+        <sys_class_name>sys_ui_module</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-04 19:56:38</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>27b45b36979121109fd237971153af3a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Cities</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_ui_module_27b45b36979121109fd237971153af3a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-04 19:56:38</sys_updated_on>
+        <table>x_821667_my_widget_city</table>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+    </sys_ui_module>
+</record_update>]]></payload>
+        <payload_hash>-2104133119</payload_hash>
+        <record_name>Cities</record_name>
+        <reverted_from/>
+        <source>467aa9fdc300161083b85a02b401319c</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-16 18:53:59</sys_created_on>
+        <sys_id>079aa931c340161083b85a02b4013131</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1915c8a16690000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-16 18:53:59</sys_updated_on>
+        <type>Module</type>
+        <update_guid>c39aa931f9401610ab8902c9468b1431</update_guid>
+        <update_guid_history>c39aa931f9401610ab8902c9468b1431:-2104133119</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-30 14:30:02</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_module">sys_ui_module</sys_db_object>
+        <sys_id>117bda90c8a648959e2bb717c6c27379</sys_id>
+        <sys_metadata>27b45b36979121109fd237971153af3a</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Cities</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_scope_delete display_value="">1735843da8c24506b7924cef26a0ffe1</sys_scope_delete>
+        <sys_update_name>sys_ui_module_27b45b36979121109fd237971153af3a</sys_update_name>
+        <sys_update_version display_value="sys_ui_module_27b45b36979121109fd237971153af3a">079aa931c340161083b85a02b4013131</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-30 14:30:02</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

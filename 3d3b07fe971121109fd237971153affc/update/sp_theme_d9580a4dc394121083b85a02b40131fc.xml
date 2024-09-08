@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_theme">
+    <sp_theme action="INSERT_OR_UPDATE">
+        <css_variables>$sp-tagline-color:  white !default;&#13;
+$navbar-inverse-bg: #4280C0 !default;&#13;
+$navbar-inverse-link-color: white !default;&#13;
+$sp-navbar-divider-color:   #2F3A45 !default;&#13;
+$body-bg:           #EDF2F8 !default;&#13;
+&#13;
+/* Style for Cloud Custom Widgets */&#13;
+.cloud-widgets {&#13;
+  background-color: white;&#13;
+  border: 1px solid #DDDDDD;&#13;
+  padding: 15px 30px;&#13;
+}&#13;
+&#13;
+/* Style for consistent spacing between elements */&#13;
+.padding-top-20 {&#13;
+  padding-top: 20px !important;&#13;
+}</css_variables>
+        <footer/>
+        <footer_fixed>false</footer_fixed>
+        <header display_value="Stock Header">bf5ec2f2cb10120000f8d856634c9c0c</header>
+        <name>Cloud Dimensions</name>
+        <navbar_fixed>true</navbar_fixed>
+        <sys_class_name>sp_theme</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-08-26 23:25:41</sys_created_on>
+        <sys_id>d9580a4dc394121083b85a02b40131fc</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Cloud Dimensions</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_theme_d9580a4dc394121083b85a02b40131fc</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-08-27 17:21:33</sys_updated_on>
+        <turn_off_scss_compilation>false</turn_off_scss_compilation>
+    </sp_theme>
+</record_update>

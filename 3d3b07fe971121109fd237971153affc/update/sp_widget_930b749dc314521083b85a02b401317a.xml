@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($timeout, $location) {
+  /* widget controller */
+  var c = this;
+	
+	c.submitForm = function(isValid) {
+		
+		c.submitted = true;
+		
+		if (!isValid)
+			return;
+		
+		c.data.short_description = c.short_description;
+		c.data.select_caller = c.select_caller;
+		c.data.select_category = c.select_category;
+		
+		c.server.update().then(function(response) {
+			
+			if (response.status == "success") {
+				
+				c.message = null;
+				c.success = response.message;
+				
+				$timeout(function() {
+					$location.search({id: "cde_index"});
+				}, 5000)
+			} else if (response.status == "error") {
+				c.message = response.message;
+			}
+			
+		});
+	}
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>registration_form</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Registration Form</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+	
+	if (!input) {
+		
+		data.users = [];
+		data.categories = [];
+		
+		var grsEvent = new GlideRecordSecure("sys_user");
+		grsEvent.addActiveQuery();
+		grsEvent.query();
+		
+		while (grsEvent.next()) {
+			data.users.push({
+				"name": grsEvent.getDisplayValue("name"),
+				"sys_id": grsEvent.getUniqueValue()
+			});
+		}
+		
+		var grsCategories = new GlideRecordSecure("sys_choice");
+		grsCategories.addEncodedQuery("name=incident^element=category^ORDERBYname");
+		grsCategories.query();
+
+		while (grsCategories.next()) {
+			data.categories.push({
+				"label": grsCategories.getDisplayValue("label"),
+				"value": grsCategories.getValue("value")
+			});
+		}
+		
+	}
+	
+	if (input) {
+		
+		var grsIncident = new GlideRecordSecure("incident");
+		grsIncident.initialize()
+		grsIncident.setValue("short_description", input.short_description);
+		grsIncident.setValue("caller_id", input.select_caller.sys_id);
+		grsIncident.setValue("category", input.select_category.value);
+
+		var incident_sys_id = grsIncident.insert();
+		
+		if (!gs.nil(incident_sys_id)) {
+			data.status = "success";
+			data.message = "Incident successfully submitted!!!";
+		} else 
+			data.status = "error";
+	}
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-08-27 12:24:56</sys_created_on>
+        <sys_id>930b749dc314521083b85a02b401317a</sys_id>
+        <sys_mod_count>40</sys_mod_count>
+        <sys_name>Registration Form</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_930b749dc314521083b85a02b401317a</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-08-27 17:28:08</sys_updated_on>
+        <template><![CDATA[<div class="cloud-widgets">
+  
+  <div class="alert alert-success alert-dismissible" 
+       role="alert"
+       ng-if="c.success"
+       id="success-message">
+    <button type="button" 
+            class="close" 
+            data-dismiss="alert" 
+            aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>${Success!}</strong> {{ ::c.success }}
+  </div>
+  
+  <div class="alert alert-danger alert-dismissible" 
+       role="alert"
+       ng-if="c.message"
+       id="error-message">
+    <button type="button" 
+            class="close" 
+            data-dismiss="alert" 
+            aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>${Danger!}</strong> {{ ::c.message }}
+  </div>
+  
+  <form 
+        name="registration" 
+        class="form-horizontal" 
+        novalidate 
+        ng-submit="c.submitForm(registration.$valid)">
+
+    <legend class="text-center">${Register for an Event}</legend>
+    
+    <div class="form-group" 
+         ng-class="{ 'has-error' : registration.short_description.$invalid && c.submitted }">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-file-text-o">
+          </i>
+        </div>
+        <input class="form-control" 
+               id="short_description" 
+               name="short_description" 
+               placeholder="Enter a Short Description" 
+               type="text" 
+               ng-model="c.short_description"
+               ng-required="true"/>        
+      </div>
+      <p class="help-block"
+           ng-show="registration.short_description.$invalid && c.submitted"
+           >
+        	${Field is required.}	
+        </p>
+    </div>
+    <div class="form-group"
+         ng-class="{ 'has-error' : registration.select_caller.$invalid && c.submitted }">
+      <select class="select form-control" 
+              id="select_caller" 
+              name="select_caller" 
+              ng-model="c.select_caller" 
+              ng-options="user.name for user in c.data.users"
+              ng-required="true">
+        <option value="">${Select a Caller}</option>
+      </select>
+      <p class="help-block"
+         ng-show="registration.select_caller.$invalid && c.submitted"
+         >
+        ${Field is required.}	
+      </p>
+    </div>
+    <div class="form-group"
+         ng-class="{ 'has-error' : registration.select_category.$invalid && c.submitted }">
+      <select class="select form-control"
+              
+              id="select_category"
+              name="select_category" 
+              ng-model="c.select_category" 
+              ng-options="category.label for category in c.data.categories"
+              ng-required="true">
+        <option value="">${Selec a Category}</option>
+      </select>
+      <p class="help-block"
+         ng-show="registration.select_category.$invalid && c.submitted"
+         >
+        ${Field is required.}	
+      </p>
+    </div>
+    <div class="form-group">
+      <div>
+        <button class="btn btn-primary " name="submit" type="submit">${Submit}</button>
+      </div>
+    </div>
+
+  </form>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element db_object_id="356b06a697170618cbf53e2e6253afd1" label="Quarto" max_length="40" name="x_821667_my_widget_room" text_index="true" type="collection">
+    <element attributes="hasLabels=true" db_object_id="356b06a697170618cbf53e2e6253afd1" label="Quarto" max_length="40" name="x_821667_my_widget_room" text_index="true" type="collection">
         <element choice="1" label="Type" max_length="40" name="type" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Presidential" value="Presidential"/>

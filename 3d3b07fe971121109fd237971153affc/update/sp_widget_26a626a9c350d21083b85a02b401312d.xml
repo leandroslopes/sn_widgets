@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+	
+	c.saveTags = function(event) {
+		
+		var amountTags;
+		
+		amountTags = event.tags.length;
+		
+		if (amountTags == 0) {
+			
+			c.data.message = "Enter the tags!";
+			c.data.state = "danger";
+			return;
+		}
+		
+		c.server.get({
+			
+			tags: event.tags,
+			sys_id: event.sys_id
+			
+		}).then(function(response) {
+			
+			c.data.message = response.data.message;
+			c.data.state = response.data.state;
+		});		
+		
+	};
+	
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.margin-bottom-10 {
+	margin-bottom: 10px;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>event_information</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Event Information</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+	if (!input) {
+		
+		var eventsTabble = "x_821667_my_widget_room";
+		var fields = "sys_id,number,code,type,sys_tags";
+		
+		data.events = [];
+		
+		var grs = new GlideRecordSecure(eventsTabble);
+		grs.query();
+		
+		while(grs.next()) {
+			
+			var o = $sp.getFieldsObject(grs, fields);
+			
+			o.sys_id = grs.getUniqueValue();
+			o.tags = o.sys_tags.display_value ? o.sys_tags.display_value.split(",") : "";
+			o._fields = fields.split(",");
+			
+			data.events.push(o);
+		}
+		
+	}
+	
+	if (input) {
+		
+		var tag;
+		var tags;
+		var room = {
+			table: "x_821667_my_widget_room",
+			recordSysID: input.sys_id,
+			tags: input.tags
+		};
+		var roomString;
+		var updatedTags;
+		
+		roomString = JSON.stringify(room);
+		
+		tag = new x_821667_my_widget.TagUtil();
+		
+		updatedTags = tag.updateTags(room);
+		
+		if (updatedTags == tag._UPDATE_ALL) { 
+			data.message = "Tags saved!!!";
+			data.state = "success";
+			return;
+		}
+		
+		if (updatedTags == tag._NOT_UPDATE_ALL) {
+			data.message = "Tags not saved ALL!!!";
+			data.state = "success";
+			return;
+		}
+		
+		if (updatedTags == tag._NOT_UPDATE_ANY) {
+			data.message = "Tags not saved!!!";
+			data.state = "danger";
+			return;
+		}
+	}
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-08-28 14:53:35</sys_created_on>
+        <sys_id>26a626a9c350d21083b85a02b401312d</sys_id>
+        <sys_mod_count>68</sys_mod_count>
+        <sys_name>Event Information</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_26a626a9c350d21083b85a02b401312d</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-08-30 14:40:27</sys_updated_on>
+        <template><![CDATA[<form>
+  
+  <uib-tabset class="cloud-widgets">
+    <legend>
+      ${Rooms}
+    </legend>
+    
+    <uib-tab heading="{{ event.number.display_value }}"
+             ng-repeat="event in c.data.events">
+      <div class="margin-bottom-10"></div>
+    
+      <dl ng-repeat="field in event._fields"
+          ng-if="event[field].value">
+        <dt>{{ event[field].label }}:</dt>
+        <dt>{{ event[field].display_value }}</dt>
+      </dl>
+      
+      <tags-input class="margin-bottom-10"
+                  placeholder="{{ c.placeholderText }}"
+                  use-strings="true"
+                  ng-model="event.tags">
+      </tags-input>
+      
+      <input type="button" 
+             value="Save" 
+             class="btn btn-primary margin-bottom-10"
+             ng-click="c.saveTags(event)"/>
+      
+      <div class="alert alert-{{ c.data.state }}"
+           ng-if="c.data.message"> {{ c.data.message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+    </uib-tab>
+    
+  </uib-tabset>
+  
+  <!--pre>{{ c.data.events | json }}</pre-->
+</form>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>26a626a9c350d21083b85a02b401312d</id>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-08-28 19:17:57</sys_created_on>
+        <sys_id>8f23ab21c394d21083b85a02b40131de</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-08-28 19:17:57</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
