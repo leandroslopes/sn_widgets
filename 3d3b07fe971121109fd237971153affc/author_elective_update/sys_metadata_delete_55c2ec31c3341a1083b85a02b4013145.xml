@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_catalog">
+    <sc_cat_item_catalog action="DELETE">
+        <sc_cat_item display_value="Testing Access Variable">26725b1dc338961083b85a02b4013155</sc_cat_item>
+        <sc_catalog display_value="Service Catalog">e0d08b13c3330100c8b837659bba8fb4</sc_catalog>
+        <sys_class_name>sc_cat_item_catalog</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-09-21 20:03:36</sys_created_on>
+        <sys_id>fdc317ddc338961083b85a02b4013167</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Service Catalog.Testing Access Variable</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Global">global</sys_scope>
+        <sys_update_name>sc_cat_item_catalog_fdc317ddc338961083b85a02b4013167</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-09-21 20:03:36</sys_updated_on>
+    </sc_cat_item_catalog>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Global">global</application>
+        <file_path/>
+        <instance_id>efe1ae8b1bce3dd07d9d2f8dee4bcb68</instance_id>
+        <instance_name>dev195706</instance_name>
+        <name>sc_cat_item_catalog_fdc317ddc338961083b85a02b4013167</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_catalog"><sc_cat_item_catalog action="INSERT_OR_UPDATE"><sc_cat_item display_value="Testing Access Variable">26725b1dc338961083b85a02b4013155</sc_cat_item><sc_catalog display_value="Service Catalog">e0d08b13c3330100c8b837659bba8fb4</sc_catalog><sys_class_name>sc_cat_item_catalog</sys_class_name><sys_created_by>leandro.lopes</sys_created_by><sys_created_on>2024-09-21 20:03:36</sys_created_on><sys_id>fdc317ddc338961083b85a02b4013167</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Service Catalog.Testing Access Variable</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sc_cat_item_catalog_fdc317ddc338961083b85a02b4013167</sys_update_name><sys_updated_by>leandro.lopes</sys_updated_by><sys_updated_on>2024-09-21 20:03:36</sys_updated_on></sc_cat_item_catalog></record_update>]]></payload>
+        <payload_hash>1513353167</payload_hash>
+        <record_name>Service Catalog.Testing Access Variable</record_name>
+        <reverted_from/>
+        <source>322834b97db1311076daf29f52070d4e</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-09-21 20:03:36</sys_created_on>
+        <sys_id>f1c317ddc338961083b85a02b401316d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>192162ec2a10000001</sys_recorded_at>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-09-21 20:03:36</sys_updated_on>
+        <type>Catalog Items Catalog</type>
+        <update_guid>f5c317ddef389610082d063028e6e16c</update_guid>
+        <update_guid_history>f5c317ddef389610082d063028e6e16c:1513353167</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Service Catalog.Testing Access Variable">4d349311c378961083b85a02b4013138</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-09-22 20:27:12</sys_created_on>
+        <sys_db_object display_value="" name="sc_cat_item_catalog">sc_cat_item_catalog</sys_db_object>
+        <sys_id>55c2ec31c3341a1083b85a02b4013145</sys_id>
+        <sys_metadata>fdc317ddc338961083b85a02b4013167</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_parent display_value="My Widgets: Testing Access Variable">30c2e431c3341a1083b85a02b4013111</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_scope_delete display_value="">3a08cd4d4e9544da90041791f25d2984</sys_scope_delete>
+        <sys_update_name>sys_metadata_delete_55c2ec31c3341a1083b85a02b4013145</sys_update_name>
+        <sys_update_version display_value="sc_cat_item_catalog_fdc317ddc338961083b85a02b4013167">f1c317ddc338961083b85a02b401316d</sys_update_version>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-09-22 20:27:12</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

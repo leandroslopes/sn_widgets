@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_821667_my_widget.MyWidgetsUserUtils</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>MyWidgetsUserUtils</name>
+        <script><![CDATA[var MyWidgetsUserUtils = Class.create();
+MyWidgetsUserUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+	isUserInGroup: function(userSysIdParameter, groupNameParameter) {
+
+		var userSysId;
+		var groupName;
+		var group;
+		var groupMember;
+		var userIs;
+
+		userSysId = userSysIdParameter || this.getParameter("sysparm_user_sysid");
+		groupName = groupNameParameter || this.getParameter("sysparm_group_name");
+
+        group = new GlideRecord('sys_user_group');
+        group.addQuery('name', groupName);
+        group.query();
+		
+        if (group.next()) {
+			
+            groupMember = new GlideRecord('sys_user_grmember');
+            groupMember.addQuery('group', group.sys_id);
+            groupMember.addQuery('user', userSysId);
+            groupMember.query();
+			
+            userIs = groupMember.hasNext() ? 'true' : 'false';
+			
+			return userIs;
+        }
+		
+        return 'false'; // Group not exists
+    },
+	
+    type: 'MyWidgetsUserUtils'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-09-22 20:29:50</sys_created_on>
+        <sys_id>17236871c3341a1083b85a02b4013108</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>MyWidgetsUserUtils</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_script_include_17236871c3341a1083b85a02b4013108</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-09-22 20:29:50</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>17236871c3341a1083b85a02b4013108</id>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-09-22 20:29:50</sys_created_on>
+        <sys_id>3b532871c3341a1083b85a02b40131a7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-09-22 20:29:50</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
