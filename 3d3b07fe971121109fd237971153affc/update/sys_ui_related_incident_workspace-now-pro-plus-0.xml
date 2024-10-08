@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_related sys_domain="global" table="incident" version="2" view="workspace-now-pro-plus-0">
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Incident - Workspace Now Pro Plus 0" name="incident" related_list="NULL" sys_domain="global" view="8b200e25288112107856a83ed983590a">01308e25c381121083b85a02b4013175</list_id>
+            <order_by/>
+            <position>0</position>
+            <related_list>task_sla.task</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-10-04 18:52:39</sys_created_on>
+            <sys_id>09308e25c381121083b85a02b4013176</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-10-04 18:52:39</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Incident - Workspace Now Pro Plus 0" name="incident" related_list="NULL" sys_domain="global" view="8b200e25288112107856a83ed983590a">01308e25c381121083b85a02b4013175</list_id>
+            <order_by/>
+            <position>1</position>
+            <related_list>task_ci.task</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-10-04 18:52:39</sys_created_on>
+            <sys_id>41308e25c381121083b85a02b4013177</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-10-04 18:52:39</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Incident - Workspace Now Pro Plus 0" name="incident" related_list="NULL" sys_domain="global" view="8b200e25288112107856a83ed983590a">01308e25c381121083b85a02b4013175</list_id>
+            <order_by/>
+            <position>2</position>
+            <related_list>task_cmdb_ci_service.task</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-10-04 18:52:39</sys_created_on>
+            <sys_id>45308e25c381121083b85a02b4013177</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-10-04 18:52:39</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Incident - Workspace Now Pro Plus 0" name="incident" related_list="NULL" sys_domain="global" view="8b200e25288112107856a83ed983590a">01308e25c381121083b85a02b4013175</list_id>
+            <order_by/>
+            <position>3</position>
+            <related_list>task_service_offering.task</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-10-04 18:52:39</sys_created_on>
+            <sys_id>49308e25c381121083b85a02b4013177</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-10-04 18:52:39</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Incident - Workspace Now Pro Plus 0" name="incident" related_list="NULL" sys_domain="global" view="8b200e25288112107856a83ed983590a">01308e25c381121083b85a02b4013175</list_id>
+            <order_by/>
+            <position>4</position>
+            <related_list>incident.parent_incident</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-10-04 18:52:39</sys_created_on>
+            <sys_id>4d308e25c381121083b85a02b4013177</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-10-04 18:52:39</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Incident - Workspace Now Pro Plus 0" name="incident" related_list="NULL" sys_domain="global" view="8b200e25288112107856a83ed983590a">01308e25c381121083b85a02b4013175</list_id>
+            <order_by/>
+            <position>5</position>
+            <related_list>sc_request.parent</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-10-04 18:52:39</sys_created_on>
+            <sys_id>41308e25c381121083b85a02b4013178</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-10-04 18:52:39</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Incident - Workspace Now Pro Plus 0" name="incident" related_list="NULL" sys_domain="global" view="8b200e25288112107856a83ed983590a">01308e25c381121083b85a02b4013175</list_id>
+            <order_by/>
+            <position>6</position>
+            <related_list>interaction_related_record.task</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-10-04 18:52:39</sys_created_on>
+            <sys_id>45308e25c381121083b85a02b4013178</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-10-04 18:52:39</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list action="INSERT_OR_UPDATE">
+            <calculated_name>Incident - Workspace Now Pro Plus 0</calculated_name>
+            <filter/>
+            <name>incident</name>
+            <order_by/>
+            <position/>
+            <related_list/>
+            <sys_class_name>sys_ui_related_list</sys_class_name>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-10-04 18:52:39</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>01308e25c381121083b85a02b4013175</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Incident - Workspace Now Pro Plus 0</sys_name>
+            <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+            <sys_update_name>sys_ui_related_incident_workspace-now-pro-plus-0</sys_update_name>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-10-04 18:52:39</sys_updated_on>
+            <sys_user/>
+            <view display_value="Workspace Now Pro Plus 0" name="workspace-now-pro-plus-0">8b200e25288112107856a83ed983590a</view>
+            <view_name/>
+        </sys_ui_related_list>
+    </sys_ui_related>
+</record_update>

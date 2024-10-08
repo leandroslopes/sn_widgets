@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="Related Records" section_id="6d30ce25c381121083b85a02b401313a" sys_domain="global" table="incident" version="3" view="workspace-now-pro-plus-0">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>parent_incident</element>
+            <position>0</position>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-10-04 18:52:41</sys_created_on>
+            <sys_id>a930ce25c381121083b85a02b401313d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Related Records" display_value="Related Records" name="incident" sys_domain="global" view="8b200e25288112107856a83ed983590a">6d30ce25c381121083b85a02b401313a</sys_ui_section>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-10-04 18:52:41</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>problem_id</element>
+            <position>1</position>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-10-04 18:52:41</sys_created_on>
+            <sys_id>2530ce25c381121083b85a02b401313d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Related Records" display_value="Related Records" name="incident" sys_domain="global" view="8b200e25288112107856a83ed983590a">6d30ce25c381121083b85a02b401313a</sys_ui_section>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-10-04 18:52:41</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>2</position>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-10-04 18:52:41</sys_created_on>
+            <sys_id>2d30ce25c381121083b85a02b401313e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Related Records" display_value="Related Records" name="incident" sys_domain="global" view="8b200e25288112107856a83ed983590a">6d30ce25c381121083b85a02b401313a</sys_ui_section>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-10-04 18:52:41</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>rfc</element>
+            <position>3</position>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-10-04 18:52:41</sys_created_on>
+            <sys_id>2930ce25c381121083b85a02b401313c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Related Records" display_value="Related Records" name="incident" sys_domain="global" view="8b200e25288112107856a83ed983590a">6d30ce25c381121083b85a02b401313a</sys_ui_section>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-10-04 18:52:41</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>caused_by</element>
+            <position>4</position>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-10-04 18:52:41</sys_created_on>
+            <sys_id>2130ce25c381121083b85a02b401313e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Related Records" display_value="Related Records" name="incident" sys_domain="global" view="8b200e25288112107856a83ed983590a">6d30ce25c381121083b85a02b401313a</sys_ui_section>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-10-04 18:52:41</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>5</position>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-10-04 18:52:41</sys_created_on>
+            <sys_id>ad30ce25c381121083b85a02b401313c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Related Records" display_value="Related Records" name="incident" sys_domain="global" view="8b200e25288112107856a83ed983590a">6d30ce25c381121083b85a02b401313a</sys_ui_section>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-10-04 18:52:41</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>attached_knowledge</element>
+            <position>6</position>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-10-04 18:52:41</sys_created_on>
+            <sys_id>a530ce25c381121083b85a02b401313e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter display_value="Attached Knowledge">cfa76e850a0a0b1f01446f67c8538d00</sys_ui_formatter>
+            <sys_ui_section caption="Related Records" display_value="Related Records" name="incident" sys_domain="global" view="8b200e25288112107856a83ed983590a">6d30ce25c381121083b85a02b401313a</sys_ui_section>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-10-04 18:52:41</sys_updated_on>
+            <sys_user/>
+            <type>formatter</type>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Related Records</caption>
+            <header>false</header>
+            <name>incident</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-10-04 18:52:41</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>6d30ce25c381121083b85a02b401313a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>incident</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+            <sys_update_name>sys_ui_section_6d30ce25c381121083b85a02b401313a</sys_update_name>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-10-04 18:52:41</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Workspace Now Pro Plus 0" name="workspace-now-pro-plus-0">8b200e25288112107856a83ed983590a</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

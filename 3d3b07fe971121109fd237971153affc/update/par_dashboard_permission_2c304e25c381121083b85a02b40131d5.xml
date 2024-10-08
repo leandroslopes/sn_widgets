@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_permission">
+    <par_dashboard_permission action="INSERT_OR_UPDATE">
+        <can_read>true</can_read>
+        <can_share>true</can_share>
+        <can_write>true</can_write>
+        <dashboard display_value="Now Pro Plus">c3200e25d4811210a1abbc8c54f61c0e</dashboard>
+        <group/>
+        <owner>true</owner>
+        <role/>
+        <sys_class_name>par_dashboard_permission</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-10-04 18:52:37</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>2c304e25c381121083b85a02b40131d5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>c3200e25d4811210a1abbc8c54f61c0e</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>par_dashboard_permission_2c304e25c381121083b85a02b40131d5</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-10-04 18:52:37</sys_updated_on>
+        <user display_value="Leandro Lopes">785a36cac308561083b85a02b401313b</user>
+    </par_dashboard_permission>
+</record_update>

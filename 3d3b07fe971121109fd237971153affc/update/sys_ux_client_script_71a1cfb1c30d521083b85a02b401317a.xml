@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_client_script">
+    <sys_ux_client_script action="INSERT_OR_UPDATE">
+        <controller_preset/>
+        <includes>8f0ec3492c5f441781f1f44f36351242</includes>
+        <macroponent display_value="Incident Manager 1 Default">9c714aa5c381121083b85a02b4013103</macroponent>
+        <name>IncidentGroupFilter</name>
+        <preset/>
+        <required_translations>[]</required_translations>
+        <script><![CDATA[function applyFilter({
+    api,
+    event,
+    imports
+}) {
+    api.setState('parFilters', ({
+        currentValue
+    }) => {
+        const {
+            payload: {
+                appliedFilters
+            }
+        } = event;        
+
+        return imports['global.mergePARFilters']()(currentValue, appliedFilters);
+    });
+}]]></script>
+        <script_api_version>2.0.0</script_api_version>
+        <sys_class_name>sys_ux_client_script</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-10-05 18:46:32</sys_created_on>
+        <sys_id>71a1cfb1c30d521083b85a02b401317a</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>IncidentGroupFilter</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_ux_client_script_71a1cfb1c30d521083b85a02b401317a</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-10-07 14:33:22</sys_updated_on>
+        <target>macroponent</target>
+        <type>default</type>
+    </sys_ux_client_script>
+</record_update>

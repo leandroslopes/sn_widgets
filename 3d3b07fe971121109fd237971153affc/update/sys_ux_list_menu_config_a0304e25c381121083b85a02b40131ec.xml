@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_list_menu_config">
+    <sys_ux_list_menu_config action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description/>
+        <name>Now Pro Plus_menu_config</name>
+        <sys_class_name>sys_ux_list_menu_config</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-10-04 18:52:37</sys_created_on>
+        <sys_id>a0304e25c381121083b85a02b40131ec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Now Pro Plus_menu_config</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_ux_list_menu_config_a0304e25c381121083b85a02b40131ec</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-10-04 18:52:37</sys_updated_on>
+    </sys_ux_list_menu_config>
+</record_update>

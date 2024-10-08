@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_search_filter">
+    <sys_search_filter action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <ais_search_source display_value="Tasks - Incidents">13bf8fe1531201107f03ddeeff7b1274</ais_search_source>
+        <label>Incident</label>
+        <name>Tasks - Incidents</name>
+        <order>100</order>
+        <search_context_config display_value="Now Pro Plus AI Search Configuration">0f200e25748112101b224d50d3aaa10b</search_context_config>
+        <sys_class_name>sys_search_filter</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-10-04 18:52:38</sys_created_on>
+        <sys_id>3c308e25c381121083b85a02b4013152</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Tasks - Incidents</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_search_filter_3c308e25c381121083b85a02b4013152</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-10-04 18:52:38</sys_updated_on>
+    </sys_search_filter>
+</record_update>
