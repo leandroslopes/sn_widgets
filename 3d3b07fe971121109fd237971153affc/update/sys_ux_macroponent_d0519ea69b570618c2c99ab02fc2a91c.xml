@@ -231,12 +231,10 @@
     
 ]</data>
         <description/>
-        <disable_auto_reflow>false</disable_auto_reflow>
         <dispatched_events>d0519ea69a570618c175afe6f0e4b723</dispatched_events>
         <ext_controller_dep/>
         <extends display_value="Page Template">19be392623033300f4b4c50947bf65ba</extends>
         <extension_point/>
-        <form_factors/>
         <handled_events/>
         <interactions/>
         <interfaces/>
@@ -299,7 +297,6 @@
         <root_component_config>{}</root_component_config>
         <root_component_definition/>
         <schema_version>1.0.0</schema_version>
-        <state_persistence_config/>
         <state_properties>[
     
 ]</state_properties>

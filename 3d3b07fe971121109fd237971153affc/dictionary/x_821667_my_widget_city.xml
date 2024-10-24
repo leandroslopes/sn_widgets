@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="5014d7b2979121109fd237971153af70" label="City" max_length="40" name="x_821667_my_widget_city" type="collection">
-        <element label="Name URI" max_length="40" name="name_uri" type="string"/>
-        <element label="Summary" max_length="800" name="summary" type="string"/>
         <element label="ID" max_length="40" name="id" type="string"/>
-        <element label="País" max_length="40" name="pais" type="string"/>
+        <element label="Latitude" max_length="40" name="latitude" type="string"/>
         <element label="Longitude" max_length="40" name="longitude" type="string"/>
         <element label="Name" max_length="40" name="name" type="string"/>
-        <element label="Latitude" max_length="40" name="latitude" type="string"/>
+        <element label="Name URI" max_length="40" name="name_uri" type="string"/>
+        <element label="País" max_length="40" name="pais" type="string"/>
+        <element label="Summary" max_length="800" name="summary" type="string"/>
         <element label="UF" max_length="40" name="uf" type="string"/>
     </element>
 </database>

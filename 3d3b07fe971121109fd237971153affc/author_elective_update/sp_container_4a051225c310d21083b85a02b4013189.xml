@@ -52,7 +52,7 @@
         <update_guid_history>4a051225e410d210c24d914fdaa3448b:-1690813676</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="Cloud Events Management - Container 3">c8151661c310d21083b85a02b4013126</sys_audit_delete>
+        <sys_audit_delete display_value="">c8151661c310d21083b85a02b4013126</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-08-28 13:36:41</sys_created_on>

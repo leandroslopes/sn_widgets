@@ -2,7 +2,6 @@
     <sys_ux_data_broker_transform action="INSERT_OR_UPDATE">
         <acl_failure_result/>
         <api_name>x_821667_my_widget.MW: Incidents Query</api_name>
-        <batch_exclude>false</batch_exclude>
         <description>MW: Incidents Query Update</description>
         <mutates_server_data>false</mutates_server_data>
         <name>MW: Incidents Query</name>
@@ -81,15 +80,4 @@
         <sys_updated_on>2024-08-18 02:29:37</sys_updated_on>
     </sys_ux_data_broker_transform>
     <sys_translated_text action="delete_multiple" query="documentkey=56ab5cdac3cc561083b85a02b40131f6"/>
-    <sys_es_latest_script action="INSERT_OR_UPDATE">
-        <id>56ab5cdac3cc561083b85a02b40131f6</id>
-        <sys_created_by>leandro.lopes</sys_created_by>
-        <sys_created_on>2024-08-18 02:26:41</sys_created_on>
-        <sys_id>d8db5cdac3cc561083b85a02b401315f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-08-18 02:26:41</sys_updated_on>
-        <table>sys_ux_data_broker_transform</table>
-        <use_es_latest>true</use_es_latest>
-    </sys_es_latest_script>
 </record_update>

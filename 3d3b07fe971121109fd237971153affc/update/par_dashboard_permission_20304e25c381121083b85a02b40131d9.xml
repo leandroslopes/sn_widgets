@@ -5,12 +5,12 @@
         <can_write>false</can_write>
         <dashboard display_value="Now Pro Plus">c3200e25d4811210a1abbc8c54f61c0e</dashboard>
         <group/>
-        <owner>false</owner>
         <role display_value="x_821667_my_widget.admin" name="x_821667_my_widget.admin">d94b83be971121109fd237971153afa3</role>
         <sys_class_name>par_dashboard_permission</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-10-04 18:52:37</sys_created_on>
         <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
         <sys_id>20304e25c381121083b85a02b40131d9</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>c3200e25d4811210a1abbc8c54f61c0e</sys_name>

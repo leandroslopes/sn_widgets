@@ -1,18 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_uib_screen_test_values">
     <sys_uib_screen_test_values action="INSERT_OR_UPDATE">
-        <macroponent_config/>
+        <macroponent_config>{
+    "029f04e053610110ac9bddeeff7b1294": {
+        "activityLogs": "",
+        "detailsContext": "",
+        "fields": "",
+        "forcedViewName": "",
+        "inputExtraParams": "",
+        "inputQuery": "",
+        "inputSysId": "00074a4cc360161083b85a02b40131ee",
+        "inputTable": "task",
+        "screen": "",
+        "selectedTabIndex": "",
+        "shouldDisplayFormErrorsAsPageAlerts": false,
+        "userPrefs": "",
+        "view": "workspace-now-pro-plus-0"
+    }
+}</macroponent_config>
         <screen display_value="Incident Manager 1 Default">187102e5c381121083b85a02b4013169</screen>
         <sys_class_name>sys_uib_screen_test_values</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-10-04 18:58:03</sys_created_on>
         <sys_id>907102e5c381121083b85a02b401316d</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name/>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sys_uib_screen_test_values_907102e5c381121083b85a02b401316d</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-10-04 18:58:03</sys_updated_on>
+        <sys_updated_on>2024-10-08 20:43:25</sys_updated_on>
     </sys_uib_screen_test_values>
 </record_update>

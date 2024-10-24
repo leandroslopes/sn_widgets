@@ -5,7 +5,6 @@
         <evam_definition/>
         <genius_results_limit/>
         <hit_highlighting>false</hit_highlighting>
-        <log_signals_server_side>false</log_signals_server_side>
         <name>Hotel Management - Workspace Search</name>
         <search_engine>zing</search_engine>
         <search_profile/>

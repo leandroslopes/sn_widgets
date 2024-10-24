@@ -5,12 +5,12 @@
         <can_write>false</can_write>
         <dashboard display_value="Hotel Transilvânia Management">9c519ea6185706182ecebb859678e72a</dashboard>
         <group/>
-        <owner>false</owner>
         <role display_value="x_821667_my_widget.user" name="x_821667_my_widget.user">554bcfbe971121109fd237971153af12</role>
         <sys_class_name>par_dashboard_permission</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-07-12 22:51:33</sys_created_on>
         <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
         <sys_id>715112e697570618cbf53e2e6253af88</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>9c519ea6185706182ecebb859678e72a</sys_name>

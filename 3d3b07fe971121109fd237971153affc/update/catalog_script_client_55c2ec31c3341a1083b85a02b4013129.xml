@@ -82,15 +82,4 @@
         <variable_set/>
         <view/>
     </catalog_script_client>
-    <sys_es_latest_script action="INSERT_OR_UPDATE">
-        <id>55c2ec31c3341a1083b85a02b4013129</id>
-        <sys_created_by>leandro.lopes</sys_created_by>
-        <sys_created_on>2024-09-22 20:32:00</sys_created_on>
-        <sys_id>a7d368b1c3341a1083b85a02b401310a</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-09-22 20:32:00</sys_updated_on>
-        <table>catalog_script_client</table>
-        <use_es_latest>false</use_es_latest>
-    </sys_es_latest_script>
 </record_update>

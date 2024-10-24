@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_tab">
     <par_dashboard_tab action="INSERT_OR_UPDATE">
         <active>true</active>
-        <background_color/>
         <dashboard display_value="Now Pro Plus">c3200e25d4811210a1abbc8c54f61c0e</dashboard>
         <name>Tab</name>
         <order>0</order>
@@ -9,6 +8,7 @@
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-10-04 18:52:33</sys_created_on>
         <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
         <sys_id>0b200e25c98112105a6b2c16e8d1810c</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Tab</sys_name>

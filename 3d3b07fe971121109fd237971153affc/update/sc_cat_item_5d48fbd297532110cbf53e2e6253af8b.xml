@@ -22,7 +22,6 @@
         <ignore_price>true</ignore_price>
         <image/>
         <location/>
-        <make_item_non_conversational>false</make_item_non_conversational>
         <mandatory_attachment>false</mandatory_attachment>
         <meta/>
         <mobile_hide_price>false</mobile_hide_price>
@@ -39,7 +38,6 @@
         <no_proceed_checkout>false</no_proceed_checkout>
         <no_quantity>false</no_quantity>
         <no_quantity_v2>false</no_quantity_v2>
-        <no_save_as_draft>false</no_save_as_draft>
         <no_search>false</no_search>
         <no_wishlist_v2>false</no_wishlist_v2>
         <omit_price>false</omit_price>
@@ -66,21 +64,21 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-06-10 19:21:58</sys_created_on>
         <sys_id>5d48fbd297532110cbf53e2e6253af8b</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>Show Groups For User</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sc_cat_item_5d48fbd297532110cbf53e2e6253af8b</sys_update_name>
-        <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2023-10-12 17:04:01</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2024-10-18 14:15:13</sys_updated_on>
         <taxonomy_topic/>
         <template/>
         <template_manager_roles/>
         <type>item</type>
         <use_sc_layout>true</use_sc_layout>
         <vendor/>
-        <version/>
+        <version>3</version>
         <visible_bundle>true</visible_bundle>
         <visible_guide>true</visible_guide>
         <visible_standalone>true</visible_standalone>

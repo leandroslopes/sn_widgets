@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_client_script">
+    <sys_ux_client_script action="DELETE">
+        <controller_preset/>
+        <includes/>
+        <macroponent display_value="Manager">345a8a7293c512102b267fbcebba1039</macroponent>
+        <name>list_1/query</name>
+        <preset/>
+        <required_translations>[
+    
+]</required_translations>
+        <script><![CDATA[/**
+  * @param {params} params
+  * @param {api} params.api
+  * @param {TransformApiHelpers} params.helpers
+  */
+function evaluateProperty({api, helpers}) {
+
+  console.log(api);
+	return 'active=true';
+}]]></script>
+        <script_api_version>2.0.0</script_api_version>
+        <sys_class_name>sys_ux_client_script</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-10-08 18:43:23</sys_created_on>
+        <sys_id>b6ad1e3a930912102b267fbcebba10a3</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>list_1/query</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_ux_client_script_b6ad1e3a930912102b267fbcebba10a3</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-10-08 18:46:24</sys_updated_on>
+        <target>macroponent</target>
+        <type>transform</type>
+    </sys_ux_client_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="My Widgets">3d3b07fe971121109fd237971153affc</application>
+        <file_path/>
+        <instance_id>a95543091bfef5d01024eb9b2d4bcbdc</instance_id>
+        <instance_name>dev226204</instance_name>
+        <name>sys_ux_client_script_b6ad1e3a930912102b267fbcebba10a3</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ux_client_script"&gt;&lt;sys_ux_client_script action="INSERT_OR_UPDATE"&gt;&lt;controller_preset/&gt;&lt;includes/&gt;&lt;macroponent display_value="Manager"&gt;345a8a7293c512102b267fbcebba1039&lt;/macroponent&gt;&lt;name&gt;list_1/query&lt;/name&gt;&lt;preset/&gt;&lt;required_translations&gt;[
+    
+]&lt;/required_translations&gt;&lt;script&gt;&lt;![CDATA[/**
+  * @param {params} params
+  * @param {api} params.api
+  * @param {TransformApiHelpers} params.helpers
+  */
+function evaluateProperty({api, helpers}) {
+
+  console.log(api);
+	return 'active=true';
+}]]&gt;&lt;/script&gt;&lt;script_api_version&gt;2.0.0&lt;/script_api_version&gt;&lt;sys_class_name&gt;sys_ux_client_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;leandro.lopes&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-10-08 18:43:23&lt;/sys_created_on&gt;&lt;sys_id&gt;b6ad1e3a930912102b267fbcebba10a3&lt;/sys_id&gt;&lt;sys_mod_count&gt;5&lt;/sys_mod_count&gt;&lt;sys_name&gt;list_1/query&lt;/sys_name&gt;&lt;sys_package display_value="My Widgets" source="x_821667_my_widget"&gt;3d3b07fe971121109fd237971153affc&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="My Widgets"&gt;3d3b07fe971121109fd237971153affc&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ux_client_script_b6ad1e3a930912102b267fbcebba10a3&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;leandro.lopes&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-10-08 18:46:24&lt;/sys_updated_on&gt;&lt;target&gt;macroponent&lt;/target&gt;&lt;type&gt;transform&lt;/type&gt;&lt;/sys_ux_client_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1280617120</payload_hash>
+        <record_name>list_1/query</record_name>
+        <reverted_from/>
+        <source>73cfa1fe930512102b267fbcebba1078</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-10-08 18:46:24</sys_created_on>
+        <sys_id>e02562b2934912102b267fbcebba109c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1926d7432000000001</sys_recorded_at>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-10-08 18:46:24</sys_updated_on>
+        <type>UX Client Script</type>
+        <update_guid>a82562b2d84912101e4135c607b8f79b</update_guid>
+        <update_guid_history>a82562b2d84912101e4135c607b8f79b:1280617120,d8f4ae724a491210cba6de1b01292708:-1894110453,687466728349121070dc001ee2b23c0c:2062389290</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-10-08 18:48:57</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_client_script">sys_ux_client_script</sys_db_object>
+        <sys_id>02992cc70cfe4d4380117ad990516241</sys_id>
+        <sys_metadata>b6ad1e3a930912102b267fbcebba10a3</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>list_1/query</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_scope_delete display_value="">1735843da8c24506b7924cef26a0ffe1</sys_scope_delete>
+        <sys_update_name>sys_ux_client_script_b6ad1e3a930912102b267fbcebba10a3</sys_update_name>
+        <sys_update_version display_value="sys_ux_client_script_b6ad1e3a930912102b267fbcebba10a3">e02562b2934912102b267fbcebba109c</sys_update_version>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-10-08 18:48:57</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

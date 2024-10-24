@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_portal">
     <sp_portal action="INSERT_OR_UPDATE">
-        <alternate_portal/>
         <css_variables/>
         <dark_theme/>
         <default>false</default>
@@ -10,7 +9,6 @@
         <hide_portal_name>true</hide_portal_name>
         <homepage display_value="govbr_home">1947f2ad97dd4250cbf53e2e6253afb9</homepage>
         <icon/>
-        <inactive>false</inactive>
         <kb_knowledge_base/>
         <kb_knowledge_page/>
         <login_page/>

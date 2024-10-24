@@ -6,7 +6,6 @@
         <caller_access/>
         <client_callable>true</client_callable>
         <description/>
-        <mobile_callable>false</mobile_callable>
         <name>MyWidgetsUserUtils</name>
         <script><![CDATA[var MyWidgetsUserUtils = Class.create();
 MyWidgetsUserUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
@@ -56,15 +55,4 @@ MyWidgetsUserUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor
         <sys_updated_by>leandro.lopes</sys_updated_by>
         <sys_updated_on>2024-09-22 20:29:50</sys_updated_on>
     </sys_script_include>
-    <sys_es_latest_script action="INSERT_OR_UPDATE">
-        <id>17236871c3341a1083b85a02b4013108</id>
-        <sys_created_by>leandro.lopes</sys_created_by>
-        <sys_created_on>2024-09-22 20:29:50</sys_created_on>
-        <sys_id>3b532871c3341a1083b85a02b40131a7</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-09-22 20:29:50</sys_updated_on>
-        <table>sys_script_include</table>
-        <use_es_latest>true</use_es_latest>
-    </sys_es_latest_script>
 </record_update>

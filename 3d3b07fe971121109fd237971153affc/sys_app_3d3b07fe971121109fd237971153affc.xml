@@ -16,7 +16,6 @@
         <logo>063b87fe971121109fd237971153afb0</logo>
         <menu/>
         <name>My Widgets</name>
-        <package_json/>
         <private>false</private>
         <restrict_table_access>false</restrict_table_access>
         <runtime_access_tracking>permissive</runtime_access_tracking>

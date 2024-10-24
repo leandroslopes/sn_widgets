@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="question_regex">
+    <question_regex action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <name>Phone Brazil DDD + Cellphone</name>
+        <regex>(?:(^\+\d{2})?)(\s)(?:([1-9]{2})|([0-9]{3})?)(\d{4,5})(\d{4})</regex>
+        <regex_flag/>
+        <sys_class_name>question_regex</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-10-18 14:14:46</sys_created_on>
+        <sys_id>5406498ec311121011357d0ed40131f4</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Phone Brazil DDD + Cellphone</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>question_regex_5406498ec311121011357d0ed40131f4</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-10-24 13:40:01</sys_updated_on>
+        <validation_message>Utilize o padrão +DDIDDDNNNNNNNNN</validation_message>
+    </question_regex>
+    <sys_translated_text action="delete_multiple" query="documentkey=5406498ec311121011357d0ed40131f4"/>
+</record_update>

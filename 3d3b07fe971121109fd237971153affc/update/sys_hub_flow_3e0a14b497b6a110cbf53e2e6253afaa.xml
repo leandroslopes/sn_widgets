@@ -5,19 +5,14 @@
         <active>true</active>
         <annotation/>
         <attributes/>
-        <authored_on_release_version/>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
         <copied_from_name/>
         <description/>
-        <display_name_after_preview/>
-        <flow_priority/>
-        <generation_source/>
         <internal_name>send_notification_to_a_teams_team</internal_name>
         <label_cache>[{"name":"d9aed6ec-ff38-489d-a252-0799039270ff.__action_status__.code","label":"1➛Action Status➛Code","reference":"","reference_display":"","type":"integer","base_type":"integer","column_name":"","attributes":{}},{"name":"subflow.message_notification","label":"Input➛Message Notification","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"3ee6ba21-c15a-4747-9709-70b5bbf1f57d","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.message_title","label":"Input➛Message Title","type":"string","base_type":"string","attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"b4b02a3d-a6eb-41a8-b9bf-209a44b48dc6"}},{"name":"subflow.wehook_url","label":"Input➛Wehook URL","type":"string","base_type":"string","attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"ea22a43c-5f12-4ff5-a9a0-6480906337be"}},{"name":"d9aed6ec-ff38-489d-a252-0799039270ff.__action_status__.message","label":"1➛Action Status➛Message","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{}},{"name":"cc90400f-5e22-44c8-8048-5f3398cf7f5b.__status__.message","label":"7 - Top Level Catch➛Error Status➛Message","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{}}]</label_cache>
         <master_snapshot>a2103d0d97bae110cbf53e2e6253affa</master_snapshot>
-        <master_snapshot_digest/>
         <name>Send Notification To A Teams Team</name>
         <natlang/>
         <outputs/>
@@ -29,7 +24,6 @@
         <show_draft_actions>false</show_draft_actions>
         <show_triggered_flows>false</show_triggered_flows>
         <status>published</status>
-        <substatus/>
         <sys_class_name>sys_hub_flow</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-05-11 14:47:17</sys_created_on>
@@ -43,14 +37,14 @@
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sys_hub_flow_3e0a14b497b6a110cbf53e2e6253afaa</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-08-16 18:53:51</sys_updated_on>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-10-08 14:51:21</sys_updated_on>
         <type>subflow</type>
-        <version/>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=3e0a14b497b6a110cbf53e2e6253afaa"/>
     <sys_variable_value action="delete_multiple" query="document_key=3e0a14b497b6a110cbf53e2e6253afaa"/>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_output_3e0a14b497b6a110cbf53e2e6253afaa^id=3e0a14b497b6a110cbf53e2e6253afaa"/>
+    <sys_hub_trigger_instance action="delete_multiple" query="flow=3e0a14b497b6a110cbf53e2e6253afaa"/>
     <sys_hub_flow_stage action="delete_multiple" query="flow=3e0a14b497b6a110cbf53e2e6253afaa"/>
     <sys_flow_cat_variable_model action="delete_multiple" query="id=3e0a14b497b6a110cbf53e2e6253afaa^sys_idNOT IN360a14b497b6a110cbf53e2e6253afac"/>
     <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
@@ -355,7 +349,6 @@
         <function_field>false</function_field>
         <help/>
         <hint/>
-        <internal_link/>
         <internal_type display_value="String">string</internal_type>
         <label>Error Message</label>
         <mandatory>false</mandatory>
@@ -440,7 +433,6 @@
         <function_field>false</function_field>
         <help/>
         <hint/>
-        <internal_link/>
         <internal_type display_value="String">string</internal_type>
         <label>Post Message Sent</label>
         <mandatory>false</mandatory>
@@ -490,7 +482,6 @@
     </sys_hub_flow_output>
     <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=6ff07834973aa110cbf53e2e6253af00"/>
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=3e0a14b497b6a110cbf53e2e6253afaa"/>
-    <sys_hub_trigger_instance action="delete_multiple" query="flow=3e0a14b497b6a110cbf53e2e6253afaa"/>
     <sys_hub_action_instance action="delete_multiple" query="flow=3e0a14b497b6a110cbf53e2e6253afaa^sys_idNOT INa169607c97f6a110cbf53e2e6253af2e"/>
     <sys_hub_action_instance action="INSERT_OR_UPDATE">
         <action_inputs/>
@@ -500,7 +491,6 @@
         <comment/>
         <display_text/>
         <flow display_value="Send Notification To A Teams Team">3e0a14b497b6a110cbf53e2e6253afaa</flow>
-        <generation_source/>
         <order>1</order>
         <parent_ui_id>8983bfad-e4ac-4b89-922e-9ae0c4a6c631</parent_ui_id>
         <sys_class_name>sys_hub_action_instance</sys_class_name>
@@ -516,6 +506,7 @@
     <sys_variable_value action="delete_multiple" query="document_key=a169607c97f6a110cbf53e2e6253af2e"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=a169607c97f6a110cbf53e2e6253af2e"/>
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=a169607c97f6a110cbf53e2e6253af2e"/>
+    <sys_hub_sub_flow_instance action="delete_multiple" query="flow=3e0a14b497b6a110cbf53e2e6253afaa"/>
     <sys_hub_flow_logic action="delete_multiple" query="flow=3e0a14b497b6a110cbf53e2e6253afaa^sys_idNOT IN14d71b3597cfa110cbf53e2e6253af11,67f07834973aa110cbf53e2e6253af1f,6bf07834973aa110cbf53e2e6253af22,840f5b3d97cfa110cbf53e2e6253af76,a7f07834973aa110cbf53e2e6253af1b,bca963f59703e110cbf53e2e6253af4f,cc0f5b3d97cfa110cbf53e2e6253af78,dcd71b3597cfa110cbf53e2e6253af3d"/>
     <sys_hub_flow_logic action="INSERT_OR_UPDATE">
         <attributes/>
@@ -529,7 +520,6 @@
         <flow display_value="Send Notification To A Teams Team">3e0a14b497b6a110cbf53e2e6253afaa</flow>
         <flow_variable/>
         <flow_variables_assigned/>
-        <generation_source/>
         <inputs/>
         <logic_definition display_value="Top Level Try">e9060aa2c3013010ace8b740ad40dd51</logic_definition>
         <order>0</order>
@@ -564,7 +554,6 @@
         <flow display_value="Send Notification To A Teams Team">3e0a14b497b6a110cbf53e2e6253afaa</flow>
         <flow_variable/>
         <flow_variables_assigned/>
-        <generation_source/>
         <inputs/>
         <logic_definition display_value="Assign Subflow Outputs">df4e1945c3e232002841b63b12d3ae3e</logic_definition>
         <order>3</order>
@@ -612,7 +601,6 @@
         <flow display_value="Send Notification To A Teams Team">3e0a14b497b6a110cbf53e2e6253afaa</flow>
         <flow_variable/>
         <flow_variables_assigned/>
-        <generation_source/>
         <inputs/>
         <logic_definition display_value="End">d176605ea76103004f27b0d2187901c7</logic_definition>
         <order>4</order>
@@ -647,7 +635,6 @@
         <flow display_value="Send Notification To A Teams Team">3e0a14b497b6a110cbf53e2e6253afaa</flow>
         <flow_variable/>
         <flow_variables_assigned/>
-        <generation_source/>
         <inputs/>
         <logic_definition display_value="Else">1f781bf3c32232002841b63b12d3aee6</logic_definition>
         <order>5</order>
@@ -682,7 +669,6 @@
         <flow display_value="Send Notification To A Teams Team">3e0a14b497b6a110cbf53e2e6253afaa</flow>
         <flow_variable/>
         <flow_variables_assigned/>
-        <generation_source/>
         <inputs/>
         <inputs/>
         <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
@@ -757,7 +743,6 @@
         <flow display_value="Send Notification To A Teams Team">3e0a14b497b6a110cbf53e2e6253afaa</flow>
         <flow_variable/>
         <flow_variables_assigned/>
-        <generation_source/>
         <inputs/>
         <logic_definition display_value="Assign Subflow Outputs">df4e1945c3e232002841b63b12d3ae3e</logic_definition>
         <order>8</order>
@@ -805,7 +790,6 @@
         <flow display_value="Send Notification To A Teams Team">3e0a14b497b6a110cbf53e2e6253afaa</flow>
         <flow_variable/>
         <flow_variables_assigned/>
-        <generation_source/>
         <inputs/>
         <logic_definition display_value="Assign Subflow Outputs">df4e1945c3e232002841b63b12d3ae3e</logic_definition>
         <order>6</order>
@@ -853,7 +837,6 @@
         <flow display_value="Send Notification To A Teams Team">3e0a14b497b6a110cbf53e2e6253afaa</flow>
         <flow_variable/>
         <flow_variables_assigned/>
-        <generation_source/>
         <inputs/>
         <logic_definition display_value="Top Level Catch">35d60003e6022010a5e40cdd1254dd23</logic_definition>
         <order>7</order>
@@ -905,7 +888,6 @@
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_output_3e0a14b497b6a110cbf53e2e6253afaa^id=dcd71b3597cfa110cbf53e2e6253af3d"/>
     <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=dcd71b3597cfa110cbf53e2e6253af3d"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=dcd71b3597cfa110cbf53e2e6253af3d"/>
-    <sys_hub_sub_flow_instance action="delete_multiple" query="flow=3e0a14b497b6a110cbf53e2e6253afaa"/>
     <sys_hub_pill_compound action="delete_multiple" query="attached_to=3e0a14b497b6a110cbf53e2e6253afaa"/>
     <sys_hub_flow_variable action="delete_multiple" query="model=3e0a14b497b6a110cbf53e2e6253afaa"/>
     <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_3e0a14b497b6a110cbf53e2e6253afaa^sys_idNOT IN065a58bc97b6a110cbf53e2e6253af64,2569607c97f6a110cbf53e2e6253af16,2969607c97f6a110cbf53e2e6253af13"/>
@@ -1033,13 +1015,11 @@
         <active>true</active>
         <annotation/>
         <attributes/>
-        <authored_on_release_version/>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
         <copied_from_name/>
         <description/>
-        <flow_priority/>
         <internal_name>send_notification_to_a_teams_team</internal_name>
         <label_cache>[{"name":"d9aed6ec-ff38-489d-a252-0799039270ff.__action_status__.code","label":"1➛Action Status➛Code","reference":"","reference_display":"","type":"integer","base_type":"integer","column_name":"","attributes":{}},{"name":"subflow.message_notification","label":"Input➛Message Notification","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{"uiType":"string","uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"3ee6ba21-c15a-4747-9709-70b5bbf1f57d","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.message_title","label":"Input➛Message Title","type":"string","base_type":"string","attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"b4b02a3d-a6eb-41a8-b9bf-209a44b48dc6"}},{"name":"subflow.wehook_url","label":"Input➛Wehook URL","type":"string","base_type":"string","attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"ea22a43c-5f12-4ff5-a9a0-6480906337be"}},{"name":"d9aed6ec-ff38-489d-a252-0799039270ff.__action_status__.message","label":"1➛Action Status➛Message","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{}},{"name":"cc90400f-5e22-44c8-8048-5f3398cf7f5b.__status__.message","label":"7 - Top Level Catch➛Error Status➛Message","reference":"","reference_display":"","type":"string","base_type":"string","column_name":"","attributes":{}}]</label_cache>
         <master>true</master>
@@ -1068,11 +1048,11 @@
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-05-27 18:44:05</sys_updated_on>
         <type>subflow</type>
-        <version/>
     </sys_hub_flow_snapshot>
     <sys_translated_text action="delete_multiple" query="documentkey=a2103d0d97bae110cbf53e2e6253affa"/>
     <sys_variable_value action="delete_multiple" query="document_key=a2103d0d97bae110cbf53e2e6253affa"/>
     <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_output_a2103d0d97bae110cbf53e2e6253affa^id=a2103d0d97bae110cbf53e2e6253affa"/>
+    <sys_hub_trigger_instance action="delete_multiple" query="flow=a2103d0d97bae110cbf53e2e6253affa"/>
     <sys_hub_flow_stage action="delete_multiple" query="flow=a2103d0d97bae110cbf53e2e6253affa"/>
     <sys_flow_cat_variable_model action="delete_multiple" query="id=a2103d0d97bae110cbf53e2e6253affa^sys_idNOT IN62103d0d97bae110cbf53e2e6253affb"/>
     <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
@@ -1377,7 +1357,6 @@
         <function_field>false</function_field>
         <help/>
         <hint/>
-        <internal_link/>
         <internal_type display_value="String">string</internal_type>
         <label>Error Message</label>
         <mandatory>false</mandatory>
@@ -1462,7 +1441,6 @@
         <function_field>false</function_field>
         <help/>
         <hint/>
-        <internal_link/>
         <internal_type display_value="String">string</internal_type>
         <label>Post Message Sent</label>
         <mandatory>false</mandatory>
@@ -1512,7 +1490,6 @@
     </sys_hub_flow_output>
     <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=f2107d0d97bae110cbf53e2e6253af29"/>
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=a2103d0d97bae110cbf53e2e6253affa"/>
-    <sys_hub_trigger_instance action="delete_multiple" query="flow=a2103d0d97bae110cbf53e2e6253affa"/>
     <sys_hub_action_instance action="delete_multiple" query="flow=a2103d0d97bae110cbf53e2e6253affa^sys_idNOT IN03107d0d97bae110cbf53e2e6253af70"/>
     <sys_hub_action_instance action="INSERT_OR_UPDATE">
         <action_inputs/>
@@ -1522,7 +1499,6 @@
         <comment/>
         <display_text/>
         <flow display_value="Send Notification To A Teams Team">a2103d0d97bae110cbf53e2e6253affa</flow>
-        <generation_source/>
         <order>1</order>
         <parent_ui_id>8983bfad-e4ac-4b89-922e-9ae0c4a6c631</parent_ui_id>
         <sys_class_name>sys_hub_action_instance</sys_class_name>
@@ -1538,6 +1514,7 @@
     <sys_variable_value action="delete_multiple" query="document_key=03107d0d97bae110cbf53e2e6253af70"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=03107d0d97bae110cbf53e2e6253af70"/>
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=03107d0d97bae110cbf53e2e6253af70"/>
+    <sys_hub_sub_flow_instance action="delete_multiple" query="flow=a2103d0d97bae110cbf53e2e6253affa"/>
     <sys_hub_flow_logic action="delete_multiple" query="flow=a2103d0d97bae110cbf53e2e6253affa^sys_idNOT IN2ba9e3f59703e110cbf53e2e6253afea,43bf5b7d97cfa110cbf53e2e6253affb,47bf5b7d97cfa110cbf53e2e6253afe5,47bf5b7d97cfa110cbf53e2e6253aff8,7e107d0d97bae110cbf53e2e6253af47,87bf5b7d97cfa110cbf53e2e6253affe,b6107d0d97bae110cbf53e2e6253af3f,f2107d0d97bae110cbf53e2e6253af44"/>
     <sys_hub_flow_logic action="INSERT_OR_UPDATE">
         <attributes/>
@@ -1551,7 +1528,6 @@
         <flow display_value="Send Notification To A Teams Team">a2103d0d97bae110cbf53e2e6253affa</flow>
         <flow_variable/>
         <flow_variables_assigned/>
-        <generation_source/>
         <inputs/>
         <logic_definition display_value="Assign Subflow Outputs">df4e1945c3e232002841b63b12d3ae3e</logic_definition>
         <order>8</order>
@@ -1599,7 +1575,6 @@
         <flow display_value="Send Notification To A Teams Team">a2103d0d97bae110cbf53e2e6253affa</flow>
         <flow_variable/>
         <flow_variables_assigned/>
-        <generation_source/>
         <inputs/>
         <logic_definition display_value="Assign Subflow Outputs">df4e1945c3e232002841b63b12d3ae3e</logic_definition>
         <order>6</order>
@@ -1647,7 +1622,6 @@
         <flow display_value="Send Notification To A Teams Team">a2103d0d97bae110cbf53e2e6253affa</flow>
         <flow_variable/>
         <flow_variables_assigned/>
-        <generation_source/>
         <inputs/>
         <logic_definition display_value="Top Level Try">e9060aa2c3013010ace8b740ad40dd51</logic_definition>
         <order>0</order>
@@ -1682,7 +1656,6 @@
         <flow display_value="Send Notification To A Teams Team">a2103d0d97bae110cbf53e2e6253affa</flow>
         <flow_variable/>
         <flow_variables_assigned/>
-        <generation_source/>
         <inputs/>
         <logic_definition display_value="Else">1f781bf3c32232002841b63b12d3aee6</logic_definition>
         <order>5</order>
@@ -1717,7 +1690,6 @@
         <flow display_value="Send Notification To A Teams Team">a2103d0d97bae110cbf53e2e6253affa</flow>
         <flow_variable/>
         <flow_variables_assigned/>
-        <generation_source/>
         <inputs/>
         <logic_definition display_value="End">d176605ea76103004f27b0d2187901c7</logic_definition>
         <order>4</order>
@@ -1752,7 +1724,6 @@
         <flow display_value="Send Notification To A Teams Team">a2103d0d97bae110cbf53e2e6253affa</flow>
         <flow_variable/>
         <flow_variables_assigned/>
-        <generation_source/>
         <inputs/>
         <logic_definition display_value="Top Level Catch">35d60003e6022010a5e40cdd1254dd23</logic_definition>
         <order>7</order>
@@ -1816,7 +1787,6 @@
         <flow display_value="Send Notification To A Teams Team">a2103d0d97bae110cbf53e2e6253affa</flow>
         <flow_variable/>
         <flow_variables_assigned/>
-        <generation_source/>
         <inputs/>
         <inputs/>
         <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
@@ -1891,7 +1861,6 @@
         <flow display_value="Send Notification To A Teams Team">a2103d0d97bae110cbf53e2e6253affa</flow>
         <flow_variable/>
         <flow_variables_assigned/>
-        <generation_source/>
         <inputs/>
         <logic_definition display_value="Assign Subflow Outputs">df4e1945c3e232002841b63b12d3ae3e</logic_definition>
         <order>3</order>
@@ -1927,7 +1896,6 @@
     </sys_element_mapping>
     <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=f2107d0d97bae110cbf53e2e6253af44"/>
     <sys_hub_input_scripts action="delete_multiple" query="instance=f2107d0d97bae110cbf53e2e6253af44"/>
-    <sys_hub_sub_flow_instance action="delete_multiple" query="flow=a2103d0d97bae110cbf53e2e6253affa"/>
     <sys_hub_pill_compound action="delete_multiple" query="attached_to=a2103d0d97bae110cbf53e2e6253affa"/>
     <sys_hub_flow_variable action="delete_multiple" query="model=a2103d0d97bae110cbf53e2e6253affa"/>
     <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_a2103d0d97bae110cbf53e2e6253affa^sys_idNOT INba107d0d97bae110cbf53e2e6253af13,be107d0d97bae110cbf53e2e6253af1b,be107d0d97bae110cbf53e2e6253af23"/>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_tab">
     <par_dashboard_tab action="INSERT_OR_UPDATE">
         <active>true</active>
-        <background_color/>
         <dashboard display_value="Hotel Transilvânia Management">9c519ea6185706182ecebb859678e72a</dashboard>
         <name>Tab</name>
         <order>0</order>
@@ -9,6 +8,7 @@
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-07-12 22:51:29</sys_created_on>
         <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
         <sys_id>18519ea659570618c04cf998eb879d2a</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Tab</sys_name>

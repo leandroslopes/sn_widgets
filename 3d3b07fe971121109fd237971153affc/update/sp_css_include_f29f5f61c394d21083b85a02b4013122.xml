@@ -4,7 +4,7 @@
         <name>ngTagsInputBootstrap.css</name>
         <rtl_css_file_url/>
         <source>local</source>
-        <sp_css display_value="ng-tags-input.bootstrap.min.css">e68a9be9c354d21083b85a02b40131c8</sp_css>
+        <sp_css display_value="">e68a9be9c354d21083b85a02b40131c8</sp_css>
         <sys_class_name>sp_css_include</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-08-28 19:02:46</sys_created_on>

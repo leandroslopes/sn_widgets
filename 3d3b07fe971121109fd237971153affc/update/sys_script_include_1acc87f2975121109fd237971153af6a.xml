@@ -6,7 +6,6 @@
         <caller_access/>
         <client_callable>false</client_callable>
         <description/>
-        <mobile_callable>false</mobile_callable>
         <name>PDFGenerate</name>
         <script><![CDATA[var PDFGenerate = Class.create();
 PDFGenerate.prototype = {

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope, spUtil) {
+  /* widget controller */
+  var c = this;
+	
+	//active=true^assigned_to=800b174138d089c868d09de320f9833b^ORDERBYDESCnumber
+	
+	spUtil.recordWatch($scope, 'incident', c.options.query, function(name){
+		c.server.update();
+	});
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.container {
+	padding: 2rem 0;
+  width: 100%;
+}
+
+ul {
+	
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>now-pro-list</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Now Pro List</name>
+        <option_schema>[{"name":"title","section":"Presentation","default_value":"Now Pro List","label":"Title","type":"string"},{"name":"query","section":"Data","default_value":"active=true","label":"Query","type":"string"},{"name":"limit","section":"Presentation","default_value":"5","label":"Limit","type":"string"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+	data.assignedIncidents = [];
+	
+	var incidents = new GlideRecord('incident');
+	incidents.addEncodedQuery(options.query);
+	incidents.setLimit(options.limit);
+	incidents.query();
+	
+	while(incidents.next()) {
+		
+		var obj = {
+			number: incidents.getValue('number'),
+			short_description: incidents.getValue('short_description'),
+			state: incidents.getDisplayValue('state'),
+			priority: incidents.getDisplayValue('priority')
+		};
+		
+		data.assignedIncidents.push(obj);
+	}
+	
+	//gs.addInfoMessage(JSON.stringify(data.assignedIncidents));
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-10-16 23:25:51</sys_created_on>
+        <sys_id>f2b13c69c391521011357d0ed401311a</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>Now Pro List</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_f2b13c69c391521011357d0ed401311a</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-10-16 23:59:55</sys_updated_on>
+        <template><![CDATA[<div class="container">
+
+  <h4>{{ options.title }}</h4>
+  
+  <ul>
+    <li ng-repeat="incident in data.assignedIncidents">
+    	<p>{{ incident.number }} - {{ incident.short_description }}</p>
+      <p>{{ incident.state }} - {{ incident.priority }}</p>
+    </li>
+  </ul>
+</div>]]></template>
+    </sp_widget>
+</record_update>

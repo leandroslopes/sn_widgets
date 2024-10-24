@@ -7,6 +7,7 @@
         <grantable>true</grantable>
         <includes_roles/>
         <name>x_821667_my_widget.incident_manager</name>
+        <requires_subscription/>
         <scoped_admin>false</scoped_admin>
         <suffix>incident_manager</suffix>
         <sys_class_name>sys_user_role</sys_class_name>

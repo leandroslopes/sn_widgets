@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>false</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>incident</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Send Email To Group Manager</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	var  MAX_INCIDENTS_PER_GROUP = 7;
+	
+	if (current.caller_id.changes() || current.isNewRecord()) {
+	
+		var assignmentGroup;
+		var countIncidents;
+		var userSysID;
+		var gaCountIncidents;
+		var grUser;
+		var encodedQuery;
+		var userExists;
+
+		assignmentGroup = current.assignment_group;
+		countIncidents = 0;
+		userSysID = current.caller_id;
+		
+		if (!assignmentGroup)
+			return;
+
+		encodedQuery = 'stateNOT IN6,7,8^assignment_group=' + assignmentGroup;
+
+		gaCountIncidents = new GlideAggregate('incident');
+		gaCountIncidents.addEncodedQuery(encodedQuery);
+		gaCountIncidents.addAggregate('COUNT');
+		gaCountIncidents.query();
+
+		if (gaCountIncidents.next())
+			countIncidents = gaCountIncidents.getAggregate('COUNT');
+		
+		/* if (countIncidents <= MAX_INCIDENTS_PER_GROUP)
+			return; */
+		
+		if (!userSysID)
+			return;
+		
+		grUser = new global.GlideQuery('sys_user').get(userSysID);
+
+		userExists = grUser._value;
+		
+		if (!userExists)
+			return;
+		
+		gs.eventQueue('your_event_name', current, userExists, null);
+	}
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-10-12 19:23:17</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>65c3db4c935152102b267fbcebba10e3</sys_id>
+        <sys_mod_count>21</sys_mod_count>
+        <sys_name>Send Email To Group Manager</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_script_65c3db4c935152102b267fbcebba10e3</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-10-13 19:59:53</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=65c3db4c935152102b267fbcebba10e3"/>
+</record_update>

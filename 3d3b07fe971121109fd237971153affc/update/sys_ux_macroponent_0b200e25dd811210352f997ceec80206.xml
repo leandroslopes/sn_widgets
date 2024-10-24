@@ -12,15 +12,21 @@
         },
         "elementId": "confirm_modal",
         "elementLabel": "Confirm Modal",
-        "eventMappings": [],
-        "extensionPoints": [],
+        "eventMappings": [
+            
+        ],
+        "extensionPoints": [
+            
+        ],
         "isHero": false,
         "isHidden": {
             "type": "JSON_LITERAL",
             "value": null
         },
         "isNonDestructive": false,
-        "items": [],
+        "items": [
+            
+        ],
         "overrides": null,
         "propertyValues": {
             "content": {
@@ -73,7 +79,7 @@
             }
         },
         "slot": null,
-        "styles": {}
+        "styles": null
     },
     {
         "definition": {
@@ -82,7 +88,9 @@
         },
         "elementId": "modalContainerViewport",
         "elementLabel": "Modal Container (Viewport)",
-        "eventMappings": [],
+        "eventMappings": [
+            
+        ],
         "extensionPoints": [
             {
                 "controllerElementId": "record",
@@ -96,16 +104,20 @@
             "value": ""
         },
         "isNonDestructive": false,
-        "items": [],
+        "items": [
+            
+        ],
         "overrides": null,
         "preset": {
             "controllerElementId": "record",
-            "disabledEventTargetIds": [],
+            "disabledEventTargetIds": [
+                
+            ],
             "id": "b76d5b8043432110379ea5dccbb8f297"
         },
         "propertyValues": {},
         "slot": null,
-        "styles": {}
+        "styles": null
     },
     {
         "definition": {
@@ -114,7 +126,9 @@
         },
         "elementId": "reference_info_popover",
         "elementLabel": "Reference Info Popover",
-        "eventMappings": [],
+        "eventMappings": [
+            
+        ],
         "isHidden": {
             "type": "JSON_LITERAL",
             "value": null
@@ -128,7 +142,9 @@
                     },
                     "elementId": "reference_info_content",
                     "elementLabel": "Reference Info Content",
-                    "eventMappings": [],
+                    "eventMappings": [
+                        
+                    ],
                     "isHidden": {
                         "type": "JSON_LITERAL",
                         "value": null
@@ -142,7 +158,9 @@
                                 },
                                 "elementId": "open_record_button",
                                 "elementLabel": "Open Record Button",
-                                "eventMappings": [],
+                                "eventMappings": [
+                                    
+                                ],
                                 "isHidden": {
                                     "type": "JSON_LITERAL",
                                     "value": null
@@ -164,7 +182,9 @@
                                 },
                                 "elementId": "display_only_record_form",
                                 "elementLabel": "Display Only Form",
-                                "eventMappings": [],
+                                "eventMappings": [
+                                    
+                                ],
                                 "isHidden": {
                                     "type": "JSON_LITERAL",
                                     "value": null
@@ -304,10 +324,14 @@
                 ]
             }
         ],
-        "extensionPoints": [],
+        "extensionPoints": [
+            
+        ],
         "isHero": false,
         "isNonDestructive": false,
-        "items": [],
+        "items": [
+            
+        ],
         "overrides": {
             "composition": [
                 {
@@ -389,7 +413,9 @@
                             ]
                         }
                     ],
-                    "extensionPoints": [],
+                    "extensionPoints": [
+                        
+                    ],
                     "isHero": false,
                     "isHidden": {
                         "operation": {
@@ -652,15 +678,21 @@
                                 },
                                 "elementId": "clbbkajgqfaabbffkddfhhbbcixaawahhff",
                                 "elementLabel": "Details",
-                                "eventMappings": [],
-                                "extensionPoints": [],
+                                "eventMappings": [
+                                    
+                                ],
+                                "extensionPoints": [
+                                    
+                                ],
                                 "isHero": false,
                                 "isHidden": {
                                     "type": "JSON_LITERAL",
                                     "value": null
                                 },
                                 "isNonDestructive": false,
-                                "items": [],
+                                "items": [
+                                    
+                                ],
                                 "overrides": {
                                     "composition": [
                                         {
@@ -772,14 +804,18 @@
                                                     ]
                                                 }
                                             ],
-                                            "extensionPoints": [],
+                                            "extensionPoints": [
+                                                
+                                            ],
                                             "isHero": false,
                                             "isHidden": {
                                                 "type": "JSON_LITERAL",
                                                 "value": null
                                             },
                                             "isNonDestructive": false,
-                                            "items": [],
+                                            "items": [
+                                                
+                                            ],
                                             "overrides": {
                                                 "composition": [
                                                     {
@@ -789,19 +825,27 @@
                                                         },
                                                         "elementId": "form",
                                                         "elementLabel": "Form",
-                                                        "eventMappings": [],
-                                                        "extensionPoints": [],
+                                                        "eventMappings": [
+                                                            
+                                                        ],
+                                                        "extensionPoints": [
+                                                            
+                                                        ],
                                                         "isHero": false,
                                                         "isHidden": {
                                                             "type": "JSON_LITERAL",
                                                             "value": null
                                                         },
                                                         "isNonDestructive": false,
-                                                        "items": [],
+                                                        "items": [
+                                                            
+                                                        ],
                                                         "overrides": null,
                                                         "preset": {
                                                             "controllerElementId": "record",
-                                                            "disabledEventTargetIds": [],
+                                                            "disabledEventTargetIds": [
+                                                                
+                                                            ],
                                                             "id": "187b98f917f400e17ab765dee8b4fb04"
                                                         },
                                                         "propertyValues": {
@@ -856,15 +900,21 @@
                                                         },
                                                         "elementId": "stackable_side_by_side_panel",
                                                         "elementLabel": "Stackable Side By Side Panel",
-                                                        "eventMappings": [],
-                                                        "extensionPoints": [],
+                                                        "eventMappings": [
+                                                            
+                                                        ],
+                                                        "extensionPoints": [
+                                                            
+                                                        ],
                                                         "isHero": false,
                                                         "isHidden": {
                                                             "type": "JSON_LITERAL",
                                                             "value": null
                                                         },
                                                         "isNonDestructive": false,
-                                                        "items": [],
+                                                        "items": [
+                                                            
+                                                        ],
                                                         "overrides": {
                                                             "composition": [
                                                                 {
@@ -874,19 +924,27 @@
                                                                     },
                                                                     "elementId": "activity_stream_compose",
                                                                     "elementLabel": "Activity Stream Compose",
-                                                                    "eventMappings": [],
-                                                                    "extensionPoints": [],
+                                                                    "eventMappings": [
+                                                                        
+                                                                    ],
+                                                                    "extensionPoints": [
+                                                                        
+                                                                    ],
                                                                     "isHero": false,
                                                                     "isHidden": {
                                                                         "type": "JSON_LITERAL",
                                                                         "value": null
                                                                     },
                                                                     "isNonDestructive": false,
-                                                                    "items": [],
+                                                                    "items": [
+                                                                        
+                                                                    ],
                                                                     "overrides": null,
                                                                     "preset": {
                                                                         "controllerElementId": "record",
-                                                                        "disabledEventTargetIds": [],
+                                                                        "disabledEventTargetIds": [
+                                                                            
+                                                                        ],
                                                                         "id": "2d14943d858c1db31f4aaeb0f8f6a938"
                                                                     },
                                                                     "propertyValues": {
@@ -925,19 +983,27 @@
                                                                     },
                                                                     "elementId": "activity_stream",
                                                                     "elementLabel": "Activity Stream",
-                                                                    "eventMappings": [],
-                                                                    "extensionPoints": [],
+                                                                    "eventMappings": [
+                                                                        
+                                                                    ],
+                                                                    "extensionPoints": [
+                                                                        
+                                                                    ],
                                                                     "isHero": false,
                                                                     "isHidden": {
                                                                         "type": "JSON_LITERAL",
                                                                         "value": null
                                                                     },
                                                                     "isNonDestructive": false,
-                                                                    "items": [],
+                                                                    "items": [
+                                                                        
+                                                                    ],
                                                                     "overrides": null,
                                                                     "preset": {
                                                                         "controllerElementId": "record",
-                                                                        "disabledEventTargetIds": [],
+                                                                        "disabledEventTargetIds": [
+                                                                            
+                                                                        ],
                                                                         "id": "9cac0b2562f3b3bdd2039e0becc94f69"
                                                                     },
                                                                     "propertyValues": {
@@ -970,7 +1036,9 @@
                                                         },
                                                         "preset": {
                                                             "controllerElementId": "record",
-                                                            "disabledEventTargetIds": [],
+                                                            "disabledEventTargetIds": [
+                                                                
+                                                            ],
                                                             "id": "9fe92d17e05fdb497036d3cb62d277fa"
                                                         },
                                                         "propertyValues": {
@@ -987,7 +1055,9 @@
                                             },
                                             "preset": {
                                                 "controllerElementId": "record",
-                                                "disabledEventTargetIds": [],
+                                                "disabledEventTargetIds": [
+                                                    
+                                                ],
                                                 "id": "3ddc688e42bc07eff5a0984d93e1cbb0"
                                             },
                                             "propertyValues": {
@@ -1147,15 +1217,21 @@
                                 },
                                 "elementId": "clbbkalijjhaabbggjjddfhhbbyjjjlzjia",
                                 "elementLabel": "RelatedList",
-                                "eventMappings": [],
-                                "extensionPoints": [],
+                                "eventMappings": [
+                                    
+                                ],
+                                "extensionPoints": [
+                                    
+                                ],
                                 "isHero": false,
                                 "isHidden": {
                                     "type": "JSON_LITERAL",
                                     "value": null
                                 },
                                 "isNonDestructive": false,
-                                "items": [],
+                                "items": [
+                                    
+                                ],
                                 "overrides": {
                                     "composition": [
                                         {
@@ -1165,19 +1241,27 @@
                                             },
                                             "elementId": "list_related",
                                             "elementLabel": "list Related",
-                                            "eventMappings": [],
-                                            "extensionPoints": [],
+                                            "eventMappings": [
+                                                
+                                            ],
+                                            "extensionPoints": [
+                                                
+                                            ],
                                             "isHero": false,
                                             "isHidden": {
                                                 "type": "JSON_LITERAL",
                                                 "value": null
                                             },
                                             "isNonDestructive": false,
-                                            "items": [],
+                                            "items": [
+                                                
+                                            ],
                                             "overrides": null,
                                             "preset": {
                                                 "controllerElementId": "record",
-                                                "disabledEventTargetIds": [],
+                                                "disabledEventTargetIds": [
+                                                    
+                                                ],
                                                 "id": "4e106040332f87d1ac089faa2f01a491"
                                             },
                                             "propertyValues": {},
@@ -1189,7 +1273,9 @@
                                 },
                                 "preset": {
                                     "controllerElementId": "record",
-                                    "disabledEventTargetIds": [],
+                                    "disabledEventTargetIds": [
+                                        
+                                    ],
                                     "id": "8bbec89bce311554517350ae545d6a9b"
                                 },
                                 "propertyValues": {},
@@ -1203,15 +1289,21 @@
                                 },
                                 "elementId": "cldktggggxiiaaccgaddbhhvaaqsxhsgo",
                                 "elementLabel": "Record History",
-                                "eventMappings": [],
-                                "extensionPoints": [],
+                                "eventMappings": [
+                                    
+                                ],
+                                "extensionPoints": [
+                                    
+                                ],
                                 "isHero": false,
                                 "isHidden": {
                                     "type": "JSON_LITERAL",
                                     "value": null
                                 },
                                 "isNonDestructive": false,
-                                "items": [],
+                                "items": [
+                                    
+                                ],
                                 "overrides": {
                                     "composition": [
                                         {
@@ -1221,19 +1313,27 @@
                                             },
                                             "elementId": "record_history_related_list",
                                             "elementLabel": "Record History Related List",
-                                            "eventMappings": [],
-                                            "extensionPoints": [],
+                                            "eventMappings": [
+                                                
+                                            ],
+                                            "extensionPoints": [
+                                                
+                                            ],
                                             "isHero": false,
                                             "isHidden": {
                                                 "type": "JSON_LITERAL",
                                                 "value": null
                                             },
                                             "isNonDestructive": false,
-                                            "items": [],
+                                            "items": [
+                                                
+                                            ],
                                             "overrides": null,
                                             "preset": {
                                                 "controllerElementId": "record",
-                                                "disabledEventTargetIds": [],
+                                                "disabledEventTargetIds": [
+                                                    
+                                                ],
                                                 "id": "a93554759c571d193bbe0083f3e1dd8d"
                                             },
                                             "propertyValues": {
@@ -1329,7 +1429,9 @@
                                                     "type": "JSON_LITERAL",
                                                     "value": {
                                                         "color": "",
-                                                        "patterns": []
+                                                        "patterns": [
+                                                            
+                                                        ]
                                                     }
                                                 },
                                                 "highlightedValueConfigId": {
@@ -1447,7 +1549,9 @@
                             "value": false
                         },
                         "items": {
-                            "container": [],
+                            "container": [
+                                
+                            ],
                             "type": "LIST_CONTAINER"
                         },
                         "maxWidth": {
@@ -1677,7 +1781,9 @@
                             ]
                         }
                     ],
-                    "extensionPoints": [],
+                    "extensionPoints": [
+                        
+                    ],
                     "isHero": false,
                     "isHidden": {
                         "operation": {
@@ -1845,15 +1951,21 @@
                                 },
                                 "elementId": "clbbkasplxaabbiisddfhhbbhhiimzggicc",
                                 "elementLabel": "Attachment",
-                                "eventMappings": [],
-                                "extensionPoints": [],
+                                "eventMappings": [
+                                    
+                                ],
+                                "extensionPoints": [
+                                    
+                                ],
                                 "isHero": false,
                                 "isHidden": {
                                     "type": "JSON_LITERAL",
                                     "value": null
                                 },
                                 "isNonDestructive": false,
-                                "items": [],
+                                "items": [
+                                    
+                                ],
                                 "overrides": {
                                     "composition": [
                                         {
@@ -1863,19 +1975,27 @@
                                             },
                                             "elementId": "attachment",
                                             "elementLabel": "Attachment tab item",
-                                            "eventMappings": [],
-                                            "extensionPoints": [],
+                                            "eventMappings": [
+                                                
+                                            ],
+                                            "extensionPoints": [
+                                                
+                                            ],
                                             "isHero": false,
                                             "isHidden": {
                                                 "type": "JSON_LITERAL",
                                                 "value": null
                                             },
                                             "isNonDestructive": false,
-                                            "items": [],
+                                            "items": [
+                                                
+                                            ],
                                             "overrides": null,
                                             "preset": {
                                                 "controllerElementId": "record",
-                                                "disabledEventTargetIds": [],
+                                                "disabledEventTargetIds": [
+                                                    
+                                                ],
                                                 "id": "91616e506c60c163a00d1ac6f5568746"
                                             },
                                             "propertyValues": {},
@@ -1949,15 +2069,21 @@
                                 },
                                 "elementId": "clbbkatggrcaabbiivddfhhbbccjocthqm",
                                 "elementLabel": "Template",
-                                "eventMappings": [],
-                                "extensionPoints": [],
+                                "eventMappings": [
+                                    
+                                ],
+                                "extensionPoints": [
+                                    
+                                ],
                                 "isHero": false,
                                 "isHidden": {
                                     "type": "JSON_LITERAL",
                                     "value": null
                                 },
                                 "isNonDestructive": false,
-                                "items": [],
+                                "items": [
+                                    
+                                ],
                                 "overrides": {
                                     "composition": [
                                         {
@@ -1967,19 +2093,27 @@
                                             },
                                             "elementId": "form_templates",
                                             "elementLabel": "Form Template tab item",
-                                            "eventMappings": [],
-                                            "extensionPoints": [],
+                                            "eventMappings": [
+                                                
+                                            ],
+                                            "extensionPoints": [
+                                                
+                                            ],
                                             "isHero": false,
                                             "isHidden": {
                                                 "type": "JSON_LITERAL",
                                                 "value": null
                                             },
                                             "isNonDestructive": false,
-                                            "items": [],
+                                            "items": [
+                                                
+                                            ],
                                             "overrides": null,
                                             "preset": {
                                                 "controllerElementId": "record",
-                                                "disabledEventTargetIds": [],
+                                                "disabledEventTargetIds": [
+                                                    
+                                                ],
                                                 "id": "7288829a5f3eac46f3ba9b509e985f1e"
                                             },
                                             "propertyValues": {
@@ -2099,7 +2233,9 @@
                             "type": "CLIENT_TRANSFORM_SCRIPT"
                         },
                         "items": {
-                            "container": [],
+                            "container": [
+                                
+                            ],
                             "type": "LIST_CONTAINER"
                         },
                         "maxWidth": {
@@ -2168,7 +2304,9 @@
         },
         "preset": {
             "controllerElementId": "record",
-            "disabledEventTargetIds": [],
+            "disabledEventTargetIds": [
+                
+            ],
             "id": "e8db8b59f978c9e9329d1140af585dc7"
         },
         "propertyValues": {
@@ -2214,11 +2352,17 @@
         },
         "elementId": "top_container",
         "elementLabel": "Top Container",
-        "eventMappings": [],
-        "extensionPoints": [],
+        "eventMappings": [
+            
+        ],
+        "extensionPoints": [
+            
+        ],
         "isHero": false,
         "isNonDestructive": false,
-        "items": [],
+        "items": [
+            
+        ],
         "overrides": {
             "composition": [
                 {
@@ -2228,15 +2372,21 @@
                     },
                     "elementId": "top_left_container",
                     "elementLabel": "Top Left",
-                    "eventMappings": [],
-                    "extensionPoints": [],
+                    "eventMappings": [
+                        
+                    ],
+                    "extensionPoints": [
+                        
+                    ],
                     "isHero": false,
                     "isHidden": {
                         "type": "JSON_LITERAL",
                         "value": false
                     },
                     "isNonDestructive": false,
-                    "items": [],
+                    "items": [
+                        
+                    ],
                     "overrides": {
                         "composition": [
                             {
@@ -2246,8 +2396,12 @@
                                 },
                                 "elementId": "header_container",
                                 "elementLabel": "Header container",
-                                "eventMappings": [],
-                                "extensionPoints": [],
+                                "eventMappings": [
+                                    
+                                ],
+                                "extensionPoints": [
+                                    
+                                ],
                                 "isHero": false,
                                 "isHidden": {
                                     "operation": {
@@ -2366,7 +2520,9 @@
                                     "type": "BINARY"
                                 },
                                 "isNonDestructive": false,
-                                "items": [],
+                                "items": [
+                                    
+                                ],
                                 "overrides": {
                                     "composition": [
                                         {
@@ -2376,8 +2532,12 @@
                                             },
                                             "elementId": "header_image",
                                             "elementLabel": "Header image",
-                                            "eventMappings": [],
-                                            "extensionPoints": [],
+                                            "eventMappings": [
+                                                
+                                            ],
+                                            "extensionPoints": [
+                                                
+                                            ],
                                             "isHero": false,
                                             "isHidden": {
                                                 "operation": {
@@ -2426,11 +2586,15 @@
                                                 "type": "BINARY"
                                             },
                                             "isNonDestructive": false,
-                                            "items": [],
+                                            "items": [
+                                                
+                                            ],
                                             "overrides": null,
                                             "preset": {
                                                 "controllerElementId": "record",
-                                                "disabledEventTargetIds": [],
+                                                "disabledEventTargetIds": [
+                                                    
+                                                ],
                                                 "id": "fb915bf1bad80b3097b5b2c76b35b215"
                                             },
                                             "propertyValues": {
@@ -2449,15 +2613,21 @@
                                             },
                                             "elementId": "header_content",
                                             "elementLabel": "Header content",
-                                            "eventMappings": [],
-                                            "extensionPoints": [],
+                                            "eventMappings": [
+                                                
+                                            ],
+                                            "extensionPoints": [
+                                                
+                                            ],
                                             "isHero": false,
                                             "isHidden": {
                                                 "type": "JSON_LITERAL",
                                                 "value": null
                                             },
                                             "isNonDestructive": false,
-                                            "items": [],
+                                            "items": [
+                                                
+                                            ],
                                             "overrides": {
                                                 "composition": [
                                                     {
@@ -2467,15 +2637,21 @@
                                                         },
                                                         "elementId": "header_title_row",
                                                         "elementLabel": "Title row",
-                                                        "eventMappings": [],
-                                                        "extensionPoints": [],
+                                                        "eventMappings": [
+                                                            
+                                                        ],
+                                                        "extensionPoints": [
+                                                            
+                                                        ],
                                                         "isHero": false,
                                                         "isHidden": {
                                                             "type": "JSON_LITERAL",
                                                             "value": null
                                                         },
                                                         "isNonDestructive": false,
-                                                        "items": [],
+                                                        "items": [
+                                                            
+                                                        ],
                                                         "overrides": {
                                                             "composition": [
                                                                 {
@@ -2485,19 +2661,27 @@
                                                                     },
                                                                     "elementId": "primary_field",
                                                                     "elementLabel": "Primary field",
-                                                                    "eventMappings": [],
-                                                                    "extensionPoints": [],
+                                                                    "eventMappings": [
+                                                                        
+                                                                    ],
+                                                                    "extensionPoints": [
+                                                                        
+                                                                    ],
                                                                     "isHero": false,
                                                                     "isHidden": {
                                                                         "type": "JSON_LITERAL",
                                                                         "value": false
                                                                     },
                                                                     "isNonDestructive": false,
-                                                                    "items": [],
+                                                                    "items": [
+                                                                        
+                                                                    ],
                                                                     "overrides": null,
                                                                     "preset": {
                                                                         "controllerElementId": "record",
-                                                                        "disabledEventTargetIds": [],
+                                                                        "disabledEventTargetIds": [
+                                                                            
+                                                                        ],
                                                                         "id": "e61aa04af8f8f7b18abc73e3f61ab4e8"
                                                                     },
                                                                     "propertyValues": {},
@@ -2511,8 +2695,12 @@
                                                                     },
                                                                     "elementId": "record_tags",
                                                                     "elementLabel": "Record tags",
-                                                                    "eventMappings": [],
-                                                                    "extensionPoints": [],
+                                                                    "eventMappings": [
+                                                                        
+                                                                    ],
+                                                                    "extensionPoints": [
+                                                                        
+                                                                    ],
                                                                     "isHero": false,
                                                                     "isHidden": {
                                                                         "operation": {
@@ -2556,11 +2744,15 @@
                                                                         "type": "BINARY"
                                                                     },
                                                                     "isNonDestructive": false,
-                                                                    "items": [],
+                                                                    "items": [
+                                                                        
+                                                                    ],
                                                                     "overrides": null,
                                                                     "preset": {
                                                                         "controllerElementId": "record",
-                                                                        "disabledEventTargetIds": [],
+                                                                        "disabledEventTargetIds": [
+                                                                            
+                                                                        ],
                                                                         "id": "bb47e4096486f87229798213f0f2dd25"
                                                                     },
                                                                     "propertyValues": {},
@@ -2635,8 +2827,12 @@
                                                         },
                                                         "elementId": "subheading",
                                                         "elementLabel": "Subheading",
-                                                        "eventMappings": [],
-                                                        "extensionPoints": [],
+                                                        "eventMappings": [
+                                                            
+                                                        ],
+                                                        "extensionPoints": [
+                                                            
+                                                        ],
                                                         "isHero": false,
                                                         "isHidden": {
                                                             "operation": {
@@ -2683,11 +2879,15 @@
                                                             "type": "BINARY"
                                                         },
                                                         "isNonDestructive": false,
-                                                        "items": [],
+                                                        "items": [
+                                                            
+                                                        ],
                                                         "overrides": null,
                                                         "preset": {
                                                             "controllerElementId": "record",
-                                                            "disabledEventTargetIds": [],
+                                                            "disabledEventTargetIds": [
+                                                                
+                                                            ],
                                                             "id": "9586ab8504f82b150ece43f8152c4f25"
                                                         },
                                                         "propertyValues": {},
@@ -2762,7 +2962,9 @@
                                                                 ]
                                                             }
                                                         ],
-                                                        "extensionPoints": [],
+                                                        "extensionPoints": [
+                                                            
+                                                        ],
                                                         "isHero": false,
                                                         "isHidden": {
                                                             "operation": {
@@ -2810,11 +3012,15 @@
                                                             "type": "BINARY"
                                                         },
                                                         "isNonDestructive": false,
-                                                        "items": [],
+                                                        "items": [
+                                                            
+                                                        ],
                                                         "overrides": null,
                                                         "preset": {
                                                             "controllerElementId": "record",
-                                                            "disabledEventTargetIds": [],
+                                                            "disabledEventTargetIds": [
+                                                                
+                                                            ],
                                                             "id": "06f0936926a6997bd5b952e61fea9290"
                                                         },
                                                         "propertyValues": {
@@ -3049,15 +3255,21 @@
                     },
                     "elementId": "top_right_container",
                     "elementLabel": "Top Right",
-                    "eventMappings": [],
-                    "extensionPoints": [],
+                    "eventMappings": [
+                        
+                    ],
+                    "extensionPoints": [
+                        
+                    ],
                     "isHero": false,
                     "isHidden": {
                         "type": "JSON_LITERAL",
                         "value": false
                     },
                     "isNonDestructive": false,
-                    "items": [],
+                    "items": [
+                        
+                    ],
                     "overrides": {
                         "composition": [
                             {
@@ -3067,8 +3279,12 @@
                                 },
                                 "elementId": "ui_action_bar",
                                 "elementLabel": "Action bar",
-                                "eventMappings": [],
-                                "extensionPoints": [],
+                                "eventMappings": [
+                                    
+                                ],
+                                "extensionPoints": [
+                                    
+                                ],
                                 "isHero": false,
                                 "isHidden": {
                                     "operation": {
@@ -3187,11 +3403,15 @@
                                     "type": "BINARY"
                                 },
                                 "isNonDestructive": false,
-                                "items": [],
+                                "items": [
+                                    
+                                ],
                                 "overrides": null,
                                 "preset": {
                                     "controllerElementId": "record",
-                                    "disabledEventTargetIds": [],
+                                    "disabledEventTargetIds": [
+                                        
+                                    ],
                                     "id": "2def2c8299bd8376a39d3adfdb576b66"
                                 },
                                 "propertyValues": {
@@ -3214,8 +3434,12 @@
                                 },
                                 "elementId": "form_record_presence",
                                 "elementLabel": "Form record presence",
-                                "eventMappings": [],
-                                "extensionPoints": [],
+                                "eventMappings": [
+                                    
+                                ],
+                                "extensionPoints": [
+                                    
+                                ],
                                 "isHero": false,
                                 "isHidden": {
                                     "operation": {
@@ -3334,11 +3558,15 @@
                                     "type": "BINARY"
                                 },
                                 "isNonDestructive": false,
-                                "items": [],
+                                "items": [
+                                    
+                                ],
                                 "overrides": null,
                                 "preset": {
                                     "controllerElementId": "record",
-                                    "disabledEventTargetIds": [],
+                                    "disabledEventTargetIds": [
+                                        
+                                    ],
                                     "id": "9b4d683a06ba0776ae4fb859635deaa9"
                                 },
                                 "propertyValues": {},
@@ -3442,7 +3670,9 @@
         },
         "preset": {
             "controllerElementId": "record",
-            "disabledEventTargetIds": [],
+            "disabledEventTargetIds": [
+                
+            ],
             "id": "9aeb8ba90de3e59686276ced85f01329"
         },
         "propertyValues": {
@@ -3481,11 +3711,17 @@
         },
         "elementId": "ribbon_container",
         "elementLabel": "Ribbon Container",
-        "eventMappings": [],
-        "extensionPoints": [],
+        "eventMappings": [
+            
+        ],
+        "extensionPoints": [
+            
+        ],
         "isHero": false,
         "isNonDestructive": false,
-        "items": [],
+        "items": [
+            
+        ],
         "overrides": {
             "composition": [
                 {
@@ -3495,8 +3731,12 @@
                     },
                     "elementId": "ribbon",
                     "elementLabel": "Ribbon",
-                    "eventMappings": [],
-                    "extensionPoints": [],
+                    "eventMappings": [
+                        
+                    ],
+                    "extensionPoints": [
+                        
+                    ],
                     "isHero": false,
                     "isHidden": {
                         "operation": {
@@ -3518,11 +3758,15 @@
                         "type": "BINARY"
                     },
                     "isNonDestructive": false,
-                    "items": [],
+                    "items": [
+                        
+                    ],
                     "overrides": null,
                     "preset": {
                         "controllerElementId": "record",
-                        "disabledEventTargetIds": [],
+                        "disabledEventTargetIds": [
+                            
+                        ],
                         "id": "1ec6e4584e27cec152a3aa1458d32ad3"
                     },
                     "propertyValues": {
@@ -3571,7 +3815,9 @@
         },
         "preset": {
             "controllerElementId": "record",
-            "disabledEventTargetIds": [],
+            "disabledEventTargetIds": [
+                
+            ],
             "id": "9aeb8ba90de3e59686276ced85f01329"
         },
         "propertyValues": {
@@ -3610,11 +3856,17 @@
         },
         "elementId": "warning_messages_container",
         "elementLabel": "Warning Messages Container",
-        "eventMappings": [],
-        "extensionPoints": [],
+        "eventMappings": [
+            
+        ],
+        "extensionPoints": [
+            
+        ],
         "isHero": false,
         "isNonDestructive": false,
-        "items": [],
+        "items": [
+            
+        ],
         "overrides": {
             "composition": [
                 {
@@ -3624,8 +3876,12 @@
                     },
                     "elementId": "record_not_found",
                     "elementLabel": "Record not found",
-                    "eventMappings": [],
-                    "extensionPoints": [],
+                    "eventMappings": [
+                        
+                    ],
+                    "extensionPoints": [
+                        
+                    ],
                     "isHero": false,
                     "isHidden": {
                         "operation": {
@@ -3697,7 +3953,9 @@
                         "type": "BINARY"
                     },
                     "isNonDestructive": false,
-                    "items": [],
+                    "items": [
+                        
+                    ],
                     "overrides": null,
                     "propertyValues": {
                         "hasNoMargin": {
@@ -3735,8 +3993,12 @@
                     },
                     "elementId": "security_constraints",
                     "elementLabel": "Security constraints",
-                    "eventMappings": [],
-                    "extensionPoints": [],
+                    "eventMappings": [
+                        
+                    ],
+                    "extensionPoints": [
+                        
+                    ],
                     "isHero": false,
                     "isHidden": {
                         "operation": {
@@ -3859,7 +4121,9 @@
                         "type": "BINARY"
                     },
                     "isNonDestructive": false,
-                    "items": [],
+                    "items": [
+                        
+                    ],
                     "overrides": null,
                     "propertyValues": {
                         "hasNoMargin": {
@@ -3918,7 +4182,9 @@
         },
         "preset": {
             "controllerElementId": "record",
-            "disabledEventTargetIds": [],
+            "disabledEventTargetIds": [
+                
+            ],
             "id": "9aeb8ba90de3e59686276ced85f01329"
         },
         "propertyValues": {
@@ -3957,10 +4223,14 @@
         },
         "elementId": "domain_form_layout",
         "elementLabel": "Domain Form Layout",
-        "eventMappings": [],
+        "eventMappings": [
+            
+        ],
         "preset": {
             "controllerElementId": "record",
-            "disabledEventTargetIds": [],
+            "disabledEventTargetIds": [
+                
+            ],
             "id": "83581462835c111ce7b6f31b42c23b26"
         },
         "propertyValues": {},
@@ -4547,7 +4817,9 @@
         "dependencies": {},
         "elementId": "agent_assist_search_prefetch_1",
         "elementLabel": "Agent Assist Search Prefetch 1",
-        "eventMappings": [],
+        "eventMappings": [
+            
+        ],
         "inputValues": {
             "formSysID": {
                 "binding": {
@@ -4580,12 +4852,10 @@
     }
 ]</data>
         <description/>
-        <disable_auto_reflow>false</disable_auto_reflow>
         <dispatched_events/>
         <ext_controller_dep/>
         <extends display_value="Page Template">19be392623033300f4b4c50947bf65ba</extends>
         <extension_point/>
-        <form_factors>{}</form_factors>
         <handled_events>b94818a0cc2cebbe41369181e4c8d6a6</handled_events>
         <interactions/>
         <interfaces/>
@@ -4868,20 +5138,21 @@
 }</root_component_config>
         <root_component_definition/>
         <schema_version>1.0.0</schema_version>
-        <state_persistence_config/>
-        <state_properties>[]</state_properties>
+        <state_properties>[
+    
+]</state_properties>
         <sys_class_name>sys_ux_macroponent</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-10-04 18:52:32</sys_created_on>
         <sys_id>0b200e25dd811210352f997ceec80206</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Record Default</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sys_ux_macroponent_0b200e25dd811210352f997ceec80206</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-10-04 18:52:32</sys_updated_on>
+        <sys_updated_on>2024-10-08 20:04:57</sys_updated_on>
     </sys_ux_macroponent>
     <sys_translated_text action="delete_multiple" query="documentkey=0b200e25dd811210352f997ceec80206"/>
 </record_update>

@@ -41,7 +41,7 @@
         <update_guid_history>d3339b5db33896103b1018a1a1757b81:-664294693</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="Technical Catalog.Testing Access Variable">e5c35b9dc338961083b85a02b401318c</sys_audit_delete>
+        <sys_audit_delete display_value="">e5c35b9dc338961083b85a02b401318c</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-09-22 20:27:12</sys_created_on>

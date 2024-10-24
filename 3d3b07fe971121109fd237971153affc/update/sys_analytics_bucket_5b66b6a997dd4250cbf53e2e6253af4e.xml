@@ -4,7 +4,6 @@
         <application_name>Gov.Br Demo</application_name>
         <bucket_document_id>94c576a997dd4250cbf53e2e6253af9c</bucket_document_id>
         <bucket_metadata/>
-        <bucket_metadata_customer_override/>
         <bucket_table_name>sp_portal</bucket_table_name>
         <bucket_type>service_portal</bucket_type>
         <enable_unauthenticated_user_tracking>false</enable_unauthenticated_user_tracking>
