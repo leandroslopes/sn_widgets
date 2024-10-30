@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="scheduled_import_set">
+    <scheduled_import_set action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <business_calendar/>
+        <concurrent_import>false</concurrent_import>
+        <condition/>
+        <conditional>false</conditional>
+        <connection_override/>
+        <data_source display_value="Import User Data - Last Name">f57c17b5c3a1121011357d0ed4013180</data_source>
+        <entered_time/>
+        <map/>
+        <max_drift/>
+        <name>Import User Data - Last Name</name>
+        <offset/>
+        <offset_type>0</offset_type>
+        <order/>
+        <parent/>
+        <partition_method>roundRobin</partition_method>
+        <partition_script><![CDATA[(function partitionHash(import_set_row) {
+
+	// Add your code here
+	
+	// eg:
+	// return import_set_row.u_important_category;
+	// This would ensure all rows with the same 'u_important_category' value will be in the same Import Set.
+
+	 return import_set_row.sys_import_row;
+
+})(import_set_row);]]></partition_script>
+        <partition_size/>
+        <post_script><![CDATA[var dataSourceLastNameSysID = 'f57c17b5c3a1121011357d0ed4013180'; // give here the data source sys id
+
+var grAttachment = new GlideRecord('sys_attachment');
+grAttachment.addQuery('table_name', 'sys_data_source');
+grAttachment.addQuery('table_sys_id', dataSourceLastNameSysID);
+grAttachment.setLimit(1);
+grAttachment.query();
+
+if (grAttachment.next()) {
+
+    gs.info('Import User Data: Found attachment!');
+    gs.info('Import User Data: Can delete attachment: "' + grAttachment.canDelete() + '"');
+    gs.info('Import User Data: File name to be deleted "' + grAttachment.file_name + '"');
+
+    if (grAttachment.canDelete()) {
+
+        var attachmentSysID = grAttachment.sys_id;
+		
+        var glAttachment = new GlideSysAttachment();
+		
+        glAttachment.deleteAttachment(attachmentSysID);
+
+		gs.info('Import User Data: Attachment "' + attachmentSysID + '" deleteted!');
+    }
+}]]></post_script>
+        <post_script_bool>true</post_script_bool>
+        <pre_script/>
+        <pre_script_bool>false</pre_script_bool>
+        <record_source>regular</record_source>
+        <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2024-10-24 20:03:28</run_start>
+        <run_time>1970-01-01 08:00:00</run_time>
+        <run_type>daily</run_type>
+        <show_connection_override>false</show_connection_override>
+        <synchronize_inserts>true</synchronize_inserts>
+        <sys_class_name>scheduled_import_set</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-10-30 16:53:03</sys_created_on>
+        <sys_id>762edbf5c3a1121011357d0ed4013138</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Import User Data - Last Name</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>scheduled_import_set_762edbf5c3a1121011357d0ed4013138</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-10-30 20:27:05</sys_updated_on>
+        <time_zone/>
+        <upgrade_safe>false</upgrade_safe>
+        <use_child_connection>false</use_child_connection>
+    </scheduled_import_set>
+</record_update>

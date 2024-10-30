@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_821667_my_widget.ImportUserDataUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>ImportUserDataUtils</name>
+        <script><![CDATA[var ImportUserDataUtils = Class.create();
+ImportUserDataUtils.prototype = {
+    initialize: function() {},
+
+    execute: function(field, ritmSysID, ritmNumber) {
+
+		var PHONE = 'phone';
+        var LAST_NAME = 'last_name';
+
+		var dataSourceSysID;
+        var dataSourcePhoneSysID = 'e00357f9c361121011357d0ed4013190'; 
+        var dataSourceLastNameSysID = 'f57c17b5c3a1121011357d0ed4013180';
+
+		var scheduledDataImportSysID;
+		var scheduledDataImportPhoneSysID = '0d18db31c3a1121011357d0ed4013145';
+		var scheduledDataImportLastNameSysID = '762edbf5c3a1121011357d0ed4013138';
+
+        if (field == PHONE) {
+
+			gs.info('Import User Data: "' + PHONE + '"');
+
+			dataSourceSysID = dataSourcePhoneSysID;
+			scheduledDataImportSysID = scheduledDataImportPhoneSysID;
+        }
+
+        if (field == LAST_NAME) {
+
+			gs.info('Import User Data: "' + LAST_NAME + '"');
+
+            dataSourceSysID = dataSourceLastNameSysID;
+			scheduledDataImportSysID = scheduledDataImportLastNameSysID;
+        }
+
+        var glideSysAttachment = new GlideSysAttachment();
+        var attached = glideSysAttachment.copy('sc_req_item', ritmSysID, 'sys_data_source', dataSourceSysID);
+
+        if (attached) {
+
+            gs.info('Import User Data: Attachment copied from "' + ritmNumber + '" to data source "' + dataSourceSysID + '"');
+
+            var grImportSet = new GlideRecord('scheduled_import_set');
+
+            if (grImportSet.get(scheduledDataImportSysID)) {
+
+                gs.executeNow(grImportSet);
+            }
+
+        } else {
+
+            gs.info('Import User Data: Attachment not copied from "' + ritmNumber + '"');
+        }
+
+    },
+
+    type: 'ImportUserDataUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-10-26 00:50:35</sys_created_on>
+        <sys_id>517b1b9cc361921011357d0ed4013129</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>ImportUserDataUtils</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_script_include_517b1b9cc361921011357d0ed4013129</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-10-30 17:45:12</sys_updated_on>
+    </sys_script_include>
+</record_update>
