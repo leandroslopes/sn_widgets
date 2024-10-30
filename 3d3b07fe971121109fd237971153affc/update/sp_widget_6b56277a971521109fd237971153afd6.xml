@@ -96,7 +96,7 @@
     c.generate_pdf_vanilla_javascript = function() {
 
 		print();
-    },
+    };
 
 	// Reference: https://www.codexworld.com/export-html-table-data-to-excel-using-javascript/
 	// Reference: https://stackoverflow.com/a/37516332/10407880 - Não é possível gerar .xlsx com Vanilla JS, mas somente com o auxílio de uma biblioteca JS
@@ -249,6 +249,72 @@
 		worksheet = XLSX.utils.aoa_to_sheet(refined_data);
 		workbook = XLSX.utils.book_new();
     	XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+		XLSX.writeFile(workbook, filename);
+	}
+	
+	c.generate_excel_exceljs_user_data = function() {
+		
+		var worksheet;
+		var workbook;
+		var filename;
+		var user_data;
+		
+		filename = 'user_data.xlsx';
+		
+		user_data = [["User ID", "Last name", "Business phone"],
+								["joao.silva", "Silva", "01112345678"],
+    ["maria.oliveira", "Oliveira", "02187654321"],
+    ["ana.souza", "Souza", "03111223344"],
+    ["carlos.pereira", "Pereira", "04155667788"],
+    ["lucas.almeida", "Almeida", "05199887766"],
+    ["juliana.fernandes", "Fernandes", "06133445566"],
+    ["fernando.costa", "Costa", "07122334455"],
+    ["patricia.rodrigues", "Rodrigues", "08166778899"],
+    ["roberto.martins", "Martins", "09144556677"],
+    ["claudia.santos", "Santos", "01177889900"],
+    ["ricardo.lima", "Lima", "02155667788"],
+    ["mariana.gomes", "Gomes", "03199887766"],
+    ["antonio.barros", "Barros", "04133445566"],
+    ["renata.alves", "Alves", "05122334455"],
+    ["eduardo.silveira", "Silveira", "06166778899"],
+    ["camila.mendes", "Mendes", "07144556677"],
+    ["fabio.ramos", "Ramos", "08177889900"],
+    ["isabela.ferreira", "Ferreira", "09155667788"],
+    ["gustavo.souza", "Souza", "01199887766"],
+    ["leticia.rocha", "Rocha", "02133445566"],
+    ["marcos.cavalcante", "Cavalcante", "03122334455"],
+    ["ana.paula", "Paula", "04166778899"],
+    ["pedro.santos", "Santos", "05144556677"],
+    ["carla.martins", "Martins", "06177889900"],
+    ["rafael.almeida", "Almeida", "07155667788"],
+    ["beatriz.silva", "Silva", "08199887766"],
+    ["joana.oliveira", "Oliveira", "09133445566"],
+    ["rodrigo.souza", "Souza", "01122334455"],
+    ["luciana.pereira", "Pereira", "02166778899"],
+    ["felipe.rodrigues", "Rodrigues", "03144556677"],
+    ["daniela.fernandes", "Fernandes", "04177889900"],
+    ["vinicius.costa", "Costa", "05155667788"],
+    ["aline.martins", "Martins", "06199887766"],
+    ["bruno.santos", "Santos", "07133445566"],
+    ["carolina.lima", "Lima", "08122334455"],
+    ["diego.gomes", "Gomes", "09166778899"],
+    ["fernanda.alves", "Alves", "01144556677"],
+    ["gabriel.silveira", "Silveira", "02177889900"],
+    ["helena.mendes", "Mendes", "03155667788"],
+    ["igor.ramos", "Ramos", "04199887766"],
+    ["julia.ferreira", "Ferreira", "05133445566"],
+    ["kaio.souza", "Souza", "06122334455"],
+    ["larissa.rocha", "Rocha", "07166778899"],
+    ["marcelo.cavalcante", "Cavalcante", "08144556677"],
+    ["natalia.paula", "Paula", "09177889900"],
+    ["otavio.santos", "Santos", "01155667788"],
+    ["priscila.martins", "Martins", "02199887766"],
+    ["quiteria.almeida", "Almeida", "03133445566"],
+    ["renato.silva", "Silva", "04122334455"]];	
+		
+		worksheet = XLSX.utils.aoa_to_sheet(user_data);
+		workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
 		XLSX.writeFile(workbook, filename);
 	}
 
@@ -544,14 +610,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-04 21:13:38</sys_created_on>
         <sys_id>6b56277a971521109fd237971153afd6</sys_id>
-        <sys_mod_count>583</sys_mod_count>
+        <sys_mod_count>587</sys_mod_count>
         <sys_name>Incident Reports</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_6b56277a971521109fd237971153afd6</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-04-23 11:14:06</sys_updated_on>
+        <sys_updated_on>2024-10-30 19:53:41</sys_updated_on>
         <template><![CDATA[<div id="report">
   
   <h4 class="page-title no-printable">{{ ::c.title }}</h4> <br />
@@ -584,6 +650,9 @@
         </label>
     	</div>
       <div class="col-md-2">
+        <label>
+        	<strong>${Client (ExcelJS, Custom, Generate User Data)}</strong>
+        </label>
     	</div>
     </div>
     <div class="row margin-bottom-24 text-align-center">
@@ -668,6 +737,14 @@
         </button>
     	</div>
       <div class="col-md-2">
+        <button 
+                type="button" 
+                name="button-generate-excel_user_data" 
+                class="button-generate-excel" 
+                ng-click="c.generate_excel_exceljs_user_data()"
+                >
+          ${Generate Excel}
+        </button>
     	</div>
     </div>
     <div class="row margin-bottom-24 text-align-center">
