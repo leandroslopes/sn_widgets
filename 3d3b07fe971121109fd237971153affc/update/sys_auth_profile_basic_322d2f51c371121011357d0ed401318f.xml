@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_auth_profile_basic">
+    <sys_auth_profile_basic action="INSERT_OR_UPDATE">
+        <name>SOAP Profle</name>
+        <password>﷞﷟﷒5bf51a7d934512102b267fbcebba10aa﷬﷔1﷬﷭ctipmFAoBk2NHwDQ0sRnFg==K6nC6DhSdI4Fe_c-DRi9dZ7r6jSYNcV9gxKymw==﷮﷯</password>
+        <sys_class_name>sys_auth_profile_basic</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-11-10 14:57:50</sys_created_on>
+        <sys_id>322d2f51c371121011357d0ed401318f</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>SOAP Profle</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_auth_profile_basic_322d2f51c371121011357d0ed401318f</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-11-10 15:06:22</sys_updated_on>
+        <username>soap.user</username>
+    </sys_auth_profile_basic>
+</record_update>

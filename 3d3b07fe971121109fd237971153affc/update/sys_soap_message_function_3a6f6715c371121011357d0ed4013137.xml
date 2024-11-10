@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_soap_message_function">
+    <sys_soap_message_function action="INSERT_OR_UPDATE">
+        <authentication_type/>
+        <basic_auth_password/>
+        <basic_auth_profile/>
+        <basic_auth_user/>
+        <certificate/>
+        <enable_mutual_auth>false</enable_mutual_auth>
+        <envelope><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:x="http://www.service-now.com/x_821667_my_widget_web_service_city">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <x:deleteMultiple>
+         <!--Optional:-->
+         <import_set_run>${deleteMultiple.import_set_run}</import_set_run>
+         <!--Optional:-->
+         <sys_class_name>${deleteMultiple.sys_class_name}</sys_class_name>
+         <!--Optional:-->
+         <sys_created_by>${deleteMultiple.sys_created_by}</sys_created_by>
+         <!--Optional:-->
+         <sys_created_on>${deleteMultiple.sys_created_on}</sys_created_on>
+         <!--Optional:-->
+         <sys_id>${deleteMultiple.sys_id}</sys_id>
+         <!--Optional:-->
+         <sys_import_row>${deleteMultiple.sys_import_row}</sys_import_row>
+         <!--Optional:-->
+         <sys_import_set>${deleteMultiple.sys_import_set}</sys_import_set>
+         <!--Optional:-->
+         <sys_import_state>${deleteMultiple.sys_import_state}</sys_import_state>
+         <!--Optional:-->
+         <sys_import_state_comment>${deleteMultiple.sys_import_state_comment}</sys_import_state_comment>
+         <!--Optional:-->
+         <sys_mod_count>${deleteMultiple.sys_mod_count}</sys_mod_count>
+         <!--Optional:-->
+         <sys_row_error>${deleteMultiple.sys_row_error}</sys_row_error>
+         <!--Optional:-->
+         <sys_target_sys_id>${deleteMultiple.sys_target_sys_id}</sys_target_sys_id>
+         <!--Optional:-->
+         <sys_target_table>${deleteMultiple.sys_target_table}</sys_target_table>
+         <!--Optional:-->
+         <sys_transform_map>${deleteMultiple.sys_transform_map}</sys_transform_map>
+         <!--Optional:-->
+         <sys_updated_by>${deleteMultiple.sys_updated_by}</sys_updated_by>
+         <!--Optional:-->
+         <sys_updated_on>${deleteMultiple.sys_updated_on}</sys_updated_on>
+         <!--Optional:-->
+         <template_import_log>${deleteMultiple.template_import_log}</template_import_log>
+         <!--Optional:-->
+         <u_id>${deleteMultiple.u_id}</u_id>
+         <!--Optional:-->
+         <u_latitude>${deleteMultiple.u_latitude}</u_latitude>
+         <!--Optional:-->
+         <u_longitude>${deleteMultiple.u_longitude}</u_longitude>
+         <!--Optional:-->
+         <u_name>${deleteMultiple.u_name}</u_name>
+         <!--Optional:-->
+         <u_name_uri>${deleteMultiple.u_name_uri}</u_name_uri>
+         <!--Optional:-->
+         <u_pais>${deleteMultiple.u_pais}</u_pais>
+         <!--Optional:-->
+         <u_summary>${deleteMultiple.u_summary}</u_summary>
+         <!--Optional:-->
+         <u_uf>${deleteMultiple.u_uf}</u_uf>
+      </x:deleteMultiple>
+   </soapenv:Body>
+</soapenv:Envelope>]]></envelope>
+        <function_name>deleteMultiple</function_name>
+        <key_store/>
+        <key_store_alias/>
+        <key_store_password/>
+        <lock>false</lock>
+        <protocol_profile/>
+        <qualified_name>SOAP Message City [ deleteMultiple ]</qualified_name>
+        <soap_action>http://www.service-now.com/x_821667_my_widget_web_service_city/deleteMultiple</soap_action>
+        <soap_endpoint>https://dev226204.service-now.com/x_821667_my_widget_web_service_city.do?SOAP</soap_endpoint>
+        <soap_message display_value="SOAP Message City">5ccc6751c371121011357d0ed40131f4</soap_message>
+        <strip_whitespace>false</strip_whitespace>
+        <sys_class_name>sys_soap_message_function</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-11-10 15:07:09</sys_created_on>
+        <sys_id>3a6f6715c371121011357d0ed4013137</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>deleteMultiple</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_soap_message_function_3a6f6715c371121011357d0ed4013137</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-11-10 15:07:09</sys_updated_on>
+        <use_basic_auth>false</use_basic_auth>
+        <use_mid_server/>
+        <use_ws_security>false</use_ws_security>
+        <ws_security_type/>
+        <ws_security_username_profile/>
+        <ws_security_x509_profile/>
+    </sys_soap_message_function>
+</record_update>

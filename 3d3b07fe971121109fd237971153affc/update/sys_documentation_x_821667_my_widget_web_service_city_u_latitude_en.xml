@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="u_latitude" label="Latitude" language="en" table="x_821667_my_widget_web_service_city">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>u_latitude</element>
+            <help/>
+            <hint/>
+            <label>Latitude</label>
+            <language>en</language>
+            <name>x_821667_my_widget_web_service_city</name>
+            <plural>Latitudes</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-11-10 14:48:20</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Latitude</sys_name>
+            <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+            <sys_update_name>sys_documentation_x_821667_my_widget_web_service_city_u_latitude_en</sys_update_name>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-11-10 14:48:20</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>
