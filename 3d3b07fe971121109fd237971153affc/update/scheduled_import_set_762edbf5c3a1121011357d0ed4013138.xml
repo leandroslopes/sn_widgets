@@ -38,9 +38,9 @@ grAttachment.query();
 
 if (grAttachment.next()) {
 
-    gs.info('Import User Data: Found attachment!');
-    gs.info('Import User Data: Can delete attachment: "' + grAttachment.canDelete() + '"');
-    gs.info('Import User Data: File name to be deleted "' + grAttachment.file_name + '"');
+    gs.info('[Import User Data] Found attachment!');
+    gs.info('[Import User Data] Can delete attachment: "' + grAttachment.canDelete() + '"');
+    gs.info('[Import User Data] File name to be deleted "' + grAttachment.file_name + '"');
 
     if (grAttachment.canDelete()) {
 
@@ -50,12 +50,21 @@ if (grAttachment.next()) {
 		
         glAttachment.deleteAttachment(attachmentSysID);
 
-		gs.info('Import User Data: Attachment "' + attachmentSysID + '" deleteted!');
+		gs.info('[Import User Data] Attachment "' + attachmentSysID + '" deleteted!');
     }
 }]]></post_script>
         <post_script_bool>true</post_script_bool>
-        <pre_script/>
-        <pre_script_bool>false</pre_script_bool>
+        <pre_script><![CDATA[// Script para desativar todos os usuários cujo User ID começa com a letra 'w'
+var gr = new GlideRecord('sys_user');
+gr.addQuery('user_name', 'STARTSWITH', 'w');
+gr.query();
+
+while (gr.next()) {
+    gr.active = false; // Desativa o usuário
+    gr.update();
+    gs.info('[Import User Data] Usuário desativado: ' + gr.user_name);
+}]]></pre_script>
+        <pre_script_bool>true</pre_script_bool>
         <record_source>regular</record_source>
         <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
         <run_as_tz/>
@@ -71,14 +80,14 @@ if (grAttachment.next()) {
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-10-30 16:53:03</sys_created_on>
         <sys_id>762edbf5c3a1121011357d0ed4013138</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>Import User Data - Last Name</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>scheduled_import_set_762edbf5c3a1121011357d0ed4013138</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-10-30 20:27:05</sys_updated_on>
+        <sys_updated_on>2024-11-01 17:50:45</sys_updated_on>
         <time_zone/>
         <upgrade_safe>false</upgrade_safe>
         <use_child_connection>false</use_child_connection>

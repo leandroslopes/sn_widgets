@@ -38,9 +38,9 @@ grAttachment.query();
 
 if (grAttachment.next()) {
 
-    gs.info('Found attachment'); //This one does print
-    gs.info('Can Delete Attachment :' + grAttachment.canDelete()); //This one gives me true
-    gs.info('File Name to be Deleted ' + grAttachment.file_name); //This one gives me the proper file name
+    gs.info('Found attachment');
+    gs.info('Can Delete Attachment :' + grAttachment.canDelete());
+    gs.info('File Name to be Deleted ' + grAttachment.file_name);
 
     if (grAttachment.canDelete()) {
 
@@ -49,6 +49,8 @@ if (grAttachment.next()) {
         var glAttachment = new GlideSysAttachment();
 		
         glAttachment.deleteAttachment(attachmentSysID);
+
+		gs.info('[Import User Data] Attachment "' + attachmentSysID + '" deleteted!');
     }
 }]]></post_script>
         <post_script_bool>true</post_script_bool>
@@ -69,14 +71,14 @@ if (grAttachment.next()) {
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-10-30 16:26:27</sys_created_on>
         <sys_id>0d18db31c3a1121011357d0ed4013145</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Import User Data - Phone</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>scheduled_import_set_0d18db31c3a1121011357d0ed4013145</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-10-30 16:38:07</sys_updated_on>
+        <sys_updated_on>2024-10-31 16:42:40</sys_updated_on>
         <time_zone/>
         <upgrade_safe>false</upgrade_safe>
         <use_child_connection>false</use_child_connection>
