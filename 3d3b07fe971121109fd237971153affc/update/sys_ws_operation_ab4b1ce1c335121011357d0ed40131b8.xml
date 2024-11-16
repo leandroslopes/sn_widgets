@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri>/api/x_821667_my_widget/temperature/insert</default_operation_uri>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>POST</http_method>
+        <name>insert</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    // Recuperar os dados do corpo da requisição (em JSON)
+    var requestBody = request.body.data;
+    
+    // Recuperar os dados específicos que você quer inserir na tabela
+    var temperature = parseFloat(requestBody.temperature);
+	var id = requestBody.id;
+
+    // Definir a resposta inicial
+    var responseData = {
+        success: true,
+        message: 'Registro inserido com sucesso.'
+    };
+
+    // Verificar se a temperatura é maior que 30
+    if (temperature > 30) {
+		
+        // Criar um incidente na tabela incident
+        var incident = new GlideRecord('incident');
+        incident.initialize();
+        
+        // Preencher os campos do incidente
+        incident.short_description = 'Incidente relacionado à temperatura elevada';
+        incident.description = 'A temperatura registrada foi maior que 30°C. Temperatura: ' + temperature + '°C.';
+        
+		incident.insert();
+
+        // Pegar o número do incidente criado
+        var incident_number = incident.getValue('number');
+        
+        // Pegar o display value do campo 'state' (status) do incidente
+        var incident_status = incident.state.getDisplayValue();
+        
+        // Atualizar a resposta com o número do incidente e o status
+        responseData.incident_number = incident_number;
+        responseData.incident_status = incident_status;
+
+        // Criar o registro na tabela `u_temperature` com os dados do incidente
+        var newRecordTemperature = new GlideRecord('x_821667_my_widget_temperature');
+        newRecordTemperature.initialize();
+        
+        // Preencher os campos do registro com os dados recebidos
+        newRecordTemperature.u_temperature = temperature;
+		newRecordTemperature.u_id = id;
+        newRecordTemperature.u_external_incident = incident_number;
+        newRecordTemperature.u_last_status = incident_status;
+        
+        // Inserir o registro na tabela
+        newRecordTemperature.insert();
+
+    } else {		
+        // Se a temperatura for menor ou igual a 30, apenas retorna uma resposta indicando que nenhum registro foi criado
+        responseData.success = false;
+        responseData.message = 'Temperatura abaixo de 30°C. Nenhum incidente criado e nenhum registro inserido na tabela.';
+    }
+
+    // Retornar a resposta no formato JSON
+    response.setStatus(200);
+    response.setBody(responseData);
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_821667_my_widget/v1/temperature/insert</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/insert</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-11-10 18:49:12</sys_created_on>
+        <sys_id>ab4b1ce1c335121011357d0ed40131b8</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>insert</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_ws_operation_ab4b1ce1c335121011357d0ed40131b8</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-11-15 21:28:49</sys_updated_on>
+        <web_service_definition display_value="Temperature">f9e950e1c335121011357d0ed4013131</web_service_definition>
+        <web_service_version display_value="v1">d32ad0e1c335121011357d0ed401313a</web_service_version>
+    </sys_ws_operation>
+</record_update>

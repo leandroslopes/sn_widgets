@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="DELETE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri>/api/x_821667_my_widget/temperature_update_last_status/last_status</default_operation_uri>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>PATCH</http_method>
+        <name>last_status</name>
+        <operation_script><![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    // Recuperar os dados do corpo da requisição (em JSON)
+    var requestBody = request.body.data;
+
+    // Recuperar o número do incidente e o last_status (status do incidente) passados no corpo da requisição
+    var incidentNumber = requestBody.incident_number; // Número do incidente (campo 'incident_number')
+    var lastStatus = requestBody.last_status; // Status do incidente (campo 'last_status')
+
+    // Definir a resposta inicial
+    var responseData = {
+        success: true,
+        message: 'Campo "u_last_status" atualizado com sucesso.'
+    };
+
+    // Verificar se o número do incidente e o status foram fornecidos
+    if (!incidentNumber || !lastStatus) {
+        responseData.success = false;
+        responseData.message = 'Número do incidente ou status não fornecido.';
+        response.setStatus(400);
+        response.setBody(responseData);
+        return;
+    }
+
+    // Procurar o registro correspondente na tabela 'u_temperature' baseado no número do incidente
+    var temperatureRecord = new GlideRecord('x_821667_my_widget_temperature'); // Substitua 'u_temperature' pelo nome correto da tabela
+	if (temperatureRecord.get('u_external_incident', incidentNumber)) {
+        // Atualizar o campo 'u_last_status' com o status fornecido
+        temperatureRecord.u_last_status = lastStatus;
+        temperatureRecord.update(); // Atualiza o registro na tabela
+
+        responseData.message = 'Campo "u_last_status" atualizado com sucesso.';
+    } else {
+        responseData.success = false;
+        responseData.message = 'Nenhum registro encontrado na tabela "x_821667_my_widget_temperature" com o incidente fornecido.';
+        response.setStatus(404);
+		response.setBody(responseData);
+    }
+
+    // Retornar a resposta no formato JSON
+    response.setStatus(200);
+    response.setBody(responseData);
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_821667_my_widget/v1/temperature_update_last_status/last_status</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/last_status</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-11-10 19:23:57</sys_created_on>
+        <sys_id>670868a1c375121011357d0ed4013140</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>last_status</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_ws_operation_670868a1c375121011357d0ed4013140</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-11-12 01:08:21</sys_updated_on>
+        <web_service_definition display_value="Temperature Update Last Status">76c7a4adc335121011357d0ed40131a1</web_service_definition>
+        <web_service_version display_value="v1">a208a8a1c375121011357d0ed4013191</web_service_version>
+    </sys_ws_operation>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="My Widgets">3d3b07fe971121109fd237971153affc</application>
+        <file_path/>
+        <instance_id>a95543091bfef5d01024eb9b2d4bcbdc</instance_id>
+        <instance_name>dev226204</instance_name>
+        <name>sys_ws_operation_670868a1c375121011357d0ed4013140</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ws_operation"&gt;&lt;sys_ws_operation action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;consumes&gt;application/json,application/xml,text/xml&lt;/consumes&gt;&lt;consumes_customized&gt;false&lt;/consumes_customized&gt;&lt;default_operation_uri&gt;/api/x_821667_my_widget/temperature_update_last_status/last_status&lt;/default_operation_uri&gt;&lt;enforce_acl&gt;cf9d01d3e73003009d6247e603f6a990&lt;/enforce_acl&gt;&lt;http_method&gt;PATCH&lt;/http_method&gt;&lt;name&gt;last_status&lt;/name&gt;&lt;operation_script&gt;&lt;![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    // Recuperar os dados do corpo da requisição (em JSON)
+    var requestBody = request.body.data;
+
+    // Recuperar o número do incidente e o last_status (status do incidente) passados no corpo da requisição
+    var incidentNumber = requestBody.incident_number; // Número do incidente (campo 'incident_number')
+    var lastStatus = requestBody.last_status; // Status do incidente (campo 'last_status')
+
+    // Definir a resposta inicial
+    var responseData = {
+        success: true,
+        message: 'Campo "u_last_status" atualizado com sucesso.'
+    };
+
+    // Verificar se o número do incidente e o status foram fornecidos
+    if (!incidentNumber || !lastStatus) {
+        responseData.success = false;
+        responseData.message = 'Número do incidente ou status não fornecido.';
+        response.setStatus(400);
+        response.setBody(responseData);
+        return;
+    }
+
+    // Procurar o registro correspondente na tabela 'u_temperature' baseado no número do incidente
+    var temperatureRecord = new GlideRecord('x_821667_my_widget_temperature'); // Substitua 'u_temperature' pelo nome correto da tabela
+	if (temperatureRecord.get('u_external_incident', incidentNumber)) {
+        // Atualizar o campo 'u_last_status' com o status fornecido
+        temperatureRecord.u_last_status = lastStatus;
+        temperatureRecord.update(); // Atualiza o registro na tabela
+
+        responseData.message = 'Campo "u_last_status" atualizado com sucesso.';
+    } else {
+        responseData.success = false;
+        responseData.message = 'Nenhum registro encontrado na tabela "x_821667_my_widget_temperature" com o incidente fornecido.';
+        response.setStatus(404);
+		response.setBody(responseData);
+    }
+
+    // Retornar a resposta no formato JSON
+    response.setStatus(200);
+    response.setBody(responseData);
+
+})(request, response);]]&gt;&lt;/operation_script&gt;&lt;operation_uri&gt;/api/x_821667_my_widget/v1/temperature_update_last_status/last_status&lt;/operation_uri&gt;&lt;produces&gt;application/json,application/xml,text/xml&lt;/produces&gt;&lt;produces_customized&gt;false&lt;/produces_customized&gt;&lt;relative_path&gt;/last_status&lt;/relative_path&gt;&lt;request_example/&gt;&lt;requires_acl_authorization&gt;true&lt;/requires_acl_authorization&gt;&lt;requires_authentication&gt;true&lt;/requires_authentication&gt;&lt;requires_snc_internal_role&gt;true&lt;/requires_snc_internal_role&gt;&lt;short_description/&gt;&lt;sys_class_name&gt;sys_ws_operation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;leandro.lopes&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-11-10 19:23:57&lt;/sys_created_on&gt;&lt;sys_id&gt;670868a1c375121011357d0ed4013140&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;last_status&lt;/sys_name&gt;&lt;sys_package display_value="My Widgets" source="x_821667_my_widget"&gt;3d3b07fe971121109fd237971153affc&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="My Widgets"&gt;3d3b07fe971121109fd237971153affc&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ws_operation_670868a1c375121011357d0ed4013140&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;leandro.lopes&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-11-12 01:08:21&lt;/sys_updated_on&gt;&lt;web_service_definition display_value="Temperature Update Last Status"&gt;76c7a4adc335121011357d0ed40131a1&lt;/web_service_definition&gt;&lt;web_service_version display_value="v1"&gt;a208a8a1c375121011357d0ed4013191&lt;/web_service_version&gt;&lt;/sys_ws_operation&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-643545169</payload_hash>
+        <record_name>last_status</record_name>
+        <reverted_from/>
+        <source>a4289cedc3f1121011357d0ed40131f4</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-11-12 01:08:21</sys_created_on>
+        <sys_id>df9283f9c331121011357d0ed401316b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1931dea1a050000001</sys_recorded_at>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-11-12 01:08:21</sys_updated_on>
+        <type>Scripted REST Resource</type>
+        <update_guid>979283f95d311210268c4aa0af47126b</update_guid>
+        <update_guid_history>979283f95d311210268c4aa0af47126b:-643545169,ddc14f79273112107b972f90a7e8ef22:-63391098,5c3ae8a11b7512100b925edaa7b5483f:1151144430</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-11-13 01:00:57</sys_created_on>
+        <sys_db_object display_value="" name="sys_ws_operation">sys_ws_operation</sys_db_object>
+        <sys_id>2c69075e04184b38a2c6b40230920440</sys_id>
+        <sys_metadata>670868a1c375121011357d0ed4013140</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>last_status</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_scope_delete display_value="">1735843da8c24506b7924cef26a0ffe1</sys_scope_delete>
+        <sys_update_name>sys_ws_operation_670868a1c375121011357d0ed4013140</sys_update_name>
+        <sys_update_version display_value="sys_ws_operation_670868a1c375121011357d0ed4013140">df9283f9c331121011357d0ed401316b</sys_update_version>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-11-13 01:00:57</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

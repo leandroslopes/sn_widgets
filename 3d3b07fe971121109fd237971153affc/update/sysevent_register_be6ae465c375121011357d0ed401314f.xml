@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_register">
+    <sysevent_register action="INSERT_OR_UPDATE">
+        <caller_access/>
+        <derived_priority>100</derived_priority>
+        <description>Temperature Last Status Update</description>
+        <event_name>x_821667_my_widget.last_status.update</event_name>
+        <fired_by>After Business Rules</fired_by>
+        <priority>100</priority>
+        <queue/>
+        <suffix>last_status.update</suffix>
+        <sys_class_name>sysevent_register</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-11-10 19:28:37</sys_created_on>
+        <sys_id>be6ae465c375121011357d0ed401314f</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>x_821667_my_widget.last_status.update</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sysevent_register_be6ae465c375121011357d0ed401314f</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-11-13 01:11:18</sys_updated_on>
+        <table>incident</table>
+    </sysevent_register>
+</record_update>

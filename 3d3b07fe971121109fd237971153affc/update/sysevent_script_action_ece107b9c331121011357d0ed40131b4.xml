@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_script_action">
+    <sysevent_script_action action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition_script/>
+        <description/>
+        <event_name>x_821667_my_widget.last_status.update</event_name>
+        <name>Temperature Last Status REST Update</name>
+        <order>100</order>
+        <script><![CDATA[var endpoint = 'https://dev226204.service-now.com/api/x_821667_my_widget/v1/temperature/last_status';
+var token = 'HBTzVJgm9H_pq_ZPx_ZIfFCPEyBxYgR1bOBY006KLO0KZw2zByRiEMdoSiEIDpMsAOGZootiLg5hAklT5Vyw0g';
+
+var body = {
+	incident_number: event.parm1.toString(),
+	last_status: event.parm2.toString()
+};
+var bodyString = JSON.stringify(body);
+gs.info('Temperature - body.incident_number: ' + body.incident_number);
+gs.info('Temperature - body.last_status: ' + body.last_status);
+gs.info('Temperature - Script Action bodyString: ' + bodyString);
+
+var request = new sn_ws.RESTMessageV2();
+request.setEndpoint(endpoint);
+request.setHttpMethod('POST');
+request.setRequestHeader("Accept", "application/json");
+request.setRequestHeader('Content-Type', 'application/json');
+request.setRequestHeader('Authorization', 'Bearer ' + token);
+request.setRequestBody(bodyString);
+gs.info('Temperature - Script Action request.getRequestBody: ' + request.getRequestBody());
+
+var response = request.execute();
+
+var respondeBody = response.getBody();
+gs.info('Temperature - Script Action Response body API: ' + respondeBody);]]></script>
+        <synchronous>false</synchronous>
+        <sys_class_name>sysevent_script_action</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2024-11-12 01:06:10</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ece107b9c331121011357d0ed40131b4</sys_id>
+        <sys_mod_count>36</sys_mod_count>
+        <sys_name>Temperature Last Status REST Update</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sysevent_script_action_ece107b9c331121011357d0ed40131b4</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2024-11-15 21:41:46</sys_updated_on>
+    </sysevent_script_action>
+</record_update>
