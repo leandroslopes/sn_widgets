@@ -64,21 +64,21 @@
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-09-22 20:27:10</sys_created_on>
         <sys_id>30c2e431c3341a1083b85a02b4013111</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>My Widgets: Testing Access Variable</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sc_cat_item_30c2e431c3341a1083b85a02b4013111</sys_update_name>
         <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2024-09-22 20:32:30</sys_updated_on>
+        <sys_updated_on>2024-12-10 14:18:28</sys_updated_on>
         <taxonomy_topic display_value="Developer Services">988497a7c3053010069aec4b7d40ddea</taxonomy_topic>
         <template/>
         <template_manager_roles/>
         <type>item</type>
         <use_sc_layout>true</use_sc_layout>
         <vendor/>
-        <version>68</version>
+        <version>72</version>
         <visible_bundle>true</visible_bundle>
         <visible_guide>true</visible_guide>
         <visible_standalone>true</visible_standalone>
