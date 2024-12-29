@@ -51,73 +51,73 @@ TagUtil.prototype = {
         if (counterUpdatedTag == amountUpdatedTag)
             return this._UPDATE_ALL;
 
-        if (counterUpdatedTagUtils > 0 && counterUpdatedTagUtils < amountUpdatedTagUtils)
+        if (counterUpdatedTag > 0 && counterUpdatedTag < amountUpdatedTag)
             return this._NOT_UPDATE_ALL;
 
-        if (counterUpdatedTagUtils == 0)
+        if (counterUpdatedTag == 0)
             return this._NOT_UPDATE_ANY;
     },
 
-    _updateTagUtil: function(tagNameParam, tableNameParam, recordSysIDParam) {
-		gs.addInfoMessage(tagNameParam);
+    _updateTag: function(tagNameParam, tableNameParam, recordSysIDParam) {
+		/* gs.addInfoMessage(tagNameParam);
 		gs.addInfoMessage(tableNameParam);
-		gs.addInfoMessage(recordSysIDParam);
+		gs.addInfoMessage(recordSysIDParam); */
         var tagName;
-        var foundTagUtil;
+        var foundTag;
         var tagSysID;
         var tableName;
         var recordSysID;
-        var addedTagUtil;
-        var createdTagUtil;
+        var addedTag;
+        var createdTag;
 
         tagName = tagNameParam;
         tableName = tableNameParam;
         recordSysID = recordSysIDParam;
 
-        foundTagUtil = this._hasTagUtil(tagName);
+        foundTag = this._hasTag(tagName);
 
-		if (!foundTagUtil) {
+		if (!foundTag) {
 
-			createdTagUtil = this._createTagUtil(tagName);
+			createdTag = this._createTag(tagName);
 
-			if (!createdTagUtil)
+			if (!createdTag)
 				return false;
 
-            tagSysID = createdTagUtil;
+            tagSysID = createdTag;
 
-			addedTagUtil = this._addTagUtilToRecord(tagSysID, tableName, recordSysID);
+			addedTag = this._addTagToRecord(tagSysID, tableName, recordSysID);
 			
-			if (!addedTagUtil)
+			if (!addedTag)
 				return false;
 			
 			return true;
 		}
 
-        tagSysID = foundTagUtil;
+        tagSysID = foundTag;
 
-		addedTagUtil = this._addTagUtilToRecord(tagSysID, tableName, recordSysID);
+		addedTag = this._addTagToRecord(tagSysID, tableName, recordSysID);
 		
-		if (!addedTagUtil)                
+		if (!addedTag)                
 			return false;
 
 		return true;
     },
 
-	_hasTagUtil: function(tagName) {
+	_hasTag: function(tagName) {
 
         var tagSysId;
-        var grTagUtil;
+        var grTag;
 
-        grTagUtil = new GlideRecord("label");
+        grTag = new GlideRecord("label");
 
-        grTagUtil.addActiveQuery();
-        grTagUtil.addQuery("name", tagName);
-        grTagUtil.addQuery("type", "standard");
-        grTagUtil.query();
+        grTag.addActiveQuery();
+        grTag.addQuery("name", tagName);
+        grTag.addQuery("type", "standard");
+        grTag.query();
 
-        if (grTagUtil.next()) {
+        if (grTag.next()) {
 
-            tagSysId = grTagUtil.getUniqueValue();
+            tagSysId = grTag.getUniqueValue();
             return tagSysId;
         }
 
@@ -125,36 +125,36 @@ TagUtil.prototype = {
         return tagSysId;
     },
 
-	_createTagUtil: function(tagName) {
+	_createTag: function(tagName) {
 
-        var grTagUtil;
+        var grTag;
         var tagSysID;
 
-        grTagUtil = new GlideRecord("label");
+        grTag = new GlideRecord("label");
 
-        grTagUtil.initialize();
-        grTagUtil.setValue("name", tagName);
-        grTagUtil.setValue("viewable_by", "everyone");
-        grTagUtil.insert();
+        grTag.initialize();
+        grTag.setValue("name", tagName);
+        grTag.setValue("viewable_by", "everyone");
+        grTag.insert();
 
-        tagSysID = grTagUtil.getUniqueValue();
+        tagSysID = grTag.getUniqueValue();
 
         return tagSysID;
     },
 
-	_addTagUtilToRecord: function(tagSysID, tableName, recordSysID) {
+	_addTagToRecord: function(tagSysID, tableName, recordSysID) {
 
-        var grTagUtilEntry;
+        var grTagEntry;
         var inserted;
 
-        grTagUtilEntry = new GlideRecord("label_entry");
+        grTagEntry = new GlideRecord("label_entry");
 
-        grTagUtilEntry.initialize();
-        grTagUtilEntry.label = tagSysID;
-        grTagUtilEntry.table = tableName;
-        grTagUtilEntry.table_key = recordSysID;
+        grTagEntry.initialize();
+        grTagEntry.label = tagSysID;
+        grTagEntry.table = tableName;
+        grTagEntry.table_key = recordSysID;
 
-        inserted = grTagUtilEntry.insert();
+        inserted = grTagEntry.insert();
 
         return inserted;
     },
@@ -165,13 +165,13 @@ TagUtil.prototype = {
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-08-29 14:18:41</sys_created_on>
         <sys_id>7628ab31c3d8161083b85a02b4013136</sys_id>
-        <sys_mod_count>29</sys_mod_count>
+        <sys_mod_count>31</sys_mod_count>
         <sys_name>TagUtil</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sys_script_include_7628ab31c3d8161083b85a02b4013136</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-10-10 00:26:36</sys_updated_on>
+        <sys_updated_on>2024-12-29 19:33:35</sys_updated_on>
     </sys_script_include>
 </record_update>

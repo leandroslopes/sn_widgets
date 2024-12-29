@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_dependency_css_include">
     <m2m_sp_dependency_css_include action="INSERT_OR_UPDATE">
         <order>50</order>
-        <sp_css_include display_value="ngTagsInput.css">d27f1ba1c394d21083b85a02b4013118</sp_css_include>
+        <sp_css_include display_value="ng-tags-input.min.css">d27f1ba1c394d21083b85a02b4013118</sp_css_include>
         <sp_dependency display_value="ngTagsInput">9d7e9361c394d21083b85a02b4013121</sp_dependency>
         <sys_class_name>m2m_sp_dependency_css_include</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>
