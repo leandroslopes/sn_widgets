@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller=function() {
+        <client_script><![CDATA[api.controller=function(spUserAvatar) {
   /* widget controller */
   var c = this;
 	
@@ -31,6 +31,13 @@
 		
 	};
 	
+	_.each(c.data.events, function(ev) {
+		
+		var avatar = spUserAvatar.getAvatar(ev.sys_created_by.value).then(function(rsp) {
+			ev.avatar = rsp;
+		})
+	});
+	
 };]]></client_script>
         <controller_as>c</controller_as>
         <css>.margin-bottom-10 {
@@ -55,12 +62,12 @@
 
 	if (!input) {
 		
-		var eventsTabble = "x_821667_my_widget_room";
-		var fields = "sys_id,number,code,type,sys_tags";
+		var eventsTable = "x_821667_my_widget_room";
+		var fields = "sys_id,number,code,type,sys_tags,sys_created_by";
 		
 		data.events = [];
 		
-		var grs = new GlideRecordSecure(eventsTabble);
+		var grs = new GlideRecordSecure(eventsTable);
 		grs.query();
 		
 		while(grs.next()) {
@@ -119,14 +126,14 @@
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-08-28 14:53:35</sys_created_on>
         <sys_id>26a626a9c350d21083b85a02b401312d</sys_id>
-        <sys_mod_count>69</sys_mod_count>
+        <sys_mod_count>73</sys_mod_count>
         <sys_name>Event Information</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_26a626a9c350d21083b85a02b401312d</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-12-29 19:38:29</sys_updated_on>
+        <sys_updated_on>2025-01-03 12:32:38</sys_updated_on>
         <template><![CDATA[<form>
   
   <uib-tabset class="cloud-widgets">
@@ -142,6 +149,16 @@
         <dt>{{ event[field].label }}:</dt>
         <dt>{{ event[field].display_value }}</dt>
       </dl>
+      
+      <div class="avatar-extra-large avatar-container margin-bottom-10" 
+           style="cursor:default;"
+           uib-tooltip="{{event.presenter.display_value}}">
+        <div class="avatar soloAvatar bottom">
+          <div class="sub-avatar mia" ng-style="event.avatar">
+            <i class="fa fa-user"></i>
+          </div>
+        </div>
+      </div>
       
       <tags-input class="margin-bottom-10"
                   placeholder="{{ c.placeholderText }}"

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_angular_provider">
+    <sp_angular_provider action="INSERT_OR_UPDATE">
+        <name>spUserAvatar</name>
+        <script><![CDATA[function spUserAvatar($http){
+    var getAvatar = function(userId){
+
+        //return the entire $http call
+        return $http.get('/api/now/live/profiles/sys_user.' + userId).then(function(response){
+
+            //retrieve avatar URL from the response
+            if(response.data.result && response.data.result.avatar){
+                var avatarPicture = response.data.result.avatar.replace("?t=small", "");
+
+                //return an object representing a style to be used on an HTML element
+                return {
+                    'background-image': "url('" + avatarPicture + "')",
+                    'color': 'transparent'
+                };
+            }
+        });
+    }
+    //return an object with one or more methods available to the Service
+    return{
+        getAvatar:getAvatar
+    }
+}]]></script>
+        <sys_class_name>sp_angular_provider</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2025-01-02 20:54:43</sys_created_on>
+        <sys_id>5f0b352ac3b2121011357d0ed401315f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>spUserAvatar</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_angular_provider_5f0b352ac3b2121011357d0ed401315f</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2025-01-02 20:54:43</sys_updated_on>
+        <type>service</type>
+    </sp_angular_provider>
+</record_update>
