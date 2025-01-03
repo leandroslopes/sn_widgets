@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>table-summary-overlay.html</id>
+        <sp_widget display_value="Table Summary">c0584a19c398521083b85a02b401310c</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>leandro.lopes</sys_created_by>
+        <sys_created_on>2025-01-03 13:01:00</sys_created_on>
+        <sys_id>0df7517ac372521011357d0ed4013139</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>table-summary-overlay.html</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_ng_template_0df7517ac372521011357d0ed4013139</sys_update_name>
+        <sys_updated_by>leandro.lopes</sys_updated_by>
+        <sys_updated_on>2025-01-03 18:49:25</sys_updated_on>
+        <template><![CDATA[<div class="modal-header">
+  <h4 class="modal-title">
+    <button type="button" class="close" 
+            ng-click="modalC.modalInstance.close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    Event registration: {{ modalC.record.number }}
+  </h4>
+</div>
+<div class="modal-body">
+  <sp-widget widget="modalC.form"></sp-widget>
+</div>]]></template>
+    </sp_ng_template>
+</record_update>
