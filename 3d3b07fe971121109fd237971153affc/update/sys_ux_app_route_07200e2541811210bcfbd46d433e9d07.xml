@@ -5,6 +5,7 @@
         <extension_point/>
         <fields>globalSearchViewConfigId</fields>
         <icon/>
+        <interoperable>false</interoperable>
         <name>Search</name>
         <optional_parameters>searchTerm</optional_parameters>
         <order>0</order>

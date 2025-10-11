@@ -7,7 +7,6 @@
         <grantable>true</grantable>
         <includes_roles/>
         <name>x_821667_my_widget.user</name>
-        <requires_subscription>-1</requires_subscription>
         <scoped_admin>false</scoped_admin>
         <suffix>x_821667_my_widget.user</suffix>
         <sys_class_name>sys_user_role</sys_class_name>

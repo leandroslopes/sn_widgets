@@ -5,6 +5,7 @@
         <extension_point/>
         <fields>table,sysId</fields>
         <icon/>
+        <interoperable>false</interoperable>
         <name>KB</name>
         <optional_parameters/>
         <order>0</order>

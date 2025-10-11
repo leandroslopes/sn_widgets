@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="ais_search_profile">
     <ais_search_profile action="INSERT_OR_UPDATE">
         <active>true</active>
+        <creator_source/>
         <description>This is default AI Search profile for My Wokspace</description>
         <exclude_from_evaluation>false</exclude_from_evaluation>
         <genius_result_assembly/>

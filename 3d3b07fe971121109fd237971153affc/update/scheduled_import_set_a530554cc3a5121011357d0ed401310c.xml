@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="scheduled_import_set">
     <scheduled_import_set action="INSERT_OR_UPDATE">
         <active>false</active>
+        <advanced>false</advanced>
         <business_calendar/>
         <concurrent_import>false</concurrent_import>
         <condition/>
         <conditional>false</conditional>
         <connection_override/>
         <data_source display_value="Import User Data">269d4588c3a5121011357d0ed401316d</data_source>
+        <entered_run_end/>
+        <entered_run_start/>
         <entered_time/>
         <map/>
         <max_drift/>
@@ -56,14 +59,19 @@ if (grAttachment.next()) {
         <pre_script/>
         <pre_script_bool>false</pre_script_bool>
         <record_source>regular</record_source>
+        <repeat_every/>
         <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
         <run_as_tz/>
         <run_dayofmonth>1</run_dayofmonth>
         <run_dayofweek>1</run_dayofweek>
+        <run_daysofweek/>
+        <run_end/>
+        <run_month/>
         <run_period/>
         <run_start>2024-10-24 20:03:28</run_start>
         <run_time>1970-01-01 08:00:00</run_time>
         <run_type>daily</run_type>
+        <run_weekinmonth/>
         <show_connection_override>false</show_connection_override>
         <synchronize_inserts>true</synchronize_inserts>
         <sys_class_name>scheduled_import_set</sys_class_name>

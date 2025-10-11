@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element attributes="hasLabels=true" db_object_id="356b06a697170618cbf53e2e6253afd1" label="Quarto" max_length="40" name="x_821667_my_widget_room" text_index="true" type="collection">
-        <element label="Code" max_length="40" name="code" type="string"/>
-        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+    <element attributes="hasLabels=true" db_object_id="356b06a697170618cbf53e2e6253afd1" label="Room" max_length="40" name="x_821667_my_widget_room" text_index="true" type="collection">
         <element choice="1" label="Type" max_length="40" name="type" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Padrão" language="pb" value="Standard"/>
-                <element inactive_on_update="false" label="Presidencial" language="pb" value="Presidential"/>
                 <element inactive_on_update="false" label="Presidential" value="Presidential"/>
-                <element inactive_on_update="false" label="Simple" value="Simple"/>
+                <element inactive_on_update="false" label="Presidencial" language="pb" value="Presidential"/>
                 <element inactive_on_update="false" label="Simples" language="pb" value="Simple"/>
+                <element inactive_on_update="false" label="Simple" value="Simple"/>
                 <element inactive_on_update="false" label="Standard" value="Standard"/>
             </choice>
         </element>
+        <element label="Code" max_length="40" name="code" type="string"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
     </element>
 </database>

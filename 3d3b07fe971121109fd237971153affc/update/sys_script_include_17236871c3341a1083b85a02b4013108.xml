@@ -6,7 +6,9 @@
         <caller_access/>
         <client_callable>true</client_callable>
         <description/>
+        <mobile_callable>false</mobile_callable>
         <name>MyWidgetsUserUtils</name>
+        <sandbox_callable>true</sandbox_callable>
         <script><![CDATA[var MyWidgetsUserUtils = Class.create();
 MyWidgetsUserUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
 

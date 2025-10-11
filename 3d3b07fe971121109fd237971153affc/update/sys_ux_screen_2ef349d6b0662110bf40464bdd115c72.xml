@@ -4,6 +4,7 @@
         <app_config display_value="My Wokspace Config">e6f349d66e662110bb7502498032ef7e</app_config>
         <description/>
         <disable_auto_reflow>false</disable_auto_reflow>
+        <disable_interoperable>false</disable_interoperable>
         <event_mappings/>
         <macroponent display_value="Workspace notification">2683731bb7fa5010fddc6c91de11a93c</macroponent>
         <macroponent_config/>

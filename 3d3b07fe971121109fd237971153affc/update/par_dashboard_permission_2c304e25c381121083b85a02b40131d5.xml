@@ -5,6 +5,7 @@
         <can_write>true</can_write>
         <dashboard display_value="Now Pro Plus">c3200e25d4811210a1abbc8c54f61c0e</dashboard>
         <group/>
+        <owner>false</owner>
         <role/>
         <sys_class_name>par_dashboard_permission</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>
@@ -21,6 +22,6 @@
         <sys_update_name>par_dashboard_permission_2c304e25c381121083b85a02b40131d5</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
         <sys_updated_on>2024-10-04 18:52:37</sys_updated_on>
-        <user display_value="Leandro Lopes">d9e5a5f6930512102b267fbcebba101b</user>
+        <user display_value="">d9e5a5f6930512102b267fbcebba101b</user>
     </par_dashboard_permission>
 </record_update>

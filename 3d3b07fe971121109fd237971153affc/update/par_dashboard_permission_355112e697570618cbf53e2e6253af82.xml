@@ -5,6 +5,7 @@
         <can_write>true</can_write>
         <dashboard display_value="Hotel Transilvânia Management">9c519ea6185706182ecebb859678e72a</dashboard>
         <group/>
+        <owner>false</owner>
         <role/>
         <sys_class_name>par_dashboard_permission</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>

@@ -35,6 +35,7 @@ $link-hover-decoration: underline !default;&#13;
         <footer/>
         <footer_fixed>true</footer_fixed>
         <header display_value="GOV.BR Demo Header">6dea67fd97110210cbf53e2e6253afef</header>
+        <matching_now_experience_theme/>
         <name>GOV.BR Demo Theme</name>
         <navbar_fixed>true</navbar_fixed>
         <sys_class_name>sp_theme</sys_class_name>

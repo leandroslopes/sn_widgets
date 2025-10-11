@@ -2,6 +2,7 @@
     <sys_ux_data_broker_transform action="INSERT_OR_UPDATE">
         <acl_failure_result/>
         <api_name>x_821667_my_widget.MW: Incidents Query</api_name>
+        <batch_exclude>false</batch_exclude>
         <description>MW: Incidents Query Update</description>
         <mutates_server_data>false</mutates_server_data>
         <name>MW: Incidents Query</name>

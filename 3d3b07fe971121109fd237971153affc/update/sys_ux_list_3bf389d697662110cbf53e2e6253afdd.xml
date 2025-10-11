@@ -8,6 +8,8 @@
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </condition>
         <configuration display_value="My Wokspace_menu_config">bff389d697662110cbf53e2e6253af8c</configuration>
+        <enable_infinite_scroll>false</enable_infinite_scroll>
+        <fixed_query/>
         <group_by_column/>
         <groups/>
         <hide_cell_filter>false</hide_cell_filter>
@@ -53,6 +55,7 @@
         <highlight_content_color/>
         <highlight_content_pattern/>
         <list_attributes/>
+        <live_updates/>
         <max_characters>4000</max_characters>
         <order>30</order>
         <override_word_wrap_user_pref>false</override_word_wrap_user_pref>

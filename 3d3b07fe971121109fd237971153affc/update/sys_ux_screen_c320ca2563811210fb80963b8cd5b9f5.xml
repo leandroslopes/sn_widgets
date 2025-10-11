@@ -4,6 +4,7 @@
         <app_config display_value="Now Pro Plus App Config">c3200e2506811210a805b59b823fa214</app_config>
         <description/>
         <disable_auto_reflow>false</disable_auto_reflow>
+        <disable_interoperable>false</disable_interoperable>
         <event_mappings/>
         <macroponent display_value="Search results">72e447ee0b621010a8b1c96237673a7e</macroponent>
         <macroponent_config/>

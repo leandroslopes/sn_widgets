@@ -7,12 +7,14 @@
         <choice_direction>down</choice_direction>
         <choice_field/>
         <choice_table/>
+        <conversational_label/>
         <create_roles/>
         <default_html_value/>
         <default_value/>
         <delete_roles/>
         <delivery_plan/>
         <description/>
+        <disable_initial_slot_fill>false</disable_initial_slot_fill>
         <display_title>false</display_title>
         <do_not_select_first>false</do_not_select_first>
         <dynamic_default_value/>
@@ -32,8 +34,10 @@
 <ol style="list-style-position: inside;"><li style="font-size: 12pt;"><span style="font-size: 12pt;">Catalog Item: <a href="https://dev226204.service-now.com/nav_to.do?uri&#61;sc_cat_item.do?sys_id&#61;d0098d80c3a5121011357d0ed40131f5" target="_blank" rel="noopener noreferrer nofollow">Import User Data </a></span></li><li style="font-size: 12pt;"><span style="font-size: 12pt;">Data Source: <a href="https://dev226204.service-now.com/nav_to.do?uri&#61;sys_data_source.do?sys_id&#61;269d4588c3a5121011357d0ed401316d" target="_blank" rel="noopener noreferrer nofollow">Import User Data</a></span></li><li style="font-size: 12pt;"><span style="font-size: 12pt;">Transform Map: <a href="https://dev226204.service-now.com/nav_to.do?uri&#61;sys_transform_map.do?sys_id&#61;735fcdc8c3a5121011357d0ed401314c" target="_blank" rel="noopener noreferrer nofollow">Import User Data</a></span></li><li style="font-size: 12pt;"><span style="font-size: 12pt;">Scheduled Data Import: <a href="https://dev226204.service-now.com/nav_to.do?uri&#61;scheduled_import_set.do?sys_id&#61;a530554cc3a5121011357d0ed401310c" target="_blank" rel="noopener noreferrer nofollow">Import User Data</a></span></li><li style="font-size: 12pt;"><span style="font-size: 12pt;">Business Rule: <a href="https://dev226204.service-now.com/nav_to.do?uri&#61;sys_script.do?sys_id&#61;d201158cc3a5121011357d0ed4013138" rel="nofollow">Import User Data</a></span></li><li style="font-size: 12pt;"><span style="font-size: 12pt;">Script Include: <a href="https://dev226204.service-now.com/nav_to.do?uri&#61;sys_script_include.do?sys_id&#61;517b1b9cc361921011357d0ed4013129" rel="nofollow">ImportUserDataUtils</a></span></li></ol>]]></instructions>
         <layout>normal</layout>
         <list_table/>
+        <lookup_dependent_question/>
         <lookup_label/>
         <lookup_price/>
+        <lookup_source/>
         <lookup_table/>
         <lookup_unique>false</lookup_unique>
         <lookup_value/>
@@ -44,6 +48,7 @@
         <mask_use_confirmation>false</mask_use_confirmation>
         <mask_use_encryption>false</mask_use_encryption>
         <name>instructions</name>
+        <not_available_conversation>false</not_available_conversation>
         <order>200</order>
         <post_insert_script/>
         <price_if_checked>0</price_if_checked>
@@ -89,6 +94,7 @@
         <sys_updated_on>2024-10-30 20:34:37</sys_updated_on>
         <table/>
         <tooltip/>
+        <topic_block/>
         <type>11</type>
         <ui_page/>
         <unique>false</unique>

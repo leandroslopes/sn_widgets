@@ -4,6 +4,7 @@
         <app_config display_value="Now Pro Plus App Config">c3200e2506811210a805b59b823fa214</app_config>
         <description/>
         <disable_auto_reflow>false</disable_auto_reflow>
+        <disable_interoperable>false</disable_interoperable>
         <event_mappings/>
         <macroponent display_value="Dashboards">163a913b532c0110aab9ddeeff7b1241</macroponent>
         <macroponent_config/>

@@ -5,6 +5,7 @@
         <extension_point/>
         <fields/>
         <icon/>
+        <interoperable>false</interoperable>
         <name>Room Reservation Calendar</name>
         <optional_parameters/>
         <order>0</order>

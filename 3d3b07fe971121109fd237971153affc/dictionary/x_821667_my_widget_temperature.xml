@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="70e8d861c335121011357d0ed4013189" label="Temperature" max_length="40" name="x_821667_my_widget_temperature" type="collection">
-        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
-        <element label="External incident" max_length="40" name="u_external_incident" type="string"/>
         <element label="ID" max_length="40" name="u_id" type="string"/>
-        <element label="Last status" max_length="40" name="u_last_status" type="string"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
         <element label="Temperature" max_length="40" name="u_temperature" type="float"/>
+        <element label="Last status" max_length="40" name="u_last_status" type="string"/>
+        <element label="External incident" max_length="40" name="u_external_incident" type="string"/>
     </element>
 </database>

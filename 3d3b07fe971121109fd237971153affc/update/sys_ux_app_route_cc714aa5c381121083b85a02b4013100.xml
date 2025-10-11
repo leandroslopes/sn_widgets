@@ -5,6 +5,7 @@
         <extension_point/>
         <fields/>
         <icon/>
+        <interoperable>false</interoperable>
         <name>Incident Manager 1</name>
         <optional_parameters/>
         <order>0</order>

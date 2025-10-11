@@ -58,25 +58,6 @@
             <element>type</element>
             <hint/>
             <inactive>false</inactive>
-            <label>Simple</label>
-            <language>en</language>
-            <name>x_821667_my_widget_room</name>
-            <sequence/>
-            <synonyms/>
-            <sys_created_by>leandro.lopes</sys_created_by>
-            <sys_created_on>2024-07-12 22:36:54</sys_created_on>
-            <sys_domain>global</sys_domain>
-            <sys_domain_path>/</sys_domain_path>
-            <sys_mod_count>1</sys_mod_count>
-            <sys_updated_by>leandro.lopes</sys_updated_by>
-            <sys_updated_on>2024-07-12 22:40:44</sys_updated_on>
-            <value>Simple</value>
-        </sys_choice>
-        <sys_choice action="INSERT_OR_UPDATE">
-            <dependent_value/>
-            <element>type</element>
-            <hint/>
-            <inactive>false</inactive>
             <label>Simples</label>
             <language>pb</language>
             <name>x_821667_my_widget_room</name>
@@ -96,19 +77,19 @@
             <element>type</element>
             <hint/>
             <inactive>false</inactive>
-            <label>Standard</label>
+            <label>Simple</label>
             <language>en</language>
             <name>x_821667_my_widget_room</name>
             <sequence/>
             <synonyms/>
             <sys_created_by>leandro.lopes</sys_created_by>
-            <sys_created_on>2024-07-12 22:37:02</sys_created_on>
+            <sys_created_on>2024-07-12 22:36:54</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
             <sys_mod_count>1</sys_mod_count>
             <sys_updated_by>leandro.lopes</sys_updated_by>
-            <sys_updated_on>2024-07-12 22:40:39</sys_updated_on>
-            <value>Standard</value>
+            <sys_updated_on>2024-07-12 22:40:44</sys_updated_on>
+            <value>Simple</value>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -127,6 +108,25 @@
             <sys_mod_count>2</sys_mod_count>
             <sys_updated_by>leandro.lopes</sys_updated_by>
             <sys_updated_on>2024-07-12 22:41:16</sys_updated_on>
+            <value>Standard</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Standard</label>
+            <language>en</language>
+            <name>x_821667_my_widget_room</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>leandro.lopes</sys_created_by>
+            <sys_created_on>2024-07-12 22:37:02</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>leandro.lopes</sys_updated_by>
+            <sys_updated_on>2024-07-12 22:40:39</sys_updated_on>
             <value>Standard</value>
         </sys_choice>
     </sys_choice>

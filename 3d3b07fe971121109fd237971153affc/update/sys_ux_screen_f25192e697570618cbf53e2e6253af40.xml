@@ -4,6 +4,7 @@
         <app_config display_value="Hotel Management App Config">50519ea6b8570618f95bcd7c8ced4a32</app_config>
         <description/>
         <disable_auto_reflow>false</disable_auto_reflow>
+        <disable_interoperable>false</disable_interoperable>
         <event_mappings>[
     
 ]</event_mappings>

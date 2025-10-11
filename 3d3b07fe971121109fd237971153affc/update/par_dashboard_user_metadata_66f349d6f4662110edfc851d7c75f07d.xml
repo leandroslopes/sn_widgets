@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_user_metadata">
     <par_dashboard_user_metadata action="INSERT_OR_UPDATE">
+        <background_color/>
+        <cache_expiration_time/>
+        <card_bg_image/>
         <created_by_user display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</created_by_user>
         <created_on>2022-05-29 16:29:20</created_on>
         <dashboard display_value="My Wokspace">6ef349d6796621108de4fd80786ce968</dashboard>
+        <edit_locked/>
+        <enable_data_cache>false</enable_data_cache>
+        <include_custom_insights>false</include_custom_insights>
+        <include_key_contributors>false</include_key_contributors>
+        <include_kpi_signals>false</include_kpi_signals>
+        <include_predictive_target>false</include_predictive_target>
+        <include_predictive_thresholds>false</include_predictive_thresholds>
+        <include_process_mining>false</include_process_mining>
+        <include_severity>false</include_severity>
+        <include_target>false</include_target>
+        <include_thresholds>false</include_thresholds>
+        <include_trends>false</include_trends>
+        <include_widget_notification>false</include_widget_notification>
+        <last_deactivated_on/>
         <last_updated_on>2022-05-29 16:56:20</last_updated_on>
+        <po_project_id_list/>
+        <refresh_information>false</refresh_information>
+        <refresh_interval/>
         <requested_by_user/>
+        <schedule_repetition>false</schedule_repetition>
+        <show_insights_panel>false</show_insights_panel>
         <sys_class_name>par_dashboard_user_metadata</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-05-03 23:25:41</sys_created_on>
@@ -21,5 +43,7 @@
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-05-03 23:25:45</sys_updated_on>
         <updated_by_user display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</updated_by_user>
+        <use_custom_tab_colors>false</use_custom_tab_colors>
+        <widgets_margin/>
     </par_dashboard_user_metadata>
 </record_update>

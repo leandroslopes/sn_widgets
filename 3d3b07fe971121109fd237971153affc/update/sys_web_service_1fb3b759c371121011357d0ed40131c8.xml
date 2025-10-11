@@ -26,7 +26,7 @@
         <sys_update_name>sys_web_service_1fb3b759c371121011357d0ed40131c8</sys_update_name>
         <sys_updated_by>leandro.lopes</sys_updated_by>
         <sys_updated_on>2024-11-10 15:30:55</sys_updated_on>
-        <wsdl>https://dev226204.service-now.com/x_821667_my_widget_getState.do?WSDL</wsdl>
+        <wsdl>https://dev357501.service-now.com/x_821667_my_widget_getState.do?WSDL</wsdl>
         <wsdl_compliance>false</wsdl_compliance>
     </sys_web_service>
 </record_update>

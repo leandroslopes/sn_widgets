@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="361bab11c331121011357d0ed4013189" extends="sys_import_set_row" label="Web Service City" max_length="40" name="x_821667_my_widget_web_service_city" type="collection">
-        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_id" label="ID" max_length="40" name="u_id" type="string"/>
-        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_latitude" label="Latitude" max_length="40" name="u_latitude" type="string"/>
-        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_longitude" label="Longitude" max_length="40" name="u_longitude" type="string"/>
-        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_name" label="Name" max_length="40" name="u_name" type="string"/>
-        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_name_uri" label="Name URI" max_length="40" name="u_name_uri" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=u_pais" label="Pais" max_length="40" name="u_pais" type="string"/>
-        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_summary" label="Summary" max_length="40" name="u_summary" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_latitude" label="Latitude" max_length="40" name="u_latitude" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_id" label="ID" max_length="40" name="u_id" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_name_uri" label="Name URI" max_length="40" name="u_name_uri" type="string"/>
         <element attributes="edge_encryption_enabled=true,import_attribute_name=u_uf" label="Uf" max_length="40" name="u_uf" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_name" label="Name" max_length="40" name="u_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_summary" label="Summary" max_length="40" name="u_summary" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_longitude" label="Longitude" max_length="40" name="u_longitude" type="string"/>
     </element>
 </database>

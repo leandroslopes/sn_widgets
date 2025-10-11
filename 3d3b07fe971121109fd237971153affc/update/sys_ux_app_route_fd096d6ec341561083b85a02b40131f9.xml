@@ -5,6 +5,7 @@
         <extension_point/>
         <fields>table</fields>
         <icon/>
+        <interoperable>false</interoperable>
         <name>My Simple List</name>
         <optional_parameters>query,title</optional_parameters>
         <order>0</order>

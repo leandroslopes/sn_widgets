@@ -171,7 +171,7 @@
         <update_guid_history>72cb81089ba51210b6e882d80aab1d61:1303638756</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="File data">71cbe45cc365521011357d0ed401313e</sys_audit_delete>
+        <sys_audit_delete display_value="">71cbe45cc365521011357d0ed401313e</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-10-25 12:02:46</sys_created_on>

@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope, $timeout, spUtil) {
+	/* widget controller */
+	var c = this;
+
+	c.showCatalogCategories = [];
+	c.showCatalogCategoriesV2 = [];
+	c.showCategoryCategoriesOrCatItems = [];
+	c.showCategoryCategoriesOrCatItemsV2 = [];
+	c.showCatItem = [];
+
+	c.catalogs = JSON.parse(c.data.catalogs);
+	c.categories = [];
+	c.categoryCategoriesOrCatItems = [];
+	c.categoryCatItems = [];
+
+	c.loadCatalogCategories = function(catalog, catalogSysID) {
+
+		c.server.get({
+			action: 'getCatalogCategories', 
+			catalogSysID: catalogSysID
+		}).then(function(response) {
+			c.categories = JSON.parse(response.data.catalogCategories);
+
+			c.catalogs.forEach(function(catalog) {
+				if (catalog.sysID == catalogSysID) {
+					c.showCatalogCategories[catalog.sysID] = !c.showCatalogCategories[catalog.sysID];
+				} else {
+					c.showCatalogCategories[catalog.sysID] = false;
+				}
+			});
+		});
+	};
+
+	c.loadCategoryCategoriesOrCatItems = function(categorySysID) {
+		c.server.get({
+			action: 'getCategoryCategoriesOrCatItems', 
+			categorySysID: categorySysID
+		}).then(function(response) {
+			c.categoryCategoriesOrCatItems = JSON.parse(response.data.categoryCategoriesOrCatItems);
+
+			c.categories.list.forEach(function(categoriesOrCatItems) {
+				if (categoriesOrCatItems.sysID == categorySysID) {
+					c.showCategoryCategoriesOrCatItems[categoriesOrCatItems.sysID] = !c.showCategoryCategoriesOrCatItems[categoriesOrCatItems.sysID];
+				} else {
+					c.showCategoryCategoriesOrCatItems[categoriesOrCatItems.sysID] = false;
+				}
+			});
+		});	
+	};
+
+	c.loadCategoryCatItems = function(categorySysID) {
+		c.server.get({
+			action: 'getCategoryCatItems', 
+			categorySysID: categorySysID
+		}).then(function(response) {
+			c.categoryCatItems = JSON.parse(response.data.categoryCatItems);
+
+			c.categoryCategoriesOrCatItems.list.forEach(function(categoriesOrCatItems) {
+				if (categoriesOrCatItems.sysID == categorySysID) {
+					c.showCatItem[categoriesOrCatItems.sysID] = !c.showCatItem[categoriesOrCatItems.sysID];
+				} else {
+					c.showCatItem[categoriesOrCatItems.sysID] = false;
+				}
+			});			
+		});
+	};
+
+	c.loadCatalogCategoriesV2 = function(catalogSysID) {
+
+		$scope.catalogStructure.forEach(function(catalog) {			
+			if (catalog.sysID == catalogSysID) {
+				c.showCatalogCategoriesV2[catalog.sysID] = !c.showCatalogCategoriesV2[catalog.sysID];
+			} else {
+				c.showCatalogCategoriesV2[catalog.sysID] = false;
+			}
+		});		
+	};
+
+	c.loadCategoryCategoriesOrCatItemsV2 = function(categories, categorySysID) {
+		categories.forEach(function(category) {
+			if (category.sysID == categorySysID) {
+				c.showCategoryCategoriesOrCatItemsV2[categorySysID.sysID] = !c.showCategoryCategoriesOrCatItemsV2[categorySysID.sysID];
+			} else {
+				c.showCategoryCategoriesOrCatItemsV2[categorySysID.sysID] = false;
+			}
+		});
+	};
+
+	c.sendCloseSignal = function() {
+		$rootScope.$broadcast('childToParentMessage', {
+			action: 'close',
+			reason: 'User seletected catalog item'
+		});
+	};
+
+	$scope.clearSearch = function() {
+		$scope.searchText = '';
+	};
+
+	$scope.searchText = '';
+	$scope.catalogItems = [];
+	$scope.isSearching = false;
+
+	let debounceTimer;
+
+	$scope.$watch('searchText', function(newVal) {
+		if (debounceTimer) $timeout.cancel(debounceTimer);
+
+		if (newVal && newVal.length >= 3) {
+			debounceTimer = $timeout(function() {
+				$scope.isSearching = true;
+
+				$scope.server.get({ searchText: newVal }).then(function(response) {
+					var catalogStructure = JSON.parse(response.data.catalogStructure);
+					$scope.catalogStructure = catalogStructure || [];
+					setVisibleCatalogStructure(catalogStructure);
+					$scope.isSearching = false;
+				});
+			}, 500);
+		} else {
+			$scope.catalogStructure = [];
+		}
+	});
+
+	function setVisibleCatalogStructure(catalogStructure) {
+
+		catalogStructure.forEach(function(catalog) {			
+			c.showCatalogCategoriesV2[catalog.sysID] = true;		
+		});	
+	}
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>span, i {&#13;
+  line-height: 124%;&#13;
+  color: rgba(0, 87, 48, 0.9206) !important;&#13;
+}&#13;
+&#13;
+span {&#13;
+  font-weight: 600;&#13;
+  font-size: 1.6rem;&#13;
+  color: rgba(0, 87, 48, 0.9206) !important;&#13;
+}&#13;
+&#13;
+i.fa-chevron-down, i.fa-chevron-right {&#13;
+  font-size: 1rem !important;&#13;
+  margin-top: .3rem;&#13;
+}&#13;
+&#13;
+i.fa-file-text {&#13;
+  font-size: 1.6rem !important;&#13;
+}&#13;
+&#13;
+a {&#13;
+  cursor: pointer;&#13;
+  display: flex;&#13;
+  gap: 1.8rem;&#13;
+  padding: .8rem 1.2rem;&#13;
+}&#13;
+&#13;
+.custom-input .form-control {&#13;
+  background-color: #E6F6EB;&#13;
+  border: 2px solid #cce3d5;&#13;
+  border-radius: 6px;&#13;
+  transition: all 0.3s ease;&#13;
+  box-shadow: none;&#13;
+  padding: 1.8rem;&#13;
+}&#13;
+&#13;
+.custom-input .form-control:focus {&#13;
+  border-color: #66bb6a;&#13;
+  box-shadow: 0 0 8px rgba(102, 187, 106, 0.4);&#13;
+  background-color: #f0fff5;&#13;
+}&#13;
+&#13;
+/* Estiliza o placeholder com opacidade */&#13;
+.custom-input .form-control::placeholder {&#13;
+  color: #333;&#13;
+  opacity: 0.5; /* valor entre 0 (transparente) e 1 (opaco) */&#13;
+}&#13;
+&#13;
+/* Compatibilidade com navegadores antigos */&#13;
+.custom-input .form-control:-ms-input-placeholder {&#13;
+  color: #333;&#13;
+  opacity: 0.5;&#13;
+}&#13;
+&#13;
+.custom-input .form-control::-ms-input-placeholder {&#13;
+  color: #333;&#13;
+  opacity: 0.5;&#13;
+}&#13;
+&#13;
+.clear-icon {&#13;
+  position: absolute;&#13;
+  right: 10px;&#13;
+  top: 38px;&#13;
+  color: #999;&#13;
+  cursor: pointer;&#13;
+  z-index: 2;&#13;
+}&#13;
+&#13;
+.clear-icon {&#13;
+  position: absolute;&#13;
+  right: 1rem;&#13;
+  top: 1rem;&#13;
+  color: #999;&#13;
+  cursor: pointer;&#13;
+  z-index: 2;&#13;
+}&#13;
+&#13;
+.spinner-icon {&#13;
+  position: absolute;&#13;
+  right: 1rem;&#13;
+  top: 1rem; /* ajusta conforme altura do input */&#13;
+  color: #999;&#13;
+  pointer-events: none;&#13;
+}&#13;
+&#13;
+/* Container com scroll */&#13;
+.scroll-container {&#13;
+  overflow-y: scroll;&#13;
+  height: 100vh;&#13;
+  padding-right: 2rem;&#13;
+  padding-bottom: 2rem;&#13;
+}&#13;
+&#13;
+/* Estilo da barra de rolagem */&#13;
+.scroll-container::-webkit-scrollbar {&#13;
+  width: 1.2rem;&#13;
+  padding: 1rem .4rem;&#13;
+}&#13;
+&#13;
+/* Estilo do trilho (track) */&#13;
+.scroll-container::-webkit-scrollbar-track {&#13;
+  background: #FFFFFF;    &#13;
+  border-radius: .6rem;            &#13;
+}&#13;
+&#13;
+/* Estilo do "thumb" (parte que desliza) */&#13;
+.scroll-container::-webkit-scrollbar-thumb {&#13;
+  background-color: #E6F6EB;&#13;
+  border: .2rem solid rgba(0, 87, 48, 0.9206);&#13;
+  border-radius: .6rem;&#13;
+}&#13;
+&#13;
+/* Hover no thumb */&#13;
+.scroll-container::-webkit-scrollbar-thumb:hover {&#13;
+  opacity: 50%;&#13;
+}&#13;
+&#13;
+.nivel-0, .nivel-1, .nivel-2, .nivel-3, .nivel-4 {&#13;
+  padding-top: 1.4rem;&#13;
+}&#13;
+&#13;
+.nivel-0 {&#13;
+  display: flex;&#13;
+}&#13;
+&#13;
+.nivel-0 span {&#13;
+  margin-left: 1.6rem;&#13;
+}&#13;
+&#13;
+.nivel-1 a:hover {&#13;
+  background-color: #E6F6EB;&#13;
+  border-radius: .8rem;&#13;
+}&#13;
+&#13;
+.cat-item {&#13;
+  padding-bottom: 1.4rem;&#13;
+}&#13;
+&#13;
+.cat-item:last-of-type {&#13;
+  padding-bottom: 0;&#13;
+}&#13;
+&#13;
+.nivel-1 { margin-left: 10px; }&#13;
+.nivel-2 { margin-left: 20px; }&#13;
+.nivel-3 { margin-left: 30px; }&#13;
+.nivel-4 { margin-left: 40px; }</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>navigation-drawer</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Navigation Drawer</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+
+	var catalogs = [];
+	var grScCatalog = new GlideRecord('sc_catalog');
+	grScCatalog.addQuery('active', true);
+	grScCatalog.orderBy('title');
+	grScCatalog.query();
+	while (grScCatalog.next()) {
+		var catalog = {
+			sysID: grScCatalog.getValue('sys_id'),
+			name: grScCatalog.getDisplayValue('title')
+		};
+		catalogs.push(catalog);
+	}
+	data.catalogs = JSON.stringify(catalogs);
+
+	if (input && input.action == 'getCatalogCategories') {
+		data.catalogCategories = getCatalogCategories(input.catalogSysID);
+	}
+
+	if (input && input.action == 'getCategoryCategoriesOrCatItems') {
+		data.categoryCategoriesOrCatItems = getCategoryCategoriesOrCatItems(input.categorySysID);
+	}
+
+	if (input && input.action == 'getCategoryCatItems') {
+		data.categoryCatItems = getCategoryCatItems(input.categorySysID);
+	}
+
+	if (input && input.searchText && (input.searchText).length >= 3) {
+		data.catalogStructure = getCatalogItemsBySearchText(input.searchText)
+	}
+
+	function getCatalogCategories(catalogSysID) {
+		var categories = {
+			catalogSysID: catalogSysID,
+			list: []
+		};
+
+		var grCategory = new GlideRecord('sc_category');
+		grCategory.addEncodedQuery("active=true^parent=NULL^sc_catalog="+catalogSysID+"^ORDERBYtitle");
+		grCategory.query();
+		while (grCategory.next()) {
+
+			var hasSubCategries = hasRecords('sc_category', 'parent='+grCategory.getValue('sys_id'));
+			var hasCatItem = hasRecords('sc_cat_item', 'category='+grCategory.getValue('sys_id'));
+			if (hasSubCategries || hasCatItem) {
+				var category = {
+					sysID: grCategory.getValue('sys_id'),
+					name: grCategory.getDisplayValue('title')
+				};
+				categories.list.push(category);
+			}
+		}
+
+		return JSON.stringify(categories);
+	}
+
+	function getCategoryCategoriesOrCatItems(categorySysID) {
+		var itemsList = [];
+		var items = {
+			categorySysID: categorySysID,
+			list: []
+		};
+
+		var hasSubCategories = hasRecords('sc_category', 'parent='+categorySysID);
+		if (hasSubCategories) {
+
+			var grCategory = new GlideRecord('sc_category');
+			grCategory.addEncodedQuery("active=true^parent=" + categorySysID + "^ORDERBYtitle");
+			grCategory.query();
+			while (grCategory.next()) {
+
+				var hasCatItemsAux1 = hasRecords('sc_cat_item', 'active=true^category='+grCategory.getValue('sys_id'));
+				if (hasCatItemsAux1) {
+					var category = {
+						sysID: grCategory.getValue('sys_id'),
+						name: grCategory.getDisplayValue('title'),
+						isCatItem: false
+					};
+					itemsList.push(category);
+				}
+			}
+
+			items.list = itemsList;
+		}
+
+		var hasCatItemsAux2 = hasRecords('sc_cat_item', 'active=true^category='+categorySysID);
+		if (hasCatItemsAux2) {
+
+			var catItems = JSON.parse(getCategoryCatItems(categorySysID));
+			if (items.list.length > 0)
+				items.list = itemsList.concat(catItems.list)
+			else
+				items.list = catItems.list;
+		}
+
+		return JSON.stringify(items);
+	}
+
+	function getCategoryCatItems(categorySysID) {
+		var items = {
+			categorySysID: categorySysID,
+			list: []
+		};
+
+		var grItem = new GlideRecord('sc_cat_item');
+		grItem.addQuery('category', categorySysID);
+		grItem.addQuery('active', true);
+		grItem.addQuery('visible_standalone', true);
+		grItem.orderBy('name');
+		grItem.query();
+
+		while (grItem.next()) {
+			items.list.push({
+				sysID: grItem.getValue('sys_id'),
+				name: grItem.getDisplayValue('name'),
+				isCatItem: true
+			});
+		}
+
+		return JSON.stringify(items);
+	}
+
+	function getCatalogItemsBySearchText(searchText) {
+		var catalogStructure = [];
+
+		var catalogGR = new GlideRecord('sc_catalog'); 
+		catalogGR.addQuery('active', true);
+		catalogGR.orderBy('title');
+		catalogGR.query();
+
+		while (catalogGR.next()) {
+			var catalogObj = {
+				sysID: catalogGR.getUniqueValue(),
+				name: catalogGR.getValue('title'),
+				categories: []
+			};
+
+			var categoryGR = new GlideRecord('sc_category');
+			categoryGR.addQuery('sc_catalog', catalogGR.getUniqueValue());
+			categoryGR.addQuery('active', true);
+			categoryGR.addQuery('parent', 'NULL');
+			categoryGR.orderBy('title');
+			categoryGR.query();
+
+			while (categoryGR.next()) {
+				var categoryObj = {
+					sysID: categoryGR.getUniqueValue(),
+					name: categoryGR.getValue('title'),
+					items: [],
+					subcategories: []
+				};
+
+				// Itens diretamente na categoria
+				var itemGR = new GlideRecord('sc_cat_item');
+				itemGR.addQuery('category', categoryGR.getUniqueValue());
+				itemGR.addQuery('active', true);
+				itemGR.addQuery('visible_standalone', true);
+				itemGR.addQuery('name', 'CONTAINS', searchText);
+				itemGR.orderBy('name');
+				itemGR.query();
+
+				while (itemGR.next()) {			
+					categoryObj.items.push({
+						name: itemGR.getValue('name'),
+						sysID: itemGR.getUniqueValue()
+					});
+				}
+
+				// Subcategorias da categoria
+				var subcatGR = new GlideRecord('sc_category');
+				subcatGR.addQuery('parent', categoryGR.getUniqueValue());
+				categoryGR.addQuery('active', true);
+				categoryGR.orderBy('title');
+				subcatGR.query();
+
+				while (subcatGR.next()) {
+					var subcatObj = {
+						sysID: subcatGR.getUniqueValue(),
+						name: subcatGR.getValue('title'),
+						items: []
+					};
+
+					var subItemGR = new GlideRecord('sc_cat_item');
+					subItemGR.addQuery('category', subcatGR.getUniqueValue());
+					subItemGR.addQuery('active', true);
+					subItemGR.addQuery('visible_standalone', true);
+					subItemGR.addQuery('name', 'CONTAINS', searchText);
+					subItemGR.query();
+
+					while (subItemGR.next()) {
+						subcatObj.items.push({
+							name: subItemGR.getValue('name'),
+							sysID: subItemGR.getUniqueValue()
+						});
+					}
+
+					if (subcatObj.items.length > 0) {
+						categoryObj.subcategories.push(subcatObj);
+					}
+				}
+
+				if (categoryObj.items.length > 0 || categoryObj.subcategories.length > 0) {
+					catalogObj.categories.push(categoryObj);
+				}
+			}
+
+			if (catalogObj.categories.length > 0) {
+				catalogStructure.push(catalogObj);
+			}
+		}
+
+		return JSON.stringify(catalogStructure);
+	}
+
+	function hasRecords(table, query) {
+		var grTable = new GlideRecord(table);
+		grTable.addEncodedQuery(query);
+		grTable.setLimit(1);
+		grTable.query();
+		if (grTable.next()) {
+			return true;
+		}
+		return false;
+	}
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-10-11 18:53:44</sys_created_on>
+        <sys_id>84ef61910fe036107371c6e530d1b2bc</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Navigation Drawer</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_84ef61910fe036107371c6e530d1b2bc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-10-11 18:54:00</sys_updated_on>
+        <template><![CDATA[<div class="menu">
+  <div>    
+    <div class="form-group custom-input position-relative" style="position: relative;">
+      <input type="text" 
+             id="catalogSearch" 
+             class="form-control"
+             ng-model="searchText" 
+             placeholder="Digite pelo menos 3 letras..."
+             style="padding-right: 2rem;">
+
+      <!-- Ícone de limpar -->
+      <span ng-if="!isSearching && searchText.length > 0" class="clear-icon" ng-click="clearSearch()">
+        <i class="fa fa-times-circle"></i>
+      </span>
+
+      <!-- Spinner dentro do input -->
+      <span ng-if="isSearching" class="spinner-icon">
+        <i class="fa fa-spinner fa-spin"></i>
+      </span>
+    </div>
+
+    <!--ul class="list-group" ng-if="catalogStructure.length > 0">
+      <li class="list-group-item" ng-repeat="catalog in catalogStructure">
+        {{::catalog.name}}
+        <ul class="list-group" ng-if="catalog.categories.length > 0">
+          <li class="list-group-item" ng-repeat="category in catalog.categories">
+            {{::category.name}}
+            <ul class="list-group" ng-if="category.subcategories.length > 0">
+              <li class="list-group-item" ng-repeat="subcategory in category.subcategories">
+                {{::subcategory.name}}
+                <ul class="list-group" ng-if="subcategory.items.length > 0">
+                  <li class="list-group-item" ng-repeat="item in subcategory.items">
+                    <a href="?id=sc_cat_item&sys_id={{item.sysID}}">{{::item.name}}</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="list-group" ng-if="category.items.length > 0">
+              <li class="list-group-item" ng-repeat="item in category.items">
+                <a href="?id=sc_cat_item&sys_id={{item.sysID}}">{{::item.name}}</a>
+              </li>
+            </ul>
+          </li>
+        </ul>        
+      </li>
+    </ul>
+    <div ng-if="!isSearching && searchText.length >= 3 && catalogStructure.length === 0">
+      <p>Nenhum item encontrado.</p>
+    </div-->
+
+    <div class="nivel-0">
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+      <span>${Formulários por categoria}</span>
+    </div>
+    <div class="scroll-container">
+      
+      <!-- Load menu -->
+      <div ng-repeat="catalog in c.catalogs" class="nivel-1" ng-if="catalogStructure && catalogStructure.length === 0">
+        <a ng-click="c.loadCatalogCategories(catalog, catalog.sysID)">
+          <i class="fa fa-chevron-right" aria-hidden="true" ng-if="!c.showCatalogCategories[catalog.sysID]"></i>
+          <i class="fa fa-chevron-down" aria-hidden="true" ng-if="c.showCatalogCategories[catalog.sysID]"></i>       
+          <span>{{::catalog.name}}</span>
+        </a>
+        <div ng-if="c.categories.catalogSysID == catalog.sysID && c.showCatalogCategories[catalog.sysID]">
+          <div ng-repeat="category in c.categories.list" class="nivel-2">
+            <a ng-click="c.loadCategoryCategoriesOrCatItems(category.sysID)">
+              <i class="fa fa-chevron-right" aria-hidden="true" ng-if="!c.showCategoryCategoriesOrCatItems[category.sysID]"></i>
+              <i class="fa fa-chevron-down" aria-hidden="true" ng-if="c.showCategoryCategoriesOrCatItems[category.sysID]"></i>
+              <span>{{::category.name}}</span>            
+            </a>
+            <div ng-if="c.categoryCategoriesOrCatItems.categorySysID == category.sysID && c.showCategoryCategoriesOrCatItems[category.sysID]">
+              <div ng-repeat="categoryOrCatItem in c.categoryCategoriesOrCatItems.list" class="nivel-3">
+                <a href="?id=sc_cat_item&sys_id={{::categoryOrCatItem.sysID}}" ng-if="categoryOrCatItem.isCatItem" ng-click="c.sendCloseSignal()">
+                  <i class="fa fa-file-text" aria-hidden="true"></i>                
+                  <span>{{::categoryOrCatItem.name}}</span>
+                </a>
+                <a ng-click="c.loadCategoryCatItems(categoryOrCatItem.sysID)" ng-if="!categoryOrCatItem.isCatItem">
+                  <i class="fa fa-chevron-right" aria-hidden="true" ng-if="!c.showCatItem[categoryOrCatItem.sysID]"></i>
+                  <i class="fa fa-chevron-down" aria-hidden="true" ng-if="c.showCatItem[categoryOrCatItem.sysID]"></i>                
+                  <span>{{::categoryOrCatItem.name}}</span>
+                </a>
+                <div ng-if="c.categoryCatItems.categorySysID == categoryOrCatItem.sysID && !categoryOrCatItem.isCatItem && c.showCatItem[categoryOrCatItem.sysID]" class="nivel-4">
+                  <div ng-repeat="catItem in c.categoryCatItems.list" class="cat-item">
+                    <a href="?id=sc_cat_item&sys_id={{::catItem.sysID}}" ng-click="c.sendCloseSignal()">
+                      <i class="fa fa-file-text" aria-hidden="true"></i>                    
+                      <span>{{::catItem.name}}</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Searched text menu -->
+      <div ng-repeat="catalog in catalogStructure" class="nivel-1" ng-if="catalogStructure && catalogStructure.length > 0">
+        <a ng-click="c.loadCatalogCategoriesV2(catalog.sysID)">
+          <i class="fa fa-chevron-right" aria-hidden="true" ng-if="!c.showCatalogCategoriesV2[catalog.sysID]"></i>
+          <i class="fa fa-chevron-down" aria-hidden="true" ng-if="c.showCatalogCategoriesV2[catalog.sysID]"></i>       
+          <span>{{::catalog.name}}</span>
+        </a> 
+        <div ng-if="catalog.categories.length > 0 && c.showCatalogCategoriesV2[catalog.sysID]">
+          <div ng-repeat="category in catalog.categories" class="nivel-2">
+            <a ng-click="c.loadCategoryCategoriesOrCatItemsV2(categories, category.sysID)">
+              <i class="fa fa-chevron-right" aria-hidden="true" ng-if="!c.showCategoryCategoriesOrCatItemsV2[category.sysID]"></i>
+              <i class="fa fa-chevron-down" aria-hidden="true" ng-if="c.showCategoryCategoriesOrCatItemsV2[category.sysID]"></i>
+              <span>{{::category.name}}</span>            
+            </a>
+            <div ng-if="(category.subcategories.length > 0 || category.items.length > 0) && c.showCategoryCategoriesOrCatItemsV2[category.sysID]">
+              <div ng-repeat="catItem in category.items" class="nivel-3">
+                <a href="?id=sc_cat_item&sys_id={{::catItem.sysID}}" ng-click="c.sendCloseSignal()">
+                  <i class="fa fa-file-text" aria-hidden="true"></i>                
+                  <span>{{::catItem.name}}</span>
+                </a>
+              </div>
+              <div ng-repeat="subcategory in category.subcategories" class="nivel-3">
+                <a ng-click="c.loadCategoryCatItemsV2(categoryOrCatItem.sysID)">
+                  <i class="fa fa-chevron-right" aria-hidden="true" ng-if="!c.showCatItemV2[categoryOrCatItem.sysID]"></i>
+                  <i class="fa fa-chevron-down" aria-hidden="true" ng-if="c.showCatItemV2[categoryOrCatItem.sysID]"></i>                
+                  <span>{{::subcategory.name}}</span>
+                </a>
+                <div ng-if="subcategory.items.length > 0" class="nivel-4">
+                  <div ng-repeat="catItem in subcategory.items" class="cat-item">
+                    <a href="?id=sc_cat_item&sys_id={{::catItem.sysID}}" ng-click="c.sendCloseSignal()">
+                      <i class="fa fa-file-text" aria-hidden="true"></i>                    
+                      <span>{{::catItem.name}}</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

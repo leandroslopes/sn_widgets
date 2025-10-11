@@ -5,6 +5,7 @@
         <extension_point/>
         <fields>uuid</fields>
         <icon/>
+        <interoperable>false</interoperable>
         <name>KPI Details</name>
         <optional_parameters>scoreDate,breakdowns,domain</optional_parameters>
         <order>0</order>

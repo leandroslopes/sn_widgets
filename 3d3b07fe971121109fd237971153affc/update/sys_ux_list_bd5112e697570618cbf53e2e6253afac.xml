@@ -5,6 +5,8 @@
         <columns>sys_created_on,sys_created_by,sys_updated_on,sys_updated_by,sys_mod_count</columns>
         <condition/>
         <configuration display_value="Hotel Management_menu_config">b15112e697570618cbf53e2e6253af8f</configuration>
+        <enable_infinite_scroll>false</enable_infinite_scroll>
+        <fixed_query/>
         <group_by_column/>
         <groups/>
         <hide_cell_filter>false</hide_cell_filter>
@@ -50,6 +52,7 @@
         <highlight_content_color/>
         <highlight_content_pattern/>
         <list_attributes/>
+        <live_updates/>
         <max_characters>4000</max_characters>
         <order>50</order>
         <override_word_wrap_user_pref>false</override_word_wrap_user_pref>

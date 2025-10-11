@@ -4,6 +4,7 @@
         <app_config display_value="My Wokspace Config">e6f349d66e662110bb7502498032ef7e</app_config>
         <description/>
         <disable_auto_reflow>false</disable_auto_reflow>
+        <disable_interoperable>false</disable_interoperable>
         <event_mappings>[ ]</event_mappings>
         <macroponent display_value="Incident Record Page">8c04c9d697662110cbf53e2e6253af2a</macroponent>
         <macroponent_config>{

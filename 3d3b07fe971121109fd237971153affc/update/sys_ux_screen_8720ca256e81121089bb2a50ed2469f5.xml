@@ -4,6 +4,7 @@
         <app_config display_value="Now Pro Plus App Config">c3200e2506811210a805b59b823fa214</app_config>
         <description/>
         <disable_auto_reflow>false</disable_auto_reflow>
+        <disable_interoperable>false</disable_interoperable>
         <event_mappings/>
         <macroponent display_value="Knowledge View">3094297373311010b29f2e46fbf6a7a1</macroponent>
         <macroponent_config>{&#13;

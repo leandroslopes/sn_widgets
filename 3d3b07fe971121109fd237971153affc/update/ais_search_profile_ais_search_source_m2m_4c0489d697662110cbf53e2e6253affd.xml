@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="ais_search_profile_ais_search_source_m2m">
     <ais_search_profile_ais_search_source_m2m action="INSERT_OR_UPDATE">
+        <exclude_attachments_in_now_assist_genius_results>false</exclude_attachments_in_now_assist_genius_results>
+        <exclude_in_now_assist_genius_results>false</exclude_in_now_assist_genius_results>
+        <exclude_in_regular_search>false</exclude_in_regular_search>
         <profile display_value="my-wokspace search profile">2ef349d685662110fa6b953b3e12707c</profile>
         <search_source display_value="Tasks - Incidents">13bf8fe1531201107f03ddeeff7b1274</search_source>
         <sys_class_name>ais_search_profile_ais_search_source_m2m</sys_class_name>

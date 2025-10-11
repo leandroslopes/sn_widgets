@@ -3,7 +3,7 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>number</element>
-            <list_id display_value="x_821667_my_widget_room" element="NULL" name="x_821667_my_widget_room" parent="NULL" relationship="NULL" sys_domain="global" view="28c0c1738d020210d0ad51af41866353">43a0dae297570618cbf53e2e6253afc8</list_id>
+            <list_id display_value="x_821667_my_widget_room" element="NULL" name="x_821667_my_widget_room" parent="NULL" relationship="NULL" sys_domain="global" view="9ecaa172f13322108bb2efdbde054cc6">43a0dae297570618cbf53e2e6253afc8</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
@@ -40,7 +40,7 @@
             <sys_updated_by>leandro.lopes</sys_updated_by>
             <sys_updated_on>2024-07-12 22:48:37</sys_updated_on>
             <sys_user/>
-            <view display_value="Reference List" name="sys_ref_list">28c0c1738d020210d0ad51af41866353</view>
+            <view display_value="Reference List" name="sys_ref_list">9ecaa172f13322108bb2efdbde054cc6</view>
             <view_name/>
         </sys_ui_list>
     </sys_ui_list>

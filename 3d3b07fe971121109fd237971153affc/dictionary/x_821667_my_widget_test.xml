@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="1597e3fe97078e54cbf53e2e6253affb" label="Test" max_length="40" name="x_821667_my_widget_test" type="collection">
-        <element label="Value" max_length="20" name="value" type="currency"/>
         <element label="Value 2" max_length="32" name="value_2" type="currency2"/>
+        <element label="Value" max_length="20" name="value" type="currency"/>
         <index name="index">
             <element name="value_2"/>
         </index>

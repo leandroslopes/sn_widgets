@@ -5,6 +5,7 @@
         <extension_point/>
         <fields>table</fields>
         <icon/>
+        <interoperable>false</interoperable>
         <name>Simple List</name>
         <optional_parameters>listTitle,query,disableInlineEditing</optional_parameters>
         <order>0</order>

@@ -24,6 +24,7 @@
         <ignore_price>true</ignore_price>
         <image/>
         <location/>
+        <make_item_non_conversational>false</make_item_non_conversational>
         <mandatory_attachment>true</mandatory_attachment>
         <meta>import user data,import data,import,user data </meta>
         <mobile_hide_price>false</mobile_hide_price>
@@ -40,12 +41,13 @@
         <no_proceed_checkout>false</no_proceed_checkout>
         <no_quantity>false</no_quantity>
         <no_quantity_v2>true</no_quantity_v2>
+        <no_save_as_draft>false</no_save_as_draft>
         <no_search>false</no_search>
         <no_wishlist_v2>true</no_wishlist_v2>
         <omit_price>false</omit_price>
         <order>0</order>
         <ordered_item_link/>
-        <owner display_value="Leandro Lopes">d9e5a5f6930512102b267fbcebba101b</owner>
+        <owner display_value="">d9e5a5f6930512102b267fbcebba101b</owner>
         <picture>b6da0d84c3a5121011357d0ed4013105</picture>
         <preview>JavaScript: popupOpenStandard("com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=d0098d80c3a5121011357d0ed40131f5&amp;sysparm_preview=true", "summary");</preview>
         <price>0</price>

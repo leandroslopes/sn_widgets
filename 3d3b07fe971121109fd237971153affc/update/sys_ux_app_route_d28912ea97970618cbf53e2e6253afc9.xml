@@ -5,6 +5,7 @@
         <extension_point/>
         <fields/>
         <icon/>
+        <interoperable>false</interoperable>
         <name>Verify Room Reservation</name>
         <optional_parameters/>
         <order>0</order>

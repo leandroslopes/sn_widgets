@@ -20,6 +20,7 @@ $body-bg:           #EDF2F8 !default;&#13;
         <footer/>
         <footer_fixed>false</footer_fixed>
         <header display_value="Stock Header">bf5ec2f2cb10120000f8d856634c9c0c</header>
+        <matching_now_experience_theme/>
         <name>Cloud Dimensions</name>
         <navbar_fixed>true</navbar_fixed>
         <sys_class_name>sp_theme</sys_class_name>

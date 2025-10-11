@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_uib_screen_test_values">
     <sys_uib_screen_test_values action="INSERT_OR_UPDATE">
+        <macroponent/>
         <macroponent_config>{
     "table": "x_821667_my_widget_room_reservation",
     "sysId": "0af11ab297df8618cbf53e2e6253af74",

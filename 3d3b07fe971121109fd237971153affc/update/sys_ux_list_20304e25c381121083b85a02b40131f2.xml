@@ -5,6 +5,8 @@
         <columns>number,opened_at,short_description,caller_id,priority,state,category,assignment_group,assigned_to,sys_updated_on,sys_updated_by</columns>
         <condition/>
         <configuration display_value="Now Pro Plus_menu_config">a0304e25c381121083b85a02b40131ec</configuration>
+        <enable_infinite_scroll>false</enable_infinite_scroll>
+        <fixed_query/>
         <group_by_column/>
         <groups/>
         <hide_cell_filter>false</hide_cell_filter>
@@ -50,6 +52,7 @@
         <highlight_content_color/>
         <highlight_content_pattern/>
         <list_attributes/>
+        <live_updates/>
         <max_characters>4000</max_characters>
         <order>50</order>
         <override_word_wrap_user_pref>false</override_word_wrap_user_pref>

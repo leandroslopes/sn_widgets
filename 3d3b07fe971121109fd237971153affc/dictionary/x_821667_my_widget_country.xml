@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="f422f40c97b47910cbf53e2e6253afea" label="Country" max_length="40" name="x_821667_my_widget_country" type="collection">
-        <element attributes="edge_encryption_enabled=true" label="Country" max_length="40" name="country" type="string"/>
         <element attributes="encode_utf8=false" label="Currency" max_length="32" name="currency" reference="x_821667_my_widget_currency" type="reference"/>
         <element label="ID" max_length="40" name="id" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Country" max_length="40" name="country" type="string"/>
         <index name="index">
             <element name="currency"/>
         </index>

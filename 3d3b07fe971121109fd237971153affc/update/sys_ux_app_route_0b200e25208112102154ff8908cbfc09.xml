@@ -5,6 +5,7 @@
         <extension_point/>
         <fields>notificationTrayDisplayed,notificationQueue,notificationTrayIsLoading,notificationUIRoute,toastItem</fields>
         <icon/>
+        <interoperable>false</interoperable>
         <name>Notification tray</name>
         <optional_parameters/>
         <order>0</order>

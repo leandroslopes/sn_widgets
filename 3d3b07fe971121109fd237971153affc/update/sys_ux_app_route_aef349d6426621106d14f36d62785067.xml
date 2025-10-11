@@ -5,6 +5,7 @@
         <extension_point/>
         <fields/>
         <icon/>
+        <interoperable>false</interoperable>
         <name>List</name>
         <optional_parameters>listId,configId,tinyId</optional_parameters>
         <order>0</order>
