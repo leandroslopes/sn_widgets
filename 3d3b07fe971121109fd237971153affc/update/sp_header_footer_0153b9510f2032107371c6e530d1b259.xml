@@ -116,7 +116,7 @@
 			windowClass: 'modal-left-full',
 			controller: function($scope, $uibModalInstance) {
 				// Load menu widget
-				spUtil.get("menu").then(function(response) {
+				spUtil.get("navigation-drawer").then(function(response) {
 					$scope.menuWidget = response;
 				});
 
@@ -477,14 +477,14 @@ data.loginWidget = $sp.getWidgetFromInstance('login-modal');
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-10-11 19:08:49</sys_created_on>
         <sys_id>0153b9510f2032107371c6e530d1b259</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>Stock Header - My Widgets</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_header_footer_0153b9510f2032107371c6e530d1b259</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-10-11 19:31:18</sys_updated_on>
+        <sys_updated_on>2025-10-14 18:20:31</sys_updated_on>
         <template><![CDATA[<div>
   <nav id="responsiveNav" class="navbar-inverse" ng-class="::{'navbar':!isViewNative, 'is-native': isViewNative}"
        role="navigation" aria-label="${Primary}">
