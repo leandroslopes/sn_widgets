@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>navigation-drawer.html</id>
+        <sp_widget display_value="Stock Header - My Widgets">0153b9510f2032107371c6e530d1b259</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-10 13:12:14</sys_created_on>
+        <sys_id>4621cb7a0f05b2107371c6e530d1b26f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>navigation-drawer.html</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_ng_template_4621cb7a0f05b2107371c6e530d1b26f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-10 13:12:14</sys_updated_on>
+        <template><![CDATA[<style>
+  .modal-left-full .modal-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 40rem;
+    margin: 0;
+    transform: none;
+    border-radius: 0;            
+    z-index: 1050;
+  }
+  .modal-left-full .modal-content {
+    height: 100%;
+    border-radius: 0;
+  }          
+</style>
+<div class="modal-body">
+  <sp-widget widget="menuWidget"></sp-widget>
+</div>]]></template>
+    </sp_ng_template>
+</record_update>

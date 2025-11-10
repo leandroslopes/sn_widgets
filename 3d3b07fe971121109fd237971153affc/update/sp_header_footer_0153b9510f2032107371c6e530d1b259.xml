@@ -112,7 +112,7 @@
 			animation: true,
 			ariaLabelledBy: 'modal-title',
 			ariaDescribedBy: 'modal-body',
-			templateUrl: 'modalTemplate.html', // ID ou URL do template
+			templateUrl: 'navigation-drawer.html', // ID ou URL do template
 			windowClass: 'modal-left-full',
 			controller: function($scope, $uibModalInstance) {
 				// Load menu widget
@@ -477,42 +477,20 @@ data.loginWidget = $sp.getWidgetFromInstance('login-modal');
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-10-11 19:08:49</sys_created_on>
         <sys_id>0153b9510f2032107371c6e530d1b259</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>Stock Header - My Widgets</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_header_footer_0153b9510f2032107371c6e530d1b259</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-10-14 18:20:31</sys_updated_on>
+        <sys_updated_on>2025-11-10 13:15:43</sys_updated_on>
         <template><![CDATA[<div>
   <nav id="responsiveNav" class="navbar-inverse" ng-class="::{'navbar':!isViewNative, 'is-native': isViewNative}"
        role="navigation" aria-label="${Primary}">
     <div ng-show="::!isViewNative" class="navbar-header">
       <div class="menu-hamburger">
         <i class="fa fa-bars" aria-hidden="true" ng-click="openModal()"></i>
-        <style>
-          .modal-left-full .modal-dialog {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 40rem;
-            margin: 0;
-            transform: none;
-            border-radius: 0;            
-            z-index: 1050;
-          }
-          .modal-left-full .modal-content {
-            height: 100%;
-            border-radius: 0;
-          }          
-        </style>
-        <script type="text/ng-template" id="modalTemplate.html">
-          <div class="modal-body">
-            <sp-widget widget="menuWidget"></sp-widget>
-          </div>
-        </script>
       </div>
       <a class="navbar-brand" ng-if="::!portal.logo" href="?id={{::portal.homepage_dv}}"><span ng-bind="portal.title"></span></a>
       <a class="navbar-brand navbar-brand-logo" ng-if="::portal.logo" ng-href="?id={{::portal.homepage_dv}}" ng-click="collapse()" aria-label="{{::logoText}}">
