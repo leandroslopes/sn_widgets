@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope) {
+	/* widget controller */
+	var c = this;
+
+	var images = JSON.parse(c.data.system_property_images);
+	
+	$scope.myInterval = c.data.interval;
+	$scope.noWrapSlides = false;
+	$scope.slides = [];
+
+	var currIndex = 0;
+	for (var i = 0; i < images.length; i++) {
+		$scope.slides.push({
+			image: images[i].name,
+			description: images[i].description,
+			id: currIndex++
+		});
+	}
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.carousel-inner &gt; .item &gt; img, .carousel-inner &gt; .item &gt; a &gt; img {
+  height: 45rem;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>image-carousel</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Image Carousel</name>
+        <option_schema>[{"hint":"The system property must contain the array in the following format: [{\"name\":\"image.png\",\"description\":\"Add your description.\"}]","name":"system_property_images","section":"Data","label":"Specify the system property that contains the images","type":"string"},{"hint":"Example in milliseconds: 3000","name":"interval_carrousel","section":"Behavior","label":"Interval","type":"string"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+	
+	var system_property_images = options.system_property_images || 'x_821667_my_widget.mywidgets.image.carrousel';
+	
+	data.system_property_images = gs.getProperty(system_property_images);
+	data.interval = options.interval_carrousel || 5000; // Or 5000 milliseconds
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-15 18:39:30</sys_created_on>
+        <sys_id>3c4c31ec0f55b2107371c6e530d1b2c5</sys_id>
+        <sys_mod_count>51</sys_mod_count>
+        <sys_name>Image Carousel</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_3c4c31ec0f55b2107371c6e530d1b2c5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-22 18:49:27</sys_updated_on>
+        <template><![CDATA[<div class="image-carrousel">
+  <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+    <uib-slide ng-repeat="slide in slides" active="slide.active" index="slide.id">
+      <img ng-src="{{slide.image}}" style="margin:auto;">
+      <div class="carousel-caption">
+        <h4>${Slide} {{slide.id + 1}}</h4>
+        <p>{{slide.description}}</p>
+      </div>
+    </uib-slide>
+  </uib-carousel>
+</div>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>3c4c31ec0f55b2107371c6e530d1b2c5</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-15 18:39:30</sys_created_on>
+        <sys_id>344c31ec0f55b2107371c6e530d1b2c8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-15 18:39:30</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description/>
+        <ignore_cache>true</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_821667_my_widget.mywidgets.image.carrousel</name>
+        <read_roles/>
+        <suffix>mywidgets.image.carrousel</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-15 19:38:41</sys_created_on>
+        <sys_id>f2a90a200fd5b2107371c6e530d1b26a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_821667_my_widget.mywidgets.image.carrousel</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_properties_f2a90a200fd5b2107371c6e530d1b26a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-15 19:38:41</sys_updated_on>
+        <type>string</type>
+        <value>[{"name":"image_carrousel_01.png","description":"Um pôr do sol vibrante refletindo sobre o mar calmo."},{"name":"image_carrousel_02.png","description":"Montanhas cobertas de neve sob um céu estrelado."},{"name":"image_carrousel_03.png","description":"Uma rua antiga iluminada por lanternas coloridas."},{"name":"image_carrousel_04.png","description":"Flores silvestres em um campo verdejante durante a primavera."}]</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=f2a90a200fd5b2107371c6e530d1b26a"/>
+</record_update>
