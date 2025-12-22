@@ -3,11 +3,13 @@
         <category>custom</category>
         <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
         <controller_as>c</controller_as>
-        <css>h2 {&#13;
-  color: #333;&#13;
-  font-weight: 600;&#13;
-  font-size: 36px;&#13;
-  line-height: 1.5;&#13;
+        <css>h2 {
+  color: #333;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1.5;
+  letter-spacing: .1rem;
+  margin-bottom: 5.2rem;
 }</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -15,7 +17,7 @@
         <docs/>
         <field_list/>
         <has_preview>false</has_preview>
-        <id>gbd_service_to_you_title</id>
+        <id>gbd-service-to-you-title</id>
         <internal>false</internal>
         <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
         <name>GBD Service To You Title</name>
@@ -28,17 +30,17 @@
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-06-27 18:25:21</sys_created_on>
         <sys_id>c8948cb997cb4254cbf53e2e6253afbc</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>GBD Service To You Title</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_c8948cb997cb4254cbf53e2e6253afbc</sys_update_name>
-        <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-06-27 18:36:13</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-19 13:56:15</sys_updated_on>
         <template><![CDATA[<div>
 	<h2 class="text-center">
-  		${Serviços para você}
+  		${Services for you}
 	</h2>
 </div>]]></template>
     </sp_widget>

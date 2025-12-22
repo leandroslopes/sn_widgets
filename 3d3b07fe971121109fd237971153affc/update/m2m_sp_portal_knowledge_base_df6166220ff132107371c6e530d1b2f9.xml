@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_portal_knowledge_base">
+    <m2m_sp_portal_knowledge_base action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <kb_knowledge_base display_value="IT">a7e8a78bff0221009b20ffffffffff17</kb_knowledge_base>
+        <order>100</order>
+        <sp_portal display_value="GOV.BR Demo">94c576a997dd4250cbf53e2e6253af9c</sp_portal>
+        <sys_class_name>m2m_sp_portal_knowledge_base</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-16 23:01:07</sys_created_on>
+        <sys_id>df6166220ff132107371c6e530d1b2f9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>IT.GOV.BR Demo</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>m2m_sp_portal_knowledge_base_df6166220ff132107371c6e530d1b2f9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-16 23:01:07</sys_updated_on>
+    </m2m_sp_portal_knowledge_base>
+</record_update>

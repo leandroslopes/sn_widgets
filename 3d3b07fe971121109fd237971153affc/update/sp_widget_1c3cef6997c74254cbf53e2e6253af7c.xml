@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>standard</category>
-        <client_script><![CDATA[//function ($http, $filter, $location,spAriaUtil, $window, $scope, $rootScope, spAriaFocusManager, snAnalytics, spAISearchResults) {
-api.controller = function (
-  $http,
-  $filter,
-  $location,
-  spAriaUtil,
-  $window,
-  $scope,
-  $rootScope,
-  spAriaFocusManager,
-  snAnalytics,
-  spAISearchResults
-) {
+        <client_script><![CDATA[api.controller=function($http, $filter, $location, spAriaUtil, $window, $scope, $rootScope, $element, spAriaFocusManager, snAnalytics, spAISearchResults) {
   /* widget controller */
   var c = this;
 
@@ -127,8 +115,7 @@ api.controller = function (
         if (!c.isLocationTrackerDisabled && window.GlideSignals.init)
           window.GlideSignals.init();
 
-        c.isGlideSignalsLoaded =
-          window.GlideSignals.trackEvent || c.isGlideSignalsLoaded;
+        c.isGlideSignalsLoaded = window.GlideSignals.trackEvent || c.isGlideSignalsLoaded;
       }
 
       c.trackSuggestionsRenderedEvent = function (
@@ -495,7 +482,7 @@ api.controller = function (
         : query;
     }
   }
-};]]></client_script>
+}]]></client_script>
         <controller_as>c</controller_as>
         <css>ul.dropdown-menu {&#13;
   min-width: 100%;&#13;
@@ -592,9 +579,9 @@ button[name="search"]:focus {&#13;
         <docs/>
         <field_list>search_application,search_results_configuration,disable_all_suggestions,placeholder,ai_search_source_filter</field_list>
         <has_preview>false</has_preview>
-        <id>gbd_typeahead_search</id>
+        <id>gbd-typeahead-search</id>
         <internal>false</internal>
-        <link><![CDATA[/* function(scope, elem) {
+        <link><![CDATA[function link(scope, elem) {
     var lazyLoader = $injector.get("lazyLoader");
     var SEARCH_EXECUTED_EVENT = "SN_SEARCH_COMBOBOX#SEARCH_EXECUTED";
     var NAVIGATION_EVENT = "SN_SEARCH_COMBOBOX#NAVIGATION_EXECUTED";
@@ -604,7 +591,7 @@ button[name="search"]:focus {&#13;
     if (scope.c.data.aisEnabled) {
         elem.on(SEARCH_EXECUTED_EVENT, ".aisearch", function(result) {
             scope.c.aisSubmit(result.detail.payload);
-        })
+        });
 
 
         elem.on(NAVIGATION_EVENT, ".aisearch", function(result) {
@@ -627,7 +614,7 @@ button[name="search"]:focus {&#13;
             }
         });
     }
-} */]]></link>
+}]]></link>
         <name>GBD Typeahead Search</name>
         <option_schema>[{"name":"title","section":"Presentation","default_value":"O que você procura?","label":"Title","type":"string"},{"name":"color","section":"Presentation","label":"Color","type":"string"},{"name":"glyph","section":"Presentation","label":"glyph","type":"string"},{"name":"size","section":"Presentation","label":"Size","type":"string"},{"hint":"Number of typeahead search results returned (default 15)","name":"limit","section":"Behavior","label":"Limit","type":"integer"},{"displayValue":"Search Source","hint":"If provided, limit the scope of the typeahead search to the given search sources","name":"contextual_search_sources","display_value_list":[],"section":"Behavior","label":"Contextual Search Sources","type":"glide_list","value":"sp_search_source","ed":{"reference":"sp_search_source"}}]</option_schema>
         <public>false</public>
@@ -649,7 +636,7 @@ button[name="search"]:focus {&#13;
 		data.aiSearchSourceFilter = "";
 		var aiSearchSource = options.ai_search_source_filter;
 		var filterGr = new GlideRecord('sys_search_filter');
-		data.exactMatchRegex = new GlideSystem().getProperty("com.snc.service_portal.typeahead.exact_match_request_criterion_regex")
+		data.exactMatchRegex = new GlideSystem().getProperty("com.snc.service_portal.typeahead.exact_match_request_criterion_regex");
 		filterGr.addQuery('ais_search_source', aiSearchSource);
 		filterGr.addQuery('search_context_config', data.searchApplicationId);
 		filterGr.addActiveQuery();
@@ -657,12 +644,12 @@ button[name="search"]:focus {&#13;
 		filterGr.query();
 		if (filterGr.next())
 			data.aiSearchSourceFilter = filterGr.getUniqueValue();
-        var portalId = portalRecord && portalRecord.getUniqueValue();
-        var resultMap = $sp.getAISearchResultsActionConfig(data.searchApplicationId, portalId);
+		var portalId = portalRecord && portalRecord.getUniqueValue();
+		var resultMap = $sp.getAISearchResultsActionConfig(data.searchApplicationId, portalId);
 		resultMap = JSON.parse(resultMap);
-        data.tableToSourceMap = resultMap.tableToSourceMap;
-        data.sourceToPageMap = resultMap.sourceToPageMap;
-        data.urlMap = resultMap.urlMap;
+		data.tableToSourceMap = resultMap.tableToSourceMap;
+		data.sourceToPageMap = resultMap.sourceToPageMap;
+		data.urlMap = resultMap.urlMap;
 		data.portalId = portalId;
 		return;
 	}
@@ -721,12 +708,12 @@ button[name="search"]:focus {&#13;
 
 		if (source.isAdvancedTypeaheadConfig) {
 			sourceTemplateConfiguration.type = "ADVANCED";
-			sourceTemplateConfiguration.template = "sp-typeahead-" + source.id + ".html";
-			data.typeaheadTemplates["sp-typeahead-" + source.id + ".html"] = $sp.translateTemplate(source.typeaheadTemplate);
+			sourceTemplateConfiguration.template = "govbr-typeahead-" + source.id + ".html";
+			data.typeaheadTemplates["govbr-typeahead-" + source.id + ".html"] = $sp.translateTemplate(source.typeaheadTemplate);
 		} else {
 			sourceTemplateConfiguration.type = "SIMPLE";
 			if (!sourceTemplateConfiguration.linkToPage)
-			console.log("Warning: No typeahead page or URL provided for search source " + source.name);
+				console.log("Warning: No typeahead page or URL provided for search source " + source.name);
 		}
 
 		data.searchSourceConfiguration[source.id] = sourceTemplateConfiguration;
@@ -743,14 +730,14 @@ button[name="search"]:focus {&#13;
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-06-27 16:38:52</sys_created_on>
         <sys_id>1c3cef6997c74254cbf53e2e6253af7c</sys_id>
-        <sys_mod_count>27</sys_mod_count>
+        <sys_mod_count>36</sys_mod_count>
         <sys_name>GBD Typeahead Search</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_1c3cef6997c74254cbf53e2e6253af7c</sys_update_name>
-        <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-06-27 18:34:17</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-19 00:50:52</sys_updated_on>
         <template><![CDATA[<div id="gdb_typeahead_search">
   <form  ng-if="!c.data.aisEnabled" ng-submit="c.submitSearch()" role="search">
     <input type="hidden" name="id" value="search"/>
@@ -765,8 +752,8 @@ button[name="search"]:focus {&#13;
              typeahead-min-length="c.data.typeaheadMinLength"
              typeahead-focus-first="false"
              typeahead-on-select="c.onSelect($item, $model, $label)"
-             typeahead-template-url="sp-typeahead.html"
-             typeahead-popup-template-url="sp-typeahead-popup.html"
+             typeahead-template-url="govbr-typeahead.html"
+             typeahead-popup-template-url="govbr-typeahead-popup.html"
              class="form-control input-typeahead"
              role="combobox"
              aria-autocomplete="list"
@@ -780,8 +767,8 @@ button[name="search"]:focus {&#13;
              typeahead-min-length="c.data.typeaheadMinLength"
              typeahead-focus-first="false"
              typeahead-on-select="c.onSelect($item, $model, $label)"
-             typeahead-template-url="sp-typeahead.html"
-             typeahead-popup-template-url="sp-typeahead-popup.html"
+             typeahead-template-url="govbr-typeahead.html"
+             typeahead-popup-template-url="govbr-typeahead-popup.html"
              class="form-control input-typeahead"
              role="combobox"
              aria-autocomplete="list"

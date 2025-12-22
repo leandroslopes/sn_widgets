@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>update</directory>
+        <documentkey>8b2caf1b0f7532107371c6e530d1b2c9</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_translated_text">
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>8a48f3b597910210cbf53e2e6253af2a</documentkey>
+        <fieldname>label</fieldname>
+        <language>pb</language>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-19 12:23:08</sys_created_on>
+        <sys_id>8b2caf1b0f7532107371c6e530d1b2c9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-19 12:23:08</sys_updated_on>
+        <tablename>sp_rectangle_menu_item</tablename>
+        <value>Legislação</value>
+    </sys_translated_text>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-19 13:16:13</sys_created_on>
+        <sys_id>7858bfdb0fb532107371c6e530d1b2c5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Created 2025-12-19 04:23:08</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_metadata_link_7858bfdb0fb532107371c6e530d1b2c5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-19 13:16:13</sys_updated_on>
+        <tablename>sys_translated_text</tablename>
+    </sys_metadata_link>
+</record_update>

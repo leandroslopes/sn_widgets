@@ -6,34 +6,34 @@
   var c = this;
 };]]></client_script>
         <controller_as>c</controller_as>
-        <css>.secondary-menu {&#13;
-  -webkit-box-flex: 1;&#13;
-  -ms-flex: 1;&#13;
-  display: flex;&#13;
-  align-items: center;&#13;
-}&#13;
-&#13;
-.secondary-menu-title h1 {&#13;
-  margin: 0 0 12px 0px;&#13;
-}&#13;
-&#13;
-.secondary-menu-title h1 a {&#13;
-  font-size: 2.4rem;&#13;
-  font-weight: 500;&#13;
-  color: $gray-dark;&#13;
-  line-height: 26px;&#13;
-  padding: 0 0 4px;&#13;
-}&#13;
-&#13;
-.secondary-menu-title h1 a:hover {&#13;
-  color: $brand-primary;&#13;
-  text-decoration: none;&#13;
-}&#13;
-  &#13;
-.fa-bars {&#13;
-  font-size: 24px;&#13;
-  line-height: 32px;&#13;
-  width: 32px;&#13;
+        <css>.secondary-menu {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.secondary-menu-title h1 {
+  margin: 0 0 1.2rem 0;
+}
+
+.secondary-menu-title h1 a {
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: $gray-dark;
+  line-height: 2.6rem;
+  padding: 0 0 .4rem;
+}
+
+.secondary-menu-title h1 a:hover {
+  color: $brand-primary;
+  text-decoration: none;
+}
+  
+.fa-bars {
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  width: 3.2rem;
 }</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -41,7 +41,7 @@
         <docs/>
         <field_list/>
         <has_preview>false</has_preview>
-        <id>gbd_secondary_menu</id>
+        <id>gbd-secondary-menu</id>
         <internal>false</internal>
         <link><![CDATA[function link(scope, element, attrs, controller) {
   
@@ -60,14 +60,14 @@
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-04-04 17:39:02</sys_created_on>
         <sys_id>41349bea9715c610cbf53e2e6253af1b</sys_id>
-        <sys_mod_count>13</sys_mod_count>
+        <sys_mod_count>17</sys_mod_count>
         <sys_name>GBD Secondary Menu</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_41349bea9715c610cbf53e2e6253af1b</sys_update_name>
-        <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-06-27 16:41:42</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-19 13:18:24</sys_updated_on>
         <template><![CDATA[<div>
   <div class="secondary-menu">
     <div class="secondary-menu-icon">
@@ -77,7 +77,7 @@
     </div>
     <div class="secondary-menu-title">
       	<h1>
-          <a href="/sngovbr">Serviços e Informações do Brasil</a>
+          <a href="/sngovbr">${Services and Information from Brazil}</a>
       	</h1>
     </div>
   </div>

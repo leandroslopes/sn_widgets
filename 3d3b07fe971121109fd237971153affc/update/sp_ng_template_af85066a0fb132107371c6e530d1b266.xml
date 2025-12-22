@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>govbr-typeahead.html</id>
+        <sp_widget display_value="GBD Typeahead Search">1c3cef6997c74254cbf53e2e6253af7c</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-16 20:59:41</sys_created_on>
+        <sys_id>af85066a0fb132107371c6e530d1b266</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>govbr-typeahead.html</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_ng_template_af85066a0fb132107371c6e530d1b266</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-16 20:59:41</sys_updated_on>
+        <template><![CDATA[<a class="ta-item" ng-href="{{match.model.target != '_blank' ? match.model.url : ''}}" target="{{match.model.target}}">
+  <div ng-if="!match.model.templateID">
+    <i class="ta-icon fa fa-{{match.model.glyph}}" ng-if="match.model.glyph"></i>
+    <span ng-bind-html="match.label | uibTypeaheadHighlight:match.model.query" aria-label="{{match.label}}"></span>
+  </div>
+  <div ng-if="match.model.templateID" ng-include="match.model.templateID"></div>
+</a>]]></template>
+    </sp_ng_template>
+</record_update>

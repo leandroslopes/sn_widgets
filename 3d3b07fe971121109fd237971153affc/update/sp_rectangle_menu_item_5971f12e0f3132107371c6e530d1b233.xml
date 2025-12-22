@@ -7,13 +7,13 @@
         <display_2/>
         <display_date/>
         <filter/>
-        <glyph>tachometer</glyph>
+        <glyph>th</glyph>
         <hint/>
         <kb_article/>
         <kb_category/>
         <kb_topic/>
         <label/>
-        <order>600</order>
+        <order>800</order>
         <record_script/>
         <sc_cat_item/>
         <sc_category/>
@@ -22,21 +22,21 @@
         <sp_rectangle_menu display_value="GOV.BR Demo Header Menu">27df63f597510210cbf53e2e6253afb4</sp_rectangle_menu>
         <sp_rectangle_menu_item/>
         <sys_class_name>sp_rectangle_menu_item</sys_class_name>
-        <sys_created_by>leandro.lopes</sys_created_by>
-        <sys_created_on>2024-04-02 12:37:31</sys_created_on>
-        <sys_id>fa4abfb597d10210cbf53e2e6253afea</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-16 19:31:52</sys_created_on>
+        <sys_id>5971f12e0f3132107371c6e530d1b233</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name/>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
-        <sys_update_name>sp_rectangle_menu_item_fa4abfb597d10210cbf53e2e6253afea</sys_update_name>
+        <sys_update_name>sp_rectangle_menu_item_5971f12e0f3132107371c6e530d1b233</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-16 19:30:24</sys_updated_on>
+        <sys_updated_on>2025-12-16 19:31:52</sys_updated_on>
         <table/>
         <type>url</type>
         <url/>
         <url_target/>
     </sp_rectangle_menu_item>
-    <sys_translated_text action="delete_multiple" query="documentkey=fa4abfb597d10210cbf53e2e6253afea"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=5971f12e0f3132107371c6e530d1b233"/>
 </record_update>

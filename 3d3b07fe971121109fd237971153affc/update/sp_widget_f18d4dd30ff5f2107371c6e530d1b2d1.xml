@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 0;
+  text-align: center;
+  color: #333;
+}
+
+hr {
+  border-top: .1rem solid #ccc;
+}
+
+.my-col-md-4 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.my-glyphicon-title {
+  margin-right: .5rem;
+  font-weight: 900;
+  font-size: 1.6rem;
+}
+
+.my-glyphicon-item, .most-accessed-order {
+  margin-right: 1.5rem;
+}
+
+.my-glyphicon-item {
+  font-weight: 900;
+  font-size: 2.2rem;
+  color: #ccc;
+}
+
+.most-accessed-order {
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: #E6E6E6;
+}
+
+.my-panel {
+  border: none;
+  -webkit-box-shadow: 0 .3rem .6rem 0 rgba(0, 0, 0, 0.16);
+  box-shadow: 0 .3rem .6rem 0 rgba(0, 0, 0, 0.16);
+  background-color: #FBFBFB;
+  padding: 2.5rem;
+  height: 48rem;
+  min-height: 47rem;
+}
+
+.list-group-item {
+  border-bottom: .1rem solid #ccc;
+  background-color: #FBFBFB;
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.list-group-item:first-chiild {
+  padding-top: 0;
+}
+
+.column-header, .list-link-icon {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.column-header-title {
+	display: inline-block;
+}
+
+.list-text {
+  display: inline-block;
+  color: #0C326F;
+  font-weight: 600;
+  line-height: 2rem;
+}
+
+.recommended-margin-bottom {
+  margin-bottom: .74rem;
+}
+
+.govbr-section {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: .1rem solid #ccc;
+}
+
+.govbr-section:last-child {
+  border-bottom: none;
+}
+
+.govbr-section small {
+  display: block;
+  font-size: 1.2rem;
+  color: #888;
+  text-transform: none;
+  margin-bottom: 1rem;
+}
+
+.govbr-section a {
+  color: #0055aa;
+  text-decoration: none;
+}
+
+.govbr-section a:hover {
+  text-decoration: none;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>gbd-featured-services</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>GBD Featured Services</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+
+	data.recommended = [
+		{
+			title: 'Realizar Inscrição no INSS',
+			url: 'https://www.gov.br/pt-br/servicos/realizar-inscricao-no-inss',
+			icon: 'glyphicon-briefcase'
+		},
+		{
+			title: 'Solicitar o Seguro-Desemprego',
+			url: 'https://www.gov.br/pt-br/servicos/solicitar-o-seguro-desemprego',
+			icon: 'glyphicon-screenshot'
+		},
+		{
+			title: 'Emitir Extrato de Contribuição (CNIS)',
+			url: 'https://www.gov.br/pt-br/servicos/emitir-extrato-de-contribuicao-cnis',
+			icon: 'glyphicon-heart'
+		},
+		{
+			title: 'Criar sua conta gov.br',
+			url: 'https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br',
+			icon: 'glyphicon-briefcase'
+		},
+		{
+			title: 'Emitir Certidão de Antecedentes Criminais',
+			url: 'https://www.gov.br/pt-br/servicos/emitir-certidao-de-antecedentes-criminais',
+			icon: 'glyphicon-screenshot'
+		},
+		{
+			title: 'Receber o Abono Salarial',
+			url: 'https://www.gov.br/pt-br/servicos/receber-o-abono-salarial',
+			icon: 'glyphicon-heart'
+		}
+	];
+
+	data.mostAccessed = [
+		{
+			id: 1,
+			title: 'Consultar Meu Imposto de Renda',
+			url: 'https://www.gov.br/pt-br/servicos/consultar-meu-imposto-de-renda'
+		},
+		{
+			id: 2,
+			title: 'Assinatura Eletrônica',
+			url: 'https://www.gov.br/pt-br/servicos/assinatura-eletronica'
+		},
+		{
+			id: 3,
+			title: 'Consultar restituição do imposto de renda',
+			url: 'https://www.gov.br/pt-br/servicos/consultar-restituicao-do-imposto-de-renda'
+		},
+		{
+			id: 4,
+			title: 'Entregar Meu Imposto de Renda',
+			url: 'https://www.gov.br/pt-br/servicos/entregar-meu-imposto-de-renda'
+		},
+		{
+			id: 5,
+			title: 'Consultar CPF',
+			url: 'https://www.gov.br/pt-br/servicos/consultar-cpf'
+		},
+		{
+			id: 6,
+			title: 'Consultar dados do Cadastro Único',
+			url: 'https://www.gov.br/pt-br/servicos/consultar-dados-do-cadastro-unico-cadunico'
+		}
+	];
+
+	data.emphasis = [
+		{
+			category: 'Meio Ambiente e Clima',
+			title: 'Cadastrar Cães e Gatos (SinPatinhas)',
+			url: 'https://www.gov.br/pt-br/servicos/cadastrar-caes-e-gatos'
+		},
+		{
+			category: 'Trabalho, Emprego e Previdência',
+			title: 'Concurso Público Nacional Unificado 2 (CPNU2)',
+			url: 'https://www.gov.br/pt-br/servicos/realizar-inscricao-no-concurso-publico-nacional-unificado'
+		},
+		{
+			category: 'Agricultura e Pecuária',
+			title: 'Consultar dados de imóveis rurais na plataforma Meu Imóvel Rural',
+			url: 'https://www.gov.br/pt-br/servicos/consultar-dados-de-imoveis-rurais-na-plataforma-meu-imovel-rural'
+		},
+		{
+			category: 'Justiça e Segurança',
+			title: 'Celular Seguro',
+			url: 'https://www.gov.br/pt-br/servicos/celular-seguro'
+		},
+		{
+			category: 'Educação e Pesquisa',
+			title: 'Fazer o Exame Nacional do Ensino Médio (Enem)',
+			url: 'https://www.gov.br/pt-br/servicos/fazer-o-exame-nacional-do-ensino-medio-enem'
+		}
+	];
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-19 00:50:00</sys_created_on>
+        <sys_id>f18d4dd30ff5f2107371c6e530d1b2d1</sys_id>
+        <sys_mod_count>49</sys_mod_count>
+        <sys_name>GBD Featured Services</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_f18d4dd30ff5f2107371c6e530d1b2d1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-19 19:12:25</sys_updated_on>
+        <template><![CDATA[<div>
+  <div class="row">
+
+    <!-- Column 1 - Recommended -->
+    <div class="col-md-4">
+
+      <div class="row">
+        <div class="col-md-4"><hr/></div>
+        <div class="col-md-4 my-col-md-4 text-center">
+          <h4 class="column-header">
+            <span class="glyphicon my-glyphicon-title glyphicon-hand-right"></span>             
+          	<span class="column-header-title">${Recommended}</span>
+          </h4>
+        </div>
+        <div class="col-md-4"><hr/></div>
+      </div>
+
+      <div class="panel my-panel panel-default">
+        <ul class="list-group recommended-margin-bottom" >
+          <li class="list-group-item" ng-repeat="item in c.data.recommended">
+            <a href="{{::item.url}}" 
+               target="_blank" 
+               class="list-link-icon">
+              <span class="glyphicon my-glyphicon-item {{::item.icon}}"></span>
+              <span class="list-text">{{::item.title}}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Column 2 - Most Accessed -->
+    <div class="col-md-4">
+
+      <div class="row">
+        <div class="col-md-4"><hr/></div>
+        <div class="col-md-4 my-col-md-4 text-center">
+          <h4 class="column-header">
+            <span class="glyphicon my-glyphicon-title glyphicon-fire"></span> 
+            <span class="column-header-title">${Most Accessed}</span>
+          </h4>
+        </div>
+        <div class="col-md-4"><hr/></div>
+      </div>
+
+      <div class="panel my-panel panel-default">
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="item in c.data.mostAccessed">
+            <a href="{{::item.url}}" 
+               target="_blank" 
+               class="list-link-icon">
+              <span class="most-accessed-order">{{::item.id}}</span>
+              <span class="list-text">{{::item.title}}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Column 3 - Emphasis -->
+    <div class="col-md-4">
+
+      <div class="row">
+        <div class="col-md-4"><hr/></div>
+        <div class="col-md-4 my-col-md-4 text-center">
+        	<h4 class="column-header">
+            <span class="glyphicon my-glyphicon-title glyphicon-star"></span> 
+            <span class="column-header-title">${Emphasis}</span>
+          </h4>
+        </div>
+        <div class="col-md-4"><hr/></div>
+      </div>
+
+      <div class="panel my-panel panel-default">
+        <div class="govbr-section" ng-repeat="item in c.data.emphasis">
+          <a href="{{::item.url}}" target="_blank">
+            <small>{{::item.category}}</small>
+            <span class="list-text">{{::item.title}}</span>
+          </a>
+        </div>        
+      </div>
+    </div>
+
+  </div>
+</div>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>f18d4dd30ff5f2107371c6e530d1b2d1</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-19 00:50:00</sys_created_on>
+        <sys_id>f58d099b0f3df2107371c6e530d1b213</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-19 00:50:00</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

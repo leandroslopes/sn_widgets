@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>govbr-typeahead-popup.html</id>
+        <sp_widget display_value="GBD Typeahead Search">1c3cef6997c74254cbf53e2e6253af7c</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-16 20:56:21</sys_created_on>
+        <sys_id>91d4062a0fb132107371c6e530d1b2a2</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>govbr-typeahead-popup.html</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_ng_template_91d4062a0fb132107371c6e530d1b2a2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-16 20:58:17</sys_updated_on>
+        <template><![CDATA[<ul class="typeahead-popup dropdown-menu" aria-label="{{::$parent.c.options.title}} {{::$parent.c.data.searchSuggestionsMsg}}" ng-show="isOpen() && !moveInProgress" ng-style="{top: position().top+'px', left: position().left+'px'}" role="listbox" aria-hidden="{{!isOpen()}}">
+    <li role='option' aria-hidden='true' style='display: none'></li>    
+  	<li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }" 
+        ng-mouseenter="selectActive($index)" 
+        ng-click="selectMatch($index, $event)" 
+        role="option" id="{{::match.id}}"
+        data-index="{{$index}}"}>
+        <div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
+    </li>
+</ul>]]></template>
+    </sp_ng_template>
+</record_update>
