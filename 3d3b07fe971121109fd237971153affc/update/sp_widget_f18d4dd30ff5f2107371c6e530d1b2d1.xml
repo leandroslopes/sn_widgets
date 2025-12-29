@@ -9,7 +9,6 @@
   text-transform: uppercase;
   margin-top: 0;
   text-align: center;
-  color: #333;
 }
 
 hr {
@@ -52,6 +51,7 @@ hr {
   padding: 2.5rem;
   height: 48rem;
   min-height: 47rem;
+  margin-bottom: 3.6rem;
 }
 
 .list-group-item {
@@ -129,120 +129,32 @@ hr {
 	/* populate the 'data' object */
 	/* e.g., data.table = $sp.getValue('table'); */
 
-	data.recommended = [
-		{
-			title: 'Realizar Inscrição no INSS',
-			url: 'https://www.gov.br/pt-br/servicos/realizar-inscricao-no-inss',
-			icon: 'glyphicon-briefcase'
-		},
-		{
-			title: 'Solicitar o Seguro-Desemprego',
-			url: 'https://www.gov.br/pt-br/servicos/solicitar-o-seguro-desemprego',
-			icon: 'glyphicon-screenshot'
-		},
-		{
-			title: 'Emitir Extrato de Contribuição (CNIS)',
-			url: 'https://www.gov.br/pt-br/servicos/emitir-extrato-de-contribuicao-cnis',
-			icon: 'glyphicon-heart'
-		},
-		{
-			title: 'Criar sua conta gov.br',
-			url: 'https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br',
-			icon: 'glyphicon-briefcase'
-		},
-		{
-			title: 'Emitir Certidão de Antecedentes Criminais',
-			url: 'https://www.gov.br/pt-br/servicos/emitir-certidao-de-antecedentes-criminais',
-			icon: 'glyphicon-screenshot'
-		},
-		{
-			title: 'Receber o Abono Salarial',
-			url: 'https://www.gov.br/pt-br/servicos/receber-o-abono-salarial',
-			icon: 'glyphicon-heart'
-		}
-	];
-
-	data.mostAccessed = [
-		{
-			id: 1,
-			title: 'Consultar Meu Imposto de Renda',
-			url: 'https://www.gov.br/pt-br/servicos/consultar-meu-imposto-de-renda'
-		},
-		{
-			id: 2,
-			title: 'Assinatura Eletrônica',
-			url: 'https://www.gov.br/pt-br/servicos/assinatura-eletronica'
-		},
-		{
-			id: 3,
-			title: 'Consultar restituição do imposto de renda',
-			url: 'https://www.gov.br/pt-br/servicos/consultar-restituicao-do-imposto-de-renda'
-		},
-		{
-			id: 4,
-			title: 'Entregar Meu Imposto de Renda',
-			url: 'https://www.gov.br/pt-br/servicos/entregar-meu-imposto-de-renda'
-		},
-		{
-			id: 5,
-			title: 'Consultar CPF',
-			url: 'https://www.gov.br/pt-br/servicos/consultar-cpf'
-		},
-		{
-			id: 6,
-			title: 'Consultar dados do Cadastro Único',
-			url: 'https://www.gov.br/pt-br/servicos/consultar-dados-do-cadastro-unico-cadunico'
-		}
-	];
-
-	data.emphasis = [
-		{
-			category: 'Meio Ambiente e Clima',
-			title: 'Cadastrar Cães e Gatos (SinPatinhas)',
-			url: 'https://www.gov.br/pt-br/servicos/cadastrar-caes-e-gatos'
-		},
-		{
-			category: 'Trabalho, Emprego e Previdência',
-			title: 'Concurso Público Nacional Unificado 2 (CPNU2)',
-			url: 'https://www.gov.br/pt-br/servicos/realizar-inscricao-no-concurso-publico-nacional-unificado'
-		},
-		{
-			category: 'Agricultura e Pecuária',
-			title: 'Consultar dados de imóveis rurais na plataforma Meu Imóvel Rural',
-			url: 'https://www.gov.br/pt-br/servicos/consultar-dados-de-imoveis-rurais-na-plataforma-meu-imovel-rural'
-		},
-		{
-			category: 'Justiça e Segurança',
-			title: 'Celular Seguro',
-			url: 'https://www.gov.br/pt-br/servicos/celular-seguro'
-		},
-		{
-			category: 'Educação e Pesquisa',
-			title: 'Fazer o Exame Nacional do Ensino Médio (Enem)',
-			url: 'https://www.gov.br/pt-br/servicos/fazer-o-exame-nacional-do-ensino-medio-enem'
-		}
-	];
-
+	var recommended = gs.getProperty('x_821667_my_widget.gbd.featured.services.recommended');
+	data.recommended = JSON.parse(recommended);
+	
+	var mostAccessed = gs.getProperty('x_821667_my_widget.gbd.featured.services.mostAccessed');
+	data.mostAccessed = JSON.parse(mostAccessed);
+	
+	var emphasis = gs.getProperty('x_821667_my_widget.gbd.featured.services.emphasis');
+	data.emphasis = JSON.parse(emphasis);
 })();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-12-19 00:50:00</sys_created_on>
         <sys_id>f18d4dd30ff5f2107371c6e530d1b2d1</sys_id>
-        <sys_mod_count>49</sys_mod_count>
+        <sys_mod_count>67</sys_mod_count>
         <sys_name>GBD Featured Services</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_f18d4dd30ff5f2107371c6e530d1b2d1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-19 19:12:25</sys_updated_on>
+        <sys_updated_on>2025-12-29 01:13:24</sys_updated_on>
         <template><![CDATA[<div>
   <div class="row">
-
     <!-- Column 1 - Recommended -->
     <div class="col-md-4">
-
       <div class="row">
         <div class="col-md-4"><hr/></div>
         <div class="col-md-4 my-col-md-4 text-center">
@@ -253,7 +165,6 @@ hr {
         </div>
         <div class="col-md-4"><hr/></div>
       </div>
-
       <div class="panel my-panel panel-default">
         <ul class="list-group recommended-margin-bottom" >
           <li class="list-group-item" ng-repeat="item in c.data.recommended">
@@ -266,12 +177,9 @@ hr {
           </li>
         </ul>
       </div>
-
     </div>
-
     <!-- Column 2 - Most Accessed -->
     <div class="col-md-4">
-
       <div class="row">
         <div class="col-md-4"><hr/></div>
         <div class="col-md-4 my-col-md-4 text-center">
@@ -282,7 +190,6 @@ hr {
         </div>
         <div class="col-md-4"><hr/></div>
       </div>
-
       <div class="panel my-panel panel-default">
         <ul class="list-group">
           <li class="list-group-item" ng-repeat="item in c.data.mostAccessed">
@@ -296,10 +203,8 @@ hr {
         </ul>
       </div>
     </div>
-
     <!-- Column 3 - Emphasis -->
     <div class="col-md-4">
-
       <div class="row">
         <div class="col-md-4"><hr/></div>
         <div class="col-md-4 my-col-md-4 text-center">
@@ -310,7 +215,6 @@ hr {
         </div>
         <div class="col-md-4"><hr/></div>
       </div>
-
       <div class="panel my-panel panel-default">
         <div class="govbr-section" ng-repeat="item in c.data.emphasis">
           <a href="{{::item.url}}" target="_blank">
@@ -319,8 +223,7 @@ hr {
           </a>
         </div>        
       </div>
-    </div>
-
+    </div>    
   </div>
 </div>]]></template>
     </sp_widget>

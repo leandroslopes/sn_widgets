@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+	var c = this;
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.tile-header {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.tile-header::before, .tile-header::after {
+  background: #f0f0f0;
+  content: '';
+  height: .15rem;
+  width: 100%;
+}
+
+.my-fa-users {
+  font-size: 1.5rem;
+  margin-right: .5rem;
+  color: #333;
+}
+
+.tile-header div {
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0 2.4rem;
+  white-space: nowrap;
+}
+
+/* SLIDER */
+.swiper {
+  width: 100%;
+  padding: 3.5rem 6rem 0 6rem;
+  position: relative;
+}
+
+.card-list {
+  margin-bottom: 5.5rem;
+}
+
+.card-list .card-item .card-link {
+  text-decoration: none;
+}
+
+.card-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card-link img {
+  border: .3rem solid #7bb1ed;
+  border-radius: 50%;
+  max-width: 16rem;
+  margin-top: .5rem;
+}
+
+.card-link h2 {
+  color: #333333;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.my-swiper-pagination {
+  margin-top: .5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Botão Anterior (esquerda) */
+.swiper-button-prev {
+  width: 4.4rem !important;
+  height: 4.4rem !important;
+  background-color: #1351B4 !important;
+  opacity: 1 !important;
+  top: 100px !important;
+  left: 10px !important;
+  border-radius: 50% !important;
+  margin-top: 0 !important;
+  transform: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-button-prev::after {
+  content: "\276F" !important;
+  font-size: 2.6rem !important;
+  color: #fff !important;
+  font-weight: 900 !important;
+  line-height: 2.5rem;
+  position: absolute !important;
+  left: 50% !important;
+  top: 54% !important;
+  transform: translate(-50%, -50%) rotate(180deg) !important;
+}
+
+/* Botão Próximo (direita) */
+.swiper-button-next {
+  width: 4.4rem !important;
+  height: 4.4rem !important;
+  background-color: #1351B4 !important;
+  opacity: 1 !important;
+  top: 100px !important;
+  right: 10px !important;
+  border-radius: 50% !important;
+  margin-top: 0 !important;
+  transform: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-button-next::after {
+  content: "\276F" !important;
+  font-size: 2.6rem !important;
+  color: #fff !important;
+  font-weight: 900 !important;
+  line-height: 2.5rem;
+  position: absolute !important;
+  left: 50% !important;
+  top: 46% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+/* ESTADO DESABILITADO - AMBOS OS BOTÕES */
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-disabled {
+  background-color: #FCFCFC !important;
+  opacity: 1 !important;
+  border: 1px solid #1351B4 !important;
+}
+
+.swiper-button-prev.swiper-button-disabled::after,
+.swiper-button-next.swiper-button-disabled::after {
+  color: #88A7D9 !important;
+  font-size: 2.6rem !important;
+  font-weight: 900 !important;
+}
+
+/* Hover (opcional - melhora UX) */
+.swiper-button-prev:not(.swiper-button-disabled):hover,
+.swiper-button-next:not(.swiper-button-disabled):hover {
+  background-color: #0e448f !important;
+  transform: scale(1.05) !important;
+}
+
+.swiper-navigation-icon {
+  display: none;
+}
+
+.swiper-pagination-bullet-active {
+  background: #FFCD07 !important;
+}
+
+.swiper-pagination-bullet {
+  background: #A2A2A2;
+  opacity: 1;
+}
+
+.button-row {
+  margin-top: 0.5rem;
+}
+
+.all-btn {
+  border: 1px solid #1351B4;
+  border-radius: 4.1rem;
+  color: #1351B4;
+  float: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: .8rem 4.4rem;
+  text-align: center;
+  margin: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.all-btn:hover {
+  background: none;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>gbd-profile-carousel</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>GBD Profile Carousel</name>
+        <option_schema>[{"hint":"","name":"profiles","section":"Data","label":"Profiles (JSON)","type":"string"},{"name":"allprofilesurl","section":"Behavior","label":"URL - All Profiles","type":"string"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  
+	var profiles = gs.getProperty('x_821667_my_widget.gbd-profile-carousel.profiles');
+	data.profiles = JSON.parse(profiles);
+
+  // Link "All Profiles"
+  data.allProfilesUrl = 'https://www.gov.br/pt-br/perfil_usuario'; // [7](https://www.gov.br/pt-br/perfil_usuario)
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-26 12:32:55</sys_created_on>
+        <sys_id>b28173250f46f2107371c6e530d1b260</sys_id>
+        <sys_mod_count>114</sys_mod_count>
+        <sys_name>GBD Profile Carousel</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_b28173250f46f2107371c6e530d1b260</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-29 01:38:49</sys_updated_on>
+        <template><![CDATA[<div class="gbd-profile-carousel">  
+  <!-- Title header -->
+  <div class="tile-header">
+    <div>
+      <i class="fa fa-users my-fa-users" aria-hidden="true"></i>
+      ${Digital Services by Profile}
+    </div>
+  </div>
+  <!-- Slider main container -->
+  <div class="swiper" swiper-directive>
+    <!-- Additional required wrapper -->
+    <div class="card-list swiper-wrapper">
+      <!-- Slides -->
+      <div class="card-item swiper-slide" ng-repeat="profile in c.data.profiles" swiper-slide>
+        <a href="{{::profile.url}}" target="_blank" class="card-link">
+          <img src="{{::profile.image}}" alt="{{::profile.alt}}" class="card-image">
+          <h2>{{::profile.title}}</h2>
+        </a>
+      </div>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination my-swiper-pagination"></div>
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+  <!-- Button All Profiles -->
+  <div class="row button-row">
+    <div class="col-xs-12 text-center">
+      <a class="all-btn" href="{{::c.data.allProfilesUrl}}" target="_blank">${All Profiles}</a>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>b28173250f46f2107371c6e530d1b260</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-26 12:32:56</sys_created_on>
+        <sys_id>838173250f46f2107371c6e530d1b264</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-26 12:32:56</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
