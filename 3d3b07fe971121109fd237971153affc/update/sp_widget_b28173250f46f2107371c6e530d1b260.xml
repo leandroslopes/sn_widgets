@@ -206,8 +206,21 @@
         <roles/>
         <script><![CDATA[(function() {
   
-	var profiles = gs.getProperty('x_821667_my_widget.gbd-profile-carousel.profiles');
-	data.profiles = JSON.parse(profiles);
+	var profilesString = gs.getProperty('x_821667_my_widget.gbd-profile-carousel.profiles');
+	console.log(profilesString);
+	var profilesJSON = JSON.parse(profilesString);
+	var profiles = [];
+	
+	profilesJSON.forEach(function(profile) {
+		profiles.push({
+			title: gs.getMessage(profile.title),
+			url: profile.url,
+			image: profile.image,
+			alt: gs.getMessage(profile.alt)
+		});
+	});
+	
+	data.profiles = profiles;
 
   // Link "All Profiles"
   data.allProfilesUrl = 'https://www.gov.br/pt-br/perfil_usuario'; // [7](https://www.gov.br/pt-br/perfil_usuario)
@@ -218,14 +231,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-12-26 12:32:55</sys_created_on>
         <sys_id>b28173250f46f2107371c6e530d1b260</sys_id>
-        <sys_mod_count>114</sys_mod_count>
+        <sys_mod_count>119</sys_mod_count>
         <sys_name>GBD Profile Carousel</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_b28173250f46f2107371c6e530d1b260</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-29 01:38:49</sys_updated_on>
+        <sys_updated_on>2026-01-07 20:19:47</sys_updated_on>
         <template><![CDATA[<div class="gbd-profile-carousel">  
   <!-- Title header -->
   <div class="tile-header">
@@ -241,7 +254,7 @@
       <!-- Slides -->
       <div class="card-item swiper-slide" ng-repeat="profile in c.data.profiles" swiper-slide>
         <a href="{{::profile.url}}" target="_blank" class="card-link">
-          <img src="{{::profile.image}}" alt="{{::profile.alt}}" class="card-image">
+          <img src="{{::profile.image}}" alt="${Services for} {{::profile.title}}" class="card-image">
           <h2>{{::profile.title}}</h2>
         </a>
       </div>
