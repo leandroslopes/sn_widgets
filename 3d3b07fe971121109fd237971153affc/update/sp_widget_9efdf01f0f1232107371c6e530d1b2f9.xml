@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>#gbd-double-banner {
+	padding-top: 2.4rem;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>gbd-double-banner</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>GBD Double Banner</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 20:13:26</sys_created_on>
+        <sys_id>9efdf01f0f1232107371c6e530d1b2f9</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>GBD Double Banner</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_9efdf01f0f1232107371c6e530d1b2f9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-12 20:30:18</sys_updated_on>
+        <template><![CDATA[<div id="gbd-double-banner">
+  <div class="row">
+    <div class="col-md-6">
+      <a href="https://agenciagov.ebc.com.br/" target="_blank">
+        <img src="x_821667_my_widget.double_banner_01.png" class="img-responsive" alt="Double Banner 1"/>
+      </a>
+    </div>
+    <div class="col-md-6">
+      <a href="https://www.gov.br/secom/pt-br/ta-na-mao?utm_source=whatsapp&utm_medium=social&utm_campaign=banner_gov.br" target="_blank">
+        <img src="x_821667_my_widget.double_banner_02.png" class="img-responsive" alt="Double Banner 2"/>
+      </a>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>9efdf01f0f1232107371c6e530d1b2f9</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 20:13:26</sys_created_on>
+        <sys_id>96fd381f0f1232107371c6e530d1b2c0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-12 20:13:26</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

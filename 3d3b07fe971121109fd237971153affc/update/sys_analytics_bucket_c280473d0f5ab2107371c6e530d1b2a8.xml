@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_analytics_bucket">
+    <sys_analytics_bucket action="INSERT_OR_UPDATE">
+        <analytics_channel display_value="NextExperience">c8ae7e45732130107d804c9885f6a7a5</analytics_channel>
+        <application_name>My Wokspace</application_name>
+        <bucket_document_id>a2f349d6ec662110954ada4063297b6b</bucket_document_id>
+        <bucket_metadata/>
+        <bucket_metadata_customer_override/>
+        <bucket_table_name>sys_ux_page_registry</bucket_table_name>
+        <bucket_type/>
+        <enable_unauthenticated_user_tracking>false</enable_unauthenticated_user_tracking>
+        <enabled>true</enabled>
+        <internal_name_for_index>x_821667_my_widget.sys_ux_page_registry.a2f349d6ec662110954ada4063297b6b</internal_name_for_index>
+        <sys_class_name>sys_analytics_bucket</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-08 13:52:58</sys_created_on>
+        <sys_id>c280473d0f5ab2107371c6e530d1b2a8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>My Wokspace</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_analytics_bucket_c280473d0f5ab2107371c6e530d1b2a8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-08 13:52:58</sys_updated_on>
+    </sys_analytics_bucket>
+</record_update>

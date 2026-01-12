@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="INSERT_OR_UPDATE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>GOV.BR Demo - Container 8</name>
+        <order>8</order>
+        <semantic_tag/>
+        <sp_page display_value="govbr_home">1947f2ad97dd4250cbf53e2e6253afb9</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 20:18:04</sys_created_on>
+        <sys_id>9e0ffc5f0f1232107371c6e530d1b258</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>GOV.BR Demo - Container 8</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_container_9e0ffc5f0f1232107371c6e530d1b258</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-12 20:18:04</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+</record_update>
