@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.gbd-main-news {
+  padding-top: 2.4rem;
+}
+
+.gbd-main-news .news-card {
+  border: none;
+  box-shadow: none;
+  margin-bottom: 24px;
+}
+
+.gbd-main-news .news-image-wrapper img {
+  width: 100%;
+  height: 23.5rem;
+  display: block;
+}
+
+.gbd-main-news .news-image-placeholder {
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 placeholder */
+  background: #f2f2f2;
+}
+
+.gbd-main-news .news-category {
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #555;
+  line-height: normal;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.gbd-main-news .news-title {
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.4;
+  margin-bottom: .8rem;
+  margin-top: 0;
+}
+
+.gbd-main-news .news-title a {
+  color: #0c326f;
+  text-decoration: none;
+}
+
+.gbd-main-news .news-title a:hover {
+  color: #1351b4;
+}
+
+.my-caption {
+  padding: .8rem 0;
+}
+
+.my-col-md-4 {
+  text-align: center;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.outstanding-link {
+  font-weight: 700;
+  padding: .7rem 4.9rem;
+  border: 1px solid #0c326f;
+  border-radius: 4.1rem;
+  color: #0c326f;
+  float: none;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.outstanding-link:hover {
+  background: #1351b4;
+  border-color: #1351b4;
+  color: #fff;
+  text-decoration: none;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>gbd-main-news</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>GBD Main News</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[
+(function() {
+	
+	var propertyName = 'x_821667_my_widget.gbd.main.news.items'; // change if you prefer another property name
+	var itemsString = gs.getProperty(propertyName);
+	var itemsJSON = JSON.parse(itemsString);
+	var items = [];
+	
+	itemsJSON.forEach(function(item) {
+		items.push({
+			title: item.title,
+			url: item.url,
+			image: item.image,
+			category: gs.getMessage(item.category)
+		});
+	});
+	
+	data.items = items;
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-19 12:38:48</sys_created_on>
+        <sys_id>7a095fdd0faab2107371c6e530d1b2b7</sys_id>
+        <sys_mod_count>32</sys_mod_count>
+        <sys_name>GBD Main News</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_7a095fdd0faab2107371c6e530d1b2b7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-19 14:48:16</sys_updated_on>
+        <template><![CDATA[<div class="gbd-main-news">
+  <div class="row">
+    <div class="col-sm-4" ng-repeat="item in c.data.items track by $index">
+      <article class="news-card thumbnail">
+        <div class="news-image-wrapper">
+          <a href="{{::item.url}}" target="_blank" title="{{::item.title}}">
+            <img ng-src="{{::item.image}}" alt="{{::item.category}}" class="img-responsive">
+          </a>          
+        </div>
+        <div class="caption my-caption">
+          <div class="news-category text-uppercase">{{::item.category}}</div>
+          <h3 class="news-title">
+            <a href="{{::item.url}}" target="_blank" title="{{::item.title}}">{{::item.title}}</a>
+          </h3>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 my-col-md-4">
+    	<a class="outstanding-link" target="_blank" title="${More news}" href="https://www.gov.br/pagina-interna-noticias-ebc">${More news}</a>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>7a095fdd0faab2107371c6e530d1b2b7</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-19 12:38:49</sys_created_on>
+        <sys_id>03099fdd0faab2107371c6e530d1b2ff</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-19 12:38:49</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
