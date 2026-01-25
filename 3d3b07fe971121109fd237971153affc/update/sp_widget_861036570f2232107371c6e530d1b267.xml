@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.govbr-widget {
+  padding-bottom: 3.2rem;
+  padding-top: 2rem;
+}
+
+/* ===== Título e subtítulo (conforme solicitado) ===== */
+.govbr-title {
+  font-weight: 600;
+  font-size: 3.6rem;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 1.6rem;
+  color: #0c326f;
+}
+.govbr-subtitle {
+  font-size: 2.2rem;
+  color: #555;
+  text-align: center;
+  font-weight: 600;
+  padding: 0 2.2rem;
+  margin-bottom: 2.2rem;
+}
+
+/* ===== Card (BS3) ===== */
+.sp-card {
+  position: relative;
+  display: block;
+  -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  border-radius: .6rem;
+  background: #fff;
+  width: 24rem;
+  min-height: 24rem;
+  padding: 1.6rem 1.2rem;
+  text-align: center;
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+  outline: none;
+  transition: box-shadow .2s ease;
+}
+.sp-card:hover,
+.sp-card:focus {
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  cursor: pointer;
+}
+
+/* Faces (frente/verso) */
+.sp-card__face {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  padding: 3rem 2rem;
+  display: -webkit-box; display: -ms-flexbox; display: flex;
+  -webkit-box-align: center; -ms-flex-align: center; align-items: center;
+  -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center;
+  -ms-flex-direction: column; flex-direction: column;
+  transition: opacity .18s ease;
+}
+.sp-card__front { opacity: 1; background: transparent; }
+.sp-card__back  { opacity: 0; background: #555; color: #fff; }
+
+/* Troca no hover/focus */
+.sp-card:hover .sp-card__front, .sp-card:focus .sp-card__front { opacity: 0; }
+.sp-card:hover .sp-card__back,  .sp-card:focus .sp-card__back  { opacity: 1; }
+
+/* Conteúdo */
+.sp-card__icon { 
+  padding: .2rem 0;
+  margin-bottom: 3rem; 
+  color: #0c326f; 
+  font-size: 0; 
+}
+
+.sp-card__icon &gt; i { 
+  font-size: 5rem; 
+  line-height: 1; 
+  color: #2670e8; 
+}
+
+.sp-card__title {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #0c326f;
+  margin: 0;
+}
+
+.sp-card__desc {
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: left;
+  line-height: 1.45; 
+}
+
+/* Estado vazio */
+.sp-empty {
+  text-align: center; color: #777; padding: 1.2rem; background: #fff; border: 1px dashed #ddd; border-radius: .6rem;
+}
+
+/* classes utilitárias */
+.margin-bottom-44 {
+  margin-bottom: 4.4rem;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>gbd-browse-by-category</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>GBD Browse By Category</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[
+(function() {
+    // ===== Configuração fixa =====
+    var PROP_NAME = 'x_821667_my_widget.gbd.browse.by.category.cards';
+    var LIMIT = 16;
+    var ENFORCE_SIXTEEN = true; // mantém 16 cards com placeholders
+    var ICON_FAMILY = 'auto';   // 'auto' | 'fa' | 'glyphicon'
+
+    // ===== Idioma da sessão =====
+    var lang = (gs.getSession() && gs.getSession().getLanguage()) || 'pt_BR';
+    var isEN = (String(lang).toLowerCase().indexOf('en') === 0);
+    data.session_language = lang;
+    data.isEnglish = isEN;
+	
+		// Título/subtítulo visuais do widget
+    data.title = isEN ? 'Browse by category' : 'Navegue por categoria';
+    data.subtitle =  isEN ? 'Find the service or information you need using the options below:' : 'Encontre o serviço ou a informação desejada pelas opções abaixo:';
+
+    // ===== Utilitários de ícones =====
+    function pickDefaultIcon(family) {
+        return (family === 'glyphicon') ? 'glyphicon glyphicon-th-large' : 'fa fa-th-large';
+    }
+    function isFA(icon)       { return /^fa(\s|$)/.test(icon) || /\sfa-/.test(icon); }
+    function isGlyphicon(ic)  { return /^glyphicon(\s|$)/.test(ic); }
+    function normalizeIcon(icon, family) {
+        icon = (icon || '').trim();
+        if (!icon) return pickDefaultIcon(family || 'fa');
+
+        var fa = isFA(icon), gl = isGlyphicon(icon);
+        if (family === 'fa')        return fa ? icon : pickDefaultIcon('fa');
+        if (family === 'glyphicon') return gl ? icon : pickDefaultIcon('glyphicon');
+        // auto
+        return (fa || gl) ? icon : pickDefaultIcon('fa');
+    }
+
+    // Fallback de tradução (se title_en não vier na property)
+    function titlePTtoEN(pt) {
+        var map = {
+            'Agricultura e Pecuária': 'Agriculture and Livestock',
+            'Assistência Social': 'Social Assistance',
+            'Ciência e Tecnologia': 'Science and Technology',
+            'Comunicações e Transparência Pública': 'Communications and Public Transparency',
+            'Cultura, Artes, História e Esportes': 'Culture, Arts, History and Sports',
+            'Defesa Civil e Defesa Nacional': 'Civil Defense and National Defense',
+            'Educação e Pesquisa': 'Education and Research',
+            'Empresa, Indústria e Comércio': 'Business, Industry and Trade',
+            'Energia, Minerais e Combustíveis': 'Energy, Minerals and Fuels',
+            'Finanças, Impostos e Gestão Pública': 'Finance, Taxes and Public Management',
+            'Justiça e Segurança': 'Justice and Public Security',
+            'Meio Ambiente e Clima': 'Environment and Climate',
+            'Infraestrutura, Trânsito e Transportes': 'Infrastructure, Traffic and Transport',
+            'Trabalho, Emprego e Previdência': 'Labor, Employment and Social Security',
+            'Saúde e Vigilância Sanitária': 'Health and Sanitary Surveillance',
+            'Viagens e Turismo': 'Travel and Tourism'
+        };
+        return map[pt] || pt;
+    }
+
+    // ===== Lê a System Property =====
+    var raw = gs.getProperty(PROP_NAME, '[]');
+    var list = [];
+    try {
+        list = JSON.parse(raw);
+        if (!Array.isArray(list)) list = [];
+    } catch (e) {
+        data.error = 'System Property inválida: ' + PROP_NAME + ' — JSON malformado.';
+        list = [];
+    }
+
+    // ===== Normalização + seleção de título por idioma =====
+    var cards = [];
+    for (var i = 0; i < list.length; i++) {
+        var it = list[i] || {};
+        var icon = normalizeIcon(it.icon, ICON_FAMILY);
+        var titlePT = (it.title || '').trim();
+        var titleEN = (it.title_en || '').trim() || titlePTtoEN(titlePT);
+        var titleOut = isEN ? (titleEN || titlePT) : titlePT;
+
+        // descrição permanece em PT-BR, como alinhado anteriormente
+        var desc = (it.description || '').trim() || '—';
+        var url  = (it.url || '').trim();
+
+        if (!titlePT && !titleEN) continue; // exige ao menos um título
+
+        cards.push({
+            icon: icon,
+            title: titleOut,   // título já escolhido conforme idioma
+            description: desc, // PT-BR
+            url: url
+        });
+
+        if (cards.length >= LIMIT) break;
+    }
+
+    // ===== Completa com placeholders =====
+    if (ENFORCE_SIXTEEN) {
+        while (cards.length < LIMIT) {
+            cards.push({
+                icon: pickDefaultIcon(ICON_FAMILY === 'glyphicon' ? 'glyphicon' : 'fa'),
+                title: isEN ? 'Coming soon' : 'Em breve',
+                description: isEN ? 'Content under preparation.' : 'Conteúdo em preparação.',
+                url: ''
+            });
+        }
+    }
+
+    // Garante o limite máximo
+    if (cards.length > LIMIT) cards = cards.slice(0, LIMIT);
+
+    // Array final para o template
+    data.cards = cards;
+    data.count = cards.length;
+    data.sys_property_name = PROP_NAME;
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-25 14:47:43</sys_created_on>
+        <sys_id>861036570f2232107371c6e530d1b267</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>GBD Browse By Category</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_861036570f2232107371c6e530d1b267</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-25 19:21:41</sys_updated_on>
+        <template><![CDATA[<div class="govbr-widget">
+  <div class="container">
+    <h2 class="govbr-title">{{::data.title}}</h2>
+    <p class="govbr-subtitle">{{::data.subtitle}}</p>
+
+    <div ng-if="data.error" class="alert alert-danger">{{::data.error}}</div>
+
+    <div class="row" ng-if="!data.error">
+      <div class="col-xs-12 col-sm-6 col-md-3 margin-bottom-44" ng-repeat="c in data.cards track by $index">
+
+        <!-- Com URL: link abre em nova aba -->
+        <a ng-if="c.url"
+           class="sp-card"
+           href="{{::c.url}}"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="{{::c.title}}">
+
+          <div class="sp-card__face sp-card__front">
+            <div class="sp-card__icon" ng-if="c.icon"><i class="{{::c.icon}}" aria-hidden="true"></i></div>
+            <div class="sp-card__title">{{::c.title}}</div>
+          </div>
+
+          <div class="sp-card__face sp-card__back" aria-hidden="true">
+            <div class="sp-card__desc">{{::c.description}}</div>
+          </div>
+        </a>
+
+        <!-- Sem URL: bloco focável -->
+        <div ng-if="!c.url"
+             class="sp-card"
+             tabindex="0"
+             role="group"
+             aria-label="{{::c.title}}"
+             ng-keydown="onKey($event)">
+
+          <div class="sp-card__face sp-card__front">
+            <div class="sp-card__icon" ng-if="c.icon"><i class="{{::c.icon}}" aria-hidden="true"></i></div>
+            <div class="sp-card__title">{{::c.title}}</div>
+          </div>
+
+          <div class="sp-card__face sp-card__back" aria-hidden="true">
+            <div class="sp-card__desc">{{::c.description}}</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Estado vazio (não deve ocorrer por placeholders, mas fica por segurança) -->
+      <div class="col-xs-12" ng-if="!data.cards.length">
+        <div class="sp-empty">Nenhum item configurado em <code>{{::data.sys_property_name}}</code>.</div>
+      </div>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>861036570f2232107371c6e530d1b267</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-25 14:47:44</sys_created_on>
+        <sys_id>ce1036570f2232107371c6e530d1b26d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-25 14:47:44</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

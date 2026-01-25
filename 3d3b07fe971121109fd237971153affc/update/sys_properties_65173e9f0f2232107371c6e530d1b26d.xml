@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description/>
+        <ignore_cache>true</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_821667_my_widget.gbd.browse.by.category.cards</name>
+        <read_roles/>
+        <suffix>gbd.browse.by.category.cards</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-25 15:18:16</sys_created_on>
+        <sys_id>65173e9f0f2232107371c6e530d1b26d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_821667_my_widget.gbd.browse.by.category.cards</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sys_properties_65173e9f0f2232107371c6e530d1b26d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-25 15:18:16</sys_updated_on>
+        <type>string</type>
+        <value>[{"icon":"fa fa-leaf","title":"Agricultura e Pecuária","title_en":"Agriculture and Livestock","description":"Serviços relacionados ao apoio e promoção à produção agrícola no país, exportação dos produtos agrícolas, entre outros.","url":"https://www.gov.br/pt-br/categorias/agricultura-e-pecuaria"},{"icon":"fa fa-users","title":"Assistência Social","title_en":"Social Assistance","description":"Benefícios sociais e proteção ao cidadão.","url":"https://www.gov.br/pt-br/categorias/assistencia-social"},{"icon":"fa fa-flask","title":"Ciência e Tecnologia","title_en":"Science and Technology","description":"Pesquisa, inovação e tecnologia.","url":"https://www.gov.br/pt-br/categorias/ciencia-e-tecnologia"},{"icon":"fa fa-bullhorn","title":"Comunicações e Transparência Pública","title_en":"Communications and Public Transparency","description":"Comunicação, telecomunicações e transparência pública.","url":"https://www.gov.br/pt-br/categorias/comunicacoes-e-transparencia-publica"},{"icon":"fa fa-paint-brush","title":"Cultura, Artes, História e Esportes","title_en":"Culture, Arts, History and Sports","description":"Cultura, artes, patrimônio, esportes e editais.","url":"https://www.gov.br/pt-br/categorias/cultura-artes-historia-e-esportes"},{"icon":"fa fa-shield","title":"Defesa Civil e Defesa Nacional","title_en":"Civil Defense and National Defense","description":"Defesa civil, documentação e serviço militar.","url":"https://www.gov.br/pt-br/categorias/forcas-armadas-e-defesa-civil"},{"icon":"fa fa-graduation-cap","title":"Educação e Pesquisa","title_en":"Education and Research","description":"Ensino, pesquisa, bolsas e gestão educacional.","url":"https://www.gov.br/pt-br/categorias/educacao-e-pesquisa"},{"icon":"fa fa-industry","title":"Empresa, Indústria e Comércio","title_en":"Business, Industry and Trade","description":"Ambiente de negócios, indústria e comércio exterior.","url":"https://www.gov.br/pt-br/categorias/empresa-industria-e-comercio"},{"icon":"fa fa-bolt","title":"Energia, Minerais e Combustíveis","title_en":"Energy, Minerals and Fuels","description":"Energia elétrica, combustíveis, minerais e petróleo.","url":"https://www.gov.br/pt-br/categorias/energia-minerais-e-combustiveis"},{"icon":"fa fa-university","title":"Finanças, Impostos e Gestão Pública","title_en":"Finance, Taxes and Public Management","description":"Impostos, cadastros, pagamentos e gestão pública.","url":"https://www.gov.br/pt-br/categorias/financas-impostos-e-gestao-publica"},{"icon":"fa fa-gavel","title":"Justiça e Segurança","title_en":"Justice and Public Security","description":"Direitos, policiamento, documentação e controles.","url":"https://www.gov.br/pt-br/categorias/justica-e-seguranca"},{"icon":"fa fa-tree","title":"Meio Ambiente e Clima","title_en":"Environment and Climate","description":"Licenças, autorizações e proteção ambiental.","url":"https://www.gov.br/pt-br/categorias/meio-ambiente-e-clima"},{"icon":"fa fa-road","title":"Infraestrutura, Trânsito e Transportes","title_en":"Infrastructure, Traffic and Transport","description":"Transporte aéreo, aquaviário e terrestre, e habitação.","url":"https://www.gov.br/pt-br/categorias/transito-e-transportes"},{"icon":"fa fa-briefcase","title":"Trabalho, Emprego e Previdência","title_en":"Labor, Employment and Social Security","description":"Emprego, benefícios e previdência social.","url":"https://www.gov.br/pt-br/categorias/trabalho-e-previdencia"},{"icon":"fa fa-ambulance","title":"Saúde e Vigilância Sanitária","title_en":"Health and Sanitary Surveillance","description":"Fiscalização, prevenção e rede de atendimento à saúde.","url":"https://www.gov.br/pt-br/categorias/saude-e-vigilancia-sanitaria"},{"icon":"fa fa-suitcase","title":"Viagens e Turismo","title_en":"Travel and Tourism","description":"Passaporte, preparação para viagem e turismo.","url":"https://www.gov.br/pt-br/categorias/viagens-e-turismo"}]</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=65173e9f0f2232107371c6e530d1b26d"/>
+</record_update>
