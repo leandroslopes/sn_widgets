@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+	/* widget controller */
+	var c = this;
+	c.metrics = JSON.parse(c.data.metrics);
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.performance-bg {
+  background-color: #0c326f;
+  padding: 4rem 0 1.6rem 0;
+  color: #ffffff;
+}
+
+.performance-title {
+  font-size: 3.6rem;
+  margin-bottom: 4rem;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 1.2rem;
+}
+
+.performance-metrics {
+}
+
+.metric {
+  margin-bottom: 1rem;
+}
+
+.metric-value {
+  font-size: 5.8rem;
+  font-weight: 900;
+  line-height: 1.2;
+  font-family: 'RawlineBold';
+}
+
+.metric-label {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.performance-actions {
+  margin-top: 2rem;
+  margin-bottom: 2.6rem;
+}
+
+.btn-more-metrics {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: .07rem;
+  margin-top: 1.6rem;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 1rem 2.6rem;
+  border-radius: 4.1rem;
+}
+
+.btn-more-metrics:hover {
+  background: #1351b4;
+  border-color: #1351b4;
+  color: #fff;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>gbd-service-performance</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>GBD Service Performance</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	data.metrics = {};
+
+	data.metrics = gs.getProperty('x_821667_my_widget.gbd.service.performance', '{}');
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-17 00:21:28</sys_created_on>
+        <sys_id>4ae2562b0fef32107371c6e530d1b281</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name>GBD Service Performance</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_4ae2562b0fef32107371c6e530d1b281</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-17 23:11:50</sys_updated_on>
+        <template><![CDATA[<div id="gbd-service-performance">
+  <div class="container-fluid performance-bg">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <h2 class="performance-title">${Service Performance}</h2>
+      </div>
+    </div>
+    <div class="row text-center performance-metrics">
+      <div class="col-sm-2 metric"></div>
+      <div class="col-sm-3 metric">
+        <div class="metric-value">
+          {{::c.metrics.totalServices}}
+        </div>
+        <div class="metric-label">
+          ${Services on Portal}
+        </div>
+      </div>
+      <div class="col-sm-2 metric">
+        <div class="metric-value">
+          {{::c.metrics.digitalServicesPercentage}} %
+        </div>
+        <div class="metric-label">
+          ${Digital Services}
+        </div>
+      </div>
+      <div class="col-sm-3 metric">
+        <div class="metric-value">
+          {{::c.metrics.positiveRatingsPercentage}} %
+        </div>
+        <div class="metric-label">
+          ${Positive Ratings}
+        </div>
+        <div class="col-sm-2 metric"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 text-center performance-actions">
+        <button class="btn btn-default btn-more-metrics">
+          ${More Metrics}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>4ae2562b0fef32107371c6e530d1b281</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-17 00:21:29</sys_created_on>
+        <sys_id>12e2562b0fef32107371c6e530d1b287</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-17 00:21:29</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
