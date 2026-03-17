@@ -4,6 +4,7 @@
         <can_delegate>true</can_delegate>
         <description/>
         <elevated_privilege>false</elevated_privilege>
+        <federated_id>wMiDdpVW4iv/a5NS4IovzdKhYQ9+lL4ygzZh5fWMuG4=</federated_id>
         <grantable>true</grantable>
         <includes_roles/>
         <name>x_821667_my_widget.csv_temp_user</name>

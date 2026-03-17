@@ -10,6 +10,7 @@
         <icon/>
         <order>0</order>
         <show_icon>false</show_icon>
+        <size>md</size>
         <status/>
         <sys_class_name>sys_highlighted_value_condition</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>

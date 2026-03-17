@@ -5,6 +5,7 @@
         <component_props>{"src":"/x_821667_my_widget.ht-header.png","sources":"[]","fit":"cover","position":"center center","alt":"","noDebounce":"","height":""}</component_props>
         <h>11</h>
         <name/>
+        <required_translations>[]</required_translations>
         <stored_component/>
         <sys_class_name>par_dashboard_widget</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>

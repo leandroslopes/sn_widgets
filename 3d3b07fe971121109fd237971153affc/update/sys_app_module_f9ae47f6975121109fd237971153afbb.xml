@@ -19,6 +19,8 @@
         <report/>
         <require_confirmation>false</require_confirmation>
         <roles>x_821667_my_widget.csv_temp_user</roles>
+        <route/>
+        <screen/>
         <sys_class_name>sys_app_module</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-03-04 19:30:02</sys_created_on>
@@ -37,6 +39,7 @@
         <timeline_page/>
         <title>CSV Temps</title>
         <uncancelable>false</uncancelable>
+        <ux_list/>
         <view_name/>
         <window_name/>
     </sys_app_module>

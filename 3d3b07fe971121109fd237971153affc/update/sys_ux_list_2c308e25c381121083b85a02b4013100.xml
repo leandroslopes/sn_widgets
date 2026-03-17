@@ -8,7 +8,9 @@
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </condition>
         <configuration display_value="Now Pro Plus_menu_config">a0304e25c381121083b85a02b40131ec</configuration>
+        <enable_column_calculations>true</enable_column_calculations>
         <enable_infinite_scroll>false</enable_infinite_scroll>
+        <enable_related_hierarchy>false</enable_related_hierarchy>
         <fixed_query/>
         <group_by_column/>
         <groups/>
@@ -60,6 +62,7 @@
         <order>30</order>
         <override_word_wrap_user_pref>false</override_word_wrap_user_pref>
         <roles/>
+        <show_filter_overview>false</show_filter_overview>
         <sys_class_name>sys_ux_list</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-10-04 18:52:37</sys_created_on>

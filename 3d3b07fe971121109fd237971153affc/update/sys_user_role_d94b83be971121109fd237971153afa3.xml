@@ -4,6 +4,7 @@
         <can_delegate>true</can_delegate>
         <description/>
         <elevated_privilege>false</elevated_privilege>
+        <federated_id>rZu8/MlyrDHdZuMmjpyp/2SqcCn6NIEczbty9/2A7jc=</federated_id>
         <grantable>true</grantable>
         <includes_roles/>
         <name>x_821667_my_widget.admin</name>

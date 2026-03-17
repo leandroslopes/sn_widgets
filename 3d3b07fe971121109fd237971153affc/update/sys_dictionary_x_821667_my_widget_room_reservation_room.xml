@@ -39,6 +39,7 @@
         <next_element/>
         <primary>false</primary>
         <read_only>false</read_only>
+        <read_only_option/>
         <read_roles/>
         <reference display_value="" name="x_821667_my_widget_room">x_821667_my_widget_room</reference>
         <reference_cascade_rule/>

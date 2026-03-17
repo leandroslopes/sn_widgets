@@ -4,6 +4,7 @@
         <can_delegate>true</can_delegate>
         <description/>
         <elevated_privilege>false</elevated_privilege>
+        <federated_id>sYefPl1zzuczDG6ttKpTW8GXqe+7hyBEwS+jX6uKOqg=</federated_id>
         <grantable>true</grantable>
         <includes_roles/>
         <name>x_821667_my_widget.temperature_user</name>

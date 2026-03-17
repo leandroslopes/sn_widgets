@@ -3,6 +3,7 @@
         <access>public</access>
         <access_token_lifespan>1800</access_token_lifespan>
         <active>true</active>
+        <auth_aig_client>false</auth_aig_client>
         <auth_code_lifespan>60</auth_code_lifespan>
         <auth_url/>
         <certificate_url/>
@@ -23,6 +24,7 @@
         <mobile_client>false</mobile_client>
         <name>OAuth API Temperature</name>
         <oauth_api_script/>
+        <only_rest_processor>false</only_rest_processor>
         <protocol_name/>
         <public_client>false</public_client>
         <redirect_url/>
@@ -31,9 +33,10 @@
         <restricted_binding>false</restricted_binding>
         <revoke_token_url/>
         <salt/>
+        <scope_restriction_status>unrestricted</scope_restriction_status>
         <send_client_credentials_as>request_body_parameter</send_client_credentials_as>
         <skip_authorize>false</skip_authorize>
-        <sub_claim>user_name</sub_claim>
+        <sub_claim>sys_id</sub_claim>
         <sys_class_name>oauth_entity</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-11-14 00:35:26</sys_created_on>

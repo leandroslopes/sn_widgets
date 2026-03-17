@@ -5,6 +5,7 @@
         <component_props>{"variant":"header-tertiary","label":"Happening now","wontWrap":false,"hasNoMargin":false,"level":"1"}</component_props>
         <h>3</h>
         <name/>
+        <required_translations>[{"comment":"","message":"Happening now","code":"PAR_DASHBOARD.6ef349d6796621108de4fd80786ce968.62f349d6a8662110267a6d4ca5eece71"}]</required_translations>
         <stored_component/>
         <sys_class_name>par_dashboard_widget</sys_class_name>
         <sys_created_by>admin</sys_created_by>

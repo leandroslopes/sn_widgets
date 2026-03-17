@@ -12,6 +12,9 @@ $font-family-sans-serif:  "Poppins", Helvetica, Arial, sans-serif !default;</css
         <footer/>
         <footer_fixed>false</footer_fixed>
         <header display_value="Stock Header - My Widgets">0153b9510f2032107371c6e530d1b259</header>
+        <icon/>
+        <logo/>
+        <logo_alt_text/>
         <matching_now_experience_theme/>
         <name>My Widgets Theme</name>
         <navbar_fixed>true</navbar_fixed>
