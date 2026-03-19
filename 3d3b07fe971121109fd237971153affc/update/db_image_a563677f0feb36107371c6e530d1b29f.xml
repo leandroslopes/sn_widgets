@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="db_image">
+    <db_image action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>Service Portal</category>
+        <format>png</format>
+        <height>41</height>
+        <image>3e732bb70f2f36107371c6e530d1b2ef</image>
+        <name>x_821667_my_widget.googleplay.png</name>
+        <size_bytes>1333</size_bytes>
+        <sys_class_name>db_image</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-18 00:51:53</sys_created_on>
+        <sys_id>a563677f0feb36107371c6e530d1b29f</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>x_821667_my_widget.googleplay.png</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>db_image_a563677f0feb36107371c6e530d1b29f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-18 00:52:00</sys_updated_on>
+        <thumbnail/>
+        <width>144</width>
+    </db_image>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#3366</average_image_color>
+        <chunk_size_bytes>700000</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <file_name>image</file_name>
+        <hash>cab5a7473b3f403b186aedaec1ed93eb1b7d8f132c426a1d2adde583f476833e</hash>
+        <image_height>41</image_height>
+        <image_width>144</image_width>
+        <size_bytes>1333</size_bytes>
+        <size_compressed>1356</size_compressed>
+        <state>available</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-18 00:52:00</sys_created_on>
+        <sys_id>3e732bb70f2f36107371c6e530d1b2ef</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-18 00:52:00</sys_updated_on>
+        <table_name>ZZ_YYdb_image</table_name>
+        <table_sys_id>a563677f0feb36107371c6e530d1b29f</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAA/w==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="image" sys_id="3e732bb70f2f36107371c6e530d1b2ef">3e732bb70f2f36107371c6e530d1b2ef</sys_attachment>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-18 00:52:00</sys_created_on>
+        <sys_id>fe732bb70f2f36107371c6e530d1b2ef</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>ATUFyvqJUE5HDQoaCgAAAA1JSERSAAAAkAAAACkIAwAAAO1dUDcAAADJUExURUdwTHt8fHp7e3t8fKGhoaampqOjo5eXl5eXl5qamgACA6Kioli72////wkKC0lKS7m6usHBwmyxT1RVVrsMVhsaGqytrREUFCsuLmprbISFhfv7+0JDRA8iJyImJOvr63JzdI2Ojv/GADw+PvX19VxdXsvLzGOiSeHh4Xt8fTQ3NpiZmdPT1KsNUv64AGGStrS1tVWstWNkZVlfVXpjBqYOSum0BeygCFeFPzxdL0EIIV4HLHkSMpIKRF+IkNuUDsSiAcemCVOnsPO3uP8AAAAKdFJOUwD19fQ7FT3ysp2iitHEAAAEEUlEQVRYw82Ya3ebOBCG6W5OnQyVBFEkELBcYkHEJYnXp9umt739/x+1I0F63MQxidvtYT74jOWReJh5dbE8z/Nen678Bdjq9MRzdrbKIliARdnqzPH8QpeAY42+QqLXq8XwINHqxDvNlsMDkJ16qx+oH/bdI4iV5x+b3cdexOeD58x/KdAgNzVsWRcGJTQy6KAMpBQwZJCpTPkCIpk1UoIco9fAtqBcyFFA8Ye5AgbYZ614kkGMvtiwCntJCAPKSlbyErZbVo5xaNjM1RRyDBD99+r8A50D6hLF87AS0PAk6XNslDRgiQWiAWwitmnrCSjgLVdTyDFAv735/er8qpsBylqFYlmH0GwZVLFrDMAvy6wEv/OBVV1+DwSyVFX3NWMvB7JE53f5IaA4FIpXaxq6h8SbCFRlq2cwQ8AGBpgoCgGlLloYlQcCttWxQI7o/O5JKfmyyiHron7DoHWy86UC69YsZkB9inpBUVdSdmNzNoUcCzQSzUnpf7M9QBPR1YfFAE1EB6X0c4Huic7vxEKA7qv27uYtXQaQI0Key8t3b5cBhERX729ukOjynz1LgGibogjqg0OzZFeDKkFTwjrHAb3586+R5/LycY6ygugw1GRzaOiErHe+hcRa0UGYHgd0e/3H+xHo70cyijVJsDHq+UuAokio1BwLdHt9cYFE+zUUkvYZangIZD8l6Y4DsjyOaN8sy4n5Jl9tVbsoViXuOExVwnMuHBCrSrED1I9AcVJtKXB7wKScPQNo5Lm4+Lx3HeLE9om4tRhUitoYBFBpRYK/xIMVC2EIRAN0NfsKxHRBEYjbLkZIgieFmlTzQBPPlyeWxS3pbWKcSvsuDXNaorxbUkX4DAVNWlM2AiXEj3JTRA6oKLSFQyCG+64i/dqOE6b5LNBUr49PlTkj4ZQhhPCJxd4QUQy2ALpxj8HnWaChiNRAmtgBBcHGHp5syVQw+LqBRkcxkbMacjzXn55eoqkh3ei1pA7SSRvjGmAMJ/aowRxQobXuux0NgQPqSdMH6YDlUtU3yt8L5Hg+H9wxFDH2paHThvZuxEFTY7BPngbjOycOKCRJBDR6CJQ2mGAEomYomrlZZnm+zO2pPtF9XfupxsOXNnUmSYKvGzI+pGuc2n3WagfEScOy0IgHQKbgrCGDzTCpZ4CQ52nx7OTIWEU3thqZdfGcCKXGGbXFd8fpljYks9PetqXtwwwxbA3NYNNU0INA9Pb6kHh2I7uax5PL+DhRBOfjttfxvCRdlFPXNqZb3E8m6wjGqBBWae3hhRE+fvr+40YfUqCNfs5AgRYzQD/CSmJ8Q5JnRMbEh58ABHVTNM/6l1HLeA/QahG3Z/cWrZZ3P3SytBs07+zVcu4Yfz1b4i2s550s6Z76P1QbLnQN8e/3AAAAAElFTkSuQmCCRWtFDjUFAAA=</data>
+        <length>1796</length>
+        <position>1</position>
+        <sys_attachment display_value="image" sys_id="3e732bb70f2f36107371c6e530d1b2ef">3e732bb70f2f36107371c6e530d1b2ef</sys_attachment>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-18 00:52:00</sys_created_on>
+        <sys_id>b2732bb70f2f36107371c6e530d1b2f0</sys_id>
+    </sys_attachment_doc>
+</record_update>

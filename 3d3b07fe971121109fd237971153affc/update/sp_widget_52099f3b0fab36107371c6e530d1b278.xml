@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+	/* widget controller */
+	var c = this;
+	c.apps = JSON.parse(c.data.apps);
+
+	c.getClassByIndex = function(index) {
+		if (index === 0) {
+			return 'text-right';
+		} else if (index === 1) {
+			return 'text-center';
+		} else {
+			return 'text-left';
+		}
+	};
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.gbd-apps-links {
+  padding-bottom: 4rem;
+  background-color: #f8f8f8;
+}
+
+.gov-title {
+  text-align: center;
+  color: #0c326f;
+  font-weight: 600;
+  font-size: 3.6rem;
+  margin-top: 4rem;
+  margin-bottom: 3.2rem;
+  line-height: 1.5;
+}
+
+/* Card base */
+.gov-card {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.gov-card img {
+  max-width: 100%;
+}
+
+/* Overlay hover */
+.gov-card-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #5b5b5b;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: #ffffff;
+  padding: 20px;
+}
+
+/* Exibe no hover */
+.gov-card:hover .gov-card-hover {
+  opacity: 1;
+}
+
+/* Título do app */
+.gov-card-title {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Stores */
+.gov-card-stores {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.gov-card-stores img {
+  width: 140px;
+  margin: 5px 0;
+}
+
+/* Espaçamento entre cards */
+.gov-cards-row {
+  margin-bottom: 40px;
+}
+
+/* Botão */
+.gov-btn {
+  border: 1px solid #0c326f;
+  color: #0c326f;
+  background-color: #ffffff;
+  padding: 1rem 2.8rem;
+  border-radius: 4.1rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+
+.gov-btn:hover {
+  background: #1351b4;
+  border-color: #1351b4;
+  color: #fff;
+  text-decoration: none;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>gbd-app-links</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>GBD App Links</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	var appsString = gs.getProperty('x_821667_my_widget.gdb.app.links.apps', '{}');
+	var appsJSON = JSON.parse(appsString);
+	var apps = [];
+	
+	appsJSON.forEach(function(app) {
+		apps.push({
+			image: app.image,
+			title: gs.getMessage(app.title),
+			apple_link: app.apple_link,
+			play_link: app.play_link
+		});
+	});
+	
+	data.apps = JSON.stringify(apps);
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-18 00:06:21</sys_created_on>
+        <sys_id>52099f3b0fab36107371c6e530d1b278</sys_id>
+        <sys_mod_count>26</sys_mod_count>
+        <sys_name>GBD App Links</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_widget_52099f3b0fab36107371c6e530d1b278</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-19 00:15:44</sys_updated_on>
+        <template><![CDATA[<div class="gbd-apps-links container">
+  <!-- Title -->
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <h2 class="gov-title">
+        ${Are you already familiar with the Federal Government's apps?}
+      </h2>
+    </div>
+  </div>
+  <!-- Cards -->
+  <div class="row gov-cards-row">
+    <!-- Cards -->
+    <div class="col-sm-4" ng-class="c.getClassByIndex($index)" ng-repeat="app in c.apps track by $index">
+      <div class="gov-card">
+        <img src="{{app.image}}" width="240" height="240"/>
+        <div class="gov-card-hover">
+          <div class="gov-card-title">{{app.title}}</div>
+          <div class="gov-card-stores">
+            <a href="{{app.apple_link}}" target="_blank" alt="{{app.title}}">
+              <img src="x_821667_my_widget.appstore.png" width="144" height="42"/>
+            </a>
+            <a href="{{app.play_link}}" target="_blank" alt="{{app.title}}">
+              <img src="x_821667_my_widget.googleplay.png" width="144" height="41"/>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <!--div class="col-sm-4 text-center">
+      <div class="gov-card">
+        <img src="x_821667_my_widget.gov_br.png" width="240" height="240"/>
+
+        <div class="gov-card-hover">
+          <div class="gov-card-title">${gov.br}</div>
+
+          <div class="gov-card-stores">
+            <a href="https://apps.apple.com/br/app/id1506827551" target="_blank" alt="">
+              <img src="x_821667_my_widget.appstore.png" width="144" height="42"/>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=br.gov.meugovbr&hl=pt_BR" target="_blank" alt="">
+              <img src="x_821667_my_widget.googleplay.png" width="144" height="41"/>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div-->
+    <!-- Card 3 -->
+    <!--div class="col-sm-4 text-left">
+      <div class="gov-card">
+        <img src="x_821667_my_widget.cnh.png" width="240" height="240"/>
+
+        <div class="gov-card-hover">
+          <div class="gov-card-title">${Digital Traffic Wallet}</div>
+
+          <div class="gov-card-stores">
+            <a href="https://apps.apple.com/br/app/carteira-digital-de-tr%C3%A2nsito/id1275057217" target="_blank" alt="">
+              <img src="x_821667_my_widget.appstore.png" width="144" height="42"/>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=br.gov.serpro.cnhe" target="_blank" alt="">
+              <img src="x_821667_my_widget.googleplay.png" width="144" height="41"/>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div-->
+  </div>
+  <!-- Button -->
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <a href="https://www.gov.br/pt-br/apps/@@galeria-de-aplicativos" target="_blank" alt="" class="btn gov-btn">
+        ${APP GALLERY}
+      </a>
+    </div>
+  </div>
+
+</div>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>52099f3b0fab36107371c6e530d1b278</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-18 00:06:21</sys_created_on>
+        <sys_id>96099f3b0fab36107371c6e530d1b27d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-18 00:06:21</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
