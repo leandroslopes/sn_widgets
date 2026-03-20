@@ -32,7 +32,6 @@
   line-height: 1.5;
 }
 
-/* Card base */
 .gov-card {
   position: relative;
   display: inline-block;
@@ -43,7 +42,6 @@
   max-width: 100%;
 }
 
-/* Overlay hover */
 .gov-card-hover {
   position: absolute;
   top: 0;
@@ -57,12 +55,10 @@
   padding: 20px;
 }
 
-/* Exibe no hover */
 .gov-card:hover .gov-card-hover {
   opacity: 1;
 }
 
-/* Título do app */
 .gov-card-title {
   position: absolute;
   top: 20px;
@@ -73,7 +69,6 @@
   font-weight: 600;
 }
 
-/* Stores */
 .gov-card-stores {
   position: absolute;
   bottom: 20px;
@@ -87,12 +82,10 @@
   margin: 5px 0;
 }
 
-/* Espaçamento entre cards */
 .gov-cards-row {
   margin-bottom: 40px;
 }
 
-/* Botão */
 .gov-btn {
   border: 1px solid #0c326f;
   color: #0c326f;
@@ -144,14 +137,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-03-18 00:06:21</sys_created_on>
         <sys_id>52099f3b0fab36107371c6e530d1b278</sys_id>
-        <sys_mod_count>26</sys_mod_count>
+        <sys_mod_count>27</sys_mod_count>
         <sys_name>GBD App Links</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_widget_52099f3b0fab36107371c6e530d1b278</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-03-19 00:15:44</sys_updated_on>
+        <sys_updated_on>2026-03-19 01:23:57</sys_updated_on>
         <template><![CDATA[<div class="gbd-apps-links container">
   <!-- Title -->
   <div class="row">
@@ -180,44 +173,6 @@
         </div>
       </div>
     </div>
-    <!-- Card 2 -->
-    <!--div class="col-sm-4 text-center">
-      <div class="gov-card">
-        <img src="x_821667_my_widget.gov_br.png" width="240" height="240"/>
-
-        <div class="gov-card-hover">
-          <div class="gov-card-title">${gov.br}</div>
-
-          <div class="gov-card-stores">
-            <a href="https://apps.apple.com/br/app/id1506827551" target="_blank" alt="">
-              <img src="x_821667_my_widget.appstore.png" width="144" height="42"/>
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=br.gov.meugovbr&hl=pt_BR" target="_blank" alt="">
-              <img src="x_821667_my_widget.googleplay.png" width="144" height="41"/>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div-->
-    <!-- Card 3 -->
-    <!--div class="col-sm-4 text-left">
-      <div class="gov-card">
-        <img src="x_821667_my_widget.cnh.png" width="240" height="240"/>
-
-        <div class="gov-card-hover">
-          <div class="gov-card-title">${Digital Traffic Wallet}</div>
-
-          <div class="gov-card-stores">
-            <a href="https://apps.apple.com/br/app/carteira-digital-de-tr%C3%A2nsito/id1275057217" target="_blank" alt="">
-              <img src="x_821667_my_widget.appstore.png" width="144" height="42"/>
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=br.gov.serpro.cnhe" target="_blank" alt="">
-              <img src="x_821667_my_widget.googleplay.png" width="144" height="41"/>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div-->
   </div>
   <!-- Button -->
   <div class="row">
@@ -227,7 +182,6 @@
       </a>
     </div>
   </div>
-
 </div>]]></template>
     </sp_widget>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
