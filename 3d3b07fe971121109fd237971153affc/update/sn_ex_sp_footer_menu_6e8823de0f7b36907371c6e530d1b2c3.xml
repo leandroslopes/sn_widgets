@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sn_ex_sp_footer_menu">
+    <sn_ex_sp_footer_menu action="INSERT_OR_UPDATE">
+        <footer display_value="GOV.BR Demo">0dde634e0f7b72907371c6e530d1b269</footer>
+        <link_type>navigation_links</link_type>
+        <menu display_value="Navigation">d898eb9a0f7b36907371c6e530d1b2f7</menu>
+        <order>600</order>
+        <sys_class_name>sn_ex_sp_footer_menu</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-25 19:39:06</sys_created_on>
+        <sys_id>6e8823de0f7b36907371c6e530d1b2c3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sn_ex_sp_footer_menu_6e8823de0f7b36907371c6e530d1b2c3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-25 19:39:06</sys_updated_on>
+    </sn_ex_sp_footer_menu>
+</record_update>

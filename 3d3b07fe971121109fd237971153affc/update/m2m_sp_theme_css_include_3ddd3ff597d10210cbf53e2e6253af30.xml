@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_theme_css_include">
     <m2m_sp_theme_css_include action="INSERT_OR_UPDATE">
         <order>200</order>
-        <sp_css_include display_value="styles">054d7ffd97d10210cbf53e2e6253af12</sp_css_include>
+        <sp_css_include display_value="govbr-fonts-rawline.css">054d7ffd97d10210cbf53e2e6253af12</sp_css_include>
         <sp_theme display_value="GOV.BR Demo Theme">131117ed97d18250cbf53e2e6253afba</sp_theme>
         <sys_class_name>m2m_sp_theme_css_include</sys_class_name>
         <sys_created_by>leandro.lopes</sys_created_by>

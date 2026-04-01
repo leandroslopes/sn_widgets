@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone">
+    <sp_rel_widget_clone action="INSERT_OR_UPDATE">
+        <child display_value="GOV.BR Demo Footer">75ecafce0f3b72907371c6e530d1b234</child>
+        <cloned>2026-03-25 01:19:29</cloned>
+        <last_validated>2026-03-25 01:19:29</last_validated>
+        <parent display_value="Employee Center Footer">ce046d5773603010c94f54eb7df6a7ec</parent>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;sp_widget&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller = function($scope, $window, $location) {
+    /* widget controller */
+    var c = this;
+    var isIE = window.navigator.userAgent.indexOf('Trident/') !== -1;
+    c.data.footer = {};
+    c.data.isFooterFixed = false;
+  
+    $scope.$on('ngRepeatFinishedNavLinks', function(ngRepeatFinishedEvent) {
+      init();
+    });
+    
+    function init() {
+
+        if (c.data.footer &amp;&amp; c.data.footer.menus) {
+            Object.keys(c.data.footer.menus).forEach(function(menuType) {
+                var menuSection = c.data.footer.menus[menuType];
+                if (menuSection) {
+                    menuSection.forEach(function(menu) {
+                        menu.menuItems = transformMenuItems(menu.menuItems);
+                    });
+                }
+            });
+        }
+
+        applyMasonryOnLoad();
+    }
+
+   /**
+     * Used for capturing positions of columns in the Footer masonry layout.
+     * navigationMap : an object with key as left offset in pixel &amp; value as array of footer links located at that left offset.
+     */
+    c.DELTA_OFFSET = 24;
+    $scope.navigationMap = {};
+    $scope.keyboardNavRowIndex = 0;
+    $scope.keyboardNavColIndex = 0;
+
+    /**
+     * This function provides keyboard navigation within Footer
+     * @param {Object} event - keyboard event object
+     * @see {@link c.initialiseKeyboardNav}
+     * @todo change event.which to event.key after end of support for IE11.
+     */
+    $scope.handleFooterKeyboardEvent = function (event) {
+        // If Shift + Tab on 1st link, let default DOM order take control of K/B Navigation &amp; reset c.shiftKeyPressed.
+        c.shiftKeyPressed = event.shiftKey;
+        var isShiftTabPressedOnFirstLink = c.shiftKeyPressed &amp;&amp; event.which === 9 &amp;&amp; $scope.keyboardNavRowIndex === 0 &amp;&amp; $scope.keyboardNavColIndex === 0;
+        if (isShiftTabPressedOnFirstLink || event.which === 16) {
+            c.shiftKeyPressed = isShiftTabPressedOnFirstLink ? false : c.shiftKeyPressed;
+            return;
+        }
+        var navMapKeys = Object.keys($scope.navigationMap);
+
+        // If Tab key is pressed on last masonry link and no bottom links are available, let default DOM order take control of K/B Navigation
+        var isLastRow = ($scope.keyboardNavRowIndex === $scope.navigationMap[navMapKeys[$scope.keyboardNavColIndex]].length - 1);
+        var isLastColumn = ($scope.keyboardNavColIndex === navMapKeys.length - 1);
+        var isOnlyTabKeyPress = (event.which === 9 &amp;&amp; !c.shiftKeyPressed);
+        var areBottomLinksPresent = _.get(c.data.footer, 'menus.bottom_links[0].menuItems.length', 0) &gt; 0 || _.get(c.data.footer, 'menus.social_icons.menuItems.length', 0) &gt; 0;
+        if (isLastRow &amp;&amp; isLastColumn &amp;&amp; isOnlyTabKeyPress &amp;&amp; !areBottomLinksPresent) {
+          $scope.keyboardNavRowIndex = 0;
+          $scope.keyboardNavColIndex = 0;
+          return;
+        }
+
+        event.preventDefault();
+        switch (event.which) {
+            case 32: // fall through, click on space or enter key
+            case 13:
+                $(event.target)[0].click();
+                break;
+
+            case 37: // Left arrow key press
+                $scope.keyboardNavRowIndex = 0;
+                // if on 1st column, go to last column. Otherwise decrease the column to the left one
+                $scope.keyboardNavColIndex = ($scope.keyboardNavColIndex === 0) ? navMapKeys.length - 1 : $scope.keyboardNavColIndex - 1;
+                break;
+
+            case 38: // Up arrow key press
+                var currentRowIndex = $scope.keyboardNavRowIndex;
+                var currentColIndex = $scope.keyboardNavColIndex;
+                // if not on 1st row, move up a row, otherwise set current row to last link of the column
+                $scope.keyboardNavRowIndex = (currentRowIndex === 0) ? ($scope.navigationMap[navMapKeys[currentColIndex]].length - 1) : (currentRowIndex - 1);
+                break;
+
+            case 39: // Right arrow key press
+                $scope.keyboardNavRowIndex = 0;
+                // if not last column, move to next column, else move to 1st column
+                $scope.keyboardNavColIndex = ($scope.keyboardNavColIndex + 1 &lt; navMapKeys.length) ? ($scope.keyboardNavColIndex + 1) : 0;
+                break;
+
+            case 40: // Down arrow key press
+                currentRowIndex = $scope.keyboardNavRowIndex;
+                currentColIndex = $scope.keyboardNavColIndex;
+                // if on last row, go to 1st row, else move down one row
+                $scope.keyboardNavRowIndex = (currentRowIndex === $scope.navigationMap[navMapKeys[currentColIndex]].length - 1) ? 0 : (currentRowIndex + 1);
+                break;
+
+            case 9:
+                // if shift + tab
+                if (c.shiftKeyPressed) {
+                    if ($scope.keyboardNavRowIndex != 0) {
+                        $scope.keyboardNavRowIndex--;
+                    }
+                    // if it is 0th row
+                    else {
+                        $scope.keyboardNavColIndex--;
+                        $scope.keyboardNavRowIndex = $scope.navigationMap[navMapKeys[$scope.keyboardNavColIndex]].length - 1;
+                    }
+                }
+                // only tab
+                else {
+                    // if not on the last row of current column, then increment the row
+                    if ($scope.navigationMap[navMapKeys[$scope.keyboardNavColIndex]].length != $scope.keyboardNavRowIndex + 1) {
+                        $scope.keyboardNavRowIndex++;
+                    }
+                    // if on the last row
+                    else {
+                        // if on last row of last column, then  move to 1st bottom link
+                        if ($scope.keyboardNavColIndex === navMapKeys.length - 1) {
+                            $('.scrub-footer .sf-bottom a').first().focus();
+                            $scope.keyboardNavRowIndex = 0;
+                            $scope.keyboardNavColIndex = 0;
+                            return;
+                        }
+                        // but not the last column, then increment column &amp; go to row 0 of next column.
+                        $scope.keyboardNavRowIndex = 0;
+                        $scope.keyboardNavColIndex++;
+                    }
+                }
+                break;
+        }
+        $scope.navigationMap[navMapKeys[$scope.keyboardNavColIndex]][$scope.keyboardNavRowIndex].focus();
+    };
+
+    /**
+     * Helper function for c.initialiseKeyboardNav
+     * Searches existing column offsets in range of currentOffset ± DELTA_OFFSET
+     * and returns index of the nearest column offset, else -1.
+     * @param {Array} columnOffsets - array of left offsets of columns
+     * @param {string} currentOffset - current element's left offset
+     * @see {@link c.initialiseKeyboardNav}
+     */
+    var columnSearch = function (columnOffsets, currentOffset) {
+        var start = 0,
+            end = columnOffsets.length - 1;
+        while (start &lt;= end) {
+            var mid = Math.floor((start + end) / 2);
+
+            if ((Number(columnOffsets[mid]) - c.DELTA_OFFSET &lt;= currentOffset) &amp;&amp; (currentOffset &lt;= Number(columnOffsets[mid]) + c.DELTA_OFFSET))
+                return mid;
+
+            else if (Number(columnOffsets[mid]) + c.DELTA_OFFSET &lt; currentOffset)
+                start = mid + 1;
+            else
+                end = mid - 1;
+        }
+        return -1;
+    };
+
+    /**
+     * This function identifies columns from the masonry layout and stores in navigationMap object
+     */
+    c.initialiseKeyboardNav = function () {
+        $scope.navigationMap = {};
+        var allFooterLinks = $('.masonry-root').find('a');
+        for (var index = 0; index &lt; allFooterLinks.length; index++) {
+            var currentLink = allFooterLinks.get(index);
+            if ($scope.navigationMap.hasOwnProperty(currentLink.offsetLeft))
+                $scope.navigationMap[currentLink.offsetLeft].push(currentLink);
+            else {
+                var _navKeys = Object.keys($scope.navigationMap);
+                var _currentOffset = currentLink.offsetLeft;
+                var _closestColumn = columnSearch(_navKeys, _currentOffset);
+                if (_closestColumn !== -1) {
+                    $scope.navigationMap[String(_navKeys[_closestColumn])].push(currentLink);
+                } else {
+                    $scope.navigationMap[_currentOffset] = [currentLink];
+                }
+            }
+        }
+    };
+
+    /* Util functions :: Start */
+    var isExternalLink = (function() {
+        var absoluteLinkRegx = new RegExp('^(?:[a-z]+:)?//', 'i');
+        return function(url) {
+            return (url &amp;&amp; absoluteLinkRegx.test(url) &amp;&amp; url.indexOf(window.location.host) == -1);
+        };
+    })();
+    function transformMenuItems(menuItems) {
+        var filteredItems = [];
+        if (menuItems)
+            menuItems.forEach(function(menuItem) {
+                if (menuItem.href) {
+                    if (menuItem.url_target) {
+                      menuItem.isExternalLink = menuItem.url_target === "_blank";
+                    } else {
+                      menuItem.isExternalLink = isExternalLink(menuItem.href);
+                    }
+                    filteredItems.push(menuItem);
+                }
+            });
+        return filteredItems;
+    }
+    /* Util functions :: End */
+
+    /* Mansonry Layout Utils :: Start */
+    var masonryHeight = 0;
+    var applyMasonryOnLoad = function() {
+        var masonryRoot = $('.masonry-root');
+        var noOfColumns = Math.floor(masonryRoot.innerWidth() / convertRemToPixel(minimumWidthRem()));
+        var masonryCell = masonryRoot.children();
+        var masonryCellSize = masonryCell.size();
+        var sfLogoContainer = $('.sf-logo-container');
+        
+        masonryCell.each( function(){
+                $(this).css('order', '1');
+                $(this).css('flex-basis', 'auto');
+                $(this).css('display', '');
+            });
+        if (noOfColumns &lt; masonryCellSize) {
+            masonryRoot.css('height', 'auto');
+            masonryRoot.css('flex-direction','column');
+            masonryRoot.css('justify-content', 'flex-start');
+
+            if(noOfColumns &gt; 1) {
+                var columns = divideMasonryCellsInColumns(masonryCell, noOfColumns);
+
+                // ...and conquer
+                var order = 0;
+                columns.forEach(function(column) {
+                    column.cells.forEach(function(cell) {
+                        cell.css('order', order++);
+                    });
+                    // set flex-basis of the last cell to fill the
+                    // leftover space at the bottom of the column
+                    // to prevent the first cell of the next column
+                    // to be rendered at the bottom of this column
+                    if (column.cells.length)
+                        column.cells[column.cells.length - 1].css('flex-basis', column.cells[column.cells.length - 1].innerHeight() + masonryHeight - column.height + 'px');
+                });
+                setTimeout(function(){
+                    columns = divideMasonryCellsInColumns(masonryCell, noOfColumns);
+                    masonryRoot.css('height', masonryHeight + 1);
+                    if (isIE) {
+                        masonryRoot.css('flex-wrap', '');
+                    }
+                });
+            }
+        } else {
+            masonryRoot.css('height', 'auto');
+            masonryRoot.css('flex-direction','row');
+
+            // Space all cells evenly
+            if(isIE){
+              masonryRoot.css('display', 'flex');
+              masonryRoot.css('flex-wrap', 'nowrap');
+            }
+            $('.masonry-cell').each( function(){
+                $(this).css('order', '1');
+                $(this).css('flex-basis', 'auto');
+
+                // Space all cells evenly
+                $(this).css('flex-basis', 100/(masonryCellSize) + '%');
+                if(isIE){
+                  $(this).css('display', 'block');
+                }
+            });
+        }
+        
+        //This overrides default behaviour for non-fixed footer when this specific widget is used
+        if(!c.data.isFooterFixed) {
+            $('.page').css('display','flex');
+            $('.page').css('flex-direction','column');
+            $('.body').css('flex','1 0 auto');
+        }
+        setTimeout(function () {
+            c.initialiseKeyboardNav();
+
+            c.HEADER_HEIGHT = parseFloat($window.getComputedStyle($('header')[0]).height);
+            c.FOOTER_HEIGHT = parseFloat($window.getComputedStyle($('footer')[0]).height);
+            $('main.body').css('min-height', 'calc(100vh - ' + (c.HEADER_HEIGHT + c.FOOTER_HEIGHT) + 'px)');
+        });
+
+        $('footer').attr({
+            'role': 'contentinfo',
+            'aria-label': '${Employee Center Footer}',
+            'tabindex': '-1'
+        });
+
+        $('footer').focus(function () {
+            $('footer').attr({
+               'style': 'border:none;box-shadow:none;'
+            });
+        });
+
+        $('footer').blur(function () {
+            $('footer').removeAttr('style');
+        });
+    };
+
+    function divideMasonryCellsInColumns(masonryCell, noOfColumns) {
+        masonryHeight = 0;
+        var columns = Array.from(new Array(noOfColumns)).map(function(column) {
+                return {
+                    'cells': new Array(),
+                    'height': 0
+                };
+            });
+
+            masonryCell.each( function(){
+                var minHeight;
+                columns.forEach(function(column, i) {
+                    if (!i || minHeight &gt; column.height)
+                        minHeight = column.height;
+                });
+
+                var column = columns.find(function(column) {
+                    return column.height === minHeight;
+                });
+                column.cells.push($(this));
+                column.height += $(this).innerHeight();
+                if(column.height &gt; masonryHeight) {
+                    masonryHeight = column.height;
+                }
+            });
+        return columns;
+    }
+
+    /*
+     * Return width of navigation group based on device resolution
+     */
+    function minimumWidthRem() {
+        var minColWidth = 22;
+        if ($window.innerWidth &lt;= 850)
+            minColWidth = 15; // if tablet resolution
+        return minColWidth;
+    }
+
+    /*
+     * Converts rem to pixel. `getComputedStyle` is supported in IE 11 as well
+     */
+    function convertRemToPixel(rem) {
+        return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+    }
+
+
+    // Subscribe to resize
+    var resizeWindow = function() {
+        applyMasonryOnLoad();
+    };
+    var appWindow = angular.element($window);
+    appWindow.bind('resize', _.debounce(resizeWindow, 500));
+
+    // To detect text-only zoom
+    var fontSize = getComputedStyle(document.documentElement).fontSize;
+    setInterval(function() {
+        var currentFontSize = getComputedStyle(document.documentElement).fontSize;
+        if(fontSize !== currentFontSize) {
+            fontSize = currentFontSize;
+            applyMasonryOnLoad();
+        }
+    }, 500);
+
+    /* Mansonry Layout Utils :: END */
+
+    function loadData() {
+        c.data.action = "loadData";
+        c.server.update();
+    }
+    $scope.$applyAsync(loadData);
+    
+    // No Footer for ViewAs Pages
+    c.evaluateFooterVisibilityForViewAs = function () {
+      var currentUrl = $location.url();
+      var params = $location.search();
+      $scope.showFooter = true;
+      if ((params &amp;&amp; params.id &amp;&amp; (currentUrl.includes("ec_view_as") || currentUrl.includes("nowassistselfservice"))))
+        $scope.showFooter = false;
+    };
+    
+    $scope.$on('sp_loading_indicator', function(e, value) {
+      $scope.loadingIndicator = value;
+      // Evaluate footer visibility once the page has completed loading.
+      if(!value)
+        c.evaluateFooterVisibilityForViewAs();
+    });
+};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;$footer-main-title-font-size: $font-size-md !default;
+$footer-main-link-font-size: $font-size-small !default;
+$footer-bottom-font-size: ceil(($font-size-base * 0.75)); !default; // $font-size-xs
+$sp-space--xxl: 32px !default;
+
+.scrub-footer {
+  .sf-main {
+    background: $sp-navbar-divider-color;
+    display: flex;
+    color: $navbar-inverse-link-color;
+    border-top: 1px solid darken($sp-navbar-divider-color, 15%);
+
+    /* Logo section */
+    .sf-logo-container {
+      width: 277px;
+      padding: 2rem 0;
+      .sf-logo {
+        max-width: 100%;
+        padding: 1rem 1.4rem;
+        display: block;
+      }
+      .sf-logo-content {
+        padding: 1rem 1.4rem;
+        word-break: break-word;
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Group link section */
+    .sf-links-container {
+      flex: 1;
+      padding-top: 3.4rem;
+      .sf-group {
+        width: 22rem;
+        padding: 0 1.4rem 3.2rem;
+        .sf-group-title {
+          color: $navbar-inverse-link-color;
+          font-size: $footer-main-title-font-size;
+          font-weight: bold;
+          padding-bottom: 1.6rem;
+        }
+        .sf-link {
+          padding-bottom: 1.6rem;
+          a {
+            display: inline-block;
+            color: $navbar-inverse-link-color;
+            opacity: 0.7;
+            font-size: $footer-main-link-font-size;
+            word-break: break-word;
+            &amp;amp;:hover {
+              color: $navbar-inverse-link-hover-color;
+            }
+            &amp;amp;:focus {
+              outline: 2px solid $navbar-inverse-link-color;
+              outline-offset: 5px;
+              box-shadow: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* Footer bottom section */
+  .sf-bottom {
+    background: $navbar-inverse-bg;
+    color: $navbar-inverse-link-color;
+    font-size: $footer-bottom-font-size;
+    display: flex;
+    border-top: 1px solid darken($navbar-inverse-bg, 15%);
+    .sf-bottom-left {
+      flex: 1;
+      .sf-bottom-link a {
+        color: $navbar-inverse-link-color;
+        font-size: $footer-bottom-font-size;
+        &amp;amp;:hover {
+          color: $footer-link-hover-color;
+        }
+        &amp;amp;:focus {
+          outline: 2px solid $navbar-inverse-link-color;
+          outline-offset: 5px;
+          box-shadow: none;
+        }
+      }
+    }
+    .sf-bottom-right {
+      display: flex;
+      .sf-social-icons {
+        padding: 27px 0;
+        .sf-social-icon {
+          color: $navbar-inverse-link-color;
+          padding: 0;
+          margin: 0 0.8rem;
+          font-size: $font-size-large;
+          &amp;amp;:focus {
+            outline: 2px solid $navbar-inverse-link-color;
+            outline-offset: 5px;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+
+  .sf-bottom-link,
+  .sf-copyright {
+    display: inline-block;
+    padding: 27px 11.5px;
+  }
+  .inline-block {
+    display: inline-block;
+  }
+}
+
+/* Masonry layout */
+.masonry-root {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+ /* IE 10-11 specific Class to override */
+@media screen and (-ms-high-contrast: active),
+  (-ms-high-contrast: none) {
+  .masonry-root {
+    max-height: 100% !important;
+    .masonry-cell {
+      display: -ms-inline-flexbox;
+      flex-direction: column;
+      -ms-flex-wrap: wrap;
+
+      .sf-group-title {
+        width: 100%;
+      }
+    }
+
+    &amp;amp;:after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .scrub-footer {
+    .sf-main .sf-links-container .sf-group {
+      width: 15rem;
+      padding-bottom: 22px;
+    }
+
+    .sf-bottom {
+      padding: 18px 11px;
+      .sf-bottom-link {
+        padding: 0 8px 11px 8px;
+      }
+      .sf-bottom-right .sf-social-icons {
+        flex: 1;
+        padding: 0;
+        .sf-social-icon {
+          margin: 0 8px 0.8rem 0.8rem;
+        }
+      }
+      .sf-bottom-left {
+        display: block;
+      }
+      .sf-copyright {
+        padding: 0 18px;
+      }
+    }
+    .sf-links-container {
+      padding-top: 3.4rem;
+    }
+    .sf-separator {
+      flex: 0;
+    }
+  }
+}
+
+
+@media (max-width: 430px) {
+  .scrub-footer {
+    .sf-main, .sf-bottom {
+      display: block;
+    }
+    .sf-main {
+      flex-direction: column;
+      .sf-links-container {
+        padding-top: 0;
+        .sf-group {
+          width: 15rem;
+       }
+      }
+    }
+  }
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;employee-center-footer&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+    $(element).on("keydown", ".masonry-root", scope.handleFooterKeyboardEvent);
+}]]&gt;&lt;/link&gt;&lt;name&gt;Employee Center Footer&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+    if (input &amp;&amp; input.action == "loadData") {
+        data.footer = new sn_ex_sp.EmployeeCenterFooterUtil().getFooterDetails($sp);
+        data.isFooterFixed = new sn_ex_sp.EmployeeCenterFooterUtil().isFooterFixed($sp.getPortalRecord().sys_id + '');
+  }
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_header_footer&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-06-10 05:40:47&lt;/sys_created_on&gt;&lt;sys_id&gt;ce046d5773603010c94f54eb7df6a7ec&lt;/sys_id&gt;&lt;sys_mod_count&gt;747&lt;/sys_mod_count&gt;&lt;sys_name&gt;Employee Center Footer&lt;/sys_name&gt;&lt;sys_package display_value="Employee Center" source="sn_ex_sp"&gt;4249e63a28d54d61bb6fbf61fd86cccb&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Employee Center"&gt;4249e63a28d54d61bb6fbf61fd86cccb&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_header_footer_ce046d5773603010c94f54eb7df6a7ec&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-09-15 06:30:14&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="scrub-footer" ng-if="c.data.footer &amp;&amp; c.data.footer.sysId &amp;&amp; showFooter"&gt;
+
+   &lt;!-- Menu Section --&gt;
+  &lt;div class="sf-main"  ng-if="(c.data.footer.logo &amp;&amp; (c.data.footer.logo.imageUrl || c.data.footer.logo.content)) || (c.data.footer.menus.navigation_links.length)"&gt;
+
+    &lt;!-- Logo Section --&gt;
+    &lt;div class="sf-logo-container" ng-if="c.data.footer.logo"&gt;
+      &lt;img ng-if="c.data.footer.logo.imageUrl"
+           ng-src={{c.data.footer.logo.imageUrl}}
+           alt="${Footer logo}"
+           class="sf-logo image-flex"&gt;
+      &lt;div class="sf-logo-content"&gt;
+         &lt;p ng-bind-html="c.data.footer.logo.content"&gt;&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+     &lt;!-- Menu links Section --&gt;
+    &lt;div class="sf-links-container" id="sf-links-container"&gt;
+      &lt;div class="masonry-root"&gt;
+      &lt;div class="sf-group masonry-cell"
+           ng-if="menu.menuItems.length"
+           ng-repeat="menu in c.data.footer.menus.navigation_links"
+           on-finish-repeat="ngRepeatFinishedNavLinks" &gt;
+         &lt;div class="sf-group-title" ng-attr-id={{menu.sysId}}&gt;
+            {{menu.title}}
+         &lt;/div&gt;
+        &lt;div class="sf-links" role="list" aria-label="{{menu.title}}"&gt;
+        &lt;div class="sf-link" role="listitem" ng-repeat="link in menu.menuItems"&gt;
+          &lt;a ng-href={{link.href}} ng-class="{'new_window': link.isExternalLink}" ng-attr-target="{{(link.isExternalLink) ? '_blank' : undefined}}"&gt;{{link.label}}&lt;/a&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- Footer Bottom Section --&gt;
+  &lt;div class="sf-bottom" ng-if="(c.data.footer.menus.bottom_links &amp;&amp; c.data.footer.menus.bottom_links.length) || (c.data.footer.menus.social_icons &amp;&amp; c.data.footer.menus.social_icons.length) || c.data.footer.copyright"&gt;
+    &lt;div class="sf-bottom-left"&gt;
+      &lt;div ng-repeat="menu in c.data.footer.menus.bottom_links" on-finish-repeat="ngRepeatFinishedNavLinks" class="inline-block"&gt;
+       &lt;div class="sf-bottom-link" ng-repeat="link in menu.menuItems"&gt;
+          &lt;a ng-href={{link.href}} ng-class="{'external-link': link.isExternalLink}" ng-attr-target="{{(link.isExternalLink) ? '_blank' : undefined}}"&gt;{{link.label}}&lt;/a&gt;
+         &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="sf-bottom-right"&gt;
+      &lt;div class="sf-social-icons"&gt;
+        &lt;div ng-repeat="menu in c.data.footer.menus.social_icons" on-finish-repeat="ngRepeatFinishedNavLinks" class="inline-block"&gt;
+         &lt;a class="sf-social-icon" ng-class="'fa fa-' + link.glyph + (link.isExternalLink ? ' external-link' : '')"
+               ng-attr-target="{{(link.isExternalLink) ? '_blank' : undefined}}"
+               title={{link.label}}
+               ng-href={{link.href}}
+               ng-repeat="link in menu.menuItems"
+               aria-label="{{link.label}}"&gt;&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="sf-copyright"&gt;{{c.data.footer.copyright}}&lt;/div&gt;
+    &lt;/div&gt;
+   &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;</payload>
+        <sys_class_name>sp_rel_widget_clone</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-25 01:19:29</sys_created_on>
+        <sys_id>b1ecaf0a0f7b72907371c6e530d1b234</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>75ecafce0f3b72907371c6e530d1b234</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_rel_widget_clone_b1ecaf0a0f7b72907371c6e530d1b234</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-25 01:19:29</sys_updated_on>
+    </sp_rel_widget_clone>
+</record_update>

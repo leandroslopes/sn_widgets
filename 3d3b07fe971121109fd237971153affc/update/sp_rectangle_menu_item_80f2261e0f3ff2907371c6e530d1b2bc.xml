@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rectangle_menu_item">
+    <sp_rectangle_menu_item action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <color>default</color>
+        <condition/>
+        <display_1/>
+        <display_2/>
+        <display_date/>
+        <filter/>
+        <glyph>empty</glyph>
+        <hint/>
+        <kb_article/>
+        <kb_category/>
+        <kb_topic/>
+        <label>Search for services by</label>
+        <order>100</order>
+        <record_script/>
+        <sc_cat_item/>
+        <sc_category/>
+        <short_description/>
+        <sp_page/>
+        <sp_rectangle_menu display_value="Services">1d91665a0f3ff2907371c6e530d1b2ed</sp_rectangle_menu>
+        <sp_rectangle_menu_item/>
+        <sys_class_name>sp_rectangle_menu_item</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-25 14:35:30</sys_created_on>
+        <sys_id>80f2261e0f3ff2907371c6e530d1b2bc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Search for services by</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_rectangle_menu_item_80f2261e0f3ff2907371c6e530d1b2bc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-25 14:35:30</sys_updated_on>
+        <table/>
+        <type>url</type>
+        <url>https://www.gov.br/pt-br/servicos/buscar-servicos-por</url>
+        <url_target>_blank</url_target>
+    </sp_rectangle_menu_item>
+    <sys_translated_text action="delete_multiple" query="documentkey=80f2261e0f3ff2907371c6e530d1b2bc"/>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>80f2261e0f3ff2907371c6e530d1b2bc</documentkey>
+        <fieldname>label</fieldname>
+        <language>en</language>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-25 18:33:28</sys_created_on>
+        <sys_id>967997520ff736907371c6e530d1b2eb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-25 18:33:28</sys_updated_on>
+        <tablename>sp_rectangle_menu_item</tablename>
+        <value>Search for services by</value>
+    </sys_translated_text>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>80f2261e0f3ff2907371c6e530d1b2bc</documentkey>
+        <fieldname>label</fieldname>
+        <language>pb</language>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-25 18:33:51</sys_created_on>
+        <sys_id>29a91b120ff736907371c6e530d1b25b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-25 18:33:51</sys_updated_on>
+        <tablename>sp_rectangle_menu_item</tablename>
+        <value>Buscar serviços por</value>
+    </sys_translated_text>
+</record_update>

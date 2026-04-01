@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_css">
+    <sp_css action="INSERT_OR_UPDATE">
+        <css>* {&#13;
+  -webkit-box-sizing: border-box;&#13;
+  box-sizing: border-box&#13;
+}&#13;
+&#13;
+body {&#13;
+  font-family: "RawlineRegular", "Raleway", Helvetica, sans-serif;&#13;
+  font-weight: 400;&#13;
+  font-size: 1.6rem;&#13;
+  color: #555;&#13;
+  line-height: $line-height-base;&#13;
+  margin: 0;&#13;
+  padding: 0;&#13;
+  border: 0;&#13;
+  letter-spacing: normal;&#13;
+  vertical-align: baseline;&#13;
+}&#13;
+&#13;
+html {&#13;
+  font-size: 62.5%;&#13;
+  line-height: $line-height-base&#13;
+}&#13;
+&#13;
+header {&#13;
+  margin: 0 auto;&#13;
+}&#13;
+&#13;
+h1, h2, h3, h4, h5, h6 {&#13;
+  font-weight: 600;&#13;
+  font-size: 3.6rem;&#13;
+  color: #333;&#13;
+  line-height: 4.4rem;&#13;
+}&#13;
+&#13;
+h2 {&#13;
+  font-size: 3.2rem&#13;
+}&#13;
+&#13;
+h3 {&#13;
+  font-size: 2.8rem&#13;
+}&#13;
+&#13;
+h4 {&#13;
+  font-size: 2.4rem&#13;
+}&#13;
+&#13;
+h5 {&#13;
+  font-size: 2rem&#13;
+}&#13;
+&#13;
+h6 {&#13;
+  font-size: 1.6rem&#13;
+}&#13;
+&#13;
+.nav &gt; li &gt; a:hover, .nav &gt; li &gt; a:focus {&#13;
+  color: $color-primary-darken-01;&#13;
+  background-color: $color-primary-pastel-02;&#13;
+}&#13;
+&#13;
+.navbar-brand {&#13;
+  padding: 0;&#13;
+  margin-top: .2rem;&#13;
+}&#13;
+&#13;
+.navbar-right ul li a {&#13;
+  font-family: "RawlineRegular", "Raleway", Helvetica, sans-serif;&#13;
+  font-weight: 500;&#13;
+  font-size: 1.4rem;&#13;
+  letter-spacing: normal;&#13;
+  vertical-align: baseline;&#13;
+}&#13;
+&#13;
+nav #tour-dropdown {&#13;
+  display: none;&#13;
+}&#13;
+&#13;
+.navbar {&#13;
+  border-bottom: 0 !important;&#13;
+}&#13;
+&#13;
+.navbar-brand img, .navbar-brand span {&#13;
+  margin: 0 !important;&#13;
+}&#13;
+&#13;
+.fa {&#13;
+  font-size: 16px;&#13;
+}&#13;
+&#13;
+.sp-loading-indicator {&#13;
+  color: $color-primary-default;&#13;
+  font-weight: 600;&#13;
+  margin-top: .3rem;&#13;
+}&#13;
+&#13;
+.vce046d5773603010c94f54eb7df6a7ec .scrub-footer .sf-main {&#13;
+  border-top: .1rem solid #071d41 !important;&#13;
+  color: #fff !important;&#13;
+  background-color: #071d41 !important;&#13;
+  padding: 4.6rem 5.6rem 0 5.6rem!important;&#13;
+}&#13;
+&#13;
+.vce046d5773603010c94f54eb7df6a7ec .scrub-footer .sf-main .sf-logo-container .sf-logo {&#13;
+  width: 16.5rem;&#13;
+  background-size: cover;&#13;
+}&#13;
+&#13;
+.vce046d5773603010c94f54eb7df6a7ec .scrub-footer .sf-main .sf-links-container .sf-group .sf-group-title {&#13;
+  color: #fff !important;&#13;
+  font-weight: 700 !important;&#13;
+  font-size: 1.6rem !important;&#13;
+  line-height: 2.2rem !important;&#13;
+  text-transform: uppercase !important;&#13;
+  padding-bottom: 2.4rem !important;&#13;
+}&#13;
+&#13;
+.vce046d5773603010c94f54eb7df6a7ec .scrub-footer .sf-main .sf-links-container .sf-group .sf-link {&#13;
+  padding-bottom: 0.8rem !important;&#13;
+}&#13;
+&#13;
+.vce046d5773603010c94f54eb7df6a7ec .scrub-footer .sf-main .sf-links-container .sf-group .sf-link a {&#13;
+  color: #fff !important;&#13;
+  font-weight: 500 !important;&#13;
+  font-size: 1.4rem !important;&#13;
+  line-height: 2.2rem !important;&#13;
+  text-transform: none !important;&#13;
+  opacity: 1 !important;&#13;
+}&#13;
+&#13;
+.vce046d5773603010c94f54eb7df6a7ec .scrub-footer .sf-main .sf-links-container .sf-group .sf-link a:hover {&#13;
+  text-decoration: none;&#13;
+  color: #5992ed !important;&#13;
+}&#13;
+&#13;
+.vce046d5773603010c94f54eb7df6a7ec .scrub-footer .sf-bottom, &#13;
+.vce046d5773603010c94f54eb7df6a7ec .scrub-footer .sf-bottom .sf-bottom-left .sf-bottom-link a {&#13;
+  background-color: #04132a !important;&#13;
+  color: #ccc !important;&#13;
+  font-size: 1.3rem !important;&#13;
+  font-weight: 400 !important;&#13;
+}&#13;
+&#13;
+@media only screen and (min-width: 1280px) {&#13;
+  header {&#13;
+    width: 1152px;&#13;
+    padding-right: 0;&#13;
+    padding-left: 0;&#13;
+  }&#13;
+}&#13;
+&#13;
+@media only screen and (min-width: 768px) {&#13;
+  header {&#13;
+    padding-bottom: 0;&#13;
+    padding-top: 1.4rem;&#13;
+  }&#13;
+}</css>
+        <name>govbr-demo-styles.css</name>
+        <sys_class_name>sp_css</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-26 00:59:53</sys_created_on>
+        <sys_id>eff170aa0f3b76907371c6e530d1b29e</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>govbr-demo-styles.css</sys_name>
+        <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
+        <sys_update_name>sp_css_eff170aa0f3b76907371c6e530d1b29e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-26 01:12:50</sys_updated_on>
+        <turn_off_scss_compilation>false</turn_off_scss_compilation>
+    </sp_css>
+</record_update>

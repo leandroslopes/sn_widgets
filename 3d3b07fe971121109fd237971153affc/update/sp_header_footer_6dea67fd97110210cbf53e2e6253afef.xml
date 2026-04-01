@@ -196,6 +196,9 @@ margin: 0px;
 	}
 }
 
+.v4ec9343d29b1c510f8779f284c7771c0 a.lang-popup-link {
+    color: #1351b4;
+}
 
 /* PRB923910: Fix for Service Portal - Header Poorly Aligned in Safari */
 @media screen and (min-width: 993px) {
@@ -414,19 +417,19 @@ data.loginWidget = $sp.getWidgetFromInstance('login-modal');]]></script>
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-04-02 11:21:49</sys_created_on>
         <sys_id>6dea67fd97110210cbf53e2e6253afef</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>GOV.BR Demo Header</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_header_footer_6dea67fd97110210cbf53e2e6253afef</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-03-19 01:10:14</sys_updated_on>
+        <sys_updated_on>2026-03-25 00:55:12</sys_updated_on>
         <template><![CDATA[<div>
   <nav class="" ng-class="::{'navbar':!isViewNative, 'is-native': isViewNative}"
        role="navigation" aria-label="${Primary}">
     <div ng-show="::!isViewNative" class="navbar-header">
-<a class="navbar-brand" ng-if="::!portal.logo" href="?id={{::portal.homepage_dv}}"><span ng-bind="portal.title"></span></a>
+      <a class="navbar-brand" ng-if="::!portal.logo" href="?id={{::portal.homepage_dv}}"><span ng-bind="portal.title"></span></a>
       <a class="navbar-brand navbar-brand-logo" ng-if="::portal.logo" ng-href="?id={{::portal.homepage_dv}}" ng-click="collapse()" aria-label="{{::logoText}}">
         <img ng-src="{{::portal.logo}}" title="{{::portal.title}}" alt="{{::portal.title}} ${Logo}" />
       </a>
@@ -438,10 +441,10 @@ data.loginWidget = $sp.getWidgetFromInstance('login-modal');]]></script>
       </button>
     </div>
 
-    <div sp-navbar-toggle="" class="collapse navbar-right" id="sp-nav-bar">
+    <div sp-navbar-toggle="" class="collapse navbar-right" id="sp-nav-bar">      
       <!-- Include The Menu -->
       <sp-widget widget="::data.menu"></sp-widget>
-	  <!-- Language Selector Menu -->
+      <!-- Language Selector Menu -->
       <sp-widget widget="::data.langSelector"></sp-widget>
       <ul ng-if="(!user.logged_in && page.id != portal.login_page_dv && !data.hasLogin)" class="nav navbar-nav" role="presentation">
         <li role="presentation"><a href ng-click="::openLogin()">${Login}</a></li>

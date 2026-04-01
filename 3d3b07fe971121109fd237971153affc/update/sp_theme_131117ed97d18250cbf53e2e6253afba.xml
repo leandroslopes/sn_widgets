@@ -32,8 +32,8 @@ $link-hover-color:      darken($link-color, 15%) !default;&#13;
 $link-hover-decoration: underline !default;&#13;
 &#13;
 </css_variables>
-        <footer/>
-        <footer_fixed>true</footer_fixed>
+        <footer display_value="Employee Center Footer">ce046d5773603010c94f54eb7df6a7ec</footer>
+        <footer_fixed>false</footer_fixed>
         <header display_value="GOV.BR Demo Header">6dea67fd97110210cbf53e2e6253afef</header>
         <icon/>
         <logo/>
@@ -45,14 +45,14 @@ $link-hover-decoration: underline !default;&#13;
         <sys_created_by>leandro.lopes</sys_created_by>
         <sys_created_on>2024-04-01 14:51:26</sys_created_on>
         <sys_id>131117ed97d18250cbf53e2e6253afba</sys_id>
-        <sys_mod_count>25</sys_mod_count>
+        <sys_mod_count>27</sys_mod_count>
         <sys_name>GOV.BR Demo Theme</sys_name>
         <sys_package display_value="My Widgets" source="x_821667_my_widget">3d3b07fe971121109fd237971153affc</sys_package>
         <sys_policy/>
         <sys_scope display_value="My Widgets">3d3b07fe971121109fd237971153affc</sys_scope>
         <sys_update_name>sp_theme_131117ed97d18250cbf53e2e6253afba</sys_update_name>
-        <sys_updated_by>leandro.lopes</sys_updated_by>
-        <sys_updated_on>2024-06-27 17:00:27</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-25 01:27:38</sys_updated_on>
         <turn_off_scss_compilation>false</turn_off_scss_compilation>
     </sp_theme>
 </record_update>
